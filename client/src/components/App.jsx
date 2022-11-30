@@ -10,30 +10,22 @@ import QuestionsAnswers from './questions-answers/QuestionsAnswers.jsx';
 import RatingsReviews from './ratings-reviews/RatingsReviews.jsx';
 
 const App = () => {
+  const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
+
   const [ products, setProducts ] = useState([]);
   const [ currentProduct, setCurrentProduct ] = useState({});
 
   useEffect(async () => {
-    try {
-      const options = {
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products`,
-        method: 'GET',
-        responseType: 'json',
-        headers: { 'Authorization': API_KEY }
-      };
-      const { data } = await axios(options);
-
-      setProducts(data);
-      setCurrentProduct(data[0]);
-    } catch (error) {
-      console.error(error);
-    }
+    await request('/products', 'GET', {}, (error, products) => {
+      setProducts(products);
+      setCurrentProduct(products[0]);
+    });
   }, []);
 
   const request = async (path, method, body = {}, callback = () => {}) => {
     try {
       const options = {
-        url: `https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp${path}`,
+        url: API_URL + path,
         headers: { 'Authorization': API_KEY }
       };
       switch (method) {
