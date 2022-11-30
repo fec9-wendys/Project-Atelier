@@ -1,13 +1,17 @@
 {
   "name": "project-atelier-master",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "HRRFP2210 FEC9 Wendy's FEC",
+  "main": "./server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server-dev": "npx nodemon --watch server server/index.js",
+    "client-dev": "npx webpack --watch",
+    "build": "npx webpack",
+    "start": "node server/index.js",
+    "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "FEC9 Wendy's",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.20.5",
