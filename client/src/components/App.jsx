@@ -55,7 +55,7 @@ const App = () => {
   return (
     <>
       <Overview currentProduct={currentProduct} request={request} />
-      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request}/>
+      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
       <QuestionsAnswers currentProduct={currentProduct} request={request} />
       <RatingsReviews currentProduct={currentProduct} request={request} />
     </>
