@@ -30,6 +30,7 @@ const App = () => {
     try {
       const options = {
         url: API_URL + path,
+        method,
         headers: { 'Authorization': API_KEY }
       };
       switch (method) {
