@@ -35,7 +35,7 @@ const App = () => {
       };
       switch (method) {
         case 'GET':
-          options.repsonseType = 'json';
+          options.responseType = 'json';
           break;
         case 'POST':
           options.data = body;
