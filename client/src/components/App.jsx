@@ -12,7 +12,6 @@ import RatingsReviews from './ratings-reviews/RatingsReviews.jsx';
 const App = () => {
   const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
-  const [ products, setProducts ] = useState([]);
   const [ currentProduct, setCurrentProduct ] = useState(null);
   const [ currentProductStyle, setCurrentProductStyle ] = useState(null);
 
