@@ -13,7 +13,7 @@ const App = () => {
   const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
   const [ products, setProducts ] = useState([]);
-  const [ currentProduct, setCurrentProduct ] = useState({});
+  const [ currentProduct, setCurrentProduct ] = useState(null);
 
   useEffect(async () => {
     await request('/products', 'GET', {}, (error, products) => {
