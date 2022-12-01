@@ -1,10 +1,34 @@
 import React from 'react';
+import QuestionEntry from './QuestionEntry.jsx'
+const { useState, useEffect } = React;
 
-const QuestionsAnswers = (properties) => {
 
+// eslint-disable-next-line react/prop-types
+const QuestionsAnswers = ({currentProduct, request}) => {
+  const [search, setSearch] = useState('')
+  const [qalist, setQAList] = useState([])
+
+
+  if (currentProduct !== null && qalist.length === 0) {
+    request(`/qa/questions/?product_id=40348`, 'GET', {}, (error, questions) => {
+    if (!error) {
+      console.log('PROD ID IS', questions)
+      setQAList(questions.results);
+    } else {
+      console.error(error);
+    }
+  })
+}
+
+  const handleSearchClick = () => {
+    console.log('SEARCH IS ', search)
+  }
   return (
     <div id='questions-answers'>
       Questions & Answers Component
+      <input type='text' value={search} onChange={(e)=> {setSearch(e.target.value)}}/>
+      <button onClick={handleSearchClick}>Search</button>
+      {qalist.map((question, key) => <QuestionEntry question={question} key={key}/>)}
     </div>
   );
 };
