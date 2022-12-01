@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import AddCart from './AddCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
-import Features from './Features.jsx'
+import Features from './Features.jsx';
+import Reviews from './Reviews.jsx';
+import Description from './Description.jsx';
 
 const Overview = ({ currentProduct, request }) => {
 
@@ -63,6 +65,8 @@ const Overview = ({ currentProduct, request }) => {
             </div>
           )
         })}
+        <Reviews />
+        <Description />
         <StyleSelector/>
         <AddCart />
         <Features />
