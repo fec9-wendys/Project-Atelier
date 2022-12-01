@@ -12,8 +12,8 @@ import RatingsReviews from './ratings-reviews/RatingsReviews.jsx';
 const App = () => {
   const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
-  const [ products, setProducts ] = useState([]);
   const [ currentProduct, setCurrentProduct ] = useState(null);
+  const [ currentProductStyle, setCurrentProductStyle ] = useState(null);
 
   useEffect(async () => {
     await request('/products', 'GET', {}, (error, products) => {
@@ -36,7 +36,7 @@ const App = () => {
       };
       switch (method) {
         case 'GET':
-          options.repsonseType = 'json';
+          options.responseType = 'json';
           break;
         case 'POST':
           options.data = body;
@@ -52,8 +52,8 @@ const App = () => {
 
   return (
     <>
-      <Overview currentProduct={currentProduct} request={request} />
-      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
+      <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} request={request} />
+      <RelatedItems currentProduct={currentProduct} currentProductStyle={currentProductStyle} request={request} />
       <QuestionsAnswers currentProduct={currentProduct} request={request} />
       <RatingsReviews currentProduct={currentProduct} request={request} />
     </>
