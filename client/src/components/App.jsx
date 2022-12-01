@@ -18,7 +18,6 @@ const App = () => {
   useEffect(async () => {
     await request('/products', 'GET', {}, (error, products) => {
       if (!error) {
-        setProducts(products);
         setCurrentProduct(products[0]);
       } else {
         console.error(error);
