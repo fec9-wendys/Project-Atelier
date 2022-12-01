@@ -33,9 +33,4 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
   );
 };
 
-
-RatingsReviews.propTypes = {
-  currentProduct: PropTypes.object.isRequired,
-};
-
 export default RatingsReviews;

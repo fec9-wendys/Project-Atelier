@@ -18,8 +18,4 @@ const ReviewFeed = ({ reviews }) => {
   );
 };
 
-ReviewFeed.propTypes = {
-  reviews: PropTypes.array.isRequired,
-};
-
 export default ReviewFeed;
