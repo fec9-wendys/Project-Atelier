@@ -26,8 +26,11 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
   return (
     <div id='ratings-reviews'>
       <RatingsBreakdown />
+      &nbsp;
       <ProductBreakdown />
-      <Sort />
+      &nbsp;
+      <Sort reviews = {reviews}/>
+      &nbsp;
       <ReviewFeed reviews = {reviews}/>
     </div>
   );
