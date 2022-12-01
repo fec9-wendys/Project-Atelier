@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
+import PropTypes from 'prop-types';
 
-const Overview = (properties) => {
+const Overview = ({currentProduct}) => {
+
+
+
   return (
-    <div id='overview'>
-      Overview Component
+    <div>
+      {currentProduct.name} {currentProduct.default_price} {currentProduct.slogan}
     </div>
-  );
-};
+  )
+}
 
-export default Overview;
+export default Overview
+
+Overview.propTypes = {
+  currentProduct: PropTypes.object.isRequired,
+};
