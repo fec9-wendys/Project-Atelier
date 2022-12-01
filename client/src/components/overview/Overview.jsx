@@ -1,9 +1,11 @@
 import React, {useEffect, useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 
-const Overview = ({currentProduct}) => {
+const Overview = ({currentProduct, request}) => {
 
+  const [ratings, setRatings] = useState([]);
 
+  request(`/reviews/?product_id=${currentProduct.id}`, {}, )
 
   return (
     <div>
@@ -16,4 +18,5 @@ export default Overview
 
 Overview.propTypes = {
   currentProduct: PropTypes.object.isRequired,
+  request: PropTypes.func.isRequired
 };
