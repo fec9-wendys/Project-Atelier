@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_KEY from '../../../client/config.js'
+import API_KEY from '../client/config.js'
 
 import React from 'react';
 const { useState, useEffect } = React;
