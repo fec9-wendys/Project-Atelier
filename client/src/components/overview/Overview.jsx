@@ -1,17 +1,20 @@
 import React, { useEffect, useState, useMemo } from 'react';
+
 import AddCart from './AddCart.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import Features from './Features.jsx';
 import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
+import Images from './Images.jsx';
 
-const Overview = ({ currentProduct, request }) => {
+const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle }) => {
 
   const [ratings, setRatings] = useState([]);
   const [styles, setStyles] = useState([]);
   const [currThumbnails, setCurrThumbnails] = useState([]);
-  const [currFeatures, setCurrFeatures] = useState(null)
+  const [features, setFeatures] = useState(null)
 
+  //This behemouth code is grabbing all needed data from API
   if (currentProduct !== null && ratings.length === 0) {
     request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
       if (err) {
@@ -65,7 +68,8 @@ const Overview = ({ currentProduct, request }) => {
             </div>
           )
         })}
-        <Reviews />
+        <Images currThumbnails={currThumbnails}/>
+        <Reviews ratings={ratings}/>
         <Description />
         <StyleSelector/>
         <AddCart />
