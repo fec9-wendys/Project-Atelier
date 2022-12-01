@@ -17,8 +17,8 @@ const QuestionsAnswers = ({currentProduct, request}) => {
     } else {
       console.error(error);
     }
-  })
-}
+    })
+  }
 
   const handleSearchClick = () => {
     console.log('SEARCH IS ', search)
@@ -26,8 +26,10 @@ const QuestionsAnswers = ({currentProduct, request}) => {
   return (
     <div id='questions-answers'>
       Questions & Answers Component
-      <input type='text' value={search} onChange={(e)=> {setSearch(e.target.value)}}/>
+      <div>
+      <input type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
       <button onClick={handleSearchClick}>Search</button>
+      </div>
       {qalist.map((question, key) => <QuestionEntry question={question} key={key}/>)}
     </div>
   );
