@@ -18,28 +18,32 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
   useEffect(() => {
 
     if (currentProduct !== null && features === null) {
-      request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
+      request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
         if (err) {
           console.log(err);
         } else {
-          setFeatures(response);
+          setStyles(response.results);
+          setCurrentProductStyle(response.results[0]);
 
           if (styles.length === 0) {
-            request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
+            request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
               if (err) {
                 console.log(err);
               } else {
-                setStyles(response.results);
-                setCurrentProductStyle(response.results[0]);
+                console.log('am i being called?')
+                setFeatures(response);
 
                 if (ratings.length === 0) {
                   request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
+                    console.log('i am being called')
                     if (err) {
                       console.log(err);
                     } else {
                       setRatings(response.results.map(result => {
                         return result.rating;
                       }));
+
+
                     }
                   })
                 }
@@ -57,10 +61,10 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
     <div id="overview">
       <Images currentProductStyle={currentProductStyle} />
       <Reviews ratings={ratings} />
-      <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle}/>
-      <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles}/>
-      <AddCart styles={styles} currentProductStyle={currentProductStyle}/>
-      <Features features={features}/>
+      <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
+      <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
+      <AddCart currentProductStyle={currentProductStyle} />
+      <Features features={features} />
     </div>
   )
 }
