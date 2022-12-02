@@ -1,9 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Images = (props) => {
+const Images = ({ currentProductStyle }) => {
+
+
   return (
     <div>
-      I am Images section
+      {currentProductStyle !== null &&
+      <div>
+        I am current product id: {currentProductStyle['style_id']} <br/>
+        I am first picture: <img src={currentProductStyle.photos[0].url} />
+        I am thumbnails: {currentProductStyle.photos.map((photo, index) => {
+          return <img key={index} src={photo.thumbnail_url}/>
+        })}
+      </div>
+      }
     </div>
   )
 }

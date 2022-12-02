@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
-const Features = () => {
+const Features = ({features}) => {
+
   return (
     <div>
-      I am Features section
+      {features !== null &&
+      console.log('i am inside features file: ', features)}
     </div>
   )
 }

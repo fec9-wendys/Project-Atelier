@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-const Description = (props) => {
+const Description = ({currentProduct, features}) => {
   return (
     <div>
       I am Product Description

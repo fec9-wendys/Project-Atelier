@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-const Reviews = (props) => {
+const Reviews = ({ratings}) => {
   return (
     <div>
       I am Reviews section
