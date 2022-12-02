@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 const Reviews = ({ ratings }) => {
   if (ratings.length !== 0) {
-    let avgRatings = (ratings.reduce((sum, current) => {
+    const avgRatings = (ratings.reduce((sum, current) => {
       return sum + current;
     }, 0)) / ratings.length;
-    console.log(avgRatings);
+    const roundedRatings = (Math.round(avgRatings * 4) / 4).toFixed(2);
 
     return (
       <div>
-        I am ratings average: {avgRatings}
+        I am ratings average: {roundedRatings}<br/>
+        Insert link to reviews here!
       </div>
     )
 

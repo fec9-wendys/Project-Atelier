@@ -14,7 +14,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
   const [features, setFeatures] = useState(null)
 
 
-  //This behemouth code is grabbing all needed data from API
+  //This behemouth code is grabbing all needed data from API (requested styles, features, and ratings)
   if (currentProduct !== null && features === null) {
     request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
       if (err) {
@@ -29,6 +29,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
             } else {
               setStyles(response.results);
               setCurrentProductStyle(response.results[0]);
+
               if (ratings.length === 0) {
                 request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
                   if (err) {
@@ -53,9 +54,9 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
     <div id="overview">
       <Images currentProductStyle={currentProductStyle} />
       <Reviews ratings={ratings} />
-      <Description currentProduct={currentProduct} features={features}/>
+      <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle}/>
       <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles}/>
-      <AddCart styles={styles}/>
+      <AddCart styles={styles} currentProductStyle={currentProductStyle}/>
       <Features features={features}/>
     </div>
   )
