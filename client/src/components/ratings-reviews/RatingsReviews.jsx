@@ -11,12 +11,23 @@ import Sort from './Sort.jsx';
 // eslint-disable-next-line react/prop-types
 const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
   const [reviews, setReviews] = useState([]);
+  const [metaData, setMetaData] = useState([]);
+  let reviewCount = 10000;
 
   if (currentProduct !== null && reviews.length === 0) {
-    request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, results) => {
+    request(`/reviews/?product_id=${currentProduct.id}&count=${reviewCount}`, 'GET', {}, (err, results) => {
       if (err) {
         console.error(err);
       } else {
+        request(`/reviews/meta/?product_id=${currentProduct.id}`, 'GET', {}, (err, results) => {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log(results);
+            setMetaData(results);
+          }
+        });
+
         console.log(results.results);
         setReviews(results.results);
       }
@@ -25,9 +36,9 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
 
   return (
     <div id='ratings-reviews'>
-      <RatingsBreakdown />
+      <RatingsBreakdown metaData = {metaData} />
       &nbsp;
-      <ProductBreakdown />
+      <ProductBreakdown currentProduct = {currentProduct} metaData = {metaData} />
       &nbsp;
       <Sort reviews = {reviews}/>
       &nbsp;

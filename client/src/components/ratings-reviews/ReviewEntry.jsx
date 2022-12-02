@@ -8,13 +8,12 @@ const ReviewEntry = ({review}) => {
   const properDate = () => {
     const date = new Date(review.date.substring(0,10)).toString()
     const date1 = date.slice(0,10);
-    console.log('question date', date1)
     return date1;
   };
 
   return (
     <div id='review-entry'>
-      <span className = 'entry-stars'> {review.rating}</span>
+      <span className = 'entry-stars'> {review.rating} </span>
       <span className = 'entry-log'> {review.recommend ? '✔️' : '❌'} {review.reviewer_name}, {properDate()}</span>
       <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
       <div className = 'entry-body'> {review.body} </div>

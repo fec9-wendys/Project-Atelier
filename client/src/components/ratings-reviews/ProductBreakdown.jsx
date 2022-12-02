@@ -1,12 +1,20 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import PBEntry from './PBEntry.jsx';
 const {useState, useEffect} = React;
 
-const ProductBreakdown = (properties) => {
+const ProductBreakdown = ({currentProduct, metaData}) => {
+  console.log(metaData);
+
+  if (metaData.length !== 0) {
+    const productChars = Object.keys(metaData.characteristics);
+
+
+  }
+
   return (
     <div id='products-breakdown'>
-      Products Breakdown Component
+
     </div>
   );
 };
