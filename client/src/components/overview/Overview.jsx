@@ -15,38 +15,41 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
 
   //This behemouth code is grabbing all needed data from API (requested styles, features, and ratings)
-  if (currentProduct !== null && features === null) {
-    request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
-      if (err) {
-        console.log(err);
-      } else {
-        setFeatures(response);
+  useEffect(() => {
 
-        if (styles.length === 0) {
-          request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
-            if (err) {
-              console.log(err);
-            } else {
-              setStyles(response.results);
-              setCurrentProductStyle(response.results[0]);
+    if (currentProduct !== null && features === null) {
+      request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
+        if (err) {
+          console.log(err);
+        } else {
+          setFeatures(response);
 
-              if (ratings.length === 0) {
-                request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
-                  if (err) {
-                    console.log(err);
-                  } else {
-                    setRatings(response.results.map(result => {
-                      return result.rating;
-                    }));
-                  }
-                })
+          if (styles.length === 0) {
+            request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
+              if (err) {
+                console.log(err);
+              } else {
+                setStyles(response.results);
+                setCurrentProductStyle(response.results[0]);
+
+                if (ratings.length === 0) {
+                  request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
+                    if (err) {
+                      console.log(err);
+                    } else {
+                      setRatings(response.results.map(result => {
+                        return result.rating;
+                      }));
+                    }
+                  })
+                }
               }
-            }
-          })
+            })
+          }
         }
-      }
-    })
-  }
+      })
+    }
+  }, [currentProduct])
 
 
 

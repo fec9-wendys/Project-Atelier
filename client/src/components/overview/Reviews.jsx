@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const Reviews = ({ ratings }) => {
+
   if (ratings.length !== 0) {
     const avgRatings = (ratings.reduce((sum, current) => {
       return sum + current;
