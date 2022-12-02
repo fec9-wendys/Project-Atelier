@@ -30,12 +30,10 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
               if (err) {
                 console.log(err);
               } else {
-                console.log('am i being called?')
                 setFeatures(response);
 
                 if (ratings.length === 0) {
                   request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
-                    console.log('i am being called')
                     if (err) {
                       console.log(err);
                     } else {
