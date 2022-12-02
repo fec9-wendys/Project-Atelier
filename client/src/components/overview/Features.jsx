@@ -1,13 +1,30 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Features = ({features}) => {
+const Features = ({ features }) => {
 
-  return (
-    <div>
-      {features !== null &&
-      console.log('i am inside features file: ', features)}
-    </div>
-  )
+  if (features !== null) {
+
+    return (
+      <div>
+        <div>
+          {console.log('I am features prop: ', features)}
+          Slogan: {features.slogan}
+          <p>
+          Description: {features.description}
+          </p>
+        </div>
+        <div>
+          {features.features.map((feature, index) => {
+            return <div key={index}>
+              I am feature name: {feature.feature} <br />
+              I am feature value: {feature.value}
+            </div>
+          })}
+        </div>
+      </div>
+    )
+
+  } else return <></>
 }
 
 export default Features

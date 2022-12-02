@@ -1,11 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Reviews = ({ratings}) => {
-  return (
-    <div>
-      I am Reviews section
-    </div>
-  )
+const Reviews = ({ ratings }) => {
+  if (ratings.length !== 0) {
+    let avgRatings = (ratings.reduce((sum, current) => {
+      return sum + current;
+    }, 0)) / ratings.length;
+    console.log(avgRatings);
+
+    return (
+      <div>
+        I am ratings average: {avgRatings}
+      </div>
+    )
+
+  } else return <></>
 }
 
 export default Reviews

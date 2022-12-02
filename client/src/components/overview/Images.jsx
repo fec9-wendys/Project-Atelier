@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const Images = ({ currentProductStyle }) => {
 
-
   return (
     <div>
       {currentProductStyle !== null &&
