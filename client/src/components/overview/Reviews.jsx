@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 const Reviews = ({ ratings }) => {
 
-  if (ratings.length !== 0) {
     const avgRatings = (ratings.reduce((sum, current) => {
       return sum + current;
     }, 0)) / ratings.length;
@@ -15,7 +14,6 @@ const Reviews = ({ ratings }) => {
       </div>
     )
 
-  } else return <></>
-}
+  }
 
 export default Reviews

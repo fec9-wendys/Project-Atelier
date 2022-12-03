@@ -7,7 +7,7 @@ import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
 import Images from './Images.jsx';
 
-const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle }) => {
+const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit }) => {
 
   const [ratings, setRatings] = useState([]);
   const [styles, setStyles] = useState([]);
@@ -17,7 +17,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
   //This behemouth code is grabbing all needed data from API (requested styles, features, and ratings)
   useEffect(() => {
 
-    if (currentProduct !== null && features === null) {
+    if (features === null) {
       request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
         if (err) {
           console.log(err);
@@ -57,12 +57,24 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
   return (
     <div id="overview">
-      <Images currentProductStyle={currentProductStyle} />
-      <Reviews ratings={ratings} />
-      <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
-      <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
-      <AddCart currentProductStyle={currentProductStyle} />
-      <Features features={features} />
+      {currentProductStyle !== null &&
+        <Images currentProductStyle={currentProductStyle} />
+      }
+      {ratings.length !== 0 &&
+        <Reviews ratings={ratings} />
+      }
+      {features !== null &&
+        <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
+      }
+      {currentProductStyle !== null && styles !== null &&
+        <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
+      }
+      {currentProductStyle !== null &&
+        <AddCart currentProductStyle={currentProductStyle} />
+      }
+      {features !== null &&
+        <Features features={features} />
+      }
     </div>
   )
 }

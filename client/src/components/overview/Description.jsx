@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Description = ({ currentProduct, currentProductStyle }) => {
-  if (currentProduct !== null && currentProductStyle !== null) {
+
     console.log('i am currentProductStyle: ', currentProductStyle)
     return (
       <div>
@@ -18,8 +18,6 @@ const Description = ({ currentProduct, currentProductStyle }) => {
 
       </div>
     )
-
-  } else return <></>
 }
 
 export default Description

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 const Features = ({ features }) => {
 
-  if (features !== null) {
-
     return (
       <div>
         <div>
@@ -23,8 +21,6 @@ const Features = ({ features }) => {
         </div>
       </div>
     )
-
-  } else return <></>
 }
 
 export default Features
