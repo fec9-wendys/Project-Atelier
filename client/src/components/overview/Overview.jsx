@@ -57,18 +57,18 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
   return (
     <div id="overview">
-      {currentProductStyle !== null &&
+      {/* {currentProductStyle !== null &&
         <Images currentProductStyle={currentProductStyle} />
-      }
+      } */}
       {ratings.length !== 0 &&
         <Reviews ratings={ratings} />
       }
       {features !== null &&
         <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
       }
-      {currentProductStyle !== null && styles !== null &&
+      {/* {currentProductStyle !== null && styles !== null &&
         <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
-      }
+      } */}
       {currentProductStyle !== null &&
         <AddCart currentProductStyle={currentProductStyle} />
       }
