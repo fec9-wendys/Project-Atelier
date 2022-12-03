@@ -1,13 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 const {useState, useEffect} = React;
 
-const PBEntry = ({reviews}) => {
-
+const PBEntry = ({charKey, charValue}) => {
 
   return (
     <div id='PB-entry'>
+      {charKey}
+      <div>
+        {Math.round(charValue.value * 100) / 100}
+      </div>
     </div>
   );
 };

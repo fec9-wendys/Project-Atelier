@@ -13,7 +13,7 @@ const ReviewEntry = ({review}) => {
 
   return (
     <div id='review-entry'>
-      <span className = 'entry-stars'> {review.rating} </span>
+      <span className = 'entry-stars'> {review.rating} Stars</span>
       <span className = 'entry-log'> {review.recommend ? '✔️' : '❌'} {review.reviewer_name}, {properDate()}</span>
       <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
       <div className = 'entry-body'> {review.body} </div>

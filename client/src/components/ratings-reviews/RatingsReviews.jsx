@@ -40,9 +40,9 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
       &nbsp;
       <ProductBreakdown currentProduct = {currentProduct} metaData = {metaData} />
       &nbsp;
-      <Sort reviews = {reviews}/>
+      <Sort currentProduct = {currentProduct} setReviews = {setReviews} reviews = {reviews} request = {request} />
       &nbsp;
-      <ReviewFeed reviews = {reviews}/>
+      <ReviewFeed reviews = {reviews} />
     </div>
   );
 };
