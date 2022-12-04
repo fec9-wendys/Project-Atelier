@@ -70,7 +70,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
         <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
       } */}
       {currentProductStyle !== null &&
-        <AddCart currentProductStyle={currentProductStyle} />
+        <AddCart request={request} currentProductStyle={currentProductStyle} />
       }
       {features !== null &&
         <Features features={features} />
