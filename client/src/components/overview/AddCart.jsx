@@ -57,7 +57,8 @@ const AddCart = ({ currentProductStyle, request }) => {
         if (err) {
           console.log(err);
         } else {
-          console.log(response)
+          window.location.reload()
+          return false;
         }
       })
     }
