@@ -7,7 +7,7 @@ const AddCart = ({ currentProductStyle, request }) => {
   // const [quantity, setQuantity] = useState([]);
 
   const [stock, setStock] = useState(null);
-  const [currSize, setCurrSize] = useState('');
+  const [currSize, setCurrSize] = useState('select-size');
   const [currQuantity, setCurrentQuantity] = useState(NaN);
   const [currSKU, setCurrSKU] = useState(NaN);
 
@@ -50,8 +50,8 @@ const AddCart = ({ currentProductStyle, request }) => {
     const sizeValue = document.getElementById('size-dropdown').value;
     const quantityValue = document.getElementById('quantity-dropdown').value;
     const body = { sku_id: currSKU };
-    if (currSize === 'select-size' || currSize === '') {
-      console.log('Select size please!');
+    if (currSize === 'select-size') {
+      alert('Select size please!');
     } else {
       request('/cart', 'POST', body, (err, response) => {
         if (err) {
@@ -86,7 +86,7 @@ const AddCart = ({ currentProductStyle, request }) => {
         {/* dropdown menu for quantity */}
         <label htmlFor="quantity-dropdown"> Quantity: </label>
         <select className="dropdown" id="quantity-dropdown">
-          {currSize === '' || currSize === 'select-size' ?
+          {currSize === 'select-size' ?
             <option value="select-quantity" id="default-quantity" defaultValue>-</option>
             : <>
               {Array.apply(1, Array(currQuantity)).map((current, index) => {
