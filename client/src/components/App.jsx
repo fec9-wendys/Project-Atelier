@@ -19,8 +19,8 @@ const App = () => {
   const [ currentProductStyle, setCurrentProductStyle ] = useState(null);
   const [ ready, setReady ] = useState(false);
 
-  useEffect(async () => {
-    await request('/products', 'GET', {}, (error, products) => {
+  useEffect(() => {
+    request('/products', 'GET', {}, (error, products) => {
       if (error) {
         console.error(error);
       } else {
