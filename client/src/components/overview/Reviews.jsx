@@ -17,16 +17,18 @@ const Reviews = ({ ratings }) => {
       {Array.apply(1, Array(filledStarsCount)).map((star, index) => {
         return <i key={index} className="fa-solid fa-star"></i>
       })}
-      {halfStarsCount &&
-        <i className="fa-solid fa-star-half-stroke"></i>}
+      {halfStarsCount === 1 ?
+        <i className="fa-solid fa-star-half-stroke"></i>
+        : <></>
+      }
       {Array.apply(1, Array(emptyStarsCount)).map((star, index) => {
         return <i key={index} className="fa-regular fa-star"></i>
       })}
-      Insert link to reviews here!
+      <a href="#ratings-reviews">Click here to jump to ratings and reviews</a>
       <div id="icons">
-        <i className="fa-brands fa-square-facebook icon" id="facebook-icon"></i>
-        <i className="fa-brands fa-square-twitter icon" id="twitter-icon"></i>
-        <i className="fa-brands fa-square-pinterest icon" id="pinterest-icon"></i>
+        <a href="https://www.facebook.com/"><i className="fa-brands fa-square-facebook icon" id="facebook-icon" /></a>
+        <a href="https://www.twitter.com"><i className="fa-brands fa-square-twitter icon" id="twitter-icon"></i></a>
+        <a href="https://www.pinterest.com"><i className="fa-brands fa-square-pinterest icon" id="pinterest-icon"></i></a>
       </div>
     </div>
   )
