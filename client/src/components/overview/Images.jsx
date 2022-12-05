@@ -12,6 +12,8 @@ const Images = ({ currentProductStyle }) => {
   useEffect(() => {
     if (currentProductStyle.photos.length <= 7) {
       setCarouselImages(currentProductStyle.photos);
+    } else {
+
     }
   }, [])
 

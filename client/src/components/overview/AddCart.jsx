@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const AddCart = ({ currentProductStyle, request }) => {
+const AddCart = ({ currentProductStyle, request, outfit, setOutfit }) => {
 
   // Alternate method of storing sizes+ quantities, will leave here in case of emergency
   // const [sizes, setSizes] = useState([]);
@@ -45,7 +45,7 @@ const AddCart = ({ currentProductStyle, request }) => {
 
   //User clicks 'Add Cart' button event function
   // TODO: need to force dropdown menu
-  const handleClick = (e) => {
+  const handleCartClick = (e) => {
     e.preventDefault();
     const sizeValue = document.getElementById('size-dropdown').value;
     const quantityValue = document.getElementById('quantity-dropdown').value;
@@ -61,6 +61,25 @@ const AddCart = ({ currentProductStyle, request }) => {
           return false;
         }
       })
+    }
+  }
+
+  const handleOutfitClick = (e) => {
+    if (outfit.length === 0) {
+      setOutfit([currentProductStyle]);
+      console.log('Added to Outfit!');
+      return;
+    }
+
+    const allOutfitIDs = outfit.map(item => {
+      return item.style_id;
+    });
+
+    if (allOutfitIDs.includes(currentProductStyle.style_id)) {
+      console.log('This style is already in outfit!');
+    } else{
+      setOutfit([...outfit, currentProductStyle]);
+      console.log('Added to Outfit!');
     }
   }
 
@@ -97,11 +116,15 @@ const AddCart = ({ currentProductStyle, request }) => {
             </>
           }
         </select>
+
         {Object.keys(stock).includes('null') ?
           <></>
           :
-          <button onClick={e => handleClick(e)} name="add-cart" id="add-cart">Add to Cart</button>
+          <button onClick={e => handleCartClick(e)} name="add-cart" id="add-cart">Add to Cart</button>
         }
+        <div id="add-outfit">
+          <button id="add-outfit-button" onClick={e => handleOutfitClick(e)}> Add to Outfit</button>
+        </div>
       </div>
     )
 
