@@ -9,7 +9,7 @@ let recPercent = 0;
 const RatingsBreakdown = ({metaData}) => {
   const [ratingStats, setRatingStats] = useState([]);
   const [recStats, setRecStats] = useState([]);
-
+  let totalReviews = 0;
 
   if (metaData.length !== 0 && ratingStats.length === 0) {
     setRatingStats(metaData.ratings);
@@ -38,13 +38,11 @@ const RatingsBreakdown = ({metaData}) => {
       <div>
         {avgReviews} Stars
         <p> {recPercent}% of reviews recommend this product </p>
-        <ul>
-          <li><u>5 Stars</u> {ratingStats['5']}/{totalReviews}</li>
-          <li><u>4 Stars</u> {ratingStats['4']}/{totalReviews}</li>
-          <li><u>3 Stars</u> {ratingStats['3']}/{totalReviews}</li>
-          <li><u>2 Stars</u> {ratingStats['2']}/{totalReviews}</li>
-          <li><u>1 Stars</u> {ratingStats['1']}/{totalReviews}</li>
-        </ul>
+        <div className = 'stars-breakdown'><u>5 Stars</u> {ratingStats['5']}/{totalReviews}</div>
+        <div className = 'stars-breakdown'><u>4 Stars</u> {ratingStats['4']}/{totalReviews}</div>
+        <div className = 'stars-breakdown'><u>3 Stars</u> {ratingStats['3']}/{totalReviews}</div>
+        <div className = 'stars-breakdown'><u>2 Stars</u> {ratingStats['2']}/{totalReviews}</div>
+        <div className = 'stars-breakdown'><u>1 Stars</u> {ratingStats['1']}/{totalReviews}</div>
       </div>
     </div>
   );

@@ -36,13 +36,14 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
 
   return (
     <div id='ratings-reviews'>
+      Ratings and Reviews Component
       <RatingsBreakdown metaData = {metaData} />
       &nbsp;
       <ProductBreakdown currentProduct = {currentProduct} metaData = {metaData} />
       &nbsp;
       <Sort currentProduct = {currentProduct} setReviews = {setReviews} reviews = {reviews} request = {request} />
       &nbsp;
-      <ReviewFeed reviews = {reviews} />
+      <ReviewFeed reviews = {reviews} currentProduct = {currentProduct} />
     </div>
   );
 };

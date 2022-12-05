@@ -10,6 +10,8 @@ const ProductBreakdown = ({currentProduct, metaData}) => {
     setChars(metaData.characteristics);
   }
 
+  console.log(chars);
+
   return (
     <div id='products-breakdown'>
       Product Breakdown Component

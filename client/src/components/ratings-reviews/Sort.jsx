@@ -35,7 +35,7 @@ const Sort = ({currentProduct, setReviews, reviews, request}) => {
   return (
     <div id='sort-list'>
       <div> </div>
-      {reviews.length} reviews, sorted by
+      <strong>{reviews.length} reviews, sorted by </strong>
       <span>
         <select id = {sort} onChange = {handleChange} >
           {sortValues.map(sortValue => {

@@ -2,15 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewEntry from './ReviewEntry.jsx';
-import {ReactSession} from 'react-client-session';
+import ReviewModal from './ReviewModal.jsx';
 const {useState, useEffect} = React;
 
-ReactSession.setStoreType('localStorage');
-
-const ReviewFeed = ({ reviews }) => {
+const ReviewFeed = ({ reviews, currentProduct }) => {
   const [count, setCount] = useState(2);
   const [shownReviews, setShownReviews] = useState([]);
   const [reviewButton,setReviewButton] = useState('More Reviews');
+  const [isOpen, SetIsOpen] = useState(false);
 
   useEffect(() => {
     setShownReviews(reviews.slice(0, count));
@@ -36,12 +35,12 @@ const ReviewFeed = ({ reviews }) => {
 
   return (
     <div id='review-feed'>
-      Review List Component
       {shownReviews.map((review, index) => {
           return <ReviewEntry review = {review} key = {index}/>;
       })}
       <button id = 'more-reviews-btn' onClick = {handleClick}> {reviewButton} </button>
-      <button className = 'review-feed-btn2'> Add A Review +</button>
+      <button className = 'open-modal' onClick = {() => SetIsOpen(true)}> Add A Review +</button>
+      <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} />
     </div>
   );
 };
