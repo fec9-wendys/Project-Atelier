@@ -21,10 +21,10 @@ const StyleSelector = ({ currentProductStyle, setCurrentProductStyle, styles }) 
 }
 
 const thumbnailStyle = {
-  objectFit: 'contain',
-  maxWidth: 75,
-  height: 'auto',
-  cursor: 'pointer'
+  height: 100,
+  width: 100,
+  cursor: 'pointer',
+  borderRadius: '50%'
 };
 
 export default StyleSelector
