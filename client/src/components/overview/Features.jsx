@@ -11,7 +11,7 @@ const Features = ({ features }) => {
           Description: {features.description}
           </p>
         </div>
-        <div>
+        <div id="feature-list">
           {features.features.map((feature, index) => {
             return <div key={index}>
               I am feature name: {feature.feature} <br />
