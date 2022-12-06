@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 
 const Images = ({ currentProductStyle }) => {
 
-  const [currentMain, setCurrentMain] = useState(''); //main picture url
+  const [currentMainIndex, setCurrentMainIndex] = useState(0); //main picture url
   const [startIndex, setStartIndex] = useState(0); //start index of carousel thumbnail
   const [endIndex, setEndIndex] = useState(0); //end index of carousel thumbnail
 
   //sets main image into state
-  useEffect(() => {
-    setCurrentMain(currentProductStyle.photos[0].url);
-  }, [currentProductStyle])
+  // useEffect(() => {
+  //   setCurrentMain(currentProductStyle.photos[0].url);
+  // }, [currentProductStyle])
 
   //sets start and end index for thumbnail carousel
   useEffect(() => {
@@ -22,7 +22,7 @@ const Images = ({ currentProductStyle }) => {
 
   //handles clicking on thumbnail event
   const handleThumbClick = (e) => {
-    setCurrentMain(e.target.id);
+    setCurrentMainIndex(parseInt(e.target.id) + startIndex);
   }
 
   //handles only thumbnail carousel button clicks
@@ -49,18 +49,35 @@ const Images = ({ currentProductStyle }) => {
   }
 
   const handleMainArrowClick = (e) => {
-
+    let newIndex;
+    if (e.target.id === 'left-main-button') {
+      newIndex = currentMainIndex - 1;
+      setCurrentMainIndex(newIndex);
+      if (newIndex < startIndex) {
+        setStartIndex(newIndex);
+        setEndIndex(endIndex - (startIndex - newIndex))
+      }
+    } else {
+      newIndex = currentMainIndex + 1
+      setCurrentMainIndex(newIndex);
+      if (newIndex > endIndex) {
+        setEndIndex(newIndex);
+        setStartIndex(startIndex + (newIndex - endIndex))
+      }
+    }
   }
 
   return (
     <div>
 
       <div id="main-image">
-        I am current product style_id: {currentProductStyle['style_id']} <br />
-
-        <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
-        <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
-        <img style={{ objectFit: 'contain', maxWidth: 300, height: 'auto', cursor: 'zoom-in' }} alt={currentProductStyle.name} src={currentMain} />
+        {currentMainIndex !== 0 &&
+          <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
+        }
+        {currentMainIndex !== currentProductStyle.photos.length - 1 &&
+          <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
+        }
+        <img style={{ objectFit: 'contain', maxWidth: 300, height: 'auto', cursor: 'zoom-in' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
       </div>
 
       <div className="carousel" id="thumbnail-carousel">
@@ -73,7 +90,7 @@ const Images = ({ currentProductStyle }) => {
 
         <div id="carousel-images">
           {currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
-            return <img style={thumbnailStyle} className="carousel-item" key={index} id={photo.url} src={photo.thumbnail_url} alt={photo.url} onClick={e => handleThumbClick(e)} />
+            return <img style={thumbnailStyle} className="carousel-item" key={index} id={index} value={index} src={photo.thumbnail_url} alt={photo.url} onClick={e => handleThumbClick(e)} />
           })}
         </div>
 
