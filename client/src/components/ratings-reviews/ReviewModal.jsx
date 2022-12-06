@@ -24,11 +24,27 @@ const OVERLAY_STYLES = {
 
 }
 
-const ReviewModal = ({isOpen, onClose, currentProduct}) => {
-  const [rec, setRec] = useState();
+const ReviewModal = ({isOpen, onClose, currentProduct, request}) => {
+  const [rec, setRec] = useState(null);
+  const [nickName, setNickName] = useState();
+  const [summary, setSummary] = useState();
+  const [body, setBody] = useState();
+  const [img, setImg] = useState(null);
 
   if (!isOpen) {
     return null;
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    request(`/reviews/?product_id=${currentProduct.id}`, 'POST')
+
+  }
+
+  const fileHandler = (e) => {
+    setImg(e.target.files[0]);
+    console.log(e.target.files[0]);
   }
 
   return ReactDom.createPortal(
@@ -42,21 +58,26 @@ const ReviewModal = ({isOpen, onClose, currentProduct}) => {
           <div>
             <button onClick = {() => { setRec(true)}} disabled = {rec === true}> Yes </button>
             <button onClick = {() => { setRec(false)}} disabled = {rec === false}> No </button>
-            {rec === true ? 'Yes' : 'No'}
+            {rec === null ? null : (rec === true ? 'Yes' : 'No')}
           </div>
           <div>
             <form>
               <label htmlFor="nickname">Nickname:</label><br></br>
-                <input type="text" id="nickname" name="nickname" maxLength = '60' placeholder = 'jackson11@gmail.com' required /><br></br>
+                <input type="text" id="nickname" name="nickname" maxLength = '60'
+                placeholder = 'jackson11@gmail.com' required onChange = {(e) => setNickName(e.target.value)}/><br></br>
               <label htmlFor="summary"> Summary: </label><br></br>
-                <input type="text" id="summary" name="summary" maxLength = '60' placeholder = 'Best Purchase Ever!' /><br></br>
+                <input type="text" id="summary" name="summary" maxLength = '60'
+                placeholder = 'Best Purchase Ever!' onChange = {(e) => setSummary(e.target.value)}/><br></br>
               <label htmlFor="body"> Review Body: </label><br></br>
-                <textarea type="text" id="body" name="body" rows='4' cols='50' maxLength = '1000' placeholder = 'Best Purchase Ever!' /><br></br>
-              <input type="submit" value="Submit" />
+                <textarea type="text" id="body" name="body" rows='6' cols='50' maxLength = '1000'
+                placeholder = 'Best Purchase Ever!' onChange = {(e) => setBody(e.target.value)}/><br></br>
+              <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
+                <input className = 'file-upload-count' type = 'file' onChange = {fileHandler} />
+              <input type="button" value="Submit Review" onClick = {submitHandler}/>
             </form>
           </div>
         </div>
-        <button onClick = {onClose}>Close Review Creation</button>
+        <button onClick = {onClose}>Close</button>
       </div>
     </>,
     document.getElementById('review-portal')

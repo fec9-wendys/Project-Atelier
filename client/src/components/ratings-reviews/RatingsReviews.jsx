@@ -43,7 +43,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
       &nbsp;
       <Sort currentProduct = {currentProduct} setReviews = {setReviews} reviews = {reviews} request = {request} />
       &nbsp;
-      <ReviewFeed reviews = {reviews} currentProduct = {currentProduct} />
+      <ReviewFeed reviews = {reviews} currentProduct = {currentProduct} request = {request}/>
     </div>
   );
 };

@@ -11,11 +11,13 @@ const RatingsBreakdown = ({metaData}) => {
   const [recStats, setRecStats] = useState([]);
   let totalReviews = 0;
 
+  // setsRecStats
   if (metaData.length !== 0 && ratingStats.length === 0) {
     setRatingStats(metaData.ratings);
     setRecStats(metaData.recommended);
   }
 
+  // Creates total review count and average review number
   if (ratingStats.length !== 0) {
     for (let key in ratingStats) {
       totalReviews += parseInt(ratingStats[key]);
@@ -25,6 +27,7 @@ const RatingsBreakdown = ({metaData}) => {
     avgReviews = parseFloat((avgReviews / totalReviews).toFixed(1));
   }
 
+  // Creates average recommended percent
   if (recStats.length !== 0) {
     const noCount = parseInt(recStats.false);
     const yesCount = parseInt(recStats.true);
@@ -32,17 +35,17 @@ const RatingsBreakdown = ({metaData}) => {
     recPercent = Math.round(yesCount / totalCount * 100);
   }
 
+  console.log(ratingStats);
+
   return (
     <div id='ratings-breakdown'>
       Ratings Breakdown Component
       <div>
-        {avgReviews} Stars
+        <strong>{avgReviews}</strong> Stars
         <p> {recPercent}% of reviews recommend this product </p>
-        <div className = 'stars-breakdown'><u>5 Stars</u> {ratingStats['5']}/{totalReviews}</div>
-        <div className = 'stars-breakdown'><u>4 Stars</u> {ratingStats['4']}/{totalReviews}</div>
-        <div className = 'stars-breakdown'><u>3 Stars</u> {ratingStats['3']}/{totalReviews}</div>
-        <div className = 'stars-breakdown'><u>2 Stars</u> {ratingStats['2']}/{totalReviews}</div>
-        <div className = 'stars-breakdown'><u>1 Stars</u> {ratingStats['1']}/{totalReviews}</div>
+        {Object.keys(ratingStats).reverse().map((key, index) => {
+          return <div className = 'stars-breakdown' key = {index}><u>{key} Stars</u> {ratingStats[key]}/{totalReviews} </div>;
+        })}
       </div>
     </div>
   );

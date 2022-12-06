@@ -5,7 +5,7 @@ import ReviewEntry from './ReviewEntry.jsx';
 import ReviewModal from './ReviewModal.jsx';
 const {useState, useEffect} = React;
 
-const ReviewFeed = ({ reviews, currentProduct }) => {
+const ReviewFeed = ({ reviews, currentProduct, request }) => {
   const [count, setCount] = useState(2);
   const [shownReviews, setShownReviews] = useState([]);
   const [reviewButton,setReviewButton] = useState('More Reviews');
@@ -40,7 +40,7 @@ const ReviewFeed = ({ reviews, currentProduct }) => {
       })}
       <button id = 'more-reviews-btn' onClick = {handleClick}> {reviewButton} </button>
       <button className = 'open-modal' onClick = {() => SetIsOpen(true)}> Add A Review +</button>
-      <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} />
+      <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} request = {request} />
     </div>
   );
 };

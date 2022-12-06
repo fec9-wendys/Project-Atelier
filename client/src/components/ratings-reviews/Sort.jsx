@@ -13,15 +13,10 @@ const Sort = ({currentProduct, setReviews, reviews, request}) => {
 
   const [sort, setSort] = useState(sortValues[0].value);
 
-
-  // https:app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=40346&sort=helpful
-
-  // select onChange="myFunction(this.options[this.selectedIndex].value)"
-
   const handleChange = (e) => {
     setSort(e.target.value);
 
-    request(`/reviews/?product_id=${currentProduct.id}&sort=${e.target.value}`, 'GET', {}, (err, results) => {
+    request(`/reviews/?product_id=${currentProduct.id}&sort=${e.target.value}&count=10000`, 'GET', {}, (err, results) => {
       if (err) {
         console.error(err);
       } else {
