@@ -14,6 +14,15 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
   const [metaData, setMetaData] = useState([]);
   const [filter, setFilter] = useState([]);
   const [shownFilter, setShownFilter] = useState(filter);
+  const [avgstars, setAvgStars] = useState();
+
+  const sortValues = [
+    {value: 'relevant', text: 'relevant'},
+    {value: 'helpful', text: 'helpful'},
+    {value: 'newest', text: 'newest'}
+  ]
+
+  const [sort, setSort] = useState(sortValues[0].value);
 
   useEffect(() => {
     if (currentProduct !== null && reviews.length === 0) {
@@ -46,8 +55,8 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
       &nbsp;
       <ProductBreakdown currentProduct = {currentProduct} metaData = {metaData} />
       &nbsp;
-      <Sort currentProduct = {currentProduct} setReviews = {setReviews} reviews = {reviews} request = {request}
-      setFilter ={setFilter} setShownFilter = {setShownFilter} />
+      <Sort currentProduct = {currentProduct} setReviews = {setReviews} reviews = {reviews} request = {request} filter = {filter}
+      setFilter ={setFilter} setShownFilter = {setShownFilter} sort = {sort} setSort = {setSort} sortValues = {sortValues}/>
       &nbsp;
       <ReviewFeed reviews = {reviews} currentProduct = {currentProduct} request = {request}/>
     </div>

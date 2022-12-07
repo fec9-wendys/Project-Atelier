@@ -38,7 +38,7 @@ const ReviewFeed = ({ reviews, currentProduct, request }) => {
       {shownReviews.map((review, index) => {
           return <ReviewEntry review = {review} key = {index} request = {request} />;
       })}
-      <button id = 'more-reviews-btn' onClick = {handleClick}> {reviews.length > 2 ? reviewButton : null} </button>
+      {reviews.length > 2 ? <button id = 'more-reviews-btn' onClick = {handleClick}> {reviewButton} </button> : null}
       <button className = 'open-modal' onClick = {() => SetIsOpen(true)}> Add A Review +</button>
       <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} request = {request} />
     </div>

@@ -3,15 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 const {useState, useEffect} = React;
 
-const Sort = ({currentProduct, setReviews, reviews, request, setFilter, setShownFilter}) => {
-
-  const sortValues = [
-    {value: 'relevant', text: 'relevant'},
-    {value: 'helpful', text: 'helpful'},
-    {value: 'newest', text: 'newest'}
-  ]
-
-  const [sort, setSort] = useState(sortValues[0].value);
+const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues}) => {
 
   const handleChange = (e) => {
     setSort(e.target.value);
@@ -21,9 +13,20 @@ const Sort = ({currentProduct, setReviews, reviews, request, setFilter, setShown
         console.error(err);
       } else {
         console.log(results.results);
-        setShownFilter([]);
-        setFilter([]);
-        setReviews(results.results);
+        let reviewsCopy = [];
+          let filteredCopy = [];
+          for (let review of results.results) {
+            reviewsCopy.push(review);
+          }
+
+          filteredCopy = reviewsCopy.filter(review => {
+            if (filter.includes(review.rating)) {
+              return review;
+          }
+        });
+
+        setReviews(filteredCopy);
+        // setReviews(results.results);
       }
     });
 
