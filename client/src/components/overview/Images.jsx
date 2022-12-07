@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import ImageModal from './ImageModal.jsx';
 
 const Images = ({ currentProductStyle }) => {
 
   const [currentMainIndex, setCurrentMainIndex] = useState(0); //main picture url
   const [startIndex, setStartIndex] = useState(0); //start index of carousel thumbnail
   const [endIndex, setEndIndex] = useState(0); //end index of carousel thumbnail
+  const [isOpen, setIsOpen] = useState(false);
 
   //sets main image into state
   // useEffect(() => {
@@ -21,8 +23,8 @@ const Images = ({ currentProductStyle }) => {
   }, [])
 
   //handles clicking on thumbnail event
-  const handleThumbClick = (e) => {
-    setCurrentMainIndex(parseInt(e.target.id) + startIndex);
+  const handleThumbClick = (index) => {
+    setCurrentMainIndex(index + startIndex);
   }
 
   //handles only thumbnail carousel button clicks
@@ -68,8 +70,7 @@ const Images = ({ currentProductStyle }) => {
   }
 
   return (
-    <div>
-
+    <div id="gallery">
       <div id="main-image">
         {currentMainIndex !== 0 &&
           <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
@@ -77,7 +78,8 @@ const Images = ({ currentProductStyle }) => {
         {currentMainIndex !== currentProductStyle.photos.length - 1 &&
           <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
         }
-        <img style={{ objectFit: 'contain', maxWidth: 300, height: 'auto', cursor: 'zoom-in' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
+        <img style={{ objectFit: 'contain', maxWidth: 300, height: 'auto', cursor: 'zoom-in' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} onClick={() => setIsOpen(true)} />
+        <i id="expand" className="fa-solid fa-expand" onClick={() => setIsOpen(true)}></i>
       </div>
 
       <div className="carousel" id="thumbnail-carousel">
@@ -90,11 +92,15 @@ const Images = ({ currentProductStyle }) => {
 
         <div id="carousel-images">
           {currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
-            return <img style={thumbnailStyle} className="carousel-item" key={index} id={index} value={index} src={photo.thumbnail_url} alt={photo.url} onClick={e => handleThumbClick(e)} />
+            return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={photo.url} onClick={e => handleThumbClick(index)} />
           })}
         </div>
 
       </div>
+
+      <ImageModal open={isOpen} onClose={() => setIsOpen(false)} currentProductStyle={currentProductStyle} currentMainIndex={currentMainIndex} handleMainArrowClick={handleMainArrowClick} setCurrentMainIndex={setCurrentMainIndex}>
+
+      </ImageModal>
 
     </div>
   )

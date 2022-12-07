@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 const Features = ({ features }) => {
 
     return (
-      <div>
+      <div id="features">
+
         <div>
           {console.log('I am features prop: ', features)}
           Slogan: {features.slogan}
@@ -11,6 +12,7 @@ const Features = ({ features }) => {
           Description: {features.description}
           </p>
         </div>
+
         <div id="feature-list">
           {features.features.map((feature, index) => {
             return <div key={index}>
@@ -19,6 +21,7 @@ const Features = ({ features }) => {
             </div>
           })}
         </div>
+
       </div>
     )
 }

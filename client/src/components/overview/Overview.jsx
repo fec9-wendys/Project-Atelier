@@ -6,12 +6,13 @@ import Features from './Features.jsx';
 import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
 import Images from './Images.jsx';
+import './styles.css';
 
 const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit }) => {
 
   const [ratings, setRatings] = useState([]);
   const [styles, setStyles] = useState([]);
-  const [features, setFeatures] = useState(null)
+  const [features, setFeatures] = useState(null);
 
 
   //This behemouth code is grabbing all needed data from API (requested styles, features, and ratings)
@@ -70,7 +71,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
         <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
       }
       {currentProductStyle !== null &&
-        <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} />
+        <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct}/>
       }
       {features !== null &&
         <Features features={features} />

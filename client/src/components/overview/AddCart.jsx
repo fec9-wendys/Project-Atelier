@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const AddCart = ({ currentProductStyle, request, outfit, setOutfit }) => {
+const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutfit }) => {
 
   // Alternate method of storing sizes+ quantities, will leave here in case of emergency
   // const [sizes, setSizes] = useState([]);
@@ -66,19 +66,19 @@ const AddCart = ({ currentProductStyle, request, outfit, setOutfit }) => {
 
   const handleOutfitClick = (e) => {
     if (outfit.length === 0) {
-      setOutfit([currentProductStyle]);
-      console.log('Added to Outfit!');
+      setOutfit([currentProduct]);
+      console.log('Added Product to Outfit!');
       return;
     }
 
     const allOutfitIDs = outfit.map(item => {
-      return item.style_id;
+      return item.id;
     });
 
-    if (allOutfitIDs.includes(currentProductStyle.style_id)) {
+    if (allOutfitIDs.includes(currentProduct.id)) {
       console.log('This style is already in outfit!');
-    } else{
-      setOutfit([...outfit, currentProductStyle]);
+    } else {
+      setOutfit([...outfit, currentProduct]);
       console.log('Added to Outfit!');
     }
   }
