@@ -6,7 +6,6 @@ const Features = ({ features }) => {
       <div id="features">
 
         <div>
-          {console.log('I am features prop: ', features)}
           Slogan: {features.slogan}
           <p>
           Description: {features.description}

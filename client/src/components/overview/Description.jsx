@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const Description = ({ currentProduct, currentProductStyle }) => {
 
-  console.log('i am currentProductStyle: ', currentProductStyle)
   return (
     <div>
-      <h5>
-        I am Product Description
-      </h5>
       <div id="product-category">
         {currentProduct.category}
       </div>

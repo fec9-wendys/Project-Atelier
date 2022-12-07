@@ -6,7 +6,6 @@ import Features from './Features.jsx';
 import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
 import Images from './Images.jsx';
-import './styles.css';
 
 const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit }) => {
 
