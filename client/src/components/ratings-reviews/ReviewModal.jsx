@@ -43,8 +43,8 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request}) => {
   }
 
   const fileHandler = (e) => {
-    setImg(e.target.files[0]);
-    console.log(e.target.files[0]);
+    const images = document.getElementById('image-upload').files[0];
+    console.log(images);
   }
 
   return ReactDom.createPortal(
@@ -72,7 +72,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request}) => {
                 <textarea type="text" id="body" name="body" rows='6' cols='50' maxLength = '1000'
                 placeholder = 'Best Purchase Ever!' onChange = {(e) => setBody(e.target.value)}/><br></br>
               <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
-                <input className = 'file-upload-count' type = 'file' onChange = {fileHandler} />
+                <input id = 'image-upload' type = 'file' onChange = {fileHandler} multiple/>
               <input type="button" value="Submit Review" onClick = {submitHandler}/>
             </form>
           </div>

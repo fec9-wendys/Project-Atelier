@@ -3,7 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 const {useState, useEffect} = React;
 
-const Sort = ({currentProduct, setReviews, reviews, request}) => {
+const Sort = ({currentProduct, setReviews, reviews, request, setFilter, setShownFilter}) => {
 
   const sortValues = [
     {value: 'relevant', text: 'relevant'},
@@ -21,6 +21,8 @@ const Sort = ({currentProduct, setReviews, reviews, request}) => {
         console.error(err);
       } else {
         console.log(results.results);
+        setShownFilter([]);
+        setFilter([]);
         setReviews(results.results);
       }
     });

@@ -9,8 +9,13 @@ const LOG_STYLES = {
   right: 0,
 }
 
-const ReviewEntry = ({review}) => {
+const ReviewEntry = ({review, request}) => {
   const [helpful, setHelpful] = useState(false);
+  const [update, setUpdate] = useState(false);
+
+  const forceUpdate = () => {
+    setUpdate(!update);
+  }
 
   const properDate = () => {
     const date = new Date(review.date.substring(0,10)).toString();
@@ -18,16 +23,23 @@ const ReviewEntry = ({review}) => {
     return date1;
   };
 
-  const clickHandler = async (e) => {
+  const clickHelpHandler = (e) => {
     e.preventDefault();
     if (helpful === false) {
       setHelpful(true);
-      const response = await axios.put()
+      request(`/reviews/${review.review_id}/helpful`, 'PUT', {}, (err, results) => {
+        if (!err) {
+          console.log('clickHelpHandler', results);
+        } else {
+          console.error(err);
+        }
+      })
     }
-
   }
 
-  console.log(review);
+  const clickReportHandler = (e) => {
+    e.preventDefault();
+  }
 
   return (
     <div id='review-entry'>
@@ -38,7 +50,7 @@ const ReviewEntry = ({review}) => {
       <p className = 'entry-rec'> {review.recommend ? '✔️ I recommend this product' : null}</p>
       <p className = 'entry-response'> {review.response}</p>
       <div className = 'entry-photos'> {review.photos.url} </div>
-      <p>Helpful? <u onClick = {clickHandler}>Yes</u> ({review.helpfulness}) | <u>Report</u> </p>
+      <p>Helpful? <u onClick = {clickHelpHandler}>Yes</u> ({review.helpfulness}) | <u onClick = {clickReportHandler}>Report</u> </p>
     </div>
   );
 };
