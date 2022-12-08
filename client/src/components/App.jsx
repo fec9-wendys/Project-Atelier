@@ -26,7 +26,6 @@ const App = () => {
       if (error) {
         console.error(error);
       } else {
-        console.log('INITIAL GET RAN')
         setCurrentProduct(products[4]);
       }
     });

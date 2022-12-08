@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageModal from './ImageModal.jsx';
 
-const Images = ({ currentProductStyle }) => {
+const Images = ({ currentProduct, currentProductStyle }) => {
 
   const [currentMainIndex, setCurrentMainIndex] = useState(0); //main picture url
   const [startIndex, setStartIndex] = useState(0); //start index of carousel thumbnail
@@ -10,12 +10,26 @@ const Images = ({ currentProductStyle }) => {
 
   //sets start and end index for thumbnail carousel
   useEffect(() => {
+    setCurrentMainIndex(0);
+    setStartIndex(0);
     if (currentProductStyle.photos.length <= 7) {
       setEndIndex(currentProductStyle.photos.length - 1);
     } else {
       setEndIndex(6);
     }
-  }, [])
+  }, [currentProduct])
+
+  useEffect(() => {
+    if (currentProductStyle.photos.length < currentMainIndex) {
+      setCurrentMainIndex(0);
+      setStartIndex(0);
+      if (currentProductStyle.photos.length <= 7) {
+        setEndIndex(currentProductStyle.photos.length - 1);
+      } else {
+        setEndIndex(6);
+      }
+    }
+  }, [currentProductStyle])
 
   //handles clicking on thumbnail event
   const handleThumbClick = (index) => {
@@ -67,7 +81,9 @@ const Images = ({ currentProductStyle }) => {
   return (
     <div className="grid-container" id="gallery">
       <div id="main-photo">
-        <img alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} onClick={() => setIsOpen(true)} />
+        {currentProductStyle.photos[currentMainIndex] ? //test to see if defined when changing the currentProductStyle
+          <img alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} onClick={() => setIsOpen(true)} />
+          : <></>}
 
         <div id="main-buttons">
           {currentMainIndex !== 0 &&
@@ -92,7 +108,7 @@ const Images = ({ currentProductStyle }) => {
         {/* Actual Carousel Images */}
         <div id="carousel-images">
           {currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
-            return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={photo.url} onClick={e => handleThumbClick(index)} />
+            return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
           })}
         </div>
 

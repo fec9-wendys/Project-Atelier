@@ -11,8 +11,9 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
   const [currQuantity, setCurrentQuantity] = useState(NaN);
   const [currSKU, setCurrSKU] = useState(NaN);
 
-  //sets state for stock on component mount
+  //sets state for stock on component mount when page loads or product/style changes
   useEffect(() => {
+    setCurrSize('select-size');
     const supply = {};
     const values = Object.values(currentProductStyle.skus);
     values.forEach(value => {
@@ -20,8 +21,8 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
       let quantity = value.quantity;
       supply[sized] = quantity;
     })
-    setStock(supply);
-  }, [])
+    setStock(supply); //object that countains size: quanity pairs
+  }, [currentProductStyle, currentProduct])
 
   //looks at the size selected to set the correct sku_id, which contains size and quantity properties
   useEffect(() => {
@@ -34,7 +35,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
     }
   }, [currSize])
 
-  //called when user selects size from dropdown
+  //called when user selects size from dropdown to change quanity settings on dropdown
   const updateQuantity = (e) => {
     let selectedSize = e.target.value;
     setCurrSize(selectedSize);

@@ -17,6 +17,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
   //This behemouth code is grabbing all needed data from API (requested styles, features, and reviews/ratings)
   useEffect(() => {
+
     request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
       if (err) {
         console.log(err);
@@ -51,7 +52,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
   return (
     <div id="overview">
       {currentProductStyle !== null &&
-        <Images currentProductStyle={currentProductStyle} />
+        <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
       }
       {ratings.length !== 0 && totalReviews &&
         <Reviews ratings={ratings} totalReviews={totalReviews}/>
