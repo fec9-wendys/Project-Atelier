@@ -5,7 +5,7 @@ import { ReactSession } from 'react-client-session';
 
 import Overview from './overview/Overview.jsx';
 import RelatedItems from './related-items/RelatedItems.jsx';
-// import Outfit from './related-items/Outfit.jsx';
+import Outfit from './related-items/Outfit.jsx';
 import QuestionsAnswers from './questions-answers/QuestionsAnswers.jsx';
 import RatingsReviews from './ratings-reviews/RatingsReviews.jsx';
 
@@ -61,7 +61,7 @@ const App = () => {
     <>
       <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
-      {/* <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} /> */}
+      <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
       <QuestionsAnswers currentProduct={currentProduct} request={request} />
       <RatingsReviews currentProduct={currentProduct} request={request} />
     </>
