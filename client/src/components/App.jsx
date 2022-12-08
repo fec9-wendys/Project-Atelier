@@ -59,7 +59,7 @@ const App = () => {
     }
   };
 
-  return  !ready ? null : (
+  return !ready ? null : (
     <>
       <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
