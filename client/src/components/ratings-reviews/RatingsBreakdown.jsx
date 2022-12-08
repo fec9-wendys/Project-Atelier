@@ -60,7 +60,6 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
     recPercent = Math.round(yesCount / totalCount * 100);
   }
 
-
   return (
     <div id='ratings-breakdown'>
       Ratings Breakdown Component
@@ -70,7 +69,7 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
         <p> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {
           return <Starbars key = {index} rating = {rating} ratingStats = {ratingStats} totalReviews = {totalReviews}
-          setFilter = {setFilter} filter = {filter} setShownFilter = {setShownFilter}/>;
+          setFilter = {setFilter} filter = {filter} setShownFilter = {setShownFilter} />;
         })}
       </div>
     </div>

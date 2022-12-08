@@ -5,7 +5,12 @@ import ReviewEntry from './ReviewEntry.jsx';
 import ReviewModal from './ReviewModal.jsx';
 const {useState, useEffect} = React;
 
-const ReviewFeed = ({ reviews, currentProduct, request }) => {
+const ENTRIES_STYLES = {
+  height: '325px',
+  overflow: 'auto'
+}
+
+const ReviewFeed = ({ reviews, currentProduct, request, metaData}) => {
   const [count, setCount] = useState(2);
   const [shownReviews, setShownReviews] = useState([]);
   const [reviewButton,setReviewButton] = useState('More Reviews');
@@ -35,12 +40,16 @@ const ReviewFeed = ({ reviews, currentProduct, request }) => {
 
   return (
     <div id='review-feed'>
-      {shownReviews.map((review, index) => {
-          return <ReviewEntry review = {review} key = {index} request = {request} />;
-      })}
+      <div id = 'review-entries' style = {ENTRIES_STYLES}>
+        {shownReviews.map((review, index) => {
+          return <ReviewEntry review = {review} key = {index} request = {request} currentProduct = {currentProduct}
+          setShownReviews = {setShownReviews} count = {count}/>;
+        })}
+      </div>
       {reviews.length > 2 ? <button id = 'more-reviews-btn' onClick = {handleClick}> {reviewButton} </button> : null}
       <button className = 'open-modal' onClick = {() => SetIsOpen(true)}> Add A Review +</button>
-      <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} request = {request} />
+      <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} request = {request}
+      metaData = {metaData}/>
     </div>
   );
 };
