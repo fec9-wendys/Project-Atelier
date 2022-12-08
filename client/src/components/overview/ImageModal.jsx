@@ -6,7 +6,7 @@ const MODAl_STYLES = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  padding: 50,
+  padding: 0,
   zIndex: 1000
 }
 
@@ -30,19 +30,22 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
 
   return ReactDOM.createPortal(
     <>
-      <div style={OVERLAY_STYLES} />
+      <div style={OVERLAY_STYLES} onClick={onClose}/>
       <div style={MODAl_STYLES} id="main-image-portal">
+
+        {/* image carousel buttons */}
         {currentMainIndex !== 0 &&
-          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
+          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-left main-image-button" id="left-modal-button" onClick={e => handleMainArrowClick(e)} />
         }
         {currentMainIndex !== currentProductStyle.photos.length - 1 &&
-          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
+          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-right main-image-button" id="right-modal-button" onClick={e => handleMainArrowClick(e)}></i>
         }
 
         {/* main image in modal */}
         <img style={{ objectFit: 'contain', height: '90vh', width: '90vw', cursor: 'crosshair' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
 
-        <button id="close-button" onClick={onClose}>X</button>
+        <i className="fa-regular fa-circle-xmark" id="close-button" onClick={onClose}></i>
+
         <div id="dot-icons">
           {currentProductStyle.photos.map((photo, index) => {
             if (index === currentMainIndex) {

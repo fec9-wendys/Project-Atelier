@@ -8,11 +8,6 @@ const Images = ({ currentProductStyle }) => {
   const [endIndex, setEndIndex] = useState(0); //end index of carousel thumbnail
   const [isOpen, setIsOpen] = useState(false);
 
-  //sets main image into state
-  // useEffect(() => {
-  //   setCurrentMain(currentProductStyle.photos[0].url);
-  // }, [currentProductStyle])
-
   //sets start and end index for thumbnail carousel
   useEffect(() => {
     if (currentProductStyle.photos.length <= 7) {
@@ -52,7 +47,7 @@ const Images = ({ currentProductStyle }) => {
 
   const handleMainArrowClick = (e) => {
     let newIndex;
-    if (e.target.id === 'left-main-button') {
+    if (e.target.id === 'left-main-button' || e.target.id === 'left-modal-button') {
       newIndex = currentMainIndex - 1;
       setCurrentMainIndex(newIndex);
       if (newIndex < startIndex) {
@@ -82,12 +77,11 @@ const Images = ({ currentProductStyle }) => {
             <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
           }
         </div>
-        <div id="expand">
-          <i className="fa-solid fa-expand" onClick={() => setIsOpen(true)}></i>
-        </div>
       </div>
 
       <div className="carousel" id="thumbnail-carousel">
+
+        {/* check if carousel buttons are even needed */}
         {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
           <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
         }
@@ -95,6 +89,7 @@ const Images = ({ currentProductStyle }) => {
           <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
         }
 
+        {/* Actual Carousel Images */}
         <div id="carousel-images">
           {currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
             return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={photo.url} onClick={e => handleThumbClick(index)} />
