@@ -7,6 +7,7 @@ import ProductBreakdown from './ProductBreakdown.jsx';
 import ReviewFeed from './ReviewFeed.jsx';
 import Sort from './Sort.jsx';
 import DynamicStars from './DynamicStars.jsx';
+import QuarterStars from './QuarterStars.jsx';
 
 
 // eslint-disable-next-line react/prop-types
@@ -52,14 +53,14 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
       Ratings and Reviews Component
       <RatingsBreakdown metaData = {metaData} reviews = {reviews} setReviews = {setReviews} request = {request}
       currentProduct = {currentProduct} filter = {filter} setFilter = {setFilter} shownFilter = {shownFilter}
-      setShownFilter = {setShownFilter}/>
+      setShownFilter = {setShownFilter} QuarterStars = {QuarterStars}/>
       &nbsp;
       <ProductBreakdown currentProduct = {currentProduct} metaData = {metaData} />
       &nbsp;
       <Sort currentProduct = {currentProduct} setReviews = {setReviews} reviews = {reviews} request = {request} filter = {filter}
       setFilter ={setFilter} setShownFilter = {setShownFilter} sort = {sort} setSort = {setSort} sortValues = {sortValues}/>
       &nbsp;
-      <ReviewFeed reviews = {reviews} currentProduct = {currentProduct} request = {request} metaData = {metaData}/>
+      <ReviewFeed reviews = {reviews} currentProduct = {currentProduct} request = {request} metaData = {metaData} QuarterStars = {QuarterStars}/>
     </div>
   );
 };

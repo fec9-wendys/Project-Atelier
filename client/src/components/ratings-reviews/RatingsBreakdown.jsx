@@ -7,7 +7,7 @@ const {useState, useEffect} = React;
 let avgReviews = 0;
 let recPercent = 0;
 
-const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter}) => {
+const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars}) => {
   const [ratingStats, setRatingStats] = useState([]);
   const [recStats, setRecStats] = useState([]);
   let totalReviews = 0;
@@ -64,7 +64,7 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
     <div id='ratings-breakdown'>
       Ratings Breakdown Component
       <div>
-        <strong>{avgReviews}</strong> Stars
+        <strong>{avgReviews}</strong> <QuarterStars rating = {avgReviews}/>
         <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => {return <div key = {index}> Showing {number} Stars Ranking</div>}): null}</div>
         <p> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {

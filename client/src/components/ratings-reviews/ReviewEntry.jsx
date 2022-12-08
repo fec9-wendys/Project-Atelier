@@ -9,7 +9,7 @@ const LOG_STYLES = {
   right: 0,
 }
 
-const ReviewEntry = ({review, request, currentProduct, setShownReviews, count}) => {
+const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, QuarterStars}) => {
   const [answerOnce, setAnswerOnce] = useState({ helpful: null, reported: null});
   const [reportText, setReportText] = useState('Report');
   const [shownBody, setShownBody] = useState(review.body.slice(0,250));
@@ -61,7 +61,7 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count}) 
 
   return (
     <div id='review-entry'>
-      <span className = 'entry-stars'> {review.rating} Stars</span>
+      <QuarterStars rating = {review.rating} />
       <span className = 'entry-log' style = {LOG_STYLES}> {review.reviewer_name}, {properDate()}</span>
       <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
       <div className = 'entry-body'> {review.body.length > 250 ? shownBody : review.body} </div>

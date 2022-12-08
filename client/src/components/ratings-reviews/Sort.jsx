@@ -12,21 +12,25 @@ const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, 
       if (err) {
         console.error(err);
       } else {
-        console.log(results.results);
-        let reviewsCopy = [];
-          let filteredCopy = [];
-          for (let review of results.results) {
-            reviewsCopy.push(review);
-          }
+        if (filter.length === 0) {
+          setReviews(results.results);
+        } else {
+          console.log(results.results);
+          let reviewsCopy = [];
+            let filteredCopy = [];
+            for (let review of results.results) {
+              reviewsCopy.push(review);
+            }
 
-          filteredCopy = reviewsCopy.filter(review => {
-            if (filter.includes(review.rating)) {
-              return review;
-          }
-        });
+            filteredCopy = reviewsCopy.filter(review => {
+              if (filter.includes(review.rating)) {
+                return review;
+            }
+          });
 
-        setReviews(filteredCopy);
-        // setReviews(results.results);
+          setReviews(filteredCopy);
+
+        }
       }
     });
 

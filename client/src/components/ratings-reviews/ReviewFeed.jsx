@@ -10,7 +10,7 @@ const ENTRIES_STYLES = {
   overflow: 'auto'
 }
 
-const ReviewFeed = ({ reviews, currentProduct, request, metaData}) => {
+const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars}) => {
   const [count, setCount] = useState(2);
   const [shownReviews, setShownReviews] = useState([]);
   const [reviewButton,setReviewButton] = useState('More Reviews');
@@ -43,7 +43,7 @@ const ReviewFeed = ({ reviews, currentProduct, request, metaData}) => {
       <div id = 'review-entries' style = {ENTRIES_STYLES}>
         {shownReviews.map((review, index) => {
           return <ReviewEntry review = {review} key = {index} request = {request} currentProduct = {currentProduct}
-          setShownReviews = {setShownReviews} count = {count}/>;
+          setShownReviews = {setShownReviews} count = {count} QuarterStars = {QuarterStars}/>;
         })}
       </div>
       {reviews.length > 2 ? <button id = 'more-reviews-btn' onClick = {handleClick}> {reviewButton} </button> : null}
