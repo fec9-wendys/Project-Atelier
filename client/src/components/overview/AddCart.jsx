@@ -123,10 +123,10 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
         {Object.keys(stock).includes('null') ?
           <></>
           :
-          <button onClick={e => handleCartClick(e)} name="add-cart" id="add-cart">Add to Cart</button>
+          <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
         }
         <div id="add-outfit">
-          <button id="add-outfit-button" onClick={e => handleOutfitClick(e)}> Add to Outfit</button>
+          <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit</button>
         </div>
       </div>
     )
