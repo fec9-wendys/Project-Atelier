@@ -20,7 +20,7 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductStyle, handleMainArrowClick, setCurrentMainIndex}) => {
+const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductStyle, handleMainArrowClick, setCurrentMainIndex }) => {
 
   const handleDotClick = (index) => {
     setCurrentMainIndex(index);
@@ -33,20 +33,25 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
       <div style={OVERLAY_STYLES} />
       <div style={MODAl_STYLES} id="main-image-portal">
         {currentMainIndex !== 0 &&
-          <i style={{color: '#FFF'}} className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
+          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
         }
         {currentMainIndex !== currentProductStyle.photos.length - 1 &&
-          <i style={{color: '#FFF'}} className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
+          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
         }
+
+        {/* main image in modal */}
         <img style={{ objectFit: 'contain', height: '90vh', width: '90vw', cursor: 'crosshair' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
-        <button onClick={onClose}>X</button>
-        {currentProductStyle.photos.map((photo, index) => {
-          if (index === currentMainIndex) {
-            return <i style={{color: 'rgb(255, 255, 128, 0.6)'}} key={index} className="fa-solid fa-circle dots" onClick={e => handleDotClick(index)} />
-          } else{
-            return <i style={{color: 'rgb(255, 255, 128, 0.6)'}} key={index} className="fa-regular fa-circle dots" onClick={e => handleDotClick(index)} />
-          }
-        })}
+
+        <button id="close-button" onClick={onClose}>X</button>
+        <div id="dot-icons">
+          {currentProductStyle.photos.map((photo, index) => {
+            if (index === currentMainIndex) {
+              return <i style={{ color: 'rgb(255, 255, 128, 0.6)' }} key={index} className="fa-solid fa-circle dots" onClick={e => handleDotClick(index)} />
+            } else {
+              return <i style={{ color: 'rgb(255, 255, 128, 0.6)' }} key={index} className="fa-regular fa-circle dots" onClick={e => handleDotClick(index)} />
+            }
+          })}
+        </div>
       </div>
     </>,
     document.getElementById('portal')

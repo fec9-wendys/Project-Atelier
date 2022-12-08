@@ -4,8 +4,14 @@
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 100px;
   max-width: 1200px;
+  min-width: 500;
   gap: 10px;
   line-height: 2em;
+}
+
+#feature-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
 .grid-container {
@@ -14,38 +20,87 @@
   padding: 10px;
 }
 
+#slogan {
+  padding-right: 30px;
+}
+
 
 #gallery {
   grid-row: 1 / 5;
+  justify-content: center;
+  align-items: center;
 }
 
-#main-photo img{
+#main-photo img {
   object-fit: contain;
-  max-width: 700px;
-  max-height: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   cursor: zoom-in;
 }
 
 #expand {
   position: absolute;
-  top: 5px;
+  padding-top: 0px;
+  margin-top: 0px;
+  top: 0px;
   right: 5px;
   cursor: pointer;
 }
+
+/* #thumbnail-carousel {
+  bottom: 1em;
+} */
+
 #carousel-images {
+  border: 2px ridge black;
+  display: flex;
   position: absolute;
-  bottom: 30px;
-  background-color: rgba(255, 255, 255, 0.8);
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.carousel-button {
+  border: 1px solid black;
+  font-size: larger;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.6);
+  bottom: 3.5rem;
+  padding: 15px 8px;
+  color: rgba(0, 0, 0, 0.7);
+  z-index: 3;
+}
+
+#left-thumbnail-button {
+  left: 20px;
+}
+
+#right-thumbnail-button {
+  right: 20px;
 }
 
 .carousel-items {
-  padding: 5px;
+  padding: 10px 12px;
 }
 
 #ratings {
   grid-row: 1 / 2;
   font-size: 0.8em;
   line-height: 1.3em;
+}
+
+#icons {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
 }
 
 #style-selector {
@@ -55,7 +110,7 @@
 
 .style-selector-thumbnail {
   position: relative;
-  padding: 7px 5px;
+  padding: 9px 0px 9px 5px;
 }
 
 #checkmark {
@@ -77,6 +132,38 @@
 
 #features {
   grid-column: 1 / 3;
+}
+
+.main-image-button {
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.main-image-button:hover,
+.main-image-button:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#left-main-button {
+  left: 0px;
+}
+
+#right-main-button {
+  right: 0px;
+}
+
+#close-button {
+  position: absolute;
+  top: 2em;
+  right:10px;
+  cursor: pointer;
 }
 
 #sale-price {

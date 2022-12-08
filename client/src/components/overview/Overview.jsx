@@ -15,7 +15,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
   const [totalReviews, setTotalReviews] = useState(NaN);
 
 
-  //This behemouth code is grabbing all needed data from API (requested styles, features, and ratings)
+  //This behemouth code is grabbing all needed data from API (requested styles, features, and reviews/ratings)
   useEffect(() => {
 
     if (features === null) {

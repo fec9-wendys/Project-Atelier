@@ -2,27 +2,26 @@ import React, { useState, useEffect } from 'react';
 
 const Features = ({ features }) => {
 
-    return (
-      <div className="grid-container" id="features">
-
-        <div>
+  return (
+    <div className="grid-container" id="features">
+      <div id="feature-grid">
+        <div id="slogan">
           Slogan: {features.slogan}
           <p>
-          Description: {features.description}
+            Description: {features.description}
           </p>
         </div>
 
         <div id="feature-list">
           {features.features.map((feature, index) => {
             return <div key={index}>
-              I am feature name: {feature.feature} <br />
-              I am feature value: {feature.value}
+              {feature.feature}: &nbsp;{feature.value}
             </div>
           })}
         </div>
-
       </div>
-    )
+    </div>
+  )
 }
 
 export default Features

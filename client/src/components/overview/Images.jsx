@@ -31,21 +31,21 @@ const Images = ({ currentProductStyle }) => {
   const handleArrowClick = (e) => {
     const currStartIndex = startIndex;
     const currEndIndex = endIndex;
-    if (e.target.id === 'left-button') {
-      if (currStartIndex - 5 < 0) {
+    if (e.target.id === 'left-thumbnail-button') {
+      if (currStartIndex - 2 < 0) {
         setStartIndex(0);
         setEndIndex(currEndIndex - currStartIndex)
       } else {
-        setStartIndex(currStartIndex - 5);
-        setEndIndex(currEndIndex - 5);
+        setStartIndex(currStartIndex - 2);
+        setEndIndex(currEndIndex - 2);
       }
     } else {
-      if (currEndIndex + 5 > currentProductStyle.photos.length - 1) {
+      if (currEndIndex + 2 > currentProductStyle.photos.length - 1) {
         setEndIndex(currentProductStyle.photos.length - 1);
         setStartIndex(currStartIndex + (currentProductStyle.photos.length - 1 - currEndIndex))
       } else {
-        setStartIndex(currStartIndex + 5);
-        setEndIndex(currEndIndex + 5);
+        setStartIndex(currStartIndex + 2);
+        setEndIndex(currEndIndex + 2);
       }
     }
   }
@@ -89,10 +89,10 @@ const Images = ({ currentProductStyle }) => {
 
       <div className="carousel" id="thumbnail-carousel">
         {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
-          <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-button" onClick={e => handleArrowClick(e)} />
+          <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
         }
         {currentProductStyle.photos.length > 7 && endIndex !== currentProductStyle.photos.length - 1 &&
-          <i className="fa-solid fa-chevron-right carousel-button" name="right-button" id="right-button" onClick={e => handleArrowClick(e)}></i>
+          <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
         }
 
         <div id="carousel-images">
