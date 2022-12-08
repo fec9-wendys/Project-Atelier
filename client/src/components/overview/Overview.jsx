@@ -29,7 +29,6 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
           } else {
             setFeatures(response);
 
-            if (ratings.length === 0) {
               request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, response) => {
                 if (err) {
                   console.log(err);
@@ -40,7 +39,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
                   setTotalReviews(response.results.length);
                 }
               })
-            }
+
           }
         })
       }

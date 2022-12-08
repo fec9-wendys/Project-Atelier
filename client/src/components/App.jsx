@@ -20,19 +20,26 @@ const App = () => {
   const [currentProductStyle, setCurrentProductStyle] = useState(null);
   const [ready, setReady] = useState(false);
 
+
   useEffect(() => {
     request('/products', 'GET', {}, (error, products) => {
       if (error) {
         console.error(error);
       } else {
+        console.log('INITIAL GET RAN')
         setCurrentProduct(products[4]);
       }
     });
   }, []);
 
-  useEffect(() => {
-    setReady(currentProduct !== null);
-  }, [currentProduct]);
+  // useEffect(() => {
+  //   console.log('READY RAN')
+  //   setReady(currentProduct !== null);
+  // }, [currentProduct]);
+
+  useEffect(()=> {
+console.log('CURRENT IS', currentProduct)
+  },[currentProduct])
 
   const request = async (path, method, body = {}, callback = () => {}) => {
     try {
@@ -57,14 +64,18 @@ const App = () => {
     }
   };
 
-  return !ready ? null : (
+  return  (
     <>
+    {currentProduct &&
+    <div>
       <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
       <QuestionsAnswers currentProduct={currentProduct} request={request} />
       <RatingsReviews currentProduct={currentProduct} request={request} />
-    </>
+    </div>
+}</>
+
   );
 
 };

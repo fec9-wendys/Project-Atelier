@@ -16,7 +16,7 @@ const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isam
   useEffect(() => {
     request(`/qa/questions/${question.question_id}/answers/?count=30`, 'GET', {}, (error, answers) => {
       if (!error) {
-        console.log('ANSWERS ARE --->', answers)
+
         setAnswers(answers.results.sort(helpSort));
       } else {
         console.error(error);
@@ -66,7 +66,7 @@ const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isam
     }
   }
   useEffect(()=> {
-    console.log('I RAN', shownanswers)
+
     if(shownanswers.length>2) {
       setShownAnswers(answers.slice(0, shownanswers.length))
     } else{
