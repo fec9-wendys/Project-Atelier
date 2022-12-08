@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactDom from 'react-dom';
 const {useState, useEffect} = React;
 import DynamicStars from './DynamicStars.jsx';
-import CharEntry from './ReviewModal/CharEntry.jsx';
+import CharEntry from './CharEntry.jsx';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -29,7 +29,6 @@ const OVERLAY_STYLES = {
 }
 
 const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setReviews}) => {
-  // const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [rec, setRec] = useState(null);
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');

@@ -7,9 +7,9 @@ const PBEntry = ({charKey, charValue}) => {
   return (
     <div id='PB-entry'>
       {charKey}
-      <div>
+      <div className = ''>
         {Math.round(charValue.value * 100) / 100}
-        <div>
+        <div className = 'product-breakdown-entry-words'>
           {charKey === 'Fit' ? 'Runs Tight : Perfect : Runs Long' : null}
           {charKey === 'Size' ? 'Too narrow : Perfect : A size too wide' : null}
           {charKey === 'Width' ? 'Too narrow : Perfect : Runs Long' : null}

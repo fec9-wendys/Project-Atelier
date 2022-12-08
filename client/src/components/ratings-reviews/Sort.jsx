@@ -41,7 +41,7 @@ const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, 
       <div> </div>
       <strong>{reviews.length} reviews, sorted by </strong>
       <span>
-        <select id = {sort} onChange = {handleChange} >
+        <select id = {sort} className = 'dropdown' onChange = {handleChange} >
           {sortValues.map(sortValue => {
             return (
               <option key = {sortValue.value} value = {sortValue.value}>
