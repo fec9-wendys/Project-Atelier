@@ -55,7 +55,6 @@ const QuestionsAnswers = ({currentProduct, request}) => {
   }
   //INITIAL GET
   useEffect(() => {
-
     request(`/qa/questions/?product_id=${currentProduct.id}&count=30`, 'GET', {}, (error, questions) => {
         if (!error) {
           console.log('QUESTIONS ARE---> ', questions)
@@ -64,7 +63,6 @@ const QuestionsAnswers = ({currentProduct, request}) => {
           console.error(error);
         }
         })
-
   }, [currentProduct])
   // SETTING CORRECT AMT QUESTIONS TO RENDER
   useEffect(() => {
