@@ -72,18 +72,25 @@
   font-size: larger;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.6);
-  bottom: 3.5rem;
-  padding: 15px 8px;
+  bottom: 1.5em;
+  padding: 25px 5px;
   color: rgba(0, 0, 0, 0.7);
   z-index: 3;
 }
 
+.carousel-button:hover,
+.carousel-button:focus {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 #left-thumbnail-button {
-  left: 20px;
+  left: 15px;
 }
 
 #right-thumbnail-button {
-  right: 20px;
+  right: 15px;
 }
 
 .carousel-items {
@@ -121,8 +128,20 @@
   right: 13px;
 }
 
-.style-selector-thumbnail {
+.style-selector-thumbnails {
   position: relative;
+}
+
+.style-selector-thumbnails > img {
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.style-selector-thumbnails >img[data-active] {
+  opacity: 1;
 }
 
 #description {
@@ -164,8 +183,4 @@
   top: 2em;
   right:10px;
   cursor: pointer;
-}
-
-#sale-price {
-  color: red;
 }
