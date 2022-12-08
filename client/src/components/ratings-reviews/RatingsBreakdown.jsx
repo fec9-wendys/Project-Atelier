@@ -64,7 +64,7 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
     <div id='ratings-breakdown'>
       Ratings Breakdown Component
       <div>
-        <strong>{avgReviews}</strong> <QuarterStars rating = {avgReviews}/>
+        <strong>{avgReviews}</strong> <QuarterStars rating = {avgReviews} />
         <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => {return <div key = {index}> Showing {number} Stars Ranking</div>}): null}</div>
         <p> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {

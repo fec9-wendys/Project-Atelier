@@ -32,6 +32,8 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
         if (err) {
           console.error(err);
         } else {
+          console.log(results.results);
+          setReviews(results.results);
           request(`/reviews/meta/?product_id=${currentProduct.id}`, 'GET', {}, (err, results) => {
             if (err) {
               console.error(err);
@@ -41,12 +43,10 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
             }
           });
 
-          console.log(results.results);
-          setReviews(results.results);
         }
       })
     }
-  }, [])
+  }, []);
 
   return (
     <div id='ratings-reviews'>

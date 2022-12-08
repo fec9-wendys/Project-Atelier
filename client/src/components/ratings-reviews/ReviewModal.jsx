@@ -180,7 +180,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
         <button onClick = {onClose}>Close</button>
       </div>
     </>,
-    document.getElementById('review-portal')
+    document.getElementById('portal')
   );
 };
 
