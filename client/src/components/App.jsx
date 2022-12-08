@@ -25,7 +25,7 @@ const App = () => {
       if (error) {
         console.error(error);
       } else {
-        setCurrentProduct(products[0]);
+        setCurrentProduct(products[4]);
       }
     });
   }, []);
