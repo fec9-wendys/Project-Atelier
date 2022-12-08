@@ -1,3 +1,33 @@
+.single-star-outline {
+  height: 36px;
+  width: 31px;
+}
+
+.single-star-fill {
+  position: relative;
+  display: inline-block;
+  height: 36px;
+  background-color: #333333;
+}
+
+.single-star-container {
+  height: 36px;
+  width: 31px;
+  display: inline-block;
+}
+
+
+.single-star-outline-quarter {
+  height: 25px;
+  width: 20px;
+}
+
+.single-star-fill-quarter {
+  position: relative;
+  display: inline-block;
+  height: 25px;
+  background-color: #333333;
+}
 
 /* --------------------grid structure ---------------------*/
 #overview {
@@ -216,7 +246,3 @@
 
 
 
-/* ----------------------------Features----------------------- */
-#slogan {
-  padding-right: 30px;
-}
