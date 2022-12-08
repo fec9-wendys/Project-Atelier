@@ -66,6 +66,7 @@ const App = () => {
       <RatingsReviews currentProduct={currentProduct} request={request} />
     </>
   );
+
 };
 
 export default App;
