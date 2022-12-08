@@ -17,40 +17,34 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
   //This behemouth code is grabbing all needed data from API (requested styles, features, and reviews/ratings)
   useEffect(() => {
+    request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
+      if (err) {
+        console.log(err);
+      } else {
+        setStyles(response.results);
+        setCurrentProductStyle(response.results[0]);
+        request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
+          if (err) {
+            console.log(err);
+          } else {
+            setFeatures(response);
 
-    if (features === null) {
-      request(`/products/${currentProduct.id}/styles`, 'GET', {}, (err, response) => {
-        if (err) {
-          console.log(err);
-        } else {
-          setStyles(response.results);
-          setCurrentProductStyle(response.results[0]);
-
-          if (styles.length === 0) {
-            request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
-              if (err) {
-                console.log(err);
-              } else {
-                setFeatures(response);
-
-                if (ratings.length === 0) {
-                  request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, response) => {
-                    if (err) {
-                      console.log(err);
-                    } else {
-                      setRatings(response.results.map(result => {
-                        return result.rating;
-                      }));
-                      setTotalReviews(response.results.length);
-                    }
-                  })
+            if (ratings.length === 0) {
+              request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, response) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  setRatings(response.results.map(result => {
+                    return result.rating;
+                  }));
+                  setTotalReviews(response.results.length);
                 }
-              }
-            })
+              })
+            }
           }
-        }
-      })
-    }
+        })
+      }
+    })
   }, [currentProduct])
 
 
