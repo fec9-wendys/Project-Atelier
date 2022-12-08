@@ -69,6 +69,8 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
     e.preventDefault();
     if (body.length < 50 ) {
       alert('Review Body must be at least 50 characters')
+    } else if (starRating === null || rec === null || size === null || width === null || comfort === null || quality === null || length === null || fit === null || nickName === '' || email === ''){
+      alert('Fill out mandatory fields');
     } else {
       const charRefs = {
         'size' : size,
@@ -147,7 +149,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
                 setQuality = {setQuality} setLength = {setLength} setFit = {setFit} />;
               })}
               <p>Do you recommend this product?</p>
-                <input type="radio" id="yes-button" name="rec" value = 'Yes' onChange = {(e) => setRec(true)}/>
+                <input type="radio" id="yes-button" name="rec" value = 'Yes' onChange = {(e) => setRec(true)} required/>
                   <label htmlFor = 'Yes'>Yes</label><br></br>
                 <input type="radio" id="no-button" name="rec" value = 'No' onChange = {(e) => setRec(false)}/>
                   <label htmlFor = 'No'>No</label><br></br>
@@ -156,7 +158,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
                 placeholder = 'jackson11!' required onChange = {(e) => setNickName(e.target.value)}/><br></br>
               <div> For privacy reasons, do not use your full name or email address</div>
               <label htmlFor="email">Email:</label><br></br>
-                <input type="text" id="email" name="email" maxLength = '60'
+                <input type="email" id="email" name="email" maxLength = '60'
                 placeholder = 'jackson11@gmail.com' required onChange = {(e) => setEmail(e.target.value)}/><br></br>
               <div> For authentication reasons, you will not be emailed</div>
               <label htmlFor="summary"> Summary: </label><br></br>
@@ -164,7 +166,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
                 placeholder = 'Best Purchase Ever!' onChange = {(e) => setSummary(e.target.value)}/><br></br>
               <label htmlFor="body"> Review Body:</label><br></br>
                 <textarea type="text" id="body" name="body" rows='6' cols='50' maxLength = '1000'
-                placeholder = 'Why did you like the product or not?' onChange = {(e) => setBody(e.target.value)}/><br></br>
+                placeholder = 'Why did you like the product or not?' onChange = {(e) => setBody(e.target.value)} required /><br></br>
               <p id = 'char-requirement'> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${chars}`}</p>
               <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
                 <input id = 'image-upload' type = 'file' onChange = {fileHandler} multiple/>
