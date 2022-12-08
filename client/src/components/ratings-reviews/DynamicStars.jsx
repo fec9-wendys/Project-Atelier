@@ -2,31 +2,20 @@ import React from 'react';
 import axios from 'axios';
 const {useState, useEffect} = React;
 
-const DynamicStars = ({}) => {
+const DynamicStars = ({starRating, setStarRating, shownWord, setShownWord}) => {
   const [starArray, setStarArray] = useState([0, 0, 0, 0, 0]);
   const [oldStarArray, setOldStarArray] = useState([0, 0, 0, 0, 0]);
-
-  const styles = {
-    single_star_outline: {
-      height: '15px',
-      width: '15px',
-    },
-    single_star_fill: {
-      position: 'relative',
-      display: 'inline-block',
-      height: '36px',
-      backgroundColor: '#333333'
-    },
-    single_star_container: {
-      height: '36px',
-      width: '31px',
-      display: 'inline-block'
-    }
-  }
+  const ratingWords = {
+    5: 'Great',
+    4: 'Good',
+    3: 'Average',
+    2: 'Fair',
+    1: 'Poor'
+  };
 
   const handleStarsHover = (e) => {
     e.preventDefault();
-    let rating = parseInt(e.target.value.getAttribute('value')) + 1;
+    let rating = parseInt(e.target.id) + 1;
     let newArr = [];
     while (newArr.length < 5) {
       if (rating > 0) {
@@ -43,6 +32,8 @@ const DynamicStars = ({}) => {
   const handleStarsClick = (e) => {
     e.preventDefault();
     setOldStarArray(starArray);
+    setStarRating(parseInt(e.target.id) + 1);
+    setShownWord(ratingWords[parseInt(e.target.id) + 1])
   }
 
   const handleStarsLeave = (e) => {
@@ -52,19 +43,20 @@ const DynamicStars = ({}) => {
 
   return (
     <div id='DynamicStars-review'>
-      <h1>Rate out of 5 Stars Change?</h1>
       {starArray.map((item, i) => {
           return (
-              <div className="single-star-container" style = {styles.single_star_container} value={i} key={i}
-              onMouseOver={handleStarsHover} onClick={handleStarsClick} onMouseLeave={handleStarsLeave}>
-                  <div className="single-star-fill" style={{"width" : `${parseInt(item*20)}px`}}>
-                      <img className="single-star-outline" src= "star.png" value={i} ></img>
-                  </div>
-              </div>
-          );
-        })}
-    </div>
-  );
+                <div className="single-star-container" value={i} key={i} onMouseOver={handleStarsHover} onClick={handleStarsClick}
+                onMouseLeave={handleStarsLeave}>
+                    <div className="single-star-fill" style={{"width" : `${parseInt(item*31)}px`}}>
+                        <img id = {i} className="single-star-outline" src= "star.png" value={i} ></img>
+                    </div>
+                </div>
+            );
+          })}
+        <span> {shownWord} </span>
+      </div>
+
+  )
 };
 
 export default DynamicStars;

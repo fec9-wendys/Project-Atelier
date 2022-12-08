@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import Starbars from './RatingsBreakdown/Starbars.jsx';
+import Starbars from './Starbars.jsx';
 const {useState, useEffect} = React;
 
 let avgReviews = 0;

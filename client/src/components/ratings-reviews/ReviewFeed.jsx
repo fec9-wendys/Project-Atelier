@@ -47,7 +47,7 @@ const ReviewFeed = ({ reviews, currentProduct, request, metaData}) => {
         })}
       </div>
       {reviews.length > 2 ? <button id = 'more-reviews-btn' onClick = {handleClick}> {reviewButton} </button> : null}
-      <button className = 'open-modal' onClick = {() => SetIsOpen(true)}> Add A Review +</button>
+      <button className = 'open-modal' onClick = {() => SetIsOpen(true)}> + Add A Review </button>
       <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} request = {request}
       metaData = {metaData}/>
     </div>

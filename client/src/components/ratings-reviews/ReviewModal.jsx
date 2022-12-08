@@ -35,6 +35,8 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
   const [summary, setSummary] = useState('');
   const [body, setBody] = useState('');
   const [img, setImg] = useState([]);
+  const [starRating, setStarRating] = useState(null);
+  const [shownWord, setShownWord] = useState(null);
   const [chars, setChars] = useState(50);
   const [size, setSize] = useState(null);
   const [width, setWidth] = useState(null);
@@ -51,13 +53,6 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
     return null;
   }
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    request(`/reviews/?product_id=${currentProduct.id}`, 'POST')
-
-  }
-
   const fileHandler = (e) => {
     if (img.length > 3) {
       document.getElementById('image-upload').disabled = true;
@@ -67,6 +62,52 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
     tempArray.push(URL.createObjectURL(e.target.files[0]));
 
     setImg(tempArray);
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const doc = {
+      product_id: currentProduct.id,
+      rating: starRating,
+      summary: summary,
+      body: body,
+      recommend: rec,
+      name: nickName,
+      email: email,
+      photos: img,
+      characteristics: {
+        '14' : size,
+        '15' : width,
+        '16' : comfort,
+        '17' : quality,
+        '18' : length,
+        '19' : fit
+      }
+    };
+
+    // console.log(currentProduct.id);
+    // console.log(starRating);
+    // console.log(summary);
+    // console.log(body);
+    // console.log(rec);
+    // console.log(nickName);
+    // console.log(email);
+    // console.log(img);
+    // console.log(size);
+    // console.log(width);
+    // console.log(comfort);
+    // console.log(quality);
+    // console.log(length);
+    // console.log(fit);
+
+    // request('/reviews', 'POST', doc , (err, results) => {
+    //   if (!err) {
+    //     console.log(results);
+    //   } else {
+    //     console.error(err);
+    //   }
+    // });
+
   }
 
   return ReactDom.createPortal(
@@ -79,7 +120,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
           How do you rate this product?
         </div>
         <div>
-          <DynamicStars />
+          <DynamicStars starRating = {starRating} setStarRating = {setStarRating} shownWord= {shownWord} setShownWord = {setShownWord}/>
         </div>
         <div>
           <div>

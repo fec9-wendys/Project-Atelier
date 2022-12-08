@@ -12,7 +12,7 @@ const LOG_STYLES = {
 const ReviewEntry = ({review, request, currentProduct, setShownReviews, count}) => {
   const [answerOnce, setAnswerOnce] = useState({ helpful: null, reported: null});
   const [reportText, setReportText] = useState('Report');
-  const [shownBody, setShownBody] = useState(review.body);
+  const [shownBody, setShownBody] = useState(review.body.slice(0,250));
 
 
 
@@ -64,10 +64,10 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count}) 
       <span className = 'entry-stars'> {review.rating} Stars</span>
       <span className = 'entry-log' style = {LOG_STYLES}> {review.reviewer_name}, {properDate()}</span>
       <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
-      <div className = 'entry-body'> {shownBody.length > 250 ? shownBody.slice(0, 250) : review.body} </div>
+      <div className = 'entry-body'> {review.body.length > 250 ? shownBody : review.body} </div>
       <div>
-        {review.body.length > 250 ?
-        <button className = 'entry-body-button' onClick = {() => setShownBody(review.body)}> Show More</button> : null}
+        {shownBody.length === 250 ?
+        <button className = 'entry-body-button' onClick = {() => setShownBody(review.body)}> Show More </button> : null}
       </div>
       <p className = 'entry-rec'> {review.recommend ? '✔️ I recommend this product' : null}</p>
       <p className = 'entry-response-header'> {review.response === null ? null : 'Response from Seller:'}</p>
