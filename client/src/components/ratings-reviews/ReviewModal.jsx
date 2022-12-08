@@ -28,7 +28,8 @@ const OVERLAY_STYLES = {
 
 }
 
-const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
+const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setReviews}) => {
+  // const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   const [rec, setRec] = useState(null);
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
@@ -66,48 +67,63 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const doc = {
-      product_id: currentProduct.id,
-      rating: starRating,
-      summary: summary,
-      body: body,
-      recommend: rec,
-      name: nickName,
-      email: email,
-      photos: img,
-      characteristics: {
-        '14' : size,
-        '15' : width,
-        '16' : comfort,
-        '17' : quality,
-        '18' : length,
-        '19' : fit
+    if (body.length < 50 ) {
+      alert('Review Body must be at least 50 characters')
+    } else {
+      const charRefs = {
+        'size' : size,
+        'Width' : width,
+        'Comfort' : comfort,
+        'Quality' : quality,
+        'Length' : length,
+        'Fit' : fit
+      };
+
+      let tempCharArray = [];
+      for (let char in metaData.characteristics) {
+        tempCharArray.push(char);
       }
-    };
 
-    // console.log(currentProduct.id);
-    // console.log(starRating);
-    // console.log(summary);
-    // console.log(body);
-    // console.log(rec);
-    // console.log(nickName);
-    // console.log(email);
-    // console.log(img);
-    // console.log(size);
-    // console.log(width);
-    // console.log(comfort);
-    // console.log(quality);
-    // console.log(length);
-    // console.log(fit);
+      let charObj = {};
+      for (let char in metaData.characteristics) {
+        var charID = metaData.characteristics[char].id;
+        for (let charEntry of tempCharArray) {
+          if (char === charEntry) {
+            charObj[charID] = charRefs[charEntry];
+          }
+        }
+      }
 
-    // request('/reviews', 'POST', doc , (err, results) => {
-    //   if (!err) {
-    //     console.log(results);
-    //   } else {
-    //     console.error(err);
-    //   }
-    // });
+      const doc = {
+        product_id: currentProduct.id,
+        rating: starRating,
+        summary: summary,
+        body: body,
+        recommend: rec,
+        name: nickName,
+        email: email,
+        photos: img,
+        characteristics: charObj
+      };
 
+      request('/reviews', 'POST', doc , (err, results) => {
+        if (!err) {
+          console.log(results);
+          request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
+            if (err) {
+              console.error(err);
+            } else {
+              setReviews(results.results);
+            }
+          });
+        } else {
+          console.error(err);
+        }
+      });
+
+      onClose();
+
+    }
   }
 
   return ReactDom.createPortal(
@@ -156,7 +172,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData}) => {
                 {img.map((image, index) => {
                   return <img key = {index} src = {image} width = {img ? '100' : '0'} height = {img ? '100' : '0'}/>
                 })}
-              <input type="button" value="Submit Review" onClick = {submitHandler} disabled = {body.length <= 50 || rec === null}/>
+              <input type="button" value="Submit Review" onClick = {submitHandler} />
             </form>
           </div>
         </div>

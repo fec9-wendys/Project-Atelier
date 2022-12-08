@@ -15,3 +15,22 @@
   width: 31px;
   display: inline-block;
 }
+
+
+.single-star-outline-quarter {
+  height: 25px;
+  width: 20px;
+}
+
+.single-star-fill-quarter {
+  position: relative;
+  display: inline-block;
+  height: 25px;
+  background-color: #333333;
+}
+
+.single-star-container-quarter {
+  height: 25px;
+  width: 20px;
+  display: inline-block;
+}
