@@ -7,16 +7,19 @@ const StyleSelector = ({ currentProductStyle, setCurrentProductStyle, styles }) 
   }
 
   return (
-    <div>
+    <div className="grid-container" id="style-selector">
       {styles.map((style, index) => {
         return (
-          <>
-            <img style={thumbnailStyle} className="thumbnail style-selector" alt="No photo available" src={style.photos[0].thumbnail_url} onClick={e => handleClick(index)} />
+          <div key={index} className="style-selector-thumbnail">
+            <img style={thumbnailStyle}  alt="No photo available" src={style.photos[0].thumbnail_url} onClick={e => handleClick(index)} />
+
             {currentProductStyle.style_id === style.style_id ?
-              <i style={{ color: '#08B6EB' }} className="fa-solid fa-circle-check" />
+              <div id="checkmark">
+                <i style={{ color: '#08B6EB' }}  className="fa-solid fa-circle-check" />
+              </div>
               : <></>
             }
-          </>
+          </div>
         )
       })}
 

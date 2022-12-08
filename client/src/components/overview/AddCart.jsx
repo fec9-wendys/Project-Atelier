@@ -11,6 +11,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
   const [currQuantity, setCurrentQuantity] = useState(NaN);
   const [currSKU, setCurrSKU] = useState(NaN);
 
+  //sets state for stock on component mount
   useEffect(() => {
     const supply = {};
     const values = Object.values(currentProductStyle.skus);
@@ -22,6 +23,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
     setStock(supply);
   }, [])
 
+  //looks at the size selected to set the correct sku_id, which contains size and quantity properties
   useEffect(() => {
     const skukeys = Object.keys(currentProductStyle.skus);
     for (let i = 0; i < skukeys.length; i++) {
@@ -64,6 +66,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
     }
   }
 
+  //'Add to Outfit' Click function
   const handleOutfitClick = (e) => {
     if (outfit.length === 0) {
       setOutfit([currentProduct]);
@@ -85,7 +88,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
 
   if (stock !== null) {
     return (
-      <div>
+      <div className="grid-container" id="cart">
         {/* dropdown menu for size */}
         <label htmlFor="size-dropdown">Size: </label>
         <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>

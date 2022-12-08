@@ -70,16 +70,21 @@ const Images = ({ currentProductStyle }) => {
   }
 
   return (
-    <div id="gallery">
-      <div id="main-image">
-        {currentMainIndex !== 0 &&
-          <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
-        }
-        {currentMainIndex !== currentProductStyle.photos.length - 1 &&
-          <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
-        }
-        <img style={{ objectFit: 'contain', maxWidth: 300, height: 'auto', cursor: 'zoom-in' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} onClick={() => setIsOpen(true)} />
-        <i id="expand" className="fa-solid fa-expand" onClick={() => setIsOpen(true)}></i>
+    <div className="grid-container" id="gallery">
+      <div id="main-photo">
+        <img alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} onClick={() => setIsOpen(true)} />
+
+        <div id="main-buttons">
+          {currentMainIndex !== 0 &&
+            <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-main-button" onClick={e => handleMainArrowClick(e)} />
+          }
+          {currentMainIndex !== currentProductStyle.photos.length - 1 &&
+            <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-main-button" onClick={e => handleMainArrowClick(e)}></i>
+          }
+        </div>
+        <div id="expand">
+          <i className="fa-solid fa-expand" onClick={() => setIsOpen(true)}></i>
+        </div>
       </div>
 
       <div className="carousel" id="thumbnail-carousel">

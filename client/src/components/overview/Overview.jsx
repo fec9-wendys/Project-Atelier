@@ -12,6 +12,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
   const [ratings, setRatings] = useState([]);
   const [styles, setStyles] = useState([]);
   const [features, setFeatures] = useState(null);
+  const [totalReviews, setTotalReviews] = useState(NaN);
 
 
   //This behemouth code is grabbing all needed data from API (requested styles, features, and ratings)
@@ -33,15 +34,14 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
                 setFeatures(response);
 
                 if (ratings.length === 0) {
-                  request(`/reviews/?product_id=${currentProduct.id}`, 'GET', {}, (err, response) => {
+                  request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, response) => {
                     if (err) {
                       console.log(err);
                     } else {
                       setRatings(response.results.map(result => {
                         return result.rating;
                       }));
-
-
+                      setTotalReviews(response.results.length);
                     }
                   })
                 }
@@ -60,8 +60,8 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
       {currentProductStyle !== null &&
         <Images currentProductStyle={currentProductStyle} />
       }
-      {ratings.length !== 0 &&
-        <Reviews ratings={ratings} />
+      {ratings.length !== 0 && totalReviews &&
+        <Reviews ratings={ratings} totalReviews={totalReviews}/>
       }
       {features !== null &&
         <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />

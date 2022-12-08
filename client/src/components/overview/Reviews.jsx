@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Reviews = ({ ratings }) => {
+const Reviews = ({ ratings, totalReviews }) => {
 
   const avgRatings = (ratings.reduce((sum, current) => {
     return sum + current;
@@ -12,7 +12,7 @@ const Reviews = ({ ratings }) => {
   const emptyStarsCount = 5 - filledStarsCount - halfStarsCount;
 
   return (
-    <div>
+    <div className="grid-container" id="ratings">
       I am ratings average: {roundedRatings}<br />
       {Array.apply(1, Array(filledStarsCount)).map((star, index) => {
         return <i key={index} className="fa-solid fa-star"></i>
@@ -24,7 +24,7 @@ const Reviews = ({ ratings }) => {
       {Array.apply(1, Array(emptyStarsCount)).map((star, index) => {
         return <i key={index} className="fa-regular fa-star"></i>
       })}
-      <a href="#ratings-reviews">Click here to jump to ratings and reviews</a>
+      &emsp;<a href="#ratings-reviews">Read All {totalReviews} Reviews</a>
       <div id="icons">
         <a href="https://www.facebook.com/"><i className="fa-brands fa-square-facebook icon" id="facebook-icon" /></a>
         <a href="https://www.twitter.com"><i className="fa-brands fa-square-twitter icon" id="twitter-icon"></i></a>

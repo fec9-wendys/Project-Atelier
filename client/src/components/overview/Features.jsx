@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Features = ({ features }) => {
 
     return (
-      <div id="features">
+      <div className="grid-container" id="features">
 
         <div>
           Slogan: {features.slogan}

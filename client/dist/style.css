@@ -1,0 +1,84 @@
+#overview {
+  display: grid;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 100px;
+  max-width: 1200px;
+  gap: 10px;
+  line-height: 2em;
+}
+
+.grid-container {
+  position: relative;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+
+#gallery {
+  grid-row: 1 / 5;
+}
+
+#main-photo img{
+  object-fit: contain;
+  max-width: 700px;
+  max-height: 700px;
+  cursor: zoom-in;
+}
+
+#expand {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+#carousel-images {
+  position: absolute;
+  bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-items {
+  padding: 5px;
+}
+
+#ratings {
+  grid-row: 1 / 2;
+  font-size: 0.8em;
+  line-height: 1.3em;
+}
+
+#style-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.style-selector-thumbnail {
+  position: relative;
+  padding: 7px 5px;
+}
+
+#checkmark {
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  top: 0px;
+  right: 13px;
+}
+
+.style-selector-thumbnail {
+  position: relative;
+}
+
+#description {
+  grid-row: 2 / 3;
+  line-height: 3em;
+}
+
+#features {
+  grid-column: 1 / 3;
+}
+
+#sale-price {
+  color: red;
+}
