@@ -56,11 +56,14 @@ const Details = ({ index, product, ratings, setCurrentProduct, inOutfit, outfit,
       ReactSession.set('outfit', newOutfit);
     }
   };
-
+  const handleNameClick = () => {
+    document.getElementById('size-dropdown').value = 'select-size'
+    setCurrentProduct(product)
+  }
   return (
     <Container>
       <Category>{product?.category}</Category>
-      <Name onClick={() => setCurrentProduct(product)}>{product?.name}</Name>
+      <Name onClick={handleNameClick}>{product?.name}</Name>
       <Price>{renderPrice()}</Price>
       <Rating>{renderAverageRating()}</Rating>
       <Icon><i className={!inOutfit ? "fa-solid fa-crown" : "fa-solid fa-trash-can"} onClick={handleClick}></i></Icon>
