@@ -11,29 +11,12 @@ font-size: 1.5em;
 text-align: center;
 color: palevioletred;
 `;
-const Button = styled.button`
-border: 4px solid #e8ecf2;
-  color: #73787d;
-  background-color: #e8ecf2;
-  width: 80px;
-  height: 40px;
-  border-radius: 9999px;
-  box-shadow:  -5px -5px 10px rgba(255,255,255,0.8),
-                5px 5px 10px rgba(0,0,0,0.25);
-   &:hover {
-    color: #46719b;
-    box-shadow:  -1px -1px 5px rgba(255,255,255,0.6),
-     1px 1px 5px rgba(0,0,0,0.3),
-     inset -2px -2px 5px rgba(255,255,255,0.6),
-     inset 2px 2px 4px rgba(0,0,0,0.3);
-   }
 
-`;
 const Container = styled.div`
 font-size: 1.5em;
 text-align: center;
 
-font-family: 'Lato', sans-serif;
+
 `;
 
 
@@ -142,7 +125,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       <Title>Questions & Answers Component</Title>
       <div>
       <input type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
-      <Button onClick={handleSearchClick}>{searchButton}</Button>
+      <button className="btn" onClick={handleSearchClick}>{searchButton}</button>
       </div>
       <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
       <div>{!none && shownQuestion.map((question, key) =>
