@@ -28,6 +28,10 @@ const Images = ({ currentProduct, currentProductStyle }) => {
       } else {
         setEndIndex(6);
       }
+      return;
+    } else if (currentMainIndex < startIndex) {
+      setStartIndex(currentMainIndex);
+      setEndIndex(Math.min(currentMainIndex + 6, currentProductStyle.photos.length - 1));
     }
   }, [currentProductStyle])
 

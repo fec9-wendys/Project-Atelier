@@ -24,13 +24,13 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
       } else {
         setStyles(response.results);
         setCurrentProductStyle(response.results[0]);
+
         request(`/products/${currentProduct.id}`, 'GET', {}, (err, response) => {
           if (err) {
             console.log(err);
           } else {
             setFeatures(response);
-
-              request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, response) => {
+              request(`/reviews/?product_id=${currentProduct.id}&count=1000`, 'GET', {}, (err, response) => {
                 if (err) {
                   console.log(err);
                 } else {
@@ -40,7 +40,6 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
                   setTotalReviews(response.results.length);
                 }
               })
-
           }
         })
       }

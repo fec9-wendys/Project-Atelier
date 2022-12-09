@@ -13,6 +13,8 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
 
   //sets state for stock on component mount when page loads or product/style changes
   useEffect(() => {
+    // setStock(null);
+    // setCurrSKU(NaN);
     setCurrSize('select-size');
     const supply = {};
     const values = Object.values(currentProductStyle.skus);
@@ -22,7 +24,9 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
       supply[sized] = quantity;
     })
     setStock(supply); //object that countains size: quanity pairs
-  }, [currentProductStyle, currentProduct])
+  }, [currentProduct])
+
+
 
   //looks at the size selected to set the correct sku_id, which contains size and quantity properties
   useEffect(() => {
@@ -35,7 +39,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
     }
   }, [currSize])
 
-  //called when user selects size from dropdown to change quanity settings on dropdown
+  //called when user selects size from dropdown to change quantity settings on dropdown
   const updateQuantity = (e) => {
     let selectedSize = e.target.value;
     setCurrSize(selectedSize);
@@ -60,8 +64,9 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
         if (err) {
           console.log(err);
         } else {
-          window.location.reload()
-          return false;
+          // window.location.reload()
+          // return false;
+          setCurrSize('select-size');
         }
       })
     }
@@ -87,52 +92,55 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
     }
   }
 
-  if (stock !== null) {
-    return (
-      <div className="grid-container" id="cart">
-        {/* dropdown menu for size */}
-        <label htmlFor="size-dropdown">Size: </label>
-        <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
-          {Object.keys(stock).includes('null') ?
-            <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
-            :
-            <>
-              <option value="select-size" id="select-size" defaultValue>Select Size</option>
-              {Object.keys(stock).map((size, index) => {
-                if (stock[size] !== 0) {
-                  return <option key={index} value={size} id={size}>{size}</option>
-                }
-              })}
-            </>
-          }
-        </select>
+  return (
+    <div>
 
-        {/* dropdown menu for quantity */}
-        <label htmlFor="quantity-dropdown"> Quantity: </label>
-        <select className="dropdown" id="quantity-dropdown">
-          {currSize === 'select-size' ?
-            <option value="select-quantity" id="default-quantity" defaultValue>-</option>
-            : <>
-              {Array.apply(1, Array(currQuantity)).map((current, index) => {
-                return <option key={index} value={index + 1}>{index + 1}</option>
-              })
-              }
-            </>
-          }
-        </select>
-
+    { stock &&
+    <div className="grid-container" id="cart">
+      {/* {console.log('i am stock', stock)} */}
+      {/* dropdown menu for size */}
+      <label htmlFor="size-dropdown">Size: </label>
+      <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
         {Object.keys(stock).includes('null') ?
-          <></>
+          <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
           :
-          <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+          <>
+            <option value="select-size" id="select-size" defaultValue>Select Size</option>
+            {Object.keys(stock).map((size, index) => {
+              if (stock[size] !== 0) {
+                return <option key={index} value={size} id={size}>{size}</option>
+              }
+            })}
+          </>
         }
-        <div id="add-outfit">
-          <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit</button>
-        </div>
-      </div>
-    )
+      </select>
 
-  } else return <></>
+      {/* dropdown menu for quantity */}
+      <label htmlFor="quantity-dropdown"> Quantity: </label>
+      <select className="dropdown" id="quantity-dropdown">
+        {currSize === 'select-size' ?
+          <option value="select-quantity" id="default-quantity" defaultValue>---</option>
+          : <>
+            {Array.apply(1, Array(currQuantity)).map((current, index) => {
+              return <option key={index} value={index + 1}>{index + 1}</option>
+            })
+            }
+          </>
+        }
+      </select>
+
+      {Object.keys(stock).includes('null') ?
+        <></>
+        :
+        <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+      }
+      <div id="add-outfit">
+        <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
+      </div>
+    </div>
+    }
+    </div>
+    )
 }
 
 export default AddCart

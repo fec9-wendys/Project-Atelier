@@ -21,7 +21,7 @@ const Description = ({ currentProduct, currentProductStyle }) => {
       {currentProductStyle.sale_price ?
         <div className="product-price">
           <s>${currentProductStyle.original_price}</s>
-          <span style={{paddingLeft: 8, color: 'red'}}id="sale-price">${currentProductStyle.sale_price}</span>
+          <span style={{paddingLeft: 8, color: 'red'}} id="sale-price">${currentProductStyle.sale_price}</span>
         </div>
         :
         <div className="product-price">
