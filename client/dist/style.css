@@ -1,3 +1,7 @@
+
+body {
+  font-family: 'Lato', sans-serif;
+}
 .single-star-outline {
   height: 36px;
   width: 31px;
@@ -38,7 +42,6 @@
 /* --------------------grid structure ---------------------*/
 #overview {
   display: grid;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 100px;
   max-width: 1200px;
