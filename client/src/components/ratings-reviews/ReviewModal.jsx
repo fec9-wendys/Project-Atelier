@@ -68,7 +68,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
     e.preventDefault();
     if (body.length < 50 ) {
       alert('Review Body must be at least 50 characters')
-    } else if (starRating === null || rec === null || size === null || width === null || comfort === null || quality === null || length === null || fit === null || nickName === '' || email === ''){
+    } else if (starRating === null || rec === null || nickName === '' || email === ''){
       alert('Fill out mandatory fields');
     } else {
       const charRefs = {
@@ -130,7 +130,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
   return ReactDom.createPortal(
     <>
       <div style = {OVERLAY_STYLES} />
-      <div id='review-modal' style = {MODAL_STYLES}>
+      <div id='review-modal' className = 'modal' style = {MODAL_STYLES}>
         <h1> Write your Review </h1>
         <h2> about the {currentProduct.name}</h2>
         <div>
@@ -173,14 +173,14 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
                 {img.map((image, index) => {
                   return <img key = {index} src = {image} width = {img ? '100' : '0'} height = {img ? '100' : '0'}/>
                 })}
-              <input type="button" value="Submit Review" onClick = {submitHandler} />
+              <input type="button" className = 'btn' value="Submit Review" onClick = {submitHandler} />
             </form>
           </div>
         </div>
         <button onClick = {onClose}>Close</button>
       </div>
     </>,
-    document.getElementById('review-portal')
+    document.getElementById('portal')
   );
 };
 

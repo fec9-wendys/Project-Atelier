@@ -3,12 +3,9 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewModal from './ReviewModal.jsx';
+import {RFContainer} from './styles/Container.js';
+import {ReviewEntries} from './styles/Reviewfeed';
 const {useState, useEffect} = React;
-
-const ENTRIES_STYLES = {
-  height: '325px',
-  overflow: 'auto'
-}
 
 const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, setReviews}) => {
   const [count, setCount] = useState(2);
@@ -39,18 +36,18 @@ const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, 
   }
 
   return (
-    <div id='review-feed'>
-      <div id = 'review-entries' style = {ENTRIES_STYLES}>
+    <RFContainer>
+      <ReviewEntries>
         {shownReviews.map((review, index) => {
           return <ReviewEntry review = {review} key = {index} request = {request} currentProduct = {currentProduct}
-          setShownReviews = {setShownReviews} count = {count} QuarterStars = {QuarterStars}/>;
+          setShownReviews = {setShownReviews} count = {count} QuarterStars = {QuarterStars} />;
         })}
-      </div>
-      {reviews.length > 2 ? <button id = 'more-reviews-btn btn' onClick = {handleClick}> {reviewButton} </button> : null}
+      </ReviewEntries>
+      {reviews.length > 2 ? <button id = 'more-reviews-btn' className = 'btn' onClick = {handleClick}> {reviewButton} </button> : null}
       <button className = 'open-modal btn' onClick = {() => SetIsOpen(true)}> + Add A Review </button>
       <ReviewModal isOpen = {isOpen} onClose = {() => {SetIsOpen(false)}} currentProduct = {currentProduct} request = {request}
       metaData = {metaData} setReviews = {setReviews}/>
-    </div>
+    </RFContainer>
   );
 };
 

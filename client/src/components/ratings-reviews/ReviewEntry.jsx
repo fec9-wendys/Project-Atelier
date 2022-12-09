@@ -1,18 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import ReviewImageModal from './ReviewImageModal.jsx';
+import {EntriesLog} from './styles/Reviewfeed';
 const {useState, useEffect} = React;
-
-const LOG_STYLES = {
-  position: 'relative',
-  top: 0,
-  right: 0,
-}
 
 const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, QuarterStars}) => {
   const [answerOnce, setAnswerOnce] = useState({ helpful: null, reported: null});
   const [reportText, setReportText] = useState('Report');
   const [shownBody, setShownBody] = useState(review.body.slice(0,250));
+  const [imgOpen, setImgOpen] = useState(false);
+  const [mainImg, setMainImg] = useState('');
 
 
 
@@ -59,24 +57,31 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, Q
     }
   }
 
+  const imgClickHandler = (e) => {
+    setImgOpen(true);
+    setMainImg(e.target.src);
+  }
+
   return (
-    <div id='review-entry'>
+    <div id='review-entry-container'>
       <QuarterStars rating = {review.rating} />
-      <span className = 'entry-log' style = {LOG_STYLES}> {review.reviewer_name}, {properDate()}</span>
-      <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
-      <div className = 'entry-body'> {review.body.length > 250 ? shownBody : review.body} </div>
+      <span className = 'entry-log body'> {review.reviewer_name}, {properDate()}</span>
+      <div className = 'entry-summary body'> <strong>{review.summary}</strong> </div>
+      <div className = 'entry-body body'> {review.body.length > 250 ? shownBody : review.body} </div>
       <div>
         {shownBody.length === 250 ?
-        <button className = 'entry-body-button' onClick = {() => setShownBody(review.body)}> Show More </button> : null}
+        <button className = 'entry-body-button btn' onClick = {() => setShownBody(review.body)}> Show More </button> : null}
       </div>
-      <p className = 'entry-rec'> {review.recommend ? '✔️ I recommend this product' : null}</p>
-      <p className = 'entry-response-header'> {review.response === null ? null : 'Response from Seller:'}</p>
-      <p className = 'entry-response-body'>{review.response}</p>
+      <p className = 'entry-rec body'> {review.recommend ? '✔️ I recommend this product' : null}</p>
+      <p className = 'entry-response-header body'> {review.response === null ? null : 'Response from Seller:'}</p>
+      <p className = 'entry-response-body body'>{review.response}</p>
       <div className = 'entry-photos'> {review.photos.map((image, index) => {
-                  return <img key = {index} src = {image.url} width = {review.photos ? '100' : '0'} height = {review.photos ? '100' : '0'}/>
+                  return <img key = {index} src = {image.url} width = {review.photos ? '100' : '0'}
+                  height = {review.photos ? '100' : '0'} onClick = {imgClickHandler} />
                 })}
       </div>
-      <p>Helpful? <u onClick = {clickHelpHandler}>Yes</u> ({review.helpfulness}) | <u onClick = {clickReportHandler}>{reportText}</u> </p>
+      <p className = 'body'>Helpful? <u onClick = {clickHelpHandler}>Yes</u> ({review.helpfulness}) | <u onClick = {clickReportHandler}>{reportText}</u> </p>
+      <ReviewImageModal imgOpen = {imgOpen} onClose= {()=> setImgOpen(false)} mainImg = {mainImg}/>
     </div>
   );
 };

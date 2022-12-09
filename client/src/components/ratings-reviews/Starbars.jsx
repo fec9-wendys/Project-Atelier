@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 const {useState, useEffect} = React;
+import ProgressBar from './ProgressBar.jsx';
 
 const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShownFilter}) => {
 
@@ -26,15 +27,14 @@ const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShow
 
   }
 
-  const onMouseOverHandler = (e) => {
-    e.backgroundColor = 'blue';
-  }
-
   return (
     <div id='star-breakdown'>
       <div className = 'stars-summary'>
-        <u onClick = {filterHandler} onMouseOver = {onMouseOverHandler}>{rating} Stars</u>
-        <span id = 'star-bars'>{ratingStats[rating]}/{totalReviews}</span> {ratingStats[rating]}
+        <u onClick = {filterHandler}>{rating} Stars</u>
+        {/* <span id = 'star-bars'> */}
+        <ProgressBar bgcolor="orange" progress= {Math.round((ratingStats[rating]/totalReviews) * 100)} height={25} />
+        {/* </span> */}
+        <span style = {{'position' : 'absolute','right':'0px','textAlign': 'right'}}> {ratingStats[rating]} </span>
       </div>
     </div>
   );
