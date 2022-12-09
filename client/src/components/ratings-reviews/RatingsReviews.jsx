@@ -8,6 +8,7 @@ import ReviewFeed from './ReviewFeed.jsx';
 import Sort from './Sort.jsx';
 import DynamicStars from './DynamicStars.jsx';
 import QuarterStars from './QuarterStars.jsx';
+import {ParentContainer} from './styles/Container'
 
 
 // eslint-disable-next-line react/prop-types
@@ -49,7 +50,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
   }, [currentProduct]);
 
   return (
-    <div id='ratings-reviews'>
+    <ParentContainer>
       Ratings and Reviews Component
       <RatingsBreakdown metaData = {metaData} reviews = {reviews} setReviews = {setReviews} request = {request}
       currentProduct = {currentProduct} filter = {filter} setFilter = {setFilter} shownFilter = {shownFilter}
@@ -61,7 +62,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
       setFilter ={setFilter} setShownFilter = {setShownFilter} sort = {sort} setSort = {setSort} sortValues = {sortValues}/>
       &nbsp;
       <ReviewFeed reviews = {reviews} setReviews = {setReviews} currentProduct = {currentProduct} request = {request} metaData = {metaData} QuarterStars = {QuarterStars}/>
-    </div>
+    </ParentContainer>
   );
 };
 

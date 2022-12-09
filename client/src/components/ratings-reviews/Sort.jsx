@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 const {useState, useEffect} = React;
+import {SortContainer} from './styles/Container';
 
 const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues}) => {
 
@@ -37,7 +38,7 @@ const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, 
   }
 
   return (
-    <div id='sort-list'>
+    <SortContainer>
       <div> </div>
       <strong>{reviews.length} reviews, sorted by </strong>
       <span>
@@ -51,7 +52,7 @@ const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, 
           })}
         </select>
       </span>
-    </div>
+    </SortContainer>
   );
 };
 

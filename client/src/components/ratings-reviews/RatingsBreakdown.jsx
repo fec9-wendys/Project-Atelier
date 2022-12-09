@@ -74,13 +74,13 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
     setRecPercent(recPercentCount);
     // setRatingStats(metaData.ratings);
     // setRecStats(metaData.recommended);
-  }, [recPercentCount, reviews])
+  }, [recPercentCount, currentProduct])
 
   return (
-    <div id='ratings-breakdown'>
+    <div id='ratings-breakdown-container'>
       Ratings Breakdown Component
       <div>
-        <strong>{avgReviews}</strong> <QuarterStars rating = {avgReviews} />
+      <strong style = {{"font-size" : "30px"}}>{avgReviews} out of 5</strong> <QuarterStars rating = {avgReviews} />
         <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => {return <div key = {index}> Showing {number} Stars Reviews</div>}): null}</div>
         <p> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {

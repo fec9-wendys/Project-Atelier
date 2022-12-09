@@ -16,6 +16,12 @@
   display: inline-block;
 }
 
+.single-star-container-quarter {
+  height: 36px;
+  width: 31px;
+  display: inline-block;
+}
+
 
 .single-star-outline-quarter {
   height: 25px;

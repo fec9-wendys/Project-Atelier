@@ -30,7 +30,10 @@ const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShow
     <div id='star-breakdown'>
       <div className = 'stars-summary'>
         <u onClick = {filterHandler}>{rating} Stars</u>
-        <span id = 'star-bars'>{ratingStats[rating]}/{totalReviews}</span> {ratingStats[rating]}
+        <span id = 'star-bars'>
+          {ratingStats[rating]}/{totalReviews}
+        </span>
+        <span> {ratingStats[rating]} </span>
       </div>
     </div>
   );
