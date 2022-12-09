@@ -130,7 +130,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
   return ReactDom.createPortal(
     <>
       <div style = {OVERLAY_STYLES} />
-      <div id='review-modal' style = {MODAL_STYLES}>
+      <div id='review-modal' className = 'modal' style = {MODAL_STYLES}>
         <h1> Write your Review </h1>
         <h2> about the {currentProduct.name}</h2>
         <div>
@@ -173,7 +173,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
                 {img.map((image, index) => {
                   return <img key = {index} src = {image} width = {img ? '100' : '0'} height = {img ? '100' : '0'}/>
                 })}
-              <input type="button" value="Submit Review" onClick = {submitHandler} />
+              <input type="button" className = 'btn' value="Submit Review" onClick = {submitHandler} />
             </form>
           </div>
         </div>

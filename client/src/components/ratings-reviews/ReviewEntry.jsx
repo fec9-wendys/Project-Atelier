@@ -70,7 +70,7 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, Q
       <div className = 'entry-body'> {review.body.length > 250 ? shownBody : review.body} </div>
       <div>
         {shownBody.length === 250 ?
-        <button className = 'entry-body-button' onClick = {() => setShownBody(review.body)}> Show More </button> : null}
+        <button className = 'entry-body-button btn' onClick = {() => setShownBody(review.body)}> Show More </button> : null}
       </div>
       <p className = 'entry-rec'> {review.recommend ? '✔️ I recommend this product' : null}</p>
       <p className = 'entry-response-header'> {review.response === null ? null : 'Response from Seller:'}</p>

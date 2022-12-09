@@ -29,7 +29,7 @@ const ReviewImageModal = ({imgOpen, onClose, mainImg}) => {
   return ReactDOM.createPortal(
     <>
       <div style={OVERLAY_STYLES} onClick={onClose}/>
-      <div style={MODAL_STYLES} id="main-image-portal">
+      <div style={MODAL_STYLES} id="main-image-portal" className = 'modal'>
         {/* main image in modal */}
         <img style={{ objectFit: 'contain', height: '90vh', width: '90vw', cursor: 'crosshair' }} src= {mainImg} />
 

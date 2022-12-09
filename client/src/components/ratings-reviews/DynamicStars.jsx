@@ -47,8 +47,8 @@ const DynamicStars = ({starRating, setStarRating, shownWord, setShownWord}) => {
           return (
                 <div className="single-star-container" value={i} key={i} onMouseOver={handleStarsHover} onClick={handleStarsClick}
                 onMouseLeave={handleStarsLeave}>
-                    <div className="single-star-fill" style={{"width" : `${parseInt(item*31)}px`}}>
-                        <img id = {i} className="single-star-outline" src= "star.png" value={i} ></img>
+                    <div className="single-star-fill icon" style={{"width" : `${parseInt(item*31)}px`}}>
+                        <img id = {i} className="single-star-outline icon" src= "star.png" value={i} ></img>
                     </div>
                 </div>
             );

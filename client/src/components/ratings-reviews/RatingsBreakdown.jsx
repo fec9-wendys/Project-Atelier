@@ -10,6 +10,7 @@ let recPercent = 0;
 
 const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars, ratingStats, recStats, avgReviews, totalReviews, recPercent}) => {
 
+
   useEffect(() => {
     console.log('RATINGS BREAKDOWN USE EFFECT RAN')
     request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {

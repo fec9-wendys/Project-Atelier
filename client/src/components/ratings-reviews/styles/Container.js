@@ -33,7 +33,7 @@ export const RBContainer = styled.div`
 
 export const PBContainer = styled.div`
   position: absolute;
-  top: 350px;
+  top: 500px;
   left: 100px;
   width: 300px;
 `

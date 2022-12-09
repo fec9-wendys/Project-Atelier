@@ -79,6 +79,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
     // }
   }, [currentProduct]);
 
+
   return (
     <ParentContainer>
       <RatingsBreakdown metaData = {metaData} reviews = {reviews} setReviews = {setReviews} request = {request}
