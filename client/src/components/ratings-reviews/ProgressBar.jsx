@@ -6,32 +6,35 @@ const ProgressBar = ({bgcolor, progress, height}) => {
 
   const Parentdiv = {
     height: height,
-    width: '100%',
-    backgroundColor: 'blue',
-    borderRadius: 40,
-    margin: 50
+    width: '150px',
+    backgroundColor: 'whitesmoke',
+    borderRadius: 10,
+    overflow: 'hidden',
+    whiteSpace: 'nowrap'
   }
 
   const Childdiv = {
-    height: '100%',
+    height: '20px',
     width: `${progress}%`,
     backgroundColor: bgcolor,
-    borderRadius: 40,
-    textAlign: 'left'
+    borderRadius: 10,
+    textAlign: 'right',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap'
   }
 
   const progresstext = {
-    padding: 10,
+    padding: 3,
     color: 'black',
     fontWeight: 300
   }
 
   return (
-    <span style={Parentdiv}>
-      <span style={Childdiv}>
+    <div style={Parentdiv}>
+      <div style={Childdiv}>
         <span style={progresstext}>{`${progress}%`}</span>
-      </span>
-    </span>
+      </div>
+    </div>
   );
 };
 

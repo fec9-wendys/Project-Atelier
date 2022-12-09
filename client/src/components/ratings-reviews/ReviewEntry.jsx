@@ -2,14 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewImageModal from './ReviewImageModal.jsx';
-{/* <ReviewImageModal imgOpen = {imgOpen} onClose = {() => {setImgOpen(true)}}/> */}
+import {EntriesLog} from './styles/Reviewfeed';
 const {useState, useEffect} = React;
-
-const LOG_STYLES = {
-  position: 'relative',
-  top: 0,
-  right: 0,
-}
 
 const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, QuarterStars}) => {
   const [answerOnce, setAnswerOnce] = useState({ helpful: null, reported: null});
@@ -71,7 +65,7 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, Q
   return (
     <div id='review-entry-container'>
       <QuarterStars rating = {review.rating} />
-      <span className = 'entry-log' style = {LOG_STYLES}> {review.reviewer_name}, {properDate()}</span>
+      <span className = 'entry-log'> {review.reviewer_name}, {properDate()}</span>
       <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
       <div className = 'entry-body'> {review.body.length > 250 ? shownBody : review.body} </div>
       <div>
