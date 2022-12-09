@@ -55,7 +55,7 @@ const QuestionModal = ({setQuestions, request, currentProduct, isqmodal, setIsQM
     console.log(questionemail, questioncomment, questionname, currentProduct.id)
   }
 return ReactDom.createPortal(
-  <>
+  <div className="modal">
   <div style={overlayStyle}/>
   <div style={modal1Styles}>
   <form onSubmit={handleSubmit}>
@@ -92,11 +92,11 @@ return ReactDom.createPortal(
            onChange={(e)=>{setQuestionEmail(e.target.value) }} required/><br/>
     <small>For authentication reasons, you will not be emailed</small>
   </label><br/>
-  <input type='submit'/>
+  <input className="btn" type='submit'/>
   </form>
-    <button onClick={handleCloseClick}>Close Modal</button>
+    <button className="btn" onClick={handleCloseClick}>Close Modal</button>
   </div>
-  </>,
+  </div>,
   document.getElementById('questionportal')
 )
 }

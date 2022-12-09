@@ -73,6 +73,9 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         setEndIndex(endIndex - (startIndex - newIndex))
       }
     } else {
+      console.log('LENGTH IS', currentProductStyle.photos)
+      console.log('START INDEX IS', startIndex)
+
       newIndex = currentMainIndex + 1
       setCurrentMainIndex(newIndex);
       if (newIndex > endIndex) {
@@ -111,7 +114,11 @@ const Images = ({ currentProduct, currentProductStyle }) => {
 
         {/* Actual Carousel Images */}
         <div id="carousel-images">
-          {currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
+          {currentProductStyle.photos.length < 7 &&
+          currentProductStyle.photos.map((photo, index) => {
+            return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+          })}
+          {currentProductStyle.photos.length >= 7 && currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
             return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
           })}
         </div>

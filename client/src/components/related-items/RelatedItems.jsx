@@ -38,6 +38,7 @@ const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, re
 
   const renderCarousel = () => {
     return (
+      <div className="relatedproducts">
       <Carousel>
         {relatedProductIds.length === 0 ? <p>There are no related products to display</p> : (
           <>
@@ -49,6 +50,7 @@ const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, re
           </>
         )}
       </Carousel>
+      </div>
     );
   };
 

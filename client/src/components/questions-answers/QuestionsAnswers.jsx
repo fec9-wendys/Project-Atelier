@@ -128,12 +128,12 @@ const QuestionsAnswers = ({currentProduct, request}) => {
 
 
   return (
-
+    <div className='questionsanswers'>
     <div  style={styles} id='questions-answers'>
       <Title>Questions & Answers Component</Title>
       <div>
-      <input type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
-      <Button onClick={handleSearchClick}>{searchButton}</Button>
+      <input className="search" type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
+      <button className="btn" onClick={handleSearchClick}>{searchButton}</button>
       </div>
       <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
       <div>{!none && shownQuestion.map((question, key) =>
@@ -142,9 +142,10 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       <div>
         <div>{none && <h2>NO MATCHING RESULTS</h2>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
-        <button className="glow-on-hover" type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+        <button className="btn" onClick={handleMoreClick}>{moreButton}</button>
+        <button className="btn" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
       </div>
+    </div>
     </div>
   );
 };

@@ -62,7 +62,7 @@ const AnswerModal = ({ setQuestions, questionid, answermodalbody, request, curre
   }
 
 return ReactDom.createPortal(
-  <>
+  <div className="modal">
   <div style={overlayStyle}/>
   <div style={modalStyles}>
   <form onSubmit={handleSubmit}>
@@ -114,7 +114,7 @@ return ReactDom.createPortal(
   </form>
     <button onClick={handleCloseClick}>Close Modal</button>
   </div>
-  </>,
+  </div>,
   document.getElementById('answerportal')
 )
 }
