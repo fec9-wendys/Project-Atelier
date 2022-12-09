@@ -3,14 +3,14 @@ import styled from 'styled-components';
 export const ParentContainer = styled.div`
   position: relative;
   top: 30px;
-  height: 80vh;
+  height: 120vh;
 `
 
 export const RFContainer = styled.div`
   position: absolute;
   left: 450px;
   top: 225px;
-  width: 1000px;
+  width: 1300px;
 `
 
 export const SortContainer = styled.div`
@@ -27,7 +27,7 @@ export const RBRFContainer = styled.div`
 
 export const RBContainer = styled.div`
   position: absolute;
-  top: 5px;
+  top: 180px;
   left: 100px;
 `
 
