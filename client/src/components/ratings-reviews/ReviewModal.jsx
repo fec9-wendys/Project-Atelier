@@ -68,7 +68,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
     e.preventDefault();
     if (body.length < 50 ) {
       alert('Review Body must be at least 50 characters')
-    } else if (starRating === null || rec === null || size === null || width === null || comfort === null || quality === null || length === null || fit === null || nickName === '' || email === ''){
+    } else if (starRating === null || rec === null || nickName === '' || email === ''){
       alert('Fill out mandatory fields');
     } else {
       const charRefs = {

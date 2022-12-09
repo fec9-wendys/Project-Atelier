@@ -4,16 +4,7 @@ import PBEntry from './PBEntry.jsx';
 const {useState, useEffect} = React;
 import {PBContainer} from './styles/Container';
 
-const ProductBreakdown = ({currentProduct, metaData}) => {
-  const [chars, setChars] = useState([]);
-
-  if (metaData.length !== 0 && chars.length === 0) {
-    setChars(metaData.characteristics);
-  }
-
-  // useEffect(() => {
-  //   setChars(metaData.characteristics);
-  // },[currentProduct])
+const ProductBreakdown = ({currentProduct, metaData, chars}) => {
 
   return (
     <PBContainer>

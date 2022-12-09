@@ -19,6 +19,12 @@ export const SortContainer = styled.div`
   top: 180px;
 `
 
+export const RBRFContainer = styled.div`
+  position: absolute;
+  top: 5px;
+  left: 100px;
+`
+
 export const RBContainer = styled.div`
   position: absolute;
   top: 5px;
