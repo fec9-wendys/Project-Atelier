@@ -77,6 +77,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
       setCurrentMainIndex(newIndex);
       if (newIndex > endIndex) {
         setEndIndex(newIndex);
+        console.log('this index is changed')
         setStartIndex(startIndex + (newIndex - endIndex))
       }
     }
