@@ -8,6 +8,7 @@ import RelatedItems from './related-items/RelatedItems.jsx';
 import Outfit from './related-items/Outfit.jsx';
 import QuestionsAnswers from './questions-answers/QuestionsAnswers.jsx';
 import RatingsReviews from './ratings-reviews/RatingsReviews.jsx';
+import Header from './Header.jsx'
 
 import API_KEY from '../config.js';
 const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
@@ -68,6 +69,7 @@ console.log('CURRENT IS', currentProduct)
     <>
     {currentProduct &&
     <div>
+      <Header/>
       <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />

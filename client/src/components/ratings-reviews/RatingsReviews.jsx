@@ -27,7 +27,6 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
   const [sort, setSort] = useState(sortValues[0].value);
 
   useEffect(() => {
-    if (currentProduct !== null && reviews.length === 0) {
       request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
         if (err) {
           console.error(err);
@@ -40,12 +39,10 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
               setMetaData(results);
             }
           });
-
-          console.log(results.results);
+          console.log('SET REVIEWS RAN', results.results);
           setReviews(results.results);
         }
       })
-    }
   }, [])
 
   return (

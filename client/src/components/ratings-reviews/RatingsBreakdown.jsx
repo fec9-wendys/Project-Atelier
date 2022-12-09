@@ -13,7 +13,6 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
   let totalReviews = 0;
 
   useEffect(() => {
-
     request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
       if (err) {
         console.error(err);
@@ -33,7 +32,6 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
         setReviews(filteredCopy);
       }
     })
-
   }, [filter])
 
   // setsRecStats
