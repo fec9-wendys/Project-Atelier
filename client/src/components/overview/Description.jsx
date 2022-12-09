@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-const nameStyle = {
-  fontSize: '2em',
-  fontWeight: 'bolder'
-}
-
 const Description = ({ currentProduct, currentProductStyle }) => {
 
   return (
     <div className="grid-container" id="description">
-      <div id="product-category">
+      <h3 id="product-category">
         {currentProduct.category}
-      </div>
-      <div id="product-name" style={nameStyle}>
+      </h3>
+      <h1 id="product-name" >
         {currentProduct.name}
-      </div>
-      <div id="product-style">
-        <b>Style: &gt;</b> {currentProductStyle.name}
-      </div>
+      </h1>
+      <h3 id="product-style">Style: &gt; {currentProductStyle.name}</h3>
       {currentProductStyle.sale_price ?
         <div className="product-price">
           <s>${currentProductStyle.original_price}</s>
-          <span style={{paddingLeft: 8, color: 'red'}}id="sale-price">${currentProductStyle.sale_price}</span>
+          <span style={{ paddingLeft: 8, color: 'red' }} id="sale-price">${currentProductStyle.sale_price}</span>
         </div>
         :
         <div className="product-price">

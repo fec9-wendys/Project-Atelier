@@ -249,6 +249,23 @@
   right: 13px;
 }
 
+/* ---------------------------Features----------------------- */
+
+#slogan {
+  font-weight: bolder;
+  font-size: 2em;
+  font-style: italic;
+}
+
+#slogan,
+#summary > p {
+  padding: 20px 40px 20px 20px;
+}
+
+#feature-list {
+  font-size: 18px;
+  box-sizing: content-box;
+}
 
 
 
