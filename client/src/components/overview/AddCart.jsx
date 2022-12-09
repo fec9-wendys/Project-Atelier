@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from 'react'
 
-const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutfit }) => {
+const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, setOutfit }) => {
 
   // Alternate method of storing sizes+ quantities, will leave here in case of emergency
   // const [sizes, setSizes] = useState([]);
   // const [quantity, setQuantity] = useState([]);
 
-  const [stock, setStock] = useState(null);
   const [currSize, setCurrSize] = useState('select-size');
   const [currQuantity, setCurrentQuantity] = useState(NaN);
   const [currSKU, setCurrSKU] = useState(NaN);
 
   //sets state for stock on component mount when page loads or product/style changes
   useEffect(() => {
-    // setStock(null);
-    // setCurrSKU(NaN);
+    setCurrSKU(NaN);
+  }, [stock])
+
+  useEffect(() => {
     setCurrSize('select-size');
-    const supply = {};
-    const values = Object.values(currentProductStyle.skus);
-    values.forEach(value => {
-      let sized = value.size;
-      let quantity = value.quantity;
-      supply[sized] = quantity;
-    })
-    setStock(supply); //object that countains size: quanity pairs
-  }, [currentProduct])
+    document.getElementById('size-dropdown').value = 'select-size';
+  }, [currentProductStyle])
 
 
 
@@ -67,6 +61,8 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
           // window.location.reload()
           // return false;
           setCurrSize('select-size');
+          document.getElementById('size-dropdown').value = 'select-size'
+          console.log('Added to cart!')
         }
       })
     }
@@ -93,11 +89,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
   }
 
   return (
-    <div>
-
-    { stock &&
     <div className="grid-container" id="cart">
-      {/* {console.log('i am stock', stock)} */}
       {/* dropdown menu for size */}
       <label htmlFor="size-dropdown">Size: </label>
       <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
@@ -138,9 +130,7 @@ const AddCart = ({ currentProduct, currentProductStyle, request, outfit, setOutf
         <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
       </div>
     </div>
-    }
-    </div>
-    )
+  )
 }
 
 export default AddCart

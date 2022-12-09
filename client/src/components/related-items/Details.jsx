@@ -58,7 +58,6 @@ const Details = ({ index, product, ratings, setCurrentProduct, inOutfit, outfit,
   };
   const handleNameClick = () => {
     document.getElementById('size-dropdown').value = 'select-size'
-    document.getElementById('quantity-dropdown').value = '---'
     setCurrentProduct(product)
   }
   return (
