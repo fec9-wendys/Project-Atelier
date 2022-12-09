@@ -26,7 +26,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
       } else {
         setStyles(response.results);
         setCurrentProductStyle(response.results[0]);
-         //setting stock of current product style to send to Add Cart
+        //setting stock of current product style to send to Add Cart
         const supply = {};
         const values = Object.values(response.results[0].skus);
         values.forEach(value => {
@@ -60,25 +60,27 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
 
   return (
-    <div id="overview">
-      {currentProductStyle !== null &&
-        <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
-      }
-      {ratings.length !== 0 && totalReviews &&
-        <Reviews ratings={ratings} totalReviews={totalReviews} />
-      }
-      {features !== null &&
-        <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
-      }
-      {currentProductStyle !== null && styles !== null &&
-        <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
-      }
-      {currentProductStyle !== null && stock !== null &&
-        <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} stock={stock}/>
-      }
-      {features !== null &&
-        <Features features={features} />
-      }
+    <div className="overview">
+      <div id="overview">
+        {currentProductStyle !== null &&
+          <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
+        }
+        {ratings.length !== 0 && totalReviews &&
+          <Reviews ratings={ratings} totalReviews={totalReviews} />
+        }
+        {features !== null &&
+          <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
+        }
+        {currentProductStyle !== null && styles !== null &&
+          <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
+        }
+        {currentProductStyle !== null && stock !== null &&
+          <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} stock={stock} />
+        }
+        {features !== null &&
+          <Features features={features} />
+        }
+      </div>
     </div>
   )
 }

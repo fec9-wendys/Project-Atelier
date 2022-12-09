@@ -31,7 +31,7 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
   return ReactDOM.createPortal(
     <>
       <div style={OVERLAY_STYLES} onClick={onClose}/>
-      <div style={MODAl_STYLES} id="main-image-portal">
+      <div style={MODAl_STYLES} className="modal" id="main-image-portal">
 
         {/* image carousel buttons */}
         {currentMainIndex !== 0 &&
