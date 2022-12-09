@@ -10,6 +10,10 @@ const ProductBreakdown = ({currentProduct, metaData}) => {
     setChars(metaData.characteristics);
   }
 
+  // useEffect(() => {
+  //   setChars(metaData.characteristics);
+  // },[currentProduct])
+
   return (
     <div id='products-breakdown'>
       Product Breakdown Component

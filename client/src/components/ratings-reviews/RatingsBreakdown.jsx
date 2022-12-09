@@ -10,7 +10,12 @@ let recPercent = 0;
 const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars}) => {
   const [ratingStats, setRatingStats] = useState([]);
   const [recStats, setRecStats] = useState([]);
-  let totalReviews = 0;
+  const [avgReviews, setAvgReviews] = useState(0);
+  const [totalReviews, setTotalReviews] = useState(0);
+  const [recPercent, setRecPercent] = useState(0);
+  let totalReviewsCount = 0;
+  let avgReviewsCount = 0;
+  let recPercentCount = 0;
 
   useEffect(() => {
 
@@ -45,11 +50,13 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
   // Creates total review count and average review number
   if (ratingStats.length !== 0) {
     for (let key in ratingStats) {
-      totalReviews += parseInt(ratingStats[key]);
-      avgReviews += parseInt(key) * parseInt(ratingStats[key]);
+      totalReviewsCount += parseInt(ratingStats[key]);
+      avgReviewsCount += parseInt(key) * parseInt(ratingStats[key]);
     }
 
-    avgReviews = parseFloat((avgReviews / totalReviews).toFixed(1));
+    // setTotalReviews(totalReviewsCount);
+    // setAvgReviews(parseFloat((avgReviews / totalReviews).toFixed(1)));
+    avgReviewsCount = parseFloat((avgReviewsCount / totalReviewsCount).toFixed(1));
   }
 
   // Creates average recommended percent
@@ -57,15 +64,24 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
     const noCount = parseInt(recStats.false);
     const yesCount = parseInt(recStats.true);
     const totalCount = noCount + yesCount;
-    recPercent = Math.round(yesCount / totalCount * 100);
+    recPercentCount = Math.round(yesCount / totalCount * 100);
+    // setRecPercent(Math.round(yesCount / totalCount * 100));
   }
+
+  useEffect(() => {
+    setAvgReviews(avgReviewsCount);
+    setTotalReviews(totalReviewsCount);
+    setRecPercent(recPercentCount);
+    // setRatingStats(metaData.ratings);
+    // setRecStats(metaData.recommended);
+  }, [recPercentCount, reviews])
 
   return (
     <div id='ratings-breakdown'>
       Ratings Breakdown Component
       <div>
         <strong>{avgReviews}</strong> <QuarterStars rating = {avgReviews} />
-        <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => {return <div key = {index}> Showing {number} Stars Ranking</div>}): null}</div>
+        <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => {return <div key = {index}> Showing {number} Stars Reviews</div>}): null}</div>
         <p> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {
           return <Starbars key = {index} rating = {rating} ratingStats = {ratingStats} totalReviews = {totalReviews}

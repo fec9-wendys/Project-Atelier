@@ -26,14 +26,10 @@ const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShow
 
   }
 
-  const onMouseOverHandler = (e) => {
-    e.backgroundColor = 'blue';
-  }
-
   return (
     <div id='star-breakdown'>
       <div className = 'stars-summary'>
-        <u onClick = {filterHandler} onMouseOver = {onMouseOverHandler}>{rating} Stars</u>
+        <u onClick = {filterHandler}>{rating} Stars</u>
         <span id = 'star-bars'>{ratingStats[rating]}/{totalReviews}</span> {ratingStats[rating]}
       </div>
     </div>
