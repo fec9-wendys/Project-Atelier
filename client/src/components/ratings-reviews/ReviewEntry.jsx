@@ -65,22 +65,22 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, Q
   return (
     <div id='review-entry-container'>
       <QuarterStars rating = {review.rating} />
-      <span className = 'entry-log'> {review.reviewer_name}, {properDate()}</span>
-      <div className = 'entry-summary'> <strong>{review.summary}</strong> </div>
-      <div className = 'entry-body'> {review.body.length > 250 ? shownBody : review.body} </div>
+      <span className = 'entry-log body'> {review.reviewer_name}, {properDate()}</span>
+      <div className = 'entry-summary body'> <strong>{review.summary}</strong> </div>
+      <div className = 'entry-body body'> {review.body.length > 250 ? shownBody : review.body} </div>
       <div>
         {shownBody.length === 250 ?
         <button className = 'entry-body-button btn' onClick = {() => setShownBody(review.body)}> Show More </button> : null}
       </div>
-      <p className = 'entry-rec'> {review.recommend ? '✔️ I recommend this product' : null}</p>
-      <p className = 'entry-response-header'> {review.response === null ? null : 'Response from Seller:'}</p>
-      <p className = 'entry-response-body'>{review.response}</p>
+      <p className = 'entry-rec body'> {review.recommend ? '✔️ I recommend this product' : null}</p>
+      <p className = 'entry-response-header body'> {review.response === null ? null : 'Response from Seller:'}</p>
+      <p className = 'entry-response-body body'>{review.response}</p>
       <div className = 'entry-photos'> {review.photos.map((image, index) => {
                   return <img key = {index} src = {image.url} width = {review.photos ? '100' : '0'}
                   height = {review.photos ? '100' : '0'} onClick = {imgClickHandler} />
                 })}
       </div>
-      <p>Helpful? <u onClick = {clickHelpHandler}>Yes</u> ({review.helpfulness}) | <u onClick = {clickReportHandler}>{reportText}</u> </p>
+      <p className = 'body'>Helpful? <u onClick = {clickHelpHandler}>Yes</u> ({review.helpfulness}) | <u onClick = {clickReportHandler}>{reportText}</u> </p>
       <ReviewImageModal imgOpen = {imgOpen} onClose= {()=> setImgOpen(false)} mainImg = {mainImg}/>
     </div>
   );

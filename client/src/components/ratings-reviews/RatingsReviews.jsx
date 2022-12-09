@@ -82,6 +82,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
 
   return (
     <ParentContainer>
+      <div className = 'header'>Ratings & Reviews</div>
       <RatingsBreakdown metaData = {metaData} reviews = {reviews} setReviews = {setReviews} request = {request}
       currentProduct = {currentProduct} filter = {filter} setFilter = {setFilter} shownFilter = {shownFilter}
       setShownFilter = {setShownFilter} QuarterStars = {QuarterStars} ratingStats={ratingStats} recStats = {recStats}
