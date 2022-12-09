@@ -51,7 +51,6 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
 
   return (
     <ParentContainer>
-      Ratings and Reviews Component
       <RatingsBreakdown metaData = {metaData} reviews = {reviews} setReviews = {setReviews} request = {request}
       currentProduct = {currentProduct} filter = {filter} setFilter = {setFilter} shownFilter = {shownFilter}
       setShownFilter = {setShownFilter} QuarterStars = {QuarterStars}/>

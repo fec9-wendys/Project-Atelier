@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import Starbars from './Starbars.jsx';
 const {useState, useEffect} = React;
+import {RBContainer} from './styles/Container';
 
 let avgReviews = 0;
 let recPercent = 0;
@@ -77,10 +78,10 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
   }, [recPercentCount, currentProduct])
 
   return (
-    <div id='ratings-breakdown-container'>
+    <RBContainer>
       Ratings Breakdown Component
       <div>
-      <strong style = {{"font-size" : "30px"}}>{avgReviews} out of 5</strong> <QuarterStars rating = {avgReviews} />
+      <strong style = {{"fontSize" : "30px"}}>{avgReviews} out of 5</strong> <QuarterStars rating = {avgReviews} />
         <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => {return <div key = {index}> Showing {number} Stars Reviews</div>}): null}</div>
         <p> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {
@@ -88,7 +89,7 @@ const RatingsBreakdown = ({metaData, reviews, setReviews, request, currentProduc
           setFilter = {setFilter} filter = {filter} setShownFilter = {setShownFilter} />;
         })}
       </div>
-    </div>
+    </RBContainer>
   );
 };
 
