@@ -35,7 +35,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request}) => {
 
   useEffect(() => {
 
-    console.log('MAIN USE EFFECT RAN')
+    console.log('MAIN warren USE EFFECT RAN')
     // if (currentProduct !== null && reviews.length === 0) {
       request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
         if (err) {
