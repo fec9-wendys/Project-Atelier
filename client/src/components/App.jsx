@@ -33,14 +33,9 @@ const App = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   console.log('READY RAN')
-  //   setReady(currentProduct !== null);
-  // }, [currentProduct]);
-
-  useEffect(()=> {
-console.log('CURRENT IS', currentProduct)
-  },[currentProduct])
+  useEffect(() => {
+    setReady(currentProduct !== null);
+  }, [currentProduct]);
 
   const request = async (path, method, body = {}, callback = () => {}) => {
     try {
@@ -65,19 +60,15 @@ console.log('CURRENT IS', currentProduct)
     }
   };
 
-  return  (
+  return !ready ? null : (
     <>
-    {currentProduct &&
-    <div>
       <Header/>
       <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
       <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
       <QuestionsAnswers currentProduct={currentProduct} request={request} />
       <RatingsReviews currentProduct={currentProduct} request={request} />
-    </div>
-}</>
-
+    </>
   );
 
 };
