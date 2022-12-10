@@ -56,5 +56,5 @@ export const SortContainer = styled.div`
 
 export const RFContainer = styled.div`
   width: 1100px;
-  height: 800px;
+  height: 500px;
 `

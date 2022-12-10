@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-const {useState, useEffect} = React;
-import {SortContainer} from './styles/Container';
+const { useState, useEffect } = React;
+import { SortContainer } from './styles/Container';
 
-const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues}) => {
+const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues }) => {
 
   const handleChange = (e) => {
     setSort(e.target.value);
@@ -18,14 +18,14 @@ const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, 
         } else {
           console.log(results.results);
           let reviewsCopy = [];
-            let filteredCopy = [];
-            for (let review of results.results) {
-              reviewsCopy.push(review);
-            }
+          let filteredCopy = [];
+          for (let review of results.results) {
+            reviewsCopy.push(review);
+          }
 
-            filteredCopy = reviewsCopy.filter(review => {
-              if (filter.includes(review.rating)) {
-                return review;
+          filteredCopy = reviewsCopy.filter(review => {
+            if (filter.includes(review.rating)) {
+              return review;
             }
           });
 
@@ -42,13 +42,13 @@ const Sort = ({currentProduct, setReviews, reviews, request, filter, setFilter, 
       <div> </div>
       <strong>{reviews.length} reviews, sorted by </strong>
       <span>
-        <select id = {sort} className = 'dropdown' onChange = {handleChange} >
+        <select id={sort} className='dropdown' onChange={handleChange} >
           {sortValues.map(sortValue => {
             return (
-              <option key = {sortValue.value} value = {sortValue.value}>
+              <option key={sortValue.value} value={sortValue.value}>
                 {sortValue.text}
               </option>
-              )
+            )
           })}
         </select>
       </span>

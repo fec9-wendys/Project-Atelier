@@ -96,7 +96,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
         &nbsp;
         <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
           request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
-          setShownReviews={setShownReviews} count={count} setCount={setCount} />
+          setShownReviews={setShownReviews} count={count} setCount={setCount} filter = {filter}/>
       </ParentContainer>
     </div>
   );
