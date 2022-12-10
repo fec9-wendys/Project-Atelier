@@ -16,7 +16,7 @@ const Features = ({ features }) => {
         <div id="feature-list">
           {features.features.map((feature, index) => {
             return <div key={index}>
-              {feature.feature}: &nbsp;{feature.value} &nbsp; &#9989;
+              {feature.feature}: &nbsp;{feature.value} &nbsp; <i className="fa-solid fa-check"></i>
             </div>
           })}
         </div>
