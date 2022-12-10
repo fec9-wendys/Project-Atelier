@@ -171,30 +171,42 @@ body {
 
 /* ---------------------Carousel--------------------- */
 
-.carousel-image {
-  padding: 10px 12px;
-  display: flex;
-}
-
-
-#carousel-images {
+#thumbnail-carousel {
   border: 2px ridge black;
   display: flex;
+  flex-wrap: none;
   position: absolute;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.7);
+  border-left: none;
+  border-right: none;
+}
+
+.carousel-image {
+  padding: 10px 12px;
+  opacity: 0.5;
+}
+
+.carousel-image[data-active] {
+  opacity: 1;
+  border-bottom: 5px solid red;
+}
+
+
+#carousel-images {
+  display: flex;
 }
 
 .carousel-button {
   border: 1px solid black;
   font-size: larger;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.6);
-  bottom: 1.5em;
-  padding: 25px 5px;
-  color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(218, 39, 39);
+  bottom: 20px;
+  padding: 15px 5px;
+  color: white;
   z-index: 3;
 }
 
@@ -202,16 +214,17 @@ body {
 .carousel-button:focus {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.9);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 1);
   border: 2px solid black;
+
 }
 
 #left-thumbnail-button {
-  left: 15px;
+  left: 0px;
 }
 
 #right-thumbnail-button {
-  right: 15px;
+  right: 0px;
 }
 
 /* ------------------------Modal ---------------------------*/
