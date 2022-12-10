@@ -57,20 +57,20 @@ body {
 
 .single-star-container-quarter {
   height: 36px;
-  width: 31px;
+  width: 25px;
   display: inline-block;
 }
 
 
 .single-star-outline-quarter {
-  height: 25px;
-  width: 20px;
+  height: 22px;
+  width: 18px;
 }
 
 .single-star-fill-quarter {
   position: relative;
   display: inline-block;
-  height: 25px;
+  height: 22px;
   background-color: #333333;
 }
 
@@ -106,6 +106,11 @@ body {
   align-items: center;
 }
 
+#description {
+  grid-row: 2 / 3;
+  line-height: 2em;
+}
+
 #style-selector {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -117,10 +122,7 @@ body {
   line-height: 1.3em;
 }
 
-#description {
-  grid-row: 2 / 3;
-  line-height: 3em;
-}
+
 
 #features {
   grid-column: 1 / 3;
@@ -140,12 +142,7 @@ body {
   width: auto;
   height: auto;
   cursor: zoom-in;
-  transition: 200ms opacity ease-in-out;
 }
-
-/* #thumbnail-carousel {
-  bottom: 1em;
-} */
 
 .main-image-button {
   color: rgba(255, 255, 255, 0.6);
@@ -174,8 +171,9 @@ body {
 
 /* ---------------------Carousel--------------------- */
 
-.carousel-items {
+.carousel-image {
   padding: 10px 12px;
+  display: flex;
 }
 
 
@@ -217,6 +215,10 @@ body {
 }
 
 /* ------------------------Modal ---------------------------*/
+#main-image-portal {
+  position: relative;
+}
+
 #left-modal-button {
   left: 1em;
 }
@@ -243,20 +245,35 @@ body {
 }
 
 /* TODO: */
-.dot-icons {
+#dot-icons {
   display: flex;
-  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dots {
+  padding: 15px;
 }
 
 /* -------------------Ratings and Reviews--------------------- */
 
-#icons {
-  position: absolute;
+#stars-line {
   display: flex;
-  justify-content: center;
+}
+
+#icons {
+  display: flex;
+  position: absolute;
   bottom: 5px;
 }
 
+.icon {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  padding-right: 20px;
+}
 
 /*--------------------- Style Selector--------------------- */
 

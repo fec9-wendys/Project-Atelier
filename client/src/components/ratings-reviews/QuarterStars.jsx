@@ -47,8 +47,8 @@ const QuarterStars = ({rating}) => {
       {stars.map((item, i) => {
         return (
           <div className="single-star-container-quarter" key={i}>
-            <div className="single-star-fill-quarter icon" style={{"width" : `${parseInt(item*20)}px`}}>
-              <img className="single-star-outline-quarter icon" src="star.png" alt="stars alt"></img>
+            <div className="single-star-fill-quarter star" style={{"width" : `${parseInt(item*18)}px`}}>
+              <img className="single-star-outline-quarter star" src="star.png" alt="stars alt"></img>
             </div>
           </div>
         );
