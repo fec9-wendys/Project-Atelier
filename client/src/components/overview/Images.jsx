@@ -142,8 +142,8 @@ const Images = ({ currentProduct, currentProductStyle }) => {
   )
 }
 const thumbnailStyle = {
-  height: 75,
-  width: 75,
+  height: 70,
+  width: 70,
   cursor: 'pointer'
 }
 
