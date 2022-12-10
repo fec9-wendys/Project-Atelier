@@ -6,27 +6,11 @@ const Reviews = ({ ratings, totalReviews }) => {
     return sum + current;
   }, 0)) / ratings.length;
   const roundedRatings = (Math.round(avgRatings * 4) / 4).toFixed(2);
-  // const filledStarsCount = Math.floor(roundedRatings);
-  // let halfStarsCount = 0;
-  // (roundedRatings - filledStarsCount >= 0.25 && roundedRatings - filledStarsCount <= 0.75) ? halfStarsCount = 1 : halfStarsCount = 0;
-  // const emptyStarsCount = 5 - filledStarsCount - halfStarsCount;
 
   return (
     <div className="grid-container" id="ratings">
       {totalReviews !== 0 && //shows reviews and starts if there are reviews present
         <>
-          {/* I am ratings average: {roundedRatings}<br />
-          {Array.apply(1, Array(filledStarsCount)).map((star, index) => {
-            return <i key={index} className="fa-solid fa-star"></i>
-          })}
-          {halfStarsCount === 1 ?
-            <i className="fa-solid fa-star-half-stroke"></i>
-            : <></>
-          }
-          {Array.apply(1, Array(emptyStarsCount)).map((star, index) => {
-            return <i key={index} className="fa-regular fa-star"></i>
-          })}
-          &emsp; */}
           {QuarterStars(roundedRatings)}
           <a href="#ratings-reviews">Read All {totalReviews} Reviews</a>
         </>
