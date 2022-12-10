@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 const { useState, useEffect } = React;
 import RatingsBreakdown from './RatingsBreakdown.jsx';
@@ -10,8 +11,12 @@ import DynamicStars from './DynamicStars.jsx';
 import QuarterStars from './QuarterStars.jsx';
 import { ParentContainer } from './styles/Container'
 
+const Title = styled.h1`
+font-size: 1.5em;
+text-align: center;
+color: black;
+`;
 
-// eslint-disable-next-line react/prop-types
 const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
   const [reviews, setReviews] = useState([]);
   const [metaData, setMetaData] = useState([]);
@@ -82,12 +87,12 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
 
   return (
     <ParentContainer>
-      <div className='header'>Ratings & Reviews</div>
+      <Title>Ratings & Reviews</Title>
       <RatingsBreakdown metaData={metaData} reviews={reviews} setReviews={setReviews} request={request}
         currentProduct={currentProduct} filter={filter} setFilter={setFilter} shownFilter={shownFilter}
         setShownFilter={setShownFilter} QuarterStars={QuarterStars} ratingStats={ratingStats} recStats={recStats}
         avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
-        setCount={setCount} />
+        setCount={setCount} count = {count} />
       &nbsp;
       <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
       &nbsp;

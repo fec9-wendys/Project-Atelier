@@ -13,9 +13,9 @@ const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, 
   const [reviewButton, setReviewButton] = useState('More Reviews');
   const [isOpen, SetIsOpen] = useState(false);
 
-  useEffect(() => {
-    setShownReviews(reviews.slice(0, count));
-  }, [reviews, count])
+  // useEffect(() => {
+  //   setShownReviews(reviews.slice(0, count));
+  // }, [reviews, count])
 
   const handleClick = () => {
     if (reviews.length > 2) {

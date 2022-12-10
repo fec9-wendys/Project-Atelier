@@ -3,20 +3,20 @@ import styled from 'styled-components';
 export const ParentContainer = styled.div`
   position: relative;
   top: 30px;
-  height: 120vh;
+  height: 80vh;
 `
 
 export const RFContainer = styled.div`
   position: absolute;
-  left: 450px;
-  top: 225px;
-  width: 1300px;
+  left: 600px;
+  top: 150px;
+  width: 900px;
 `
 
 export const SortContainer = styled.div`
   position: absolute;
-  left: 450px;
-  top: 180px;
+  left: 600px;
+  top: 100px;
 `
 
 export const RBRFContainer = styled.div`
@@ -27,13 +27,13 @@ export const RBRFContainer = styled.div`
 
 export const RBContainer = styled.div`
   position: absolute;
-  top: 180px;
-  left: 100px;
+  top: 100px;
+  left: 200px;
 `
 
 export const PBContainer = styled.div`
   position: absolute;
-  top: 500px;
-  left: 100px;
+  top: 450px;
+  left: 200px;
   width: 300px;
 `

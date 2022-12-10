@@ -8,7 +8,7 @@ import { RBContainer, RBRFContainer } from './styles/Container';
 let avgReviews = 0;
 let recPercent = 0;
 
-const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars, ratingStats, recStats, avgReviews, totalReviews, recPercent, setShownReviews, setCount }) => {
+const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars, ratingStats, recStats, avgReviews, totalReviews, recPercent, setShownReviews, setCount, count }) => {
 
 
   useEffect(() => {
@@ -33,23 +33,43 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
     //     }
     // })
 
-    let reviewsCopy = [];
-    let filteredCopy = [];
-    for (let review of reviews) {
-      reviewsCopy.push(review);
+    if (filter.length === 0) {
+      setShownReviews(reviews.slice(0, count));
+    } else {
+      let reviewsCopy = [];
+      let filteredCopy = [];
+      for (let review of reviews) {
+        reviewsCopy.push(review);
+      }
+
+      filteredCopy = reviewsCopy.filter(review => {
+        if (filter.includes(review.rating)) {
+          return review;
+        }
+      })
+
+      // setReviews(filteredCopy);
+      setShownReviews(filteredCopy.slice(0, count));
+      // setCount(filteredCopy.length);
     }
 
-    filteredCopy = reviewsCopy.filter(review => {
-      if (filter.includes(review.rating)) {
-        return review;
-      }
-    })
+    // let reviewsCopy = [];
+    //   let filteredCopy = [];
+    //   for (let review of reviews) {
+    //     reviewsCopy.push(review);
+    //   }
 
-    // setReviews(filteredCopy);
-    setShownReviews(filteredCopy);
-    // setCount(filteredCopy.length);
+    //   filteredCopy = reviewsCopy.filter(review => {
+    //     if (filter.includes(review.rating)) {
+    //       return review;
+    //     }
+    //   })
 
-  }, [filter])
+    //   // setReviews(filteredCopy);
+    //   setShownReviews(filteredCopy.slice(0, count));
+    //   // setCount(filteredCopy.length);
+
+  }, [reviews, filter, count])
 
   // <RBRFContainer>
   return (
