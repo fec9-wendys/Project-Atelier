@@ -9,7 +9,7 @@ body {
 
 .btn {
   text-decoration: none;
-  border: 1px solid rgb(218, 39, 39);
+  /* border: 1px solid rgb(218, 39, 39); */
   position: relative;
   overflow: hidden;
 }

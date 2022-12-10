@@ -7,14 +7,14 @@ import styled from "styled-components";
 const { useState, useEffect } = React;
 
 const Title = styled.h1`
-font-size: 1.5em;
+
 text-align: center;
-color: palevioletred;
+
 `;
 
 const Container = styled.div`
-font-size: 1.5em;
-text-align: center;
+
+text-align: left;
 
 
 `;

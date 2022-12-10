@@ -1,12 +1,20 @@
 import React from 'react';
+import styled from "styled-components";
+const Nav = styled.nav`
 
+display: flex;
+justify-content: center;
+align-items: center;
+
+`;
 const Header = () => {
+
 return (
-<nav>
+<Nav>
 
 <img src="https://i.ibb.co/mXDdZLc/SUPREME1.png" />
-<input type="text"/>
-</nav>
+
+</Nav>
 )
 }
 
