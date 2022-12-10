@@ -7,28 +7,19 @@ const Images = ({ currentProduct, currentProductStyle }) => {
   const [startIndex, setStartIndex] = useState(0); //start index of carousel thumbnail
   const [endIndex, setEndIndex] = useState(0); //end index of carousel thumbnail
   const [isOpen, setIsOpen] = useState(false); //boolean state for modal open/close
-  const [thumbnailIndex, setThumbnailIndex] = useState(0);
 
   //sets start and end index for thumbnail carousel
   useEffect(() => {
     setCurrentMainIndex(0);
     setStartIndex(0);
-    if (currentProductStyle.photos.length <= 7) {
-      setEndIndex(currentProductStyle.photos.length - 1);
-    } else {
-      setEndIndex(6);
-    }
+    setEndIndex(Math.min(currentProductStyle.photos.length - 1, 6))
   }, [currentProduct])
 
   useEffect(() => {
     if (currentProductStyle.photos.length < currentMainIndex) {
       setCurrentMainIndex(0);
       setStartIndex(0);
-      if (currentProductStyle.photos.length <= 7) {
-        setEndIndex(currentProductStyle.photos.length - 1);
-      } else {
-        setEndIndex(6);
-      }
+      setEndIndex(Math.min(currentProductStyle.photos.length - 1, 6))
       return;
     } else if (currentMainIndex < startIndex) {
       setStartIndex(currentMainIndex);
@@ -41,7 +32,6 @@ const Images = ({ currentProduct, currentProductStyle }) => {
   const handleThumbClick = (index) => {
     const currentIndex = currentMainIndex;
     setCurrentMainIndex(index + startIndex);
-    setThumbnailIndex(index + startIndex);
   }
 
   //handles only thumbnail carousel button clicks
@@ -128,7 +118,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         <div id="carousel-images">
           {currentProductStyle.photos.length < 7 &&
             currentProductStyle.photos.map((photo, index) => {
-              if (index === thumbnailIndex) {
+              if (index === currentMainIndex) {
                 return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
               } else {
                 return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
@@ -136,7 +126,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
             })}
           {currentProductStyle.photos.length >= 7 &&
             currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
-              if (index + startIndex === thumbnailIndex) {
+              if (index + startIndex === currentMainIndex) {
                 return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
               } else {
                 return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
