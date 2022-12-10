@@ -30,11 +30,11 @@ const ProgressBar = ({bgcolor, progress, height}) => {
   }
 
   return (
-    <div style={Parentdiv}>
-      <div style={Childdiv}>
+    <span style={Parentdiv}>
+      <span style={Childdiv}>
         <span style={progresstext}>{`${progress}%`}</span>
-      </div>
-    </div>
+      </span>
+    </span>
   );
 };
 
