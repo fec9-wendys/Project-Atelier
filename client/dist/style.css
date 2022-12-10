@@ -179,20 +179,29 @@ body {
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.7);
-  border-left: none;
-  border-right: none;
 }
 
 .carousel-image {
   padding: 10px 12px;
   opacity: 0.5;
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+
+
+
+.carousel-image:hover {
+  opacity: 1;
+  border-bottom: 4px solid rgb(92, 85, 85, 0.3);
+  transition: 200ms opacity ease-in-out;
 }
 
 .carousel-image[data-active] {
   opacity: 1;
   border-bottom: 5px solid red;
+  transition: 300ms opacity ease-in-out;
 }
-
 
 #carousel-images {
   display: flex;
@@ -203,7 +212,7 @@ body {
   font-size: larger;
   position: absolute;
   background-color: rgba(218, 39, 39);
-  bottom: 20px;
+  bottom: 38px;
   padding: 15px 5px;
   color: white;
   z-index: 3;
@@ -219,11 +228,11 @@ body {
 }
 
 #left-thumbnail-button {
-  left: 0px;
+  left: 40px;
 }
 
 #right-thumbnail-button {
-  right: 0px;
+  right: 40px;
 }
 
 /* ------------------------Modal ---------------------------*/
@@ -302,8 +311,14 @@ body {
   opacity: 0.7;
 }
 
+.style-selector-thumbnails > img:hover {
+  opacity: 1;
+  transition: 200ms opacity ease-in-out;
+}
+
 .style-selector-thumbnails >img[data-active] {
   opacity: 1;
+  transition: 300ms opacity ease-in;
 }
 
 .style-selector-thumbnail {

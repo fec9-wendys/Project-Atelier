@@ -104,8 +104,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         </div>
       </div>
 
-      <div className="carousel" id="thumbnail-carousel">
-
+      <div id="carousel-buttons">
         {/* check if carousel buttons are even needed */}
         {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
           <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
@@ -113,23 +112,34 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         {currentProductStyle.photos.length > 7 && endIndex !== currentProductStyle.photos.length - 1 &&
           <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
         }
+      </div>
+
+      <div className="carousel" id="thumbnail-carousel">
+
+        {/* check if carousel buttons are even needed
+        {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
+          <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
+        }
+        {currentProductStyle.photos.length > 7 && endIndex !== currentProductStyle.photos.length - 1 &&
+          <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
+        } */}
 
         {/* Actual Carousel Images */}
         <div id="carousel-images">
           {currentProductStyle.photos.length < 7 &&
             currentProductStyle.photos.map((photo, index) => {
               if (index === thumbnailIndex) {
-                return <img style={thumbnailStyle} className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
               } else {
-                return <img style={thumbnailStyle} className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
               }
             })}
           {currentProductStyle.photos.length >= 7 &&
             currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
               if (index + startIndex === thumbnailIndex) {
-                return <img style={thumbnailStyle} className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
               } else {
-                return <img style={thumbnailStyle} className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
               }
             })}
         </div>
@@ -140,11 +150,6 @@ const Images = ({ currentProduct, currentProductStyle }) => {
 
     </div>
   )
-}
-const thumbnailStyle = {
-  height: 70,
-  width: 70,
-  cursor: 'pointer'
 }
 
 export default Images;

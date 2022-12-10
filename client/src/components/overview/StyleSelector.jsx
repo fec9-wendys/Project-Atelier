@@ -17,7 +17,7 @@ const StyleSelector = ({ currentProductStyle, setCurrentProductStyle, styles }) 
             }
             {currentProductStyle.style_id === style.style_id ?
               <div id="checkmark">
-                <i  className="fa-solid fa-circle-check" />
+                <i className="fa-solid fa-circle-check" />
               </div>
               : <></>
             }
