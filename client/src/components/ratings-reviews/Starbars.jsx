@@ -34,7 +34,7 @@ const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShow
         {/* <span id = 'star-bars'> */}
         <ProgressBar bgcolor="orange" progress= {Math.round((ratingStats[rating]/totalReviews) * 100)} height={25} />
         {/* </span> */}
-        <span style = {{'position' : 'absolute','right':'0px','textAlign': 'right'}}> {ratingStats[rating]} </span>
+        <span> {ratingStats[rating]} </span>
       </div>
     </div>
   );

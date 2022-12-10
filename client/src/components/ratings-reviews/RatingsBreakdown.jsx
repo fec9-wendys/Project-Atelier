@@ -33,6 +33,7 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
     //     }
     // })
 
+
     if (filter.length === 0) {
       setShownReviews(reviews.slice(0, count));
     } else {
@@ -48,10 +49,11 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
         }
       })
 
-      // setReviews(filteredCopy);
       setShownReviews(filteredCopy.slice(0, count));
+      // setReviews(filteredCopy);
       // setCount(filteredCopy.length);
     }
+
 
     // let reviewsCopy = [];
     //   let filteredCopy = [];
@@ -69,6 +71,30 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
     //   setShownReviews(filteredCopy.slice(0, count));
     //   // setCount(filteredCopy.length);
 
+    // if (filter.length === 0) {
+    //   setShownReviews(reviews.slice(0, count));
+    // } else {
+    //   request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
+    //     if (err) {
+    //       console.error(err);
+    //     } else {
+    //         let reviewsCopy = [];
+    //         let filteredCopy = [];
+    //         for (let review of results.results) {
+    //           reviewsCopy.push(review);
+    //         }
+
+    //         filteredCopy = reviewsCopy.filter(review => {
+    //           if (filter.includes(review.rating)) {
+    //             return review;
+    //         }
+    //       });
+
+    //       setShownReviews(filteredCopy.slice(0, count));
+    //       setReviews(filteredCopy);
+    //     }
+    // })}
+
   }, [reviews, filter, count])
 
   // <RBRFContainer>
@@ -79,6 +105,7 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
         <div className='h1'>
           <strong className='body' style={{ "fontSize": "30px" }}>{avgReviews} out of 5</strong> <QuarterStars rating={avgReviews} />
         </div>
+        <p className = 'total-review-count'> {totalReviews} Reviews </p>
         <div> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2'> Showing {number} Stars Reviews</div> }) : null}</div>
         <p className='body h3'> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {

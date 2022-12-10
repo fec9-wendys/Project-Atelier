@@ -66,7 +66,7 @@ const ReviewEntry = ({review, request, currentProduct, setShownReviews, count, Q
     <div id='review-entry-container'>
       <QuarterStars rating = {review.rating} />
       <span className = 'entry-log body'> {review.reviewer_name}, {properDate()}</span>
-      <div className = 'entry-summary body'> <strong>{review.summary}</strong> </div>
+      <p className = 'entry-summary body'> <strong>{review.summary}</strong> </p>
       <div className = 'entry-body body'> {review.body.length > 250 ? shownBody : review.body} </div>
       <div>
         {shownBody.length === 250 ?

@@ -9,13 +9,7 @@ import ReviewFeed from './ReviewFeed.jsx';
 import Sort from './Sort.jsx';
 import DynamicStars from './DynamicStars.jsx';
 import QuarterStars from './QuarterStars.jsx';
-import { ParentContainer } from './styles/Container'
-
-const Title = styled.h1`
-font-size: 1.5em;
-text-align: center;
-color: black;
-`;
+import { ParentContainer, TitleContainer } from './styles/Container'
 
 const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
   const [reviews, setReviews] = useState([]);
@@ -86,23 +80,25 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
 
 
   return (
-    <ParentContainer>
-      <Title>Ratings & Reviews</Title>
-      <RatingsBreakdown metaData={metaData} reviews={reviews} setReviews={setReviews} request={request}
-        currentProduct={currentProduct} filter={filter} setFilter={setFilter} shownFilter={shownFilter}
-        setShownFilter={setShownFilter} QuarterStars={QuarterStars} ratingStats={ratingStats} recStats={recStats}
-        avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
-        setCount={setCount} count = {count} />
-      &nbsp;
-      <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
-      &nbsp;
-      <Sort currentProduct={currentProduct} setReviews={setReviews} reviews={reviews} request={request} filter={filter}
-        setFilter={setFilter} setShownFilter={setShownFilter} sort={sort} setSort={setSort} sortValues={sortValues} />
-      &nbsp;
-      <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
-        request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
-        setShownReviews={setShownReviews} count={count} setCount={setCount} />
-    </ParentContainer>
+    <div>
+      <TitleContainer>Ratings & Reviews</TitleContainer>
+      <ParentContainer id='ratings-reviews'>
+        <RatingsBreakdown metaData={metaData} reviews={reviews} setReviews={setReviews} request={request}
+          currentProduct={currentProduct} filter={filter} setFilter={setFilter} shownFilter={shownFilter}
+          setShownFilter={setShownFilter} QuarterStars={QuarterStars} ratingStats={ratingStats} recStats={recStats}
+          avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
+          setCount={setCount} count={count} />
+        &nbsp;
+        <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
+        &nbsp;
+        <Sort currentProduct={currentProduct} setReviews={setReviews} reviews={reviews} request={request} filter={filter}
+          setFilter={setFilter} setShownFilter={setShownFilter} sort={sort} setSort={setSort} sortValues={sortValues} />
+        &nbsp;
+        <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
+          request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
+          setShownReviews={setShownReviews} count={count} setCount={setCount} />
+      </ParentContainer>
+    </div>
   );
 };
 
