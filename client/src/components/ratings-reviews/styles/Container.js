@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-// position: relative;
-//   top: 30px;
-//   height: 80vh;
-
-// display: flex;
-// align-items: center;
-// justify-content: space-evenly;
-// margin-top: 100px;
-
 export const TitleContainer = styled.h1`
   display: flex;
   align-items: center;
@@ -64,6 +55,8 @@ export const RBRFTitle = styled.h1`
 `
 
 export const PBContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 0 50px;
 `
 
