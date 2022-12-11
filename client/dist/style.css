@@ -182,11 +182,12 @@ body {
 }
 
 .carousel-image {
-  padding: 10px 12px;
+  padding: 10px 12px 5px 12px;
   opacity: 0.5;
   height: 70px;
   width: 70px;
   cursor: pointer;
+  border-bottom: 5px solid rgba(0, 0, 0, 0);
 }
 
 
