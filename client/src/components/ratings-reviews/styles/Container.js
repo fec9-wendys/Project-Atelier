@@ -13,48 +13,65 @@ export const TitleContainer = styled.h1`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 100px;
+  margin-top: 50px;
 `;
 
 export const ParentContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-basis: auto;
-  align-content: center;
-  gap: 10px;
-  gap: 10px 20px;
+  margin-bottom: 50px;
 `
 
-// position: absolute;
-// top: 100px;
-// left: 200px;
+export const LeftSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  flex-grow: 0;
+  padding-left: 200px;
+
+`
+
+export const RightSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 9;
+  align-items: center;
+  padding-top: 50px;
+`
+
+export const RightSideContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 9;
+  width: 100%;
+  max-width: 800px;
+`
 
 export const RBContainer = styled.div`
+  padding: 0 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 
 `
-// position: absolute;
-// top: 450px;
-// left: 200px;
-// width: 300px;
-
 export const PBContainer = styled.div`
+  padding: 0 50px;
 `
-
-// position: absolute;
-// left: 600px;
-// top: 100px;
 
 export const SortContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
 `
 
-// position: absolute;
-// left: 600px;
-// top: 150px;
-// width: 900px;
-
 export const RFContainer = styled.div`
-  width: 1100px;
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+`
+export const StarBarsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
 `

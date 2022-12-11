@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewModal from './ReviewModal.jsx';
 import { RFContainer } from './styles/Container.js';
-import { ReviewEntries } from './styles/Reviewfeed';
+import { ReviewEntries, ReviewButtons } from './styles/Reviewfeed';
 const { useState, useEffect } = React;
 
 const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, setReviews, shownReviews, setShownReviews, count, setCount, filter }) => {
@@ -40,11 +40,13 @@ const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, 
       <ReviewEntries>
         {shownReviews.map((review, index) => {
           return <ReviewEntry review={review} key={index} request={request} currentProduct={currentProduct}
-            setShownReviews={setShownReviews} count={count} QuarterStars={QuarterStars} filter = {filter}/>;
+            setShownReviews={setShownReviews} count={count} QuarterStars={QuarterStars} filter={filter} />;
         })}
+        <ReviewButtons>
+          {reviews.length > 2 ? <button id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </button> : null}
+          <button className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </button>
+        </ReviewButtons>
       </ReviewEntries>
-      {reviews.length > 2 ? <button id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </button> : null}
-      <button className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </button>
       <ReviewModal isOpen={isOpen} onClose={() => { SetIsOpen(false) }} currentProduct={currentProduct} request={request}
         metaData={metaData} setReviews={setReviews} />
     </RFContainer>

@@ -39,7 +39,6 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
 
   return (
     <SortContainer>
-      <div> </div>
       <strong>{reviews.length} reviews, sorted by </strong>
       <span>
         <select id={sort} className='dropdown' onChange={handleChange} >
