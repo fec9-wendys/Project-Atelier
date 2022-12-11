@@ -9,7 +9,8 @@ import ReviewFeed from './ReviewFeed.jsx';
 import Sort from './Sort.jsx';
 import DynamicStars from './DynamicStars.jsx';
 import QuarterStars from './QuarterStars.jsx';
-import { ParentContainer, TitleContainer, LeftSide, RightSide } from './styles/Container'
+import { ParentContainer, TitleContainer, LeftSide, RightSide, RFButtonsContainer, ReviewButtonsContainer } from './styles/Container';
+import { ReviewButtons } from './styles/Reviewfeed';
 
 const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
   const [reviews, setReviews] = useState([]);
@@ -25,6 +26,8 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
   const [chars, setChars] = useState([]);
   const [shownReviews, setShownReviews] = useState([]);
   const [count, setCount] = useState(2);
+  const [reviewButton, setReviewButton] = useState('More Reviews');
+  const [isOpen, SetIsOpen] = useState(false);
 
   const sortValues = [
     { value: 'relevant', text: 'relevant' },
@@ -41,7 +44,6 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
       if (err) {
         console.error(err);
       } else {
-        console.log(results.results);
         setReviews(results.results);
         request(`/reviews/meta/?product_id=${currentProduct.id}`, 'GET', {}, (err, results) => {
           if (err) {
@@ -50,7 +52,6 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
             let totalReviewsCount = 0;
             let avgReviewsCount = 0;
             let recPercentCount = 0;
-            console.log('RESULTS ARE', results);
             setMetaData(results); // results object
             setRatingStats(results.ratings); // object of ratings for product
             setRecStats(results.recommended); // % percentage of recommended
@@ -78,6 +79,23 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
     })
   }, [currentProduct]);
 
+  const handleClick = () => {
+    if (reviews.length > 2) {
+      document.getElementById('more-reviews-btn').style.visibility = 'visible';
+    }
+
+    if (count > reviews.length - 2) {
+      setReviewButton('Less Reviews');
+
+    }
+
+    if (reviewButton === 'Less Reviews') {
+      setCount(0);
+      setReviewButton('More Reviews');
+    }
+
+    setCount(previousCount => previousCount + 2);
+  }
 
   return (
     <div>
@@ -94,12 +112,19 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
         </LeftSide>
         &nbsp;
         <RightSide>
-        <Sort currentProduct={currentProduct} setReviews={setReviews} reviews={reviews} request={request} filter={filter}
-          setFilter={setFilter} setShownFilter={setShownFilter} sort={sort} setSort={setSort} sortValues={sortValues} />
-        &nbsp;
-        <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
-          request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
-          setShownReviews={setShownReviews} count={count} setCount={setCount} filter={filter} />
+          <Sort currentProduct={currentProduct} setReviews={setReviews} reviews={reviews} request={request} filter={filter}
+            setFilter={setFilter} setShownFilter={setShownFilter} sort={sort} setSort={setSort} sortValues={sortValues} />
+          &nbsp;
+          <RFButtonsContainer>
+            <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
+              request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
+              setShownReviews={setShownReviews} count={count} setCount={setCount} filter={filter}
+              reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} />
+            <ReviewButtonsContainer>
+              {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className = 'btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
+              <ReviewButtons className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>
+            </ReviewButtonsContainer>
+          </RFButtonsContainer>
         </RightSide>
       </ParentContainer>
     </div>

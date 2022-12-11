@@ -1,12 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Starbars from './Starbars.jsx';
 const { useState, useEffect } = React;
-import { RBContainer, RBRFContainer } from './styles/Container';
+import { RBContainer, RBRFContainer, RBRFTitle } from './styles/Container';
 
 let avgReviews = 0;
 let recPercent = 0;
+
+const AvgReviewTitle = styled.div`
+  display: inline-block;
+  marginBottom: 5px;
+  marginTop: 5px;
+`
 
 const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars, ratingStats, recStats, avgReviews, totalReviews, recPercent, setShownReviews, setCount, count }) => {
 
@@ -97,21 +104,29 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
 
   }, [reviews, filter, count])
 
-  // <RBRFContainer>
+  const removeAllHandler = () => {
+    setShownFilter([]);
+    setFilter([]);
+  }
+
   return (
     <RBContainer>
-      Ratings Breakdown Component
+      <RBRFTitle>Customer Reviews</RBRFTitle>
       <div>
-        <div className='h1'>
-          <strong className='body' style={{ "fontSize": "30px" }}>{avgReviews} out of 5</strong> <QuarterStars rating={avgReviews} />
-        </div>
-        <p className = 'total-review-count'> {totalReviews} Reviews </p>
-        <div style = {{'minHeight' : '75px', 'font-size' : '12px'}}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2'> Showing {number} Stars Reviews</div> }) : null}</div>
+        <AvgReviewTitle>
+          <strong className='body' style = {{'fontSize': '24px'}}>{avgReviews} out of 5</strong>
+        </AvgReviewTitle>
+        <QuarterStars rating={avgReviews} />
+        <div className='total-review-count' style={{ 'marginBottom': '5px' }}> {totalReviews} Reviews </div>
+        <div style={{ 'minHeight': '80px', 'fontSize': '13px' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2'> Showing {number} Stars Reviews</div> }) : null}</div>
         <p className='body h3'> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {
           return <Starbars key={index} rating={rating} ratingStats={ratingStats} totalReviews={totalReviews}
             setFilter={setFilter} filter={filter} setShownFilter={setShownFilter} />;
         })}
+        <div style={{ 'minHeight': '19px' }}>
+          {filter.length === 0 ? null : <u onClick={removeAllHandler}> Remove all Filters </u>}
+        </div>
       </div>
     </RBContainer>
   );
