@@ -84,6 +84,8 @@ body {
   gap: 20px;
   padding: 50px;
   line-height: 2em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #feature-grid {
