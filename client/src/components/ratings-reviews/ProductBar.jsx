@@ -1,44 +1,41 @@
 import React from 'react';
 import axios from 'axios';
-const {useState, useEffect} = React;
+const { useState, useEffect } = React;
 
-const ProductBar = ({bgcolor, progress, height}) => {
+const ProductBar = ({ }) => {
 
-  const Parentdiv = {
-    flexGrow: 1,
-    height: height,
-    width: '150px',
-    backgroundColor: 'whitesmoke',
-    borderRadius: 40,
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    display: 'inline-block'
-  }
+  const barSectionStyle = {
+    display: "inline-flex",
+    gap: "5px",
+    // justifyContent: "space-between",
+    width: "100%",
+    position: "relative",
+    padding: "10px",
+  };
 
-  const Childdiv = {
-    flexGrow: 1,
-    height: '20px',
-    width: `${progress}%`,
-    backgroundColor: bgcolor,
-    borderRadius: 20,
-    textAlign: 'right',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    display: 'inline-block'
-  }
+  const barStyle = {
+    height: "6px",
+    width: "100px",
+    background: "lightgrey",
+  };
 
-  const progresstext = {
-    padding: 3,
-    color: 'black',
-    fontWeight: 300,
-    display: 'inline-block'
-  }
+  // const ballStyle = {
+  //   height: "25px",
+  //   width: "25px",
+  //   borderRadius: "50%",
+  //   background: "red",
+  //   display: "inline-block",
+  //   position: "absolute",
+  //   top: 10,
+  //   left: 175.5 * percentage - 14.5, // -14.5 // 161                                 //175.5
+  // };
 
   return (
-    <div style={Parentdiv}>
-      <div style={Childdiv}>
-        <span style={progresstext}></span>
-      </div>
+    <div className="barsSection" style={barSectionStyle}>
+      <div className="bar" style={barStyle}></div>
+      <div className="bar" style={barStyle}></div>
+      <div className="bar" style={barStyle}></div>
+      {/* <div className="ball" style={ballStyle} /> */}
     </div>
   );
 };
