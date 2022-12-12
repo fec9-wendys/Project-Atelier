@@ -43,7 +43,7 @@ const QuarterStars = ({rating}) => {
   }
 
   return (
-    <div>
+    <div style = {{'paddingTop' : '5px'}}>
       {stars.map((item, i) => {
         return (
           <div className="single-star-container-quarter" key={i}>

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const ReviewEntries = styled.div`
-  height: 600px;
-  overflow: auto
+  width: 100%;
+  overflow: auto;
+  max-height: 750px;
 `
 
 export const EntriesReviewerName = styled.span`
@@ -16,3 +17,16 @@ export const EntriesDate = styled.span`
   right: 0px;
   top : 0px;
 `
+
+export const EntriesPhotos = styled.img`
+  margin: 0px 5px;
+  border: 2px solid red;
+`
+
+// max-width: 110px;
+export const ReviewButtons = styled.button`
+  display: flex;
+  align-content: center;
+  margin: 16px 8px;
+`
+

@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 const {useState, useEffect} = React;
 import ProgressBar from './ProgressBar.jsx';
+import {StarBarsContainer} from './styles/Container';
 
 const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShownFilter}) => {
 
@@ -29,13 +30,15 @@ const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShow
 
   return (
     <div id='star-breakdown'>
-      <div className = 'stars-summary'>
-        <u onClick = {filterHandler}>{rating} Stars</u>
+      <StarBarsContainer onClick = {filterHandler}>
+        <u style = {{'marginRight': '5px'}}>{rating} Stars</u>
         {/* <span id = 'star-bars'> */}
-        <ProgressBar bgcolor="orange" progress= {Math.round((ratingStats[rating]/totalReviews) * 100)} height={25} />
+        <ProgressBar bgcolor="orange" progress= {Math.round((ratingStats[rating]/totalReviews) * 100)} height={20} />
         {/* </span> */}
-        <span style = {{'position' : 'absolute','right':'0px','textAlign': 'right'}}> {ratingStats[rating]} </span>
-      </div>
+        <div style = {{'marginLeft' : '5px', 'width' : '30px'}}>
+          <span> {ratingStats[rating]} </span>
+        </div>
+      </StarBarsContainer>
     </div>
   );
 };

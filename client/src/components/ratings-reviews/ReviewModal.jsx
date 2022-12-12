@@ -95,6 +95,14 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
         }
       }
 
+      // checks for char inputs
+      // for (let char in charObj) {
+      //   if (charObj[char] === null) {
+      //     alert('Fill out mandatory characteristics');
+      //   }
+      // }
+
+
       const doc = {
         product_id: currentProduct.id,
         rating: starRating,
