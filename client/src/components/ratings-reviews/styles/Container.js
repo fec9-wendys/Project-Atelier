@@ -10,16 +10,19 @@ export const TitleContainer = styled.h1`
 export const ParentContainer = styled.div`
   display: flex;
   margin-bottom: 50px;
+  background-color: blue;
 `
 
 // flex-grow: 0;
 // padding-left: 75px;
 // min-width: 0;
+// max-width: 500px;
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 500px;
   padding-left: 125px;
+  max-width: 500px;
+  background-color: coral;
 
 `
 
@@ -31,6 +34,7 @@ export const RightSide = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
+  max-width: 1000px;
   flex-grow: 9;
 `
 
@@ -40,7 +44,8 @@ export const RFButtonsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  `
+  background-color: red;
+`
   // max-width: 800px;
 
 export const RBContainer = styled.div`
@@ -48,6 +53,7 @@ export const RBContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
+  background-color: green;
 
 `
 
@@ -61,6 +67,7 @@ export const PBContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 50px;
+  background-color: pink;
 `
 
 export const SortContainer = styled.div`
