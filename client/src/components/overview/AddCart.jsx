@@ -124,10 +124,15 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
       {Object.keys(stock).includes('null') ?
         <></>
         :
-        <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+        <div>
+          <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+        </div>
       }
       <div id="add-outfit">
-        <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
+        {outfit.includes(currentProduct) ?
+          <button id="added-outfit-button" className="btn" > Added to Outfit! <span style={{ color: 'red' }}>&#10084;</span></button>
+          : <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
+        }
       </div>
     </div>
   )
