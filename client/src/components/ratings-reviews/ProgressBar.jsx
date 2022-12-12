@@ -8,7 +8,7 @@ const ProgressBar = ({bgcolor, progress, height}) => {
     flexGrow: 1,
     height: height,
     width: '150px',
-    backgroundColor: 'whitesmoke',
+    backgroundColor: 'lightgrey',
     borderRadius: '5px',
     overflow: 'hidden',
     whiteSpace: 'nowrap',

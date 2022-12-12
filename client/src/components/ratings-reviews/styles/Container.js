@@ -7,7 +7,6 @@ export const TitleContainer = styled.h1`
   margin-top: 50px;
 `;
 
-// height: 800px;
 export const ParentContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -16,25 +15,15 @@ export const ParentContainer = styled.div`
 
 `
 
-// flex-grow: 0;
-// padding-left: 75px;
-// min-width: 0;
-// max-width: 500px;
-// padding-left: 125px;
+// max-width: 600px;
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   height: 900px;
 
 
 `
-
-// padding-top: 50px;
-// padding-left: 50px;
-// min-width = 0;
-// padding-top: 10px;
-// flex-grow: 9;
+// margin-left: 100px;
 export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,7 +31,7 @@ export const RightSide = styled.div`
   max-width: 900px;
   flex-grow: 1;
   height: 900px;
-  padding-left: 100px;
+  margin-left: 100px;
 
 `
 

@@ -100,32 +100,34 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
   return (
     <div>
       <TitleContainer>Ratings & Reviews</TitleContainer>
-      <ParentContainer id='ratings-reviews'>
-        <LeftSide>
-          <RatingsBreakdown metaData={metaData} reviews={reviews} setReviews={setReviews} request={request}
-            currentProduct={currentProduct} filter={filter} setFilter={setFilter} shownFilter={shownFilter}
-            setShownFilter={setShownFilter} QuarterStars={QuarterStars} ratingStats={ratingStats} recStats={recStats}
-            avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
-            setCount={setCount} count={count} />
+      <div>
+        <ParentContainer id='ratings-reviews'>
+          <LeftSide>
+            <RatingsBreakdown metaData={metaData} reviews={reviews} setReviews={setReviews} request={request}
+              currentProduct={currentProduct} filter={filter} setFilter={setFilter} shownFilter={shownFilter}
+              setShownFilter={setShownFilter} QuarterStars={QuarterStars} ratingStats={ratingStats} recStats={recStats}
+              avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
+              setCount={setCount} count={count} />
+            &nbsp;
+            <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
+          </LeftSide>
           &nbsp;
-          <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
-        </LeftSide>
-        &nbsp;
-        <RightSide>
-          <Sort currentProduct={currentProduct} setReviews={setReviews} reviews={reviews} request={request} filter={filter}
-            setFilter={setFilter} setShownFilter={setShownFilter} sort={sort} setSort={setSort} sortValues={sortValues} />
-          &nbsp;
-          {/* <RFButtonsContainer></ReviewButtonsContainer> */}
+          <RightSide>
+            <Sort currentProduct={currentProduct} setReviews={setReviews} reviews={reviews} request={request} filter={filter}
+              setFilter={setFilter} setShownFilter={setShownFilter} sort={sort} setSort={setSort} sortValues={sortValues} />
+            &nbsp;
+            {/* <RFButtonsContainer></ReviewButtonsContainer> */}
             <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
               request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
               setShownReviews={setShownReviews} count={count} setCount={setCount} filter={filter}
               reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} />
             <ReviewButtonsContainer>
-              {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className = 'btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
+              {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
               <ReviewButtons className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>
             </ReviewButtonsContainer>
-        </RightSide>
-      </ParentContainer>
+          </RightSide>
+        </ParentContainer>
+      </div>
     </div>
   );
 };
