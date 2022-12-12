@@ -7,14 +7,12 @@ const Container = styled.div`
 
 const Category = styled.div`
   text-transform: uppercase;
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 400;
   font-size: .9rem;
 `;
 
 const Name = styled.div`
   width: max-content;
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
 
@@ -27,7 +25,6 @@ const Price = styled.div``;
 
 const DefaultPrice = styled.span`
   text-transform: uppercase;
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 400;
   font-size: .9rem;
 `;
@@ -36,7 +33,6 @@ const DiscountPrice = styled.span`
   padding-left: 4px;
   color: red;
   text-transform: uppercase;
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 400;
   font-size: .9rem;
 `;
