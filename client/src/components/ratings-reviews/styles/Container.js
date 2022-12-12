@@ -7,35 +7,43 @@ export const TitleContainer = styled.h1`
   margin-top: 50px;
 `;
 
+// height: 800px;
 export const ParentContainer = styled.div`
   display: flex;
-  margin-bottom: 50px;
-  background-color: blue;
+  justify-content: center;
+  align-items: center;
+  height: 900px;
+
 `
 
 // flex-grow: 0;
 // padding-left: 75px;
 // min-width: 0;
 // max-width: 500px;
+// padding-left: 125px;
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 125px;
-  max-width: 500px;
-  background-color: coral;
+  max-width: 600px;
+  height: 900px;
+
 
 `
 
 // padding-top: 50px;
 // padding-left: 50px;
 // min-width = 0;
+// padding-top: 10px;
+// flex-grow: 9;
 export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
-  max-width: 1000px;
-  flex-grow: 9;
+  max-width: 900px;
+  flex-grow: 1;
+  height: 900px;
+  padding-left: 100px;
+
 `
 
 // flex-grow: 9;
@@ -44,7 +52,6 @@ export const RFButtonsContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  background-color: red;
 `
   // max-width: 800px;
 
@@ -53,7 +60,6 @@ export const RBContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2px;
-  background-color: green;
 
 `
 
@@ -67,7 +73,6 @@ export const PBContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 50px;
-  background-color: pink;
 `
 
 export const SortContainer = styled.div`
@@ -95,10 +100,13 @@ export const ReviewEntryContainer = styled.div`
 export const ReviewButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-start;
+  align-te
 `
 
 // gap: 5px 0px;
 // margin-bottom: 5px;
+// align-items: center;
+// display:flex;
 export const StarBarsContainer = styled.div`
   display: flex;
   align-items: center;

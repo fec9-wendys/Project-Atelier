@@ -109,8 +109,9 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
     setFilter([]);
   }
 
+  // <RBContainer>
   return (
-    <RBContainer>
+    <div className = 'ratings-breakdown'>
       <RBRFTitle>Customer Reviews</RBRFTitle>
       <div>
         <AvgReviewTitle>
@@ -128,7 +129,7 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
             setFilter={setFilter} filter={filter} setShownFilter={setShownFilter} />;
         })}
       </div>
-    </RBContainer>
+    </div>
   );
 };
 
