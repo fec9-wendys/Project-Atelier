@@ -26,7 +26,6 @@ const Close = styled.button`
   position: absolute;
   top: 10px;
   left: 20px;
-  font-family: 'Yantramanav', sans-serif;
 `;
 
 export { Overlay, Content, Close };
