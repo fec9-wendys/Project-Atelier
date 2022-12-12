@@ -11,13 +11,11 @@ const Comparison = styled.div`
 `;
 
 const Category = styled.div`
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 700;
   text-decoration: underline
 `;
 
 const Entry = styled.div`
-  font-family: 'Yantramanav', sans-serif;
 `;
 
 const Break = styled.div`
