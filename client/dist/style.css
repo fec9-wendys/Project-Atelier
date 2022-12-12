@@ -1,7 +1,6 @@
 
 body {
   font-family: 'Lato', sans-serif;
-
 }
 
 /*----------------------------buttons
@@ -12,6 +11,8 @@ body {
   /* border: 1px solid rgb(218, 39, 39); */
   position: relative;
   overflow: hidden;
+  background-color: white;
+  font-size: larger;
 }
 
 

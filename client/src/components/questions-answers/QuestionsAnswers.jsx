@@ -19,6 +19,14 @@ text-align: left;
 
 `;
 
+const Search = styled.input`
+
+
+text-align:left;
+height: 40px;
+width: 1000px;
+font-size: 30px;
+`;
 
 
 // eslint-disable-next-line react/prop-types
@@ -124,7 +132,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       <Container>
       <Title>Questions & Answers Component</Title>
       <div>
-      <input type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
+      <Search type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
       <button className="btn" onClick={handleSearchClick}>{searchButton}</button>
       </div>
       <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
