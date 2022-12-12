@@ -108,18 +108,20 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
       </select>
 
       {/* dropdown menu for quantity */}
-      <label htmlFor="quantity-dropdown"> Quantity: </label>
-      <select className="dropdown" id="quantity-dropdown">
-        {currSize === 'select-size' ?
-          <option value="select-quantity" id="default-quantity" defaultValue>---</option>
-          : <>
-            {Array.apply(1, Array(currQuantity)).map((current, index) => {
-              return <option key={index} value={index + 1}>{index + 1}</option>
-            })
-            }
-          </>
-        }
-      </select>
+      <div>
+        <label htmlFor="quantity-dropdown"> Quantity: </label>
+        <select className="dropdown" id="quantity-dropdown">
+          {currSize === 'select-size' ?
+            <option value="select-quantity" id="default-quantity" defaultValue>---</option>
+            : <>
+              {Array.apply(1, Array(currQuantity)).map((current, index) => {
+                return <option key={index} value={index + 1}>{index + 1}</option>
+              })
+              }
+            </>
+          }
+        </select>
+      </div>
 
       {Object.keys(stock).includes('null') ?
         <></>
