@@ -1,8 +1,24 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 const { useState, useEffect } = React;
 import { SortContainer } from './styles/Container';
+
+const SortWords = styled.span`
+  font-size: 18px;
+`
+
+const SortFilter = styled.select`
+  width: 120px;
+  height: 30px;
+  border: 1px solid #999;
+  font-size: 18px;
+  color: #1c87c9;
+  background-color: #eee;
+  border-radius: 5px;
+  box-shadow: 4px 4px #ccc;
+`
 
 const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues }) => {
 
@@ -39,8 +55,11 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
 
   return (
     <SortContainer>
-      <strong>{reviews.length} reviews, sorted by </strong>
+      <SortWords>
+        <strong>{reviews.length} reviews, sorted by </strong>
+      </SortWords>
       <span>
+        &nbsp;
         <select id={sort} className='dropdown' onChange={handleChange} >
           {sortValues.map(sortValue => {
             return (

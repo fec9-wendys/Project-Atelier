@@ -26,7 +26,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
   const [chars, setChars] = useState([]);
   const [shownReviews, setShownReviews] = useState([]);
   const [count, setCount] = useState(2);
-  const [reviewButton, setReviewButton] = useState('More Reviews');
+  const [reviewButton, setReviewButton] = useState('Show More Reviews');
   const [isOpen, SetIsOpen] = useState(false);
 
   const sortValues = [
@@ -85,13 +85,13 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
     }
 
     if (count > reviews.length - 2) {
-      setReviewButton('Less Reviews');
+      setReviewButton('Show Less Reviews');
 
     }
 
-    if (reviewButton === 'Less Reviews') {
+    if (reviewButton === 'Show Less Reviews') {
       setCount(0);
-      setReviewButton('More Reviews');
+      setReviewButton('Show More Reviews');
     }
 
     setCount(previousCount => previousCount + 2);

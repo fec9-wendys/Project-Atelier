@@ -12,12 +12,12 @@ export const ParentContainer = styled.div`
   margin-bottom: 50px;
 `
 
+// flex-grow: 0;
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 500px;
-  flex-grow: 0;
-  padding-left: 150px;
+  padding-left: 125px;
 
 `
 
@@ -25,17 +25,17 @@ export const LeftSide = styled.div`
 export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 9;
   align-items: center;
   padding-top: 10px;
+  flex-grow: 9;
   padding-left: 50px;
 `
 
+// flex-grow: 9;
 export const RFButtonsContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex-grow: 9;
   width: 100%;
   `
   // max-width: 800px;
@@ -66,17 +66,20 @@ export const SortContainer = styled.div`
   justify-content: flex-start;
 `
 
+// gap: 100px 100px;
 export const RFContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
   width: 100%;
+
 `
 
+// margin-bottom: 15px;
 export const ReviewEntryContainer = styled.div`
-  margin-bottom: 30px;
-  border: 1px solid red;
+  display: flex;
+  border-bottom: 2px solid black;
+  flex-direction: column;
 `
 
 export const ReviewButtonsContainer = styled.div`
@@ -84,8 +87,10 @@ export const ReviewButtonsContainer = styled.div`
   justify-content: flex-start;
 `
 
+// gap: 5px 0px;
+// margin-bottom: 5px;
 export const StarBarsContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 `

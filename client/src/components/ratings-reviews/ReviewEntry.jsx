@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewImageModal from './ReviewImageModal.jsx';
-import { EntriesLog } from './styles/Reviewfeed';
+import { EntriesLog, EntriesPhotos } from './styles/Reviewfeed';
 import { ReviewEntryContainer } from './styles/Container';
 const { useState, useEffect } = React;
 
@@ -83,18 +83,21 @@ const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, 
   return (
     <ReviewEntryContainer>
       <QuarterStars rating={review.rating} />
-      <div className='entry-log body'> <span> <i className="fa-solid fa-circle-check"></i> {review.reviewer_name}, {properDate()}</span></div>
-      <p className='entry-summary body'> <strong>{review.summary}</strong> </p>
-      <div className='entry-body body' style={{ 'maxWidth': '800px' }}> {review.body.length > 250 ? shownBody : review.body} </div>
+      <div className='entry-log body'>
+        <span> <i className="fa-solid fa-circle-check"></i> {review.reviewer_name}</span>
+      </div>
+      <p className='entry-summary body' style = {{'marginBottom' : '4px', 'marginTop' : '24px'}}> <strong>{review.summary}</strong> <span style = {{'float' : 'right'}}> {properDate()} </span> </p>
+      <p className='entry-body body' style={{ 'maxWidth': '800px', 'overflow-wrap' : 'break-word', 'marginTop' : '4px' }}>
+        {review.body.length > 250 ? shownBody : review.body}
+      </p>
       <div>
         {shownBody.length === 250 ?
           <button className='entry-body-button btn' onClick={() => setShownBody(review.body)}> Show More </button> : null}
       </div>
-      <p className='entry-rec body'> {review.recommend ? <span><i className="fa-solid fa-check"></i> I recommend this product</span> : null}</p>
-      <p className='entry-response-header body'> {review.response === null ? null : 'Response from Seller:'}</p>
-      <p className='entry-response-body body'>{review.response}</p>
-      <div className='entry-photos'> {review.photos.map((image, index) => {
-        return <img key={index} src={image.url} width={review.photos ? '100' : '0'}
+      {review.recommend ? <p><i className="fa-solid fa-check"></i> I recommend this product</p> : null}
+      {review.response === null ? null : <div style = {{'backgroundColor' : 'lightgrey', 'display' : 'inline-block'}}>Response from Seller: <div>{review.response}</div></div>}
+      <div> {review.photos.map((image, index) => {
+        return <EntriesPhotos key={index} src={image.url} width={review.photos ? '100' : '0'}
           height={review.photos ? '100' : '0'} onClick={imgClickHandler} />
       })}
       </div>

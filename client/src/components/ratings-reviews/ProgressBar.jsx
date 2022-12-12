@@ -9,7 +9,7 @@ const ProgressBar = ({bgcolor, progress, height}) => {
     height: height,
     width: '150px',
     backgroundColor: 'whitesmoke',
-    borderRadius: 40,
+    borderRadius: '5px',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     display: 'inline-block'
@@ -20,7 +20,7 @@ const ProgressBar = ({bgcolor, progress, height}) => {
     height: '20px',
     width: `${progress}%`,
     backgroundColor: bgcolor,
-    borderRadius: 20,
+    borderRadius: '5px',
     textAlign: 'right',
     overflow: 'hidden',
     whiteSpace: 'nowrap',

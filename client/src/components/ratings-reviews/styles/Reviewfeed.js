@@ -18,10 +18,15 @@ export const EntriesDate = styled.span`
   top : 0px;
 `
 
+export const EntriesPhotos = styled.img`
+  margin: 0px 5px;
+  border: 2px solid red;
+`
+
+// max-width: 110px;
 export const ReviewButtons = styled.button`
   display: flex;
   align-content: center;
-  margin: 5px 5px;
-  max-width: 110px;
+  margin: 16px 8px;
 `
 
