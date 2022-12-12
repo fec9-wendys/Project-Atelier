@@ -10,7 +10,7 @@ const Description = ({ currentProduct, currentProductStyle }) => {
       <h1 id="product-name" >
         {currentProduct.name}
       </h1>
-      <h3 id="product-style">Style: &gt; {currentProductStyle.name}</h3>
+      <h3 id="product-style">Style &gt; {currentProductStyle.name}</h3>
       {currentProductStyle.sale_price ?
         <div className="product-price">
           <s>${currentProductStyle.original_price}</s>

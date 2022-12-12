@@ -9,16 +9,19 @@ const Reviews = ({ ratings, totalReviews }) => {
 
   return (
     <div className="grid-container" id="ratings">
-      {totalReviews !== 0 && //shows reviews and starts if there are reviews present
-        <>
-          {QuarterStars(roundedRatings)}
-          <a href="#ratings-reviews">Read All {totalReviews} Reviews</a>
-        </>
-      }
+      <div id="stars-line">
+        {totalReviews !== 0 && //shows reviews and starts if there are reviews present
+          <>
+            {QuarterStars(roundedRatings)}
+            <a href="#ratings-reviews">Read All {totalReviews} Reviews</a>
+          </>
+        }
+      </div>
+      {/* Social media icons */}
       <div id="icons">
-        <a href="https://www.facebook.com/"><i className="fa-brands fa-square-facebook icon" id="facebook-icon" /></a>
-        <a href="https://www.twitter.com"><i className="fa-brands fa-square-twitter icon" id="twitter-icon"></i></a>
-        <a href="https://www.pinterest.com"><i className="fa-brands fa-square-pinterest icon" id="pinterest-icon"></i></a>
+        <a href="https://www.facebook.com/"><img className="icon" id="facebook-icon" src="./facebook.png" /></a>
+        <a href="https://www.twitter.com"><img className="icon" id="twitter-icon" src="./twitter.png" /></a>
+        <a href="https://www.pinterest.com"><img className="icon" id="pinterest-icon" src="./pinterest.png" /></a>
       </div>
     </div>
   )
@@ -70,8 +73,8 @@ function QuarterStars(ratings) {
       {stars.map((item, i) => {
         return (
           <div className="single-star-container-quarter" key={i}>
-            <div className="single-star-fill-quarter icon" style={{ "width": `${parseInt(item * 20)}px` }}>
-              <img className="single-star-outline-quarter icon" src="star.png" alt="stars alt"></img>
+            <div className="single-star-fill-quarter" style={{ "width": `${parseInt(item * 18)}px` }}>
+              <img className="single-star-outline-quarter" src="star.png" alt="stars alt"></img>
             </div>
           </div>
         );

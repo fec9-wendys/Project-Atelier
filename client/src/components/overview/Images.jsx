@@ -6,28 +6,20 @@ const Images = ({ currentProduct, currentProductStyle }) => {
   const [currentMainIndex, setCurrentMainIndex] = useState(0); //main picture url
   const [startIndex, setStartIndex] = useState(0); //start index of carousel thumbnail
   const [endIndex, setEndIndex] = useState(0); //end index of carousel thumbnail
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); //boolean state for modal open/close
 
   //sets start and end index for thumbnail carousel
   useEffect(() => {
     setCurrentMainIndex(0);
     setStartIndex(0);
-    if (currentProductStyle.photos.length <= 7) {
-      setEndIndex(currentProductStyle.photos.length - 1);
-    } else {
-      setEndIndex(6);
-    }
+    setEndIndex(Math.min(currentProductStyle.photos.length - 1, 6))
   }, [currentProduct])
 
   useEffect(() => {
     if (currentProductStyle.photos.length < currentMainIndex) {
       setCurrentMainIndex(0);
       setStartIndex(0);
-      if (currentProductStyle.photos.length <= 7) {
-        setEndIndex(currentProductStyle.photos.length - 1);
-      } else {
-        setEndIndex(6);
-      }
+      setEndIndex(Math.min(currentProductStyle.photos.length - 1, 6))
       return;
     } else if (currentMainIndex < startIndex) {
       setStartIndex(currentMainIndex);
@@ -35,8 +27,10 @@ const Images = ({ currentProduct, currentProductStyle }) => {
     }
   }, [currentProductStyle])
 
+
   //handles clicking on thumbnail event
   const handleThumbClick = (index) => {
+    const currentIndex = currentMainIndex;
     setCurrentMainIndex(index + startIndex);
   }
 
@@ -77,7 +71,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
       setCurrentMainIndex(newIndex);
       if (newIndex > endIndex) {
         setEndIndex(newIndex);
-        console.log('this index is changed') //SOURCE OF POSSIBLE BUG, SHOULD FIXME:
+        console.log('this index is changed') //SOURCE OF POSSIBLE BUG, SHOULD BE FIXED
         setStartIndex(startIndex + (newIndex - endIndex))
       }
     }
@@ -100,8 +94,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         </div>
       </div>
 
-      <div className="carousel" id="thumbnail-carousel">
-
+      <div id="carousel-buttons">
         {/* check if carousel buttons are even needed */}
         {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
           <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
@@ -109,16 +102,35 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         {currentProductStyle.photos.length > 7 && endIndex !== currentProductStyle.photos.length - 1 &&
           <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
         }
+      </div>
+
+      <div className="carousel" id="thumbnail-carousel">
+
+        {/* check if carousel buttons are even needed
+        {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
+          <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
+        }
+        {currentProductStyle.photos.length > 7 && endIndex !== currentProductStyle.photos.length - 1 &&
+          <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
+        } */}
 
         {/* Actual Carousel Images */}
         <div id="carousel-images">
           {currentProductStyle.photos.length < 7 &&
             currentProductStyle.photos.map((photo, index) => {
-              return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+              if (index === currentMainIndex) {
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
+              } else {
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+              }
             })}
           {currentProductStyle.photos.length >= 7 &&
             currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
-              return <img style={thumbnailStyle} className="carousel-items" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+              if (index + startIndex === currentMainIndex) {
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
+              } else {
+                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+              }
             })}
         </div>
 
@@ -128,11 +140,6 @@ const Images = ({ currentProduct, currentProductStyle }) => {
 
     </div>
   )
-}
-const thumbnailStyle = {
-  height: 75,
-  width: 75,
-  cursor: 'pointer'
 }
 
 export default Images;
