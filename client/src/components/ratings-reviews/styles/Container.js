@@ -13,6 +13,8 @@ export const ParentContainer = styled.div`
 `
 
 // flex-grow: 0;
+// padding-left: 75px;
+// min-width: 0;
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,13 +24,14 @@ export const LeftSide = styled.div`
 `
 
 // padding-top: 50px;
+// padding-left: 50px;
+// min-width = 0;
 export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 10px;
   flex-grow: 9;
-  padding-left: 50px;
 `
 
 // flex-grow: 9;
