@@ -10,10 +10,19 @@ import Container from './styles/Card.js';
 
 const Card = ({ index, productId, currentProduct, setCurrentProduct, inOutfit, outfit, setOutfit, request }) => {
   const [product, setProduct] = useState(ReactSession.get(productId));
+  const [currentProductFeatures, setCurrentProductFeatures] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    request(`/products/${currentProduct.id}`, 'GET', {}, (error, features) => {
+      if (error) {
+        console.error(error);
+      } else {
+        setCurrentProductFeatures(features);
+      }
+    });
+
     if (!product) {
       request(`/products/${productId}`, 'GET', {}, (error, product) => {
         if (error) {
@@ -40,11 +49,11 @@ const Card = ({ index, productId, currentProduct, setCurrentProduct, inOutfit, o
   }, []);
 
   useEffect(() => {
-    if (product) {
+    if (currentProductFeatures && product) {
       ReactSession.set(productId, product);
       setReady(true);
     }
-  }, [product]);
+  }, [currentProductFeatures, product]);
 
   return !ready || product.ratings === 0 ? null : (
     <>
@@ -52,7 +61,7 @@ const Card = ({ index, productId, currentProduct, setCurrentProduct, inOutfit, o
         <img src={product.styles[0].photos[0].thumbnail_url} onClick={() => setIsOpen(true)}></img>
         <Details index={index} product={product} ratings={product.ratings} setCurrentProduct={setCurrentProduct} inOutfit={inOutfit} outfit={outfit} setOutfit={setOutfit} />
       </Container>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} currentProduct={currentProduct} product={product}>Hello</Modal>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} currentProductFeatures={currentProductFeatures} product={product} request={request}>Hello</Modal>
     </>
   );
 };
