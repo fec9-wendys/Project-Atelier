@@ -5,8 +5,13 @@ import styled from 'styled-components';
 import { Overlay, Content, Close } from './styles/Modal.js';
 import { Comparison, Category, Entry, Break } from './styles/Comparison.js';
 
-export default function Modal({ isOpen, onClose, currentProduct, product }) {
+export default function Modal({ isOpen, onClose, currentProductFeatures, product, request }) {
   if (!isOpen) return null;
+
+  const features = [];
+  currentProductFeatures.features.forEach(({ feature, value }) => features.push([value, feature, product.features[feature]?.value]));
+  product.features.forEach(({ feature, value }) => features.push([currentProductFeatures.features[feature]?.value, feature, value]));
+  console.log(features);
 
   return ReactDOM.createPortal(
     <>
@@ -14,18 +19,18 @@ export default function Modal({ isOpen, onClose, currentProduct, product }) {
       <Content>
         <Close onClick={onClose}>Close</Close>
         <Comparison>
-          <Category>{currentProduct.name}</Category>
+          <Category>{currentProductFeatures.name}</Category>
           <Category />
           <Category>{product.name}</Category>
           <Break />
-          <Entry>{currentProduct.category}</Entry>
-          <Entry>Category</Entry>
-          <Entry>{product.category}</Entry>
-          <Break />
-          <Entry>{currentProduct.discount_price ? currentProduct.discount_price : currentProduct.default_price}</Entry>
-          <Entry>Price</Entry>
-          <Entry>{product.discount_price ? product.discount_price : product.default_price}</Entry>
-          <Break />
+          {features.map((comparison, key) => (
+            <>
+              <Entry>{!comparison[0] ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-check"></i>}</Entry>
+              <Entry>{comparison[1]}</Entry>
+              <Entry>{!comparison[2] ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-check"></i>}</Entry>
+              <Break />
+            </>
+          ))}
         </Comparison>
       </Content>
     </>
