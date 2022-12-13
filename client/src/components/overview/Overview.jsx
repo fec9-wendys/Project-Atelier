@@ -7,6 +7,7 @@ import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
 import Images from './Images.jsx';
 
+
 const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit }) => {
 
   const [ratings, setRatings] = useState([]);
@@ -60,11 +61,12 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
 
   return (
-    <div className="overview">
+    <div id="overview-container">
       <div id="overview">
         {currentProductStyle !== null &&
           <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
         }
+        <div id="flexbox2">
         {ratings.length !== 0 && totalReviews &&
           <Reviews ratings={ratings} totalReviews={totalReviews} />
         }
@@ -77,10 +79,12 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
         {currentProductStyle !== null && stock !== null &&
           <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} stock={stock} />
         }
-        {features !== null &&
-          <Features features={features} />
-        }
+        </div>
+
       </div>
+      {features !== null &&
+        <Features features={features} />
+      }
     </div>
   )
 }
