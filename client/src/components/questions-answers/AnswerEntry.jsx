@@ -52,7 +52,7 @@ const AnswerEntry = ({answer, request, question, setAnswers}) => {
    }
 
   return (
-    <div>
+    <div className="answer-section">
       <u className="answer-title"><h5> A: {answer.body}</h5></u>
       <span>
       {answer.photos.length > 0 &&
