@@ -103,6 +103,9 @@ font-size: small;
   justify-content: center;
 
 } */
+#overview-container {
+  padding: 10px;
+}
 
 #overview {
   background-color: red;
@@ -121,6 +124,7 @@ font-size: small;
   margin-left: auto;
   margin-right: auto;
   background-color: aqua; */
+  line-height: 1em;
 }
 
 /* #feature-grid {
@@ -143,7 +147,7 @@ font-size: small;
   /* grid-row: 1 / 5; */
   justify-content: center;
   align-items: center;
-  min-width: 400px;
+  min-width: 300px;
   width: 35%;
   background-color: yellow;
   position: relative;
@@ -153,7 +157,7 @@ font-size: small;
 
 #flexbox2 {
   display: flex;
-  min-width: 200px;
+  min-width: 307px;
   width: 20%;
   background-color: chocolate;
   flex-flow: column nowrap;
@@ -163,9 +167,9 @@ font-size: small;
 
 #ratings {
   background-color: greenyellow;
-  /* grid-row: 1 / 2;
+  /* grid-row: 1 / 2; */
   font-size: 0.8em;
-  line-height: 1.3em; */
+  line-height: 1.3em;
   height: 10%;
   padding: 5%;
 }
@@ -176,36 +180,48 @@ font-size: small;
   min-width: 50%;
   width: 60%;
   line-height: 2em; */
-  height: 30%;
-  padding: 5%;
+  font-size: 0.8em;
+  min-height: 15%;
+  padding-left: 5%;
+  padding-bottom: 5%;
 }
 
 #style-selector {
   background-color: grey;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  min-height: 20%;
+  min-height: 15%;
   height: auto;
-  padding: 5%;
+  padding-left: 5%;
+  padding-top: 5%;
 }
 
 
 #cart {
   background-color: cadetblue;
-  height: 25%;
+  /* height: 25%; */
   padding: 5%;
+  line-height: 2.5em;
 }
 
 #features {
   background-color: blanchedalmond;
-  grid-column: 1 / 3;
+  /* align-items: center;
+  justify-content: center;
+  display: flex; */
+  /* display: flex; */
+  display: flex;
+  max-width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  /* grid-column: 1 / 3; */
   line-height: 1.5em;
 }
 
 /* -------------------------Main Gallery -------------------------*/
 
 #main-photo img {
-  object-fit: cover;
+  object-fit: contain;
   /* position: absolute; */
   /* top: 50%; */
   /* left: 50%; */
@@ -404,16 +420,16 @@ u {
 
 .style-selector-thumbnails {
   position: relative;
+  background-color: blue;
 
 }
 
 .style-selector-thumbnails>img {
-  /* height: 70px;
-  width: 70px; */
-  background-color: chocolate;
-  height: auto;
-  width: 90%;
+  height: 75px;
+  width: 75px;
+  box-sizing: border-box;
   cursor: pointer;
+  padding: 5px;
   border-radius: 50%;
   border: 2px solid black;
   opacity: 0.7;
@@ -429,10 +445,10 @@ u {
   transition: 300ms opacity ease-in;
 }
 
-.style-selector-thumbnail {
+/* .style-selector-thumbnail {
   position: relative;
   padding: 9px 0px 9px 5px;
-}
+} */
 
 #checkmark {
   padding: 0px;
@@ -443,12 +459,20 @@ u {
   color: rgba(218, 39, 39);
 }
 
+/* ------------------Add Cart --------------------------------*/
+
+
+
 /* ---------------------------Features----------------------- */
 
 #slogan {
   font-weight: bolder;
   font-size: 2em;
   font-style: italic;
+}
+
+#summary {
+
 }
 
 #slogan,
@@ -474,4 +498,32 @@ u {
   box-shadow: 4px 4px #ccc;
   cursor: pointer;
   cursor: hand;
+}
+
+/* ----------------------Media Query------------------------ */
+@media (max-width: 1600px) {
+  #style-selector {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #description {
+    font-size: 0.7em;
+  }
+
+  #thumbnail-carousel {
+    height: 75px;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* #style-selector {
+    grid-template-columns: repeat(2, 1fr);
+  } */
+
+  /* #description {
+    font-size: 0.5em;
+  } */
+  #thumbnail-carousel {
+    height: 50px;
+  }
 }

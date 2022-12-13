@@ -13,6 +13,12 @@ const Images = ({ currentProduct, currentProductStyle }) => {
     setCurrentMainIndex(0);
     setStartIndex(0);
     setEndIndex(Math.min(currentProductStyle.photos.length - 1, 6))
+    if (currentProductStyle.photos.length >= 7) {
+      document.getElementById('left-thumbnail-button').style.visibility = "hidden"
+      if (currentProductStyle.photos.length >= 7) {
+        document.getElementById('right-thumbnail-button').style.visibility = "visible";
+      }
+    }
   }, [currentProduct])
 
   useEffect(() => {
@@ -20,10 +26,20 @@ const Images = ({ currentProduct, currentProductStyle }) => {
       setCurrentMainIndex(0);
       setStartIndex(0);
       setEndIndex(Math.min(currentProductStyle.photos.length - 1, 6))
+      document.getElementById('left-thumbnail-button').style.visibility = "hidden";
+      if (currentProductStyle.photos.length >= 7) {
+        document.getElementById('right-thumbnail-button').style.visibility = "visible";
+      }
       return;
     } else if (currentMainIndex < startIndex) {
       setStartIndex(currentMainIndex);
       setEndIndex(Math.min(currentMainIndex + 6, currentProductStyle.photos.length - 1));
+      if (currentMainIndex !== 0) {
+        document.getElementById('left-thumbnail-button').style.visibility = "visible";
+      }
+    }
+    if (currentProductStyle.photos.length >= 7 && endIndex !== currentProductStyle.photos.length - 1) {
+      document.getElementById('right-thumbnail-button').style.visibility = "visible";
     }
   }, [currentProductStyle])
 
@@ -39,12 +55,11 @@ const Images = ({ currentProduct, currentProductStyle }) => {
     const currStartIndex = startIndex;
     const currEndIndex = endIndex;
     if (e.target.id === 'left-thumbnail-button') {
-      if (currStartIndex - 3 < 0) {
+      document.getElementById('right-thumbnail-button').style.visibility = "visible";
+      if (currStartIndex - 2 <= 0) {
         document.getElementById('left-thumbnail-button').style.visibility = "hidden"
       }
-      if (endIndex <= currentProductStyle.photos.length) {
-        document.getElementById('right-thumbnail-button').style.visibility = "visible";
-      }
+
       if (currStartIndex - 2 < 0) {
         setStartIndex(0);
         setEndIndex(currEndIndex - currStartIndex)
@@ -53,10 +68,10 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         setEndIndex(currEndIndex - 2);
       }
     } else {
-      if (endIndex + 4 > currentProductStyle.photos.length) {
+      document.getElementById('left-thumbnail-button').style.visibility = "visible"
+      if (endIndex + 2 >= currentProductStyle.photos.length - 1) {
         document.getElementById('right-thumbnail-button').style.visibility = "hidden";
       }
-      document.getElementById('left-thumbnail-button').style.visibility = "visible"
       if (currEndIndex + 2 > currentProductStyle.photos.length - 1) {
 
         setEndIndex(currentProductStyle.photos.length - 1);
@@ -77,6 +92,10 @@ const Images = ({ currentProduct, currentProductStyle }) => {
       if (newIndex < startIndex) {
         setStartIndex(newIndex);
         setEndIndex(endIndex - (startIndex - newIndex))
+        document.getElementById('right-thumbnail-button').style.visibility = "visible";
+      }
+      if (newIndex === 0 && currentProductStyle.photos.length >= 7) {
+        document.getElementById('left-thumbnail-button').style.visibility = "hidden";
       }
     } else {
       newIndex = currentMainIndex + 1
@@ -85,6 +104,10 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         setEndIndex(newIndex);
         console.log('this index is changed') //SOURCE OF POSSIBLE BUG, SHOULD BE FIXED
         setStartIndex(startIndex + (newIndex - endIndex))
+        document.getElementById('left-thumbnail-button').style.visibility = "visible";
+        if (newIndex === currentProductStyle.photos.length - 1) {
+          document.getElementById('right-thumbnail-button').style.visibility = "hidden";
+        }
       }
     }
   }
