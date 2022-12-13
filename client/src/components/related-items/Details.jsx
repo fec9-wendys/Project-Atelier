@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSession } from 'react-client-session';
 
-import { Container, Category, Name, Price, DefaultPrice, DiscountPrice, Rating, Icon} from './styles/Details.js';
+import { Container, Category, Name, Price, DefaultPrice, DiscountPrice, Rating, Icon } from './styles/Details.js';
 
 const Details = ({ index, product, ratings, setCurrentProduct, inOutfit, outfit, setOutfit }) => {
   const renderPrice = () => {
