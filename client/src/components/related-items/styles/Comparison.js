@@ -7,17 +7,14 @@ const Comparison = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-around;
 `;
 
 const Category = styled.div`
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 700;
-  text-decoration: underline
 `;
 
 const Entry = styled.div`
-  font-family: 'Yantramanav', sans-serif;
 `;
 
 const Break = styled.div`

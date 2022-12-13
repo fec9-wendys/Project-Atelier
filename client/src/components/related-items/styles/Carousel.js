@@ -18,7 +18,6 @@ const Button = styled.button`
   height: 380px;
   background: transparent;
   border: 0;
-  font-family: 'Yantramanav', sans-serif;
   font-weight: 700;
   font-size: 1.75rem;
 `;

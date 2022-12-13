@@ -7,7 +7,6 @@ const Container = styled.div`
 `;
 
 const Empty = styled.div`
-  font-family: 'Yantramanav', sans-serif;
 `;
 
 export { Container, Empty };
