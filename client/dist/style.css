@@ -96,13 +96,13 @@ font-size: small;
 }
 
 /* --------------------grid structure ---------------------*/
-#overview-container {
+/* #overview-container {
 
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 
-}
+} */
 
 #overview {
   background-color: red;
