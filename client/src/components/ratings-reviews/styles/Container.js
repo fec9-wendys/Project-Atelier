@@ -85,7 +85,7 @@ export const ReviewEntryContainer = styled.div`
   display: flex;
   border-bottom: 2px solid black;
   padding-bottom: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   flex-direction: column;
 `
 
@@ -119,16 +119,15 @@ export const ModalContainer = styled.div`
 export const ModalTopContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 900px;
+  align-items: flex-start;
 
 `
 
+// align-items: flex-start;
+// justify-content: flex-start;
 export const ModalBottomContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 
 `
 

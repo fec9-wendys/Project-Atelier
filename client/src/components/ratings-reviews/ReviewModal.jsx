@@ -150,29 +150,33 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
         <div>
           <div>
             <form>
-              Characteristics Review Component
-              {Object.keys(metaData.characteristics).map((key, index) => {
-                return <CharEntry key={index} charKey={key} setSize={setSize} setWidth={setWidth} setComfort={setComfort}
-                  setQuality={setQuality} setLength={setLength} setFit={setFit} />;
-              })}
-              <p>Do you recommend this product?</p>
-              <input type="radio" id="yes-button" name="rec" value='Yes' onChange={(e) => setRec(true)} required />
-              <label htmlFor='Yes'>Yes</label><br></br>
-              <input type="radio" id="no-button" name="rec" value='No' onChange={(e) => setRec(false)} />
-              <label htmlFor='No'>No</label><br></br>
-              <label htmlFor="summary"> Summary: </label><br></br>
-              <input type="text" id="summary" name="summary" maxLength='60'
-                placeholder='Best Purchase Ever!' onChange={(e) => setSummary(e.target.value)} /><br></br>
-              <label htmlFor="body"> Review Body:</label><br></br>
-              <textarea type="text" id="body" name="body" rows='6' cols='50' maxLength='1000'
-                placeholder='Why did you like the product or not?' onChange={(e) => setBody(e.target.value)} required /><br></br>
-              <p id='char-requirement'> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${chars}`}</p>
-              <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
-              <input id='image-upload' className='btn' type='file' onChange={fileHandler} multiple />
-              &nbsp;
-              {img.map((image, index) => {
-                return <img key={index} src={image} width={img ? '100' : '0'} height={img ? '100' : '0'} />
-              })}
+              <ModalTopContainer>
+                Characteristics Review Component
+                <ModalCharContainer>
+                  {Object.keys(metaData.characteristics).map((key, index) => {
+                    return <CharEntry key={index} charKey={key} setSize={setSize} setWidth={setWidth} setComfort={setComfort}
+                      setQuality={setQuality} setLength={setLength} setFit={setFit} />;
+                  })}
+                </ModalCharContainer>
+                <p>Do you recommend this product?</p>
+                <input type="radio" id="yes-button" name="rec" value='Yes' onChange={(e) => setRec(true)} required />
+                <label htmlFor='Yes'>Yes</label><br></br>
+                <input type="radio" id="no-button" name="rec" value='No' onChange={(e) => setRec(false)} />
+                <label htmlFor='No'>No</label><br></br>
+                <label htmlFor="summary"> Summary: </label><br></br>
+                <input type="text" id="summary" name="summary" maxLength='60'
+                  placeholder='Best Purchase Ever!' onChange={(e) => setSummary(e.target.value)} /><br></br>
+                <label htmlFor="body"> Review Body:</label><br></br>
+                <textarea type="text" id="body" name="body" rows='6' cols='50' maxLength='1000'
+                  placeholder='Why did you like the product or not?' onChange={(e) => setBody(e.target.value)} required /><br></br>
+                <p id='char-requirement'> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${chars}`}</p>
+                <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
+                <input id='image-upload' className='btn' type='file' onChange={fileHandler} multiple />
+                &nbsp;
+                {img.map((image, index) => {
+                  return <img key={index} src={image} width={img ? '100' : '0'} height={img ? '100' : '0'} />
+                })}
+              </ModalTopContainer>
               <ModalBottomContainer>
                 <ModalNicknameContainer>
                   <label htmlFor="nickname">Nickname:</label><br></br>
