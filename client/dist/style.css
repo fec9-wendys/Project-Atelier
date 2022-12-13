@@ -15,6 +15,7 @@ body {
   cursor: pointer;
   cursor: hand;
 }
+
 .btn:before {
   content: "";
   position: absolute;
@@ -44,12 +45,15 @@ body {
   min-width: 1200px;
   min-height: 800px;
 }
+
 .helpful {
-font-size: small;
+  font-size: small;
 }
+
 .question-title {
   font-size: larger;
 }
+
 .answer-title {
   font-size: larger;
 }
@@ -93,6 +97,57 @@ font-size: small;
   display: inline-block;
   height: 22px;
   background-color: #333333;
+}
+
+/* ------------------------NavBar -----------------------*/
+
+.nav-total {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 1vh;
+  bottom: 1vh;
+
+}
+
+#nav-search {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  border: none;
+  /* border-radius: 100px; */
+  /* background-color: gray; */
+  /* border-bottom: 2px solid black; */
+  outline: none;
+}
+
+#nav-button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-left: -2.5vw;
+  margin-top: 1vh;
+
+}
+
+#nav-button img {
+  width: 2.5vw;
+  height: 2.5vh;
+  object-fit: contain;
+}
+
+.header-background {
+  position: absolute;
+  object-fit: cover;
+  z-index: 0;
+  width: 100vw;
+  height: 100%;
+}
+
+.supreme-logo {
+  z-index: 100;
+  border-radius: 30px;
+  height: 100px;
 }
 
 /* --------------------grid structure ---------------------*/
@@ -264,13 +319,13 @@ font-size: small;
 /* ---------------------Carousel--------------------- */
 
 #thumbnail-carousel {
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
   /* display: flex; */
   position: absolute;
-  bottom: 1rem;
+  bottom: 1.5rem;
   width: 100%;
   box-sizing: border-box;
   /* left: 50%; */
@@ -313,10 +368,10 @@ font-size: small;
 }
 
 #carousel-images {
-  height:100%;
-  display:flex;
+  height: 100%;
+  display: flex;
   /* background-color: blueviolet; */
-  width:100%;
+  width: 100%;
 }
 
 #right-thumbnail-button,
@@ -385,6 +440,7 @@ font-size: small;
   display: flex;
   position: absolute;
   left: 50%;
+  cursor: pointer;
   transform: translateX(-50%);
 }
 
