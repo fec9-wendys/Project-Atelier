@@ -35,7 +35,6 @@ const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isam
     if (loadbutton === 'Load More'){
       console.log('MORE BUTTON CLICK')
       console.log('UPDATED ANSWERS ARE', answers)
-
       setLoadButton('Show Less')
       setShownAnswers(answers)
     } else {
@@ -87,8 +86,8 @@ const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isam
   return (
     <div>
       <span>
-      <h4>Q: {question.question_body}</h4>
-      <p>Helpful? <u onClick={handleUpVote}>Yes</u> ({question.question_helpfulness}) | <u onClick={handleAddAnswer}
+      <strong className="question-title"><h3>Q: {question.question_body}</h3></strong>
+      <p className="helpful">Helpful? <u onClick={handleUpVote}>Yes</u> ({question.question_helpfulness}) | <u onClick={handleAddAnswer}
         >Add Answer</u> </p>
       </span>
      {shownanswers.map((answer, key) => <AnswerEntry  setAnswers={setAnswers} question={question} request={request} answer={answer} key={key}/> )}

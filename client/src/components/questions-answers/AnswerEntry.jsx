@@ -53,12 +53,12 @@ const AnswerEntry = ({answer, request, question, setAnswers}) => {
 
   return (
     <div>
-      <h5> A: {answer.body}</h5>
+      <u className="answer-title"><h5> A: {answer.body}</h5></u>
       <span>
       {answer.photos.length > 0 &&
       answer.photos.map((photo, key)=>
        <Photos key={key} photo={photo}/>)}
-      <p>by {answer.answerer_name}, {date2} | Helpful? <u  onClick={handleUpVote}>Yes</u> ({answer.helpfulness}) | <u onClick={handleReport}>{ansreportedtext}</u> </p>
+      <p className="helpful" >by {answer.answerer_name}, {date2} | Helpful? <u  onClick={handleUpVote}>Yes</u> ({answer.helpfulness}) | <u onClick={handleReport}>{ansreportedtext}</u> </p>
       </span>
     </div>
   )

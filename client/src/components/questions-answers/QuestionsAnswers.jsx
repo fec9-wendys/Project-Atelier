@@ -14,14 +14,13 @@ text-align: center;
 
 const Container = styled.div`
 
-text-align: left;
-
+display:flex;
+justify-content: center;
+align-items: center;
 
 `;
 
 const Search = styled.input`
-
-
 text-align:left;
 height: 40px;
 width: 1000px;
@@ -129,9 +128,10 @@ const QuestionsAnswers = ({currentProduct, request}) => {
   return (
 
     <div  style={styles} id='questions-answers'>
-      <Container>
       <Title>Questions & Answers Component</Title>
-      <div>
+      <Container>
+     <div className='qacontainer'>
+      <div >
       <Search type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
       <button className="btn" onClick={handleSearchClick}>{searchButton}</button>
       </div>
@@ -144,6 +144,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         <button className="glow-on-hover" type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
         <button onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+      </div>
       </div>
       </Container>
     </div>

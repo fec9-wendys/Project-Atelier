@@ -62,7 +62,7 @@ const AnswerModal = ({ setQuestions, questionid, answermodalbody, request, curre
   }
 
 return ReactDom.createPortal(
-  <>
+  <div className="modal">
   <div style={overlayStyle}/>
   <div style={modalStyles}>
   <form onSubmit={handleSubmit}>
@@ -110,11 +110,11 @@ return ReactDom.createPortal(
   {answerphotos.map((photo, key) =>
       <UploadPhoto photo={photo} key={key}/>)}
     <br/>
-  <input type='submit'/>
+  <input className="btn" type='submit'/>
   </form>
-    <button onClick={handleCloseClick}>Close Modal</button>
+    <button className="btn" onClick={handleCloseClick}>Close Modal</button>
   </div>
-  </>,
+  </div>,
   document.getElementById('answerportal')
 )
 }
