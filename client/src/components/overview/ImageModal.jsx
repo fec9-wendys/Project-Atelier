@@ -42,7 +42,7 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
         }
 
         {/* main image in modal */}
-        <img style={{ objectFit: 'contain', height: '90vh', width: '90vw', cursor: 'crosshair' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
+        <img style={{ objectFit: 'contain', height: '80vh', width: '80vw', cursor: 'crosshair' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
 
         {/* close button */}
         <i className="fa-regular fa-circle-xmark" id="close-button" onClick={onClose}></i>
