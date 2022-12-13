@@ -6,14 +6,14 @@ const { useState, useEffect } = React;
 import { SortContainer } from './styles/Container';
 
 const SortWords = styled.span`
-  font-size: 18px;
+  font-size: large;
 `
 
 const SortFilter = styled.select`
   width: 120px;
   height: 30px;
   border: 1px solid #999;
-  font-size: 18px;
+  font-size: large;
   color: #1c87c9;
   background-color: #eee;
   border-radius: 5px;

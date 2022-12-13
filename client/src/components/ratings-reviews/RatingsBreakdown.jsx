@@ -117,11 +117,11 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
       <RBRFTitle>Customer Reviews</RBRFTitle>
       <div>
         <AvgReviewTitle>
-          <strong className='body' style={{ 'fontSize': '24px' }}>{avgReviews} out of 5</strong>
+          <strong className='body' style={{ 'fontSize': 'x-large' }}>{avgReviews} out of 5</strong>
         </AvgReviewTitle>
         <QuarterStars rating={avgReviews} />
         <div className='total-review-count' style={{ 'marginBottom': '10px' }}> {totalReviews} Reviews </div>
-        <div style={{ 'fontSize': '13px' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
+        <div style={{ 'fontSize': 'small' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
         <div style={{ 'marginTop' : '5px' }}>
           {filter.length === 0 ? null : <u onClick={removeAllHandler}> Remove all Filters </u>}
         </div>
