@@ -205,7 +205,6 @@ font-size: small;
 }
 
 #features {
-  background-color: blanchedalmond;
   /* align-items: center;
   justify-content: center;
   display: flex; */
@@ -216,6 +215,8 @@ font-size: small;
   margin-right: auto;
   /* grid-column: 1 / 3; */
   line-height: 1.5em;
+  font-size: small;
+  padding-top: 2%;
 }
 
 /* -------------------------Main Gallery -------------------------*/
@@ -471,8 +472,9 @@ u {
 }
 
 #summary {
-
+  width: 66%;
 }
+
 
 #slogan,
 #summary>p {
@@ -480,8 +482,11 @@ u {
 }
 
 #feature-list {
-  font-size: 18px;
+  padding-left: 3%;
+  width: 33%;
+  font-size: x-small;
   box-sizing: content-box;
+  align-items: center;
 }
 
 /* ---------------------------DropDown----------------------- */
