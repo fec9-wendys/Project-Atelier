@@ -13,7 +13,7 @@ const Overlay = styled.div`
 const Content = styled.div`
   position: fixed;
   width: 450px;
-  height: 450px;
+  height: min-content;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -22,10 +22,15 @@ const Content = styled.div`
 `;
 
 const Close = styled.button`
-  width: 90%;
   position: absolute;
   top: 10px;
-  left: 20px;
+  right: 10px;
+  background: transparent;
+  border: none;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export { Overlay, Content, Close };
