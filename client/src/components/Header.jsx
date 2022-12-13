@@ -5,6 +5,7 @@ const Nav = styled.nav`
 display: flex;
 justify-content: center;
 align-items: center;
+background-color: grey;
 
 `;
 const Header = () => {
