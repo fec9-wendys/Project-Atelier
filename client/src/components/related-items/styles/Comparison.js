@@ -2,19 +2,23 @@ import styled from 'styled-components';
 
 const Comparison = styled.div`
   width: 100%;
-  height: 100%;
-  padding-top: 40px;
+  height: 90%;
+  padding-top: 30px;
   display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-end;
+  margin-bottom: 20px;
 `;
 
-const Category = styled.div`
-  font-weight: 700;
+const Column = styled.div`
+  width: 100%;
+  height: 100%;
+  text-align: center;
 `;
 
 const Entry = styled.div`
+  font-weight: ${(props) => props.bold ? 'bold' : 'normal'};
+  padding-top: 10px;
 `;
 
 const Break = styled.div`
@@ -22,4 +26,4 @@ const Break = styled.div`
   width: 100%;
 `;
 
-export { Comparison, Category, Entry, Break };
+export { Comparison, Column, Entry, Break };
