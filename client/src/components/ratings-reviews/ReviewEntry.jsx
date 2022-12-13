@@ -86,7 +86,7 @@ const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, 
       <div className='entry-log body'>
         <span> <i className="fa-solid fa-circle-check"></i> {review.reviewer_name}</span>
       </div>
-      <p className='entry-summary body' style = {{'marginBottom' : '4px', 'marginTop' : '24px'}}> <strong>{review.summary}</strong> <span style = {{'float' : 'right'}}> {properDate()} </span> </p>
+      <p className='entry-summary body' style = {{'marginBottom' : '4px', 'marginTop' : '24px', 'fontSize' : 'large'}}> <strong>{review.summary}</strong> <span style = {{'float' : 'right'}}> {properDate()} </span> </p>
 
       <p className='entry-body body' style={{ 'maxWidth': '800px', 'overflowWrap' : 'breakWord', 'marginTop' : '4px' }}>
 

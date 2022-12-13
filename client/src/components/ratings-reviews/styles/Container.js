@@ -55,7 +55,7 @@ export const RightSide = styled.div`
 
 export const RBRFTitle = styled.h1`
   margin: 0px;
-  font-size: 28px;
+  font-size: xx-large;
 
 `
 
@@ -84,6 +84,8 @@ export const RFContainer = styled.div`
 export const ReviewEntryContainer = styled.div`
   display: flex;
   border-bottom: 2px solid black;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
   flex-direction: column;
 `
 
@@ -107,4 +109,45 @@ export const StarBarsContainer = styled.div`
   &:hover {
     color: #3366CC;
   }
+`
+
+// Modal Containers
+
+export const ModalContainer = styled.div`
+  overflow: auto;
+`
+export const ModalTopContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+`
+
+// align-items: flex-start;
+// justify-content: flex-start;
+export const ModalBottomContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+`
+
+export const ModalCharContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const ModalNicknameContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+`
+
+export const ModalEmailContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
 `

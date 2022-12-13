@@ -15,31 +15,18 @@ const AvgReviewTitle = styled.div`
   marginTop: 5px;
 `
 
+const RemoveAllFilter = styled.u`
+  &:hover {
+    color: #3366CC;
+  }
+`
+
 const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars, ratingStats, recStats, avgReviews, totalReviews, recPercent, setShownReviews, setCount, count }) => {
+
 
 
   useEffect(() => {
     console.log('RATINGS BREAKDOWN USE EFFECT RAN')
-    //   request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
-    //     if (err) {
-    //       console.error(err);
-    //     } else {
-    //         let reviewsCopy = [];
-    //         let filteredCopy = [];
-    //         for (let review of results.results) {
-    //           reviewsCopy.push(review);
-    //         }
-
-    //         filteredCopy = reviewsCopy.filter(review => {
-    //           if (filter.includes(review.rating)) {
-    //             return review;
-    //         }
-    //       });
-
-    //       setReviews(filteredCopy);
-    //     }
-    // })
-
 
     if (filter.length === 0) {
       setShownReviews(reviews.slice(0, count));
@@ -57,50 +44,7 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
       })
 
       setShownReviews(filteredCopy.slice(0, count));
-      // setReviews(filteredCopy);
-      // setCount(filteredCopy.length);
     }
-
-
-    // let reviewsCopy = [];
-    //   let filteredCopy = [];
-    //   for (let review of reviews) {
-    //     reviewsCopy.push(review);
-    //   }
-
-    //   filteredCopy = reviewsCopy.filter(review => {
-    //     if (filter.includes(review.rating)) {
-    //       return review;
-    //     }
-    //   })
-
-    //   // setReviews(filteredCopy);
-    //   setShownReviews(filteredCopy.slice(0, count));
-    //   // setCount(filteredCopy.length);
-
-    // if (filter.length === 0) {
-    //   setShownReviews(reviews.slice(0, count));
-    // } else {
-    //   request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
-    //     if (err) {
-    //       console.error(err);
-    //     } else {
-    //         let reviewsCopy = [];
-    //         let filteredCopy = [];
-    //         for (let review of results.results) {
-    //           reviewsCopy.push(review);
-    //         }
-
-    //         filteredCopy = reviewsCopy.filter(review => {
-    //           if (filter.includes(review.rating)) {
-    //             return review;
-    //         }
-    //       });
-
-    //       setShownReviews(filteredCopy.slice(0, count));
-    //       setReviews(filteredCopy);
-    //     }
-    // })}
 
   }, [reviews, filter, count])
 
@@ -110,18 +54,20 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
   }
 
   // <RBContainer>
+  // 'minHeight': '100px',
+  // 'minHeight': '19px'
   return (
     <div className = 'ratings-breakdown'>
       <RBRFTitle>Customer Reviews</RBRFTitle>
       <div>
         <AvgReviewTitle>
-          <strong className='body' style={{ 'fontSize': '24px' }}>{avgReviews} out of 5</strong>
+          <strong className='body' style={{ 'fontSize': 'x-large' }}>{avgReviews} out of 5</strong>
         </AvgReviewTitle>
         <QuarterStars rating={avgReviews} />
         <div className='total-review-count' style={{ 'marginBottom': '10px' }}> {totalReviews} Reviews </div>
-        <div style={{ 'minHeight': '100px', 'fontSize': '13px' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
-        <div style={{ 'minHeight': '19px', 'marginTop' : '5px' }}>
-          {filter.length === 0 ? null : <u onClick={removeAllHandler}> Remove all Filters </u>}
+        <div style={{ 'fontSize': 'small' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
+        <div style={{ 'marginTop' : '5px' }}>
+          {filter.length === 0 ? null : <RemoveAllFilter onClick={removeAllHandler}> Remove all Filters </RemoveAllFilter>}
         </div>
         <p className='body h3' style = {{'marginTop' : '8px'}}> {recPercent}% of reviews recommend this product </p>
         {Object.keys(ratingStats).reverse().map((rating, index) => {
