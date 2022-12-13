@@ -6,13 +6,14 @@ import { PBContainer, RBRFTitle } from './styles/Container';
 
 const ProductBreakdown = ({ currentProduct, metaData, chars }) => {
 
+  // <PBContainer>
   return (
-    <PBContainer>
+    <div className = 'product-breakdown'>
       <RBRFTitle>Features</RBRFTitle>
       {Object.keys(chars).map((key, index) => {
         return <PBEntry key={index} charKey={key} charValue={chars[key]} />;
       })}
-    </PBContainer>
+    </div>
   );
 };
 

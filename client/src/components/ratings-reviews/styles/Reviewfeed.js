@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ReviewEntries = styled.div`
   width: 100%;
   overflow: auto;
-  max-height: 750px;
+  max-height: 800px;
 `
 
 export const EntriesReviewerName = styled.span`

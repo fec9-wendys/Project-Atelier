@@ -176,7 +176,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
                 placeholder = 'Why did you like the product or not?' onChange = {(e) => setBody(e.target.value)} required /><br></br>
               <p id = 'char-requirement'> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${chars}`}</p>
               <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
-                <input id = 'image-upload' type = 'file' onChange = {fileHandler} multiple/>
+                <input id = 'image-upload' className = 'btn' type = 'file' onChange = {fileHandler} multiple/>
                 &nbsp;
                 {img.map((image, index) => {
                   return <img key = {index} src = {image} width = {img ? '100' : '0'} height = {img ? '100' : '0'}/>
@@ -185,7 +185,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
             </form>
           </div>
         </div>
-        <button onClick = {onClose}>Close</button>
+        <button onClick = {onClose} className = 'btn' >Close</button>
       </div>
     </>,
     document.getElementById('portal')
