@@ -23,8 +23,10 @@ align-items: center;
 const Search = styled.input`
 text-align:left;
 height: 40px;
-width: 1000px;
-font-size: 30px;
+width: 1200px;
+font-size: 1.5vh;
+ padding-left: 0.3vw;
+
 `;
 
 
@@ -132,8 +134,11 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       <Container>
      <div className='qacontainer'>
       <div >
+        <div className='qasearchbar'>
       <Search type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
-      <button className="btn" onClick={handleSearchClick}>{searchButton}</button>
+      <img src="https://i.ibb.co/MhfN01W/searchbar-icon.webp" className="qasearchimg" ></img>
+      <button className="btn" id="qasearchbutton" onClick={handleSearchClick}>{searchButton}</button>
+      </div>
       </div>
       <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
       <div>{!none && shownQuestion.map((question, key) =>
@@ -144,6 +149,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         <button className="glow-on-hover" type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
         <button onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+
       </div>
       </div>
       </Container>

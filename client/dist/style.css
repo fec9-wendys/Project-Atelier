@@ -41,6 +41,8 @@ h2 {
 
 
 
+
+
 /*--------------------------------QA CONTAINER
 */
 .qacontainer {
@@ -61,7 +63,28 @@ h2 {
 .answer-title {
   font-size: larger;
 }
+.answer-section {
+  border-bottom: 1px solid black;
+}
 
+.qasearchbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.qasearchimg{
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -3vw;
+  width: 2vw;
+  height: 2vh;
+  object-fit: contain;
+  margin-top: .8vh;
+}
+#qasearchbutton {
+  min-width: 74px;
+}
 
 
 /*------------------------------
