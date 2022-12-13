@@ -118,7 +118,7 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
           <strong className='body' style={{ 'fontSize': '24px' }}>{avgReviews} out of 5</strong>
         </AvgReviewTitle>
         <QuarterStars rating={avgReviews} />
-        <div className='total-review-count' style={{ 'marginBottom': '5px' }}> {totalReviews} Reviews </div>
+        <div className='total-review-count' style={{ 'marginBottom': '10px' }}> {totalReviews} Reviews </div>
         <div style={{ 'minHeight': '100px', 'fontSize': '13px' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
         <div style={{ 'minHeight': '19px', 'marginTop' : '5px' }}>
           {filter.length === 0 ? null : <u onClick={removeAllHandler}> Remove all Filters </u>}

@@ -36,21 +36,22 @@ export const RightSide = styled.div`
 `
 
 // flex-grow: 9;
-export const RFButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-`
-  // max-width: 800px;
+// export const RFButtonsContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   width: 100%;
+// `
 
-export const RBContainer = styled.div`
-  padding: 0 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+// max-width: 800px;
 
-`
+// export const RBContainer = styled.div`
+//   padding: 0 50px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 2px;
+
+// `
 
 export const RBRFTitle = styled.h1`
   margin: 0px;
@@ -58,11 +59,11 @@ export const RBRFTitle = styled.h1`
 
 `
 
-export const PBContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 50px;
-`
+// export const PBContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding: 0 50px;
+// `
 
 export const SortContainer = styled.div`
   display: flex;
@@ -89,7 +90,6 @@ export const ReviewEntryContainer = styled.div`
 export const ReviewButtonsContainer = styled.div`
   display: flex;
   justify-content: flex-start;
-  align-te
 `
 
 // gap: 5px 0px;
@@ -100,4 +100,11 @@ export const StarBarsContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  cursor: hand;
+  cursor: pointer;
+  min-height: 27px;
+
+  &:hover {
+    color: #3366CC;
+  }
 `

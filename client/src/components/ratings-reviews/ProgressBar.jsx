@@ -1,45 +1,46 @@
 import React from 'react';
 import axios from 'axios';
-const {useState, useEffect} = React;
+import styled from 'styled-components';
+const { useState, useEffect } = React;
 
-const ProgressBar = ({bgcolor, progress, height}) => {
+const ProgressBar = ({ bgcolor, progress }) => {
 
-  const Parentdiv = {
-    flexGrow: 1,
-    height: height,
-    width: '150px',
-    backgroundColor: 'lightgrey',
-    borderRadius: '5px',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    display: 'inline-block'
+  const StyledParent = styled.div`
+  flex-grow: 1;
+  height: 25px;
+  width: 150px;
+  opacity: 0.5;
+  background-color: #CDA8F0;
+  border-radius: 5px 0px 0px 5px;
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+
+  &:hover {
+    border: 1px solid #0000EE;
   }
+  `
 
-  const Childdiv = {
-    flexGrow: 1,
-    height: '20px',
-    width: `${progress}%`,
-    backgroundColor: bgcolor,
-    borderRadius: '5px',
-    textAlign: 'right',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    display: 'inline-block'
-  }
+  // overflow: hidden;
+  const StyledChild = styled.div`
+    flex-grow: 1;
+    height: 25px;
+    width: ${progress}%;
+    background-color: #661EA8;
+    text-align: right;
+    white-space: nowrap;
+    display: inline-block;
 
-  const progresstext = {
-    padding: 3,
-    color: 'black',
-    fontWeight: 300,
-    display: 'inline-block'
-  }
+    &:hover {
+      border-left: 1px solid #0000EE;
+    }
+`
 
   return (
-    <div style={Parentdiv}>
-      <div style={Childdiv}>
-        <span style={progresstext}></span>
-      </div>
-    </div>
+    <StyledParent>
+      <StyledChild></StyledChild>
+      {/* <div style={Childdiv}></div> */}
+    </StyledParent>
   );
 };
 
