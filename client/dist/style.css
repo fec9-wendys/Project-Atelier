@@ -16,9 +16,6 @@ body {
   cursor: pointer;
   cursor: hand;
 }
-
-
-
 .btn:before {
   content: "";
   position: absolute;
@@ -38,6 +35,30 @@ body {
 .btn:hover:before {
   left: 100%;
 }
+
+
+
+
+/*--------------------------------QA CONTAINER
+*/
+.qacontainer {
+
+  width: 50vw;
+  min-width: 1200px;
+  min-height: 800px;
+}
+.helpful {
+font-size: small;
+}
+.question-title {
+  font-size: larger;
+}
+.answer-title {
+  font-size: larger;
+}
+
+
+
 /*------------------------------
 */
 .single-star-outline {
