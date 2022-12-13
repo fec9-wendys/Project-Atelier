@@ -3,6 +3,11 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+img {
+  cursor: pointer;
+  cursor: hand;
+}
+
 /*----------------------------buttons
 */
 

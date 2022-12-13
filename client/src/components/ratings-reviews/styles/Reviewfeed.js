@@ -20,7 +20,7 @@ export const EntriesDate = styled.span`
 
 export const EntriesPhotos = styled.img`
   margin: 0px 5px;
-  border: 2px solid red;
+  border: 1px solid black;
 `
 
 // max-width: 110px;

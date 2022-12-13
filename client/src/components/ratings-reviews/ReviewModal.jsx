@@ -4,6 +4,7 @@ import ReactDom from 'react-dom';
 const {useState, useEffect} = React;
 import DynamicStars from './DynamicStars.jsx';
 import CharEntry from './CharEntry.jsx';
+import {ModalContainer, ModalTopContainer, ModalBottom} from './styles/Container';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -13,8 +14,8 @@ const MODAL_STYLES = {
   backgroundColor: '#FFF',
   padding: '50px',
   zIndex: 1000,
-  height: '400px',
-  overflow: 'auto'
+  width: '1000px',
+  height: '700px',
 }
 
 const OVERLAY_STYLES = {
@@ -138,9 +139,8 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
   return ReactDom.createPortal(
     <>
       <div style = {OVERLAY_STYLES} />
-      <div id='review-modal' className = 'modal' style = {MODAL_STYLES}>
-        <h1> Write your Review </h1>
-        <h2> about the {currentProduct.name}</h2>
+      <ModalContainer className = 'modal' style = {MODAL_STYLES}>
+        <h1> Write your review about the {currentProduct.name}</h1>
         <div>
           How do you rate this product?
         </div>
@@ -186,7 +186,7 @@ const ReviewModal = ({isOpen, onClose, currentProduct, request, metaData, setRev
           </div>
         </div>
         <button onClick = {onClose} className = 'btn' >Close</button>
-      </div>
+      </ModalContainer>
     </>,
     document.getElementById('portal')
   );

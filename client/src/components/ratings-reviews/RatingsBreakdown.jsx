@@ -110,6 +110,8 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
   }
 
   // <RBContainer>
+  // 'minHeight': '100px',
+  // 'minHeight': '19px'
   return (
     <div className = 'ratings-breakdown'>
       <RBRFTitle>Customer Reviews</RBRFTitle>
@@ -119,8 +121,8 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
         </AvgReviewTitle>
         <QuarterStars rating={avgReviews} />
         <div className='total-review-count' style={{ 'marginBottom': '10px' }}> {totalReviews} Reviews </div>
-        <div style={{ 'minHeight': '100px', 'fontSize': '13px' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
-        <div style={{ 'minHeight': '19px', 'marginTop' : '5px' }}>
+        <div style={{ 'fontSize': '13px' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
+        <div style={{ 'marginTop' : '5px' }}>
           {filter.length === 0 ? null : <u onClick={removeAllHandler}> Remove all Filters </u>}
         </div>
         <p className='body h3' style = {{'marginTop' : '8px'}}> {recPercent}% of reviews recommend this product </p>
