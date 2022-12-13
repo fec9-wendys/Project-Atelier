@@ -13,6 +13,8 @@ body {
   overflow: hidden;
   background-color: white;
   font-size: larger;
+  cursor: pointer;
+  cursor: hand;
 }
 .btn:before {
   content: "";
@@ -319,6 +321,11 @@ font-size: small;
   padding-right: 20px;
 }
 
+u {
+  cursor: pointer;
+  cursor: hand;
+}
+
 /*--------------------- Style Selector--------------------- */
 
 .style-selector-thumbnails {
@@ -387,6 +394,8 @@ font-size: small;
   background-color: #eee;
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
+  cursor: pointer;
+  cursor: hand;
 }
 
 

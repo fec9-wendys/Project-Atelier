@@ -29,11 +29,11 @@ const Starbars = ({rating, ratingStats, totalReviews, setFilter, filter, setShow
   }
 
   return (
-    <div id='star-breakdown'>
+    <div id='star-breakdown' style = {{}}>
       <StarBarsContainer onClick = {filterHandler}>
         <u style = {{'marginRight': '5px'}}>{rating} Stars</u>
         {/* <span id = 'star-bars'> */}
-        <ProgressBar bgcolor="orange" progress= {Math.round((ratingStats[rating]/totalReviews) * 100)} height={20} />
+        <ProgressBar bgcolor="orange" progress= {Math.round((ratingStats[rating]/totalReviews) * 100)} />
         {/* </span> */}
         <div style = {{'marginLeft' : '5px', 'width' : '30px'}}>
           <span> {ratingStats[rating]} </span>

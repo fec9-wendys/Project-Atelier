@@ -9,47 +9,49 @@ export const TitleContainer = styled.h1`
 
 export const ParentContainer = styled.div`
   display: flex;
-  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 900px;
+
 `
 
-// flex-grow: 0;
-// padding-left: 75px;
-// min-width: 0;
+// max-width: 600px;
 export const LeftSide = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  padding-left: 125px;
+  height: 900px;
+
 
 `
-
-// padding-top: 50px;
-// padding-left: 50px;
-// min-width = 0;
+// margin-left: 100px;
 export const RightSide = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
-  flex-grow: 9;
+  max-width: 900px;
+  flex-grow: 1;
+  height: 900px;
+  margin-left: 100px;
+
 `
 
 // flex-grow: 9;
-export const RFButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-  `
-  // max-width: 800px;
+// export const RFButtonsContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   width: 100%;
+// `
 
-export const RBContainer = styled.div`
-  padding: 0 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+// max-width: 800px;
 
-`
+// export const RBContainer = styled.div`
+//   padding: 0 50px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 2px;
+
+// `
 
 export const RBRFTitle = styled.h1`
   margin: 0px;
@@ -57,11 +59,11 @@ export const RBRFTitle = styled.h1`
 
 `
 
-export const PBContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 50px;
-`
+// export const PBContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   padding: 0 50px;
+// `
 
 export const SortContainer = styled.div`
   display: flex;
@@ -92,8 +94,17 @@ export const ReviewButtonsContainer = styled.div`
 
 // gap: 5px 0px;
 // margin-bottom: 5px;
+// align-items: center;
+// display:flex;
 export const StarBarsContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  cursor: hand;
+  cursor: pointer;
+  min-height: 27px;
+
+  &:hover {
+    color: #3366CC;
+  }
 `
