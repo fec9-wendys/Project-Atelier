@@ -47,13 +47,14 @@ const QuestionsAnswers = ({currentProduct, request}) => {
   const [shownanswers, setShownAnswers] = useState(answers.slice(0,2))
 
 
-  const styles ={
+  const styles = {
     position: 'relative',
     zIndex: 1
   }
   //INITIAL GET
   useEffect(() => {
-    if (currentProduct !== null && questions.length === 0) {
+
+
     request(`/qa/questions/?product_id=${currentProduct.id}&count=30`, 'GET', {}, (error, questions) => {
         if (!error) {
           console.log('QUESTIONS ARE---> ', questions)
@@ -62,7 +63,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
           console.error(error);
         }
         })
-      }
+
   }, [currentProduct])
   // SETTING CORRECT AMT QUESTIONS TO RENDER
   useEffect(() => {
@@ -148,7 +149,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
         <div>{none && <h2>NO MATCHING RESULTS</h2>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         <button className="glow-on-hover" type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+        <button  className="button2" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
 
       </div>
       </div>
