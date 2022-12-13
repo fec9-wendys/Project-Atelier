@@ -91,7 +91,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
   return (
     <div className="grid-container" id="cart">
       {/* dropdown menu for size */}
-      <label htmlFor="size-dropdown">Size: </label>
+      <label htmlFor="size-dropdown">Size: &emsp;&emsp;</label>
       <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
         {Object.keys(stock).includes('null') ?
           <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
@@ -106,28 +106,34 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
           </>
         }
       </select>
-
       {/* dropdown menu for quantity */}
-      <label htmlFor="quantity-dropdown"> Quantity: </label>
-      <select className="dropdown" id="quantity-dropdown">
-        {currSize === 'select-size' ?
-          <option value="select-quantity" id="default-quantity" defaultValue>---</option>
-          : <>
-            {Array.apply(1, Array(currQuantity)).map((current, index) => {
-              return <option key={index} value={index + 1}>{index + 1}</option>
-            })
-            }
-          </>
-        }
-      </select>
+      <div>
+        <label htmlFor="quantity-dropdown"> Quantity: </label>
+        <select className="dropdown" id="quantity-dropdown">
+          {currSize === 'select-size' ?
+            <option value="select-quantity" id="default-quantity" defaultValue>---</option>
+            : <>
+              {Array.apply(1, Array(currQuantity)).map((current, index) => {
+                return <option key={index} value={index + 1}>{index + 1}</option>
+              })
+              }
+            </>
+          }
+        </select>
+      </div>
 
       {Object.keys(stock).includes('null') ?
         <></>
         :
-        <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+        <div>
+          <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+        </div>
       }
       <div id="add-outfit">
-        <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
+        {outfit.includes(currentProduct) ?
+          <button id="added-outfit-button" className="btn" > Added to Outfit! <span style={{ color: 'red' }}>&#10084;</span></button>
+          : <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
+        }
       </div>
     </div>
   )
