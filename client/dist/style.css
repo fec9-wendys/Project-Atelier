@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
+  /* font-family: "Courier New", Courier, Monaco; */
 }
 
 h2 {
@@ -415,7 +416,7 @@ svg {
 
   width: 50vw;
   min-width: 1200px;
-  min-height: 40vh;
+  min-height: 50vh;
 }
 
 .helpful {
@@ -423,7 +424,7 @@ svg {
 }
 
 .question-title {
-  font-size: larger;
+  font-size: x-large;
 }
 
 .answer-title {
