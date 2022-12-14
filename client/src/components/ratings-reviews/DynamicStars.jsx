@@ -53,7 +53,7 @@ const DynamicStars = ({starRating, setStarRating, shownWord, setShownWord}) => {
                 </div>
             );
           })}
-        <span> {shownWord} </span>
+        {/* <span> {shownWord} </span> */}
       </div>
 
   )

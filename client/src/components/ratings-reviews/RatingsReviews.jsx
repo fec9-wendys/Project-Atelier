@@ -120,7 +120,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
             <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
               request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
               setShownReviews={setShownReviews} count={count} setCount={setCount} filter={filter}
-              reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} />
+              reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} chars = {chars} />
             <ReviewButtonsContainer>
               {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
               <ReviewButtons className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>

@@ -517,20 +517,20 @@ svg {
 /*------------------------------
 */
 .single-star-outline {
-  height: 36px;
-  width: 31px;
+  height: 41px;
+  width: 36px;
 }
 
 .single-star-fill {
   position: relative;
   display: inline-block;
-  height: 36px;
+  height: 41px;
   background-color: #333333;
 }
 
 .single-star-container {
-  height: 36px;
-  width: 31px;
+  height: 41px;
+  width: 36px;
   display: inline-block;
 }
 
@@ -948,6 +948,27 @@ svg {
 u {
   cursor: pointer;
   cursor: hand;
+}
+
+#summary {
+  display: inline-block;
+  height: 24px;
+}
+
+#summary::placeholder{
+  font-family: 'Lato', sans-serif;
+}
+
+#review-body::placeholder{
+  font-family: 'Lato', sans-serif;
+}
+
+#nickname::placeholder{
+  font-family: 'Lato', sans-serif;
+}
+
+#email::placeholder{
+  font-family: 'Lato', sans-serif;
 }
 
 /*--------------------- Style Selector--------------------- */
