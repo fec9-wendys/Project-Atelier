@@ -8,8 +8,8 @@ import styled from "styled-components";
 
 const { useState, useEffect } = React;
 
-const Title = styled.h1`
-
+const Title = styled.h2`
+font-size: 1.8vh;
 text-align: center;
 
 `;
@@ -135,7 +135,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
   return (
 
     <div  style={styles} id='questions-answers'>
-      <Title>Questions & Answers Component</Title>
+      <Title>Questions & Answers</Title>
       <Container>
      <div className='qacontainer'>
       <div >
@@ -150,7 +150,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       <QuestionEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
       </div>
       <div>
-        <div>{none && <h2>NO MATCHING RESULTS</h2>}</div>
+        <div>{none && <h3>NO MATCHING RESULTS</h3>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
         <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
