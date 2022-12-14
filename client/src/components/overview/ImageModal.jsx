@@ -20,7 +20,16 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
-const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductStyle, handleMainArrowClick, setCurrentMainIndex }) => {
+const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductStyle, handleMainArrowClick, setCurrentMainIndex },
+  width = '80vw',
+  height = '80vh',
+  magnifierHeight = 200,
+  magnifieWidth = 200,
+  zoomLevel = 2.5) => {
+
+  const [[x, y], setXY] = useState([0, 0]);
+  const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
+  const [showMagnifier, setShowMagnifier] = useState(false);
 
   const handleDotClick = (index) => {
     setCurrentMainIndex(index);
@@ -30,19 +39,84 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
 
   return ReactDOM.createPortal(
     <>
-      <div style={OVERLAY_STYLES} onClick={onClose}/>
-      <div style={MODAl_STYLES} className="modal" id="main-image-portal">
+      <div style={OVERLAY_STYLES} onClick={onClose} />
 
         {/* image carousel buttons */}
         {currentMainIndex !== 0 &&
-          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-left main-image-button" id="left-modal-button" onClick={e => handleMainArrowClick(e)} />
+          <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-modal-button" onClick={e => handleMainArrowClick(e)} />
         }
         {currentMainIndex !== currentProductStyle.photos.length - 1 &&
-          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-right main-image-button" id="right-modal-button" onClick={e => handleMainArrowClick(e)}></i>
+          <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-modal-button" onClick={e => handleMainArrowClick(e)}></i>
         }
 
-        {/* main image in modal */}
-        <img style={{ objectFit: 'contain', height: '80vh', width: '80vw', cursor: 'crosshair' }} alt={currentProductStyle.name} src={currentProductStyle.photos[currentMainIndex].url} />
+      <div style={MODAl_STYLES} className="modal" id="main-image-portal">
+
+        {/* Zoom Magnifying Glass Image */}
+        <div
+          style={{
+            position: "relative",
+            objectFit: 'contain',
+            height: height,
+            width: width
+          }}
+        >
+          <img
+            src={currentProductStyle.photos[currentMainIndex].url}
+            style={{ height: height, width: width }}
+            onMouseEnter={(e) => {
+              // update image size and turn-on magnifier
+              const elem = e.currentTarget;
+              const { width, height } = elem.getBoundingClientRect();
+              setSize([width, height]);
+              setShowMagnifier(true);
+            }}
+            onMouseMove={(e) => {
+              // update cursor position
+              const elem = e.currentTarget;
+              const { top, left } = elem.getBoundingClientRect();
+
+              // calculate cursor position on the image
+              const x = e.pageX - left - window.pageXOffset;
+              const y = e.pageY - top - window.pageYOffset;
+              setXY([x, y]);
+            }}
+            onMouseLeave={() => {
+              // close magnifier
+              setShowMagnifier(false);
+            }}
+            alt={"img"}
+          />
+
+          {/* Magnification */}
+          <div
+            style={{
+              display: showMagnifier ? "" : "none",
+              position: "absolute",
+
+              // prevent magnifier blocks the mousemove event of img
+              pointerEvents: "none",
+              // set size of magnifier
+              height: `${magnifierHeight}px`,
+              width: `${magnifieWidth}px`,
+              // move element center to cursor pos
+              top: `${y - magnifierHeight / 2}px`,
+              left: `${x - magnifieWidth / 2}px`,
+              opacity: "1", // reduce opacity so you can verify position
+              border: "1px solid lightgray",
+              backgroundColor: "white",
+              backgroundImage: `url('${currentProductStyle.photos[currentMainIndex].url}')`,
+              backgroundRepeat: "no-repeat",
+
+              //calculate zoomed image size
+              backgroundSize: `${imgWidth * zoomLevel}px ${imgHeight * zoomLevel
+                }px`,
+
+              //calculate position of zoomed image.
+              backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
+              backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`
+            }}
+          ></div>
+        </div>
 
         {/* close button */}
         <i className="fa-regular fa-circle-xmark" id="close-button" onClick={onClose}></i>
