@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import styled from 'styled-components';
+import { Cart } from './styles/OverviewContainers';
 
 const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, setOutfit }) => {
 
@@ -89,7 +91,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
   }
 
   return (
-    <div className="grid-container" id="cart">
+    <Cart>
       {/* dropdown menu for size */}
       <label htmlFor="size-dropdown">Size: &emsp;&emsp;&nbsp;&ensp;&emsp;&ensp;</label>
       <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
@@ -135,7 +137,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
           : <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
         }
       </div>
-    </div>
+    </Cart>
   )
 }
 

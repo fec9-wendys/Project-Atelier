@@ -6,6 +6,8 @@ import Features from './Features.jsx';
 import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
 import Images from './Images.jsx';
+import styled from 'styled-components';
+import { OverviewGrid, RightFlexBox, EntireOverview} from './styles/OverviewContainers.js';
 
 
 const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit }) => {
@@ -61,31 +63,31 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
 
 
   return (
-    <div id="overview-container">
-      <div id="overview">
+    <EntireOverview>
+      <OverviewGrid>
         {currentProductStyle !== null &&
           <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
         }
-        <div id="flexbox2">
-        {ratings.length !== 0 && totalReviews &&
-          <Reviews ratings={ratings} totalReviews={totalReviews} />
-        }
-        {features !== null &&
-          <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
-        }
-        {currentProductStyle !== null && styles !== null &&
-          <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
-        }
-        {currentProductStyle !== null && stock !== null &&
-          <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} stock={stock} />
-        }
-        </div>
+        <RightFlexBox>
+          {ratings.length !== 0 && totalReviews &&
+            <Reviews ratings={ratings} totalReviews={totalReviews} />
+          }
+          {features !== null &&
+            <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
+          }
+          {currentProductStyle !== null && styles !== null &&
+            <StyleSelector currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} styles={styles} />
+          }
+          {currentProductStyle !== null && stock !== null &&
+            <AddCart request={request} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} stock={stock} />
+          }
+        </RightFlexBox>
 
-      </div>
+      </OverviewGrid>
       {features !== null &&
         <Features features={features} />
       }
-    </div>
+    </EntireOverview>
   )
 }
 

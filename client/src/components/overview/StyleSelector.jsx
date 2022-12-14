@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { StylesContainer } from './styles/OverviewContainers';
 
 const StyleSelector = ({ currentProductStyle, setCurrentProductStyle, styles }) => {
 
@@ -7,7 +9,7 @@ const StyleSelector = ({ currentProductStyle, setCurrentProductStyle, styles }) 
   }
 
   return (
-    <div className="grid-container" id="style-selector">
+    <StylesContainer>
       {styles.map((style, index) => {
         return (
           <div key={index} className="style-selector-thumbnails">
@@ -25,7 +27,7 @@ const StyleSelector = ({ currentProductStyle, setCurrentProductStyle, styles }) 
         )
       })}
 
-    </div>
+    </StylesContainer>
   )
 
 }
