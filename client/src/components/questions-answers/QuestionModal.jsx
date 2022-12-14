@@ -96,10 +96,10 @@ return ReactDom.createPortal(
     </button>
     </AModalTitle>
 
-  <header>
+    <div className="qamodalbody">
+    <header>
     <h3> About the product here</h3>
     </header>
-    <div className="qamodalbody">
 
   <label>Name:<br/>
     <input className="modalinput1" name="name"
