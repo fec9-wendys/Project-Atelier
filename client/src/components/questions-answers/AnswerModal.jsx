@@ -123,8 +123,9 @@ return ReactDom.createPortal(
            value={answerbody}
            maxLength='1000'
            onChange={(e)=>{setAnswerBody(e.target.value)}} required></textarea>
-  </label><br/>
-  <br/>
+  </label>
+  {/* <br/> */}
+  {/* <br/> */}
   <div className="qamodalimages">
   <label>Upload Photos *max 5<br/>
     <input id="imageuploadbutton"
