@@ -18,15 +18,18 @@ overflow: hidden;
   border: 1px solid #0000EE;
 }
 `
+
 // overflow: hidden;
+// animation: progressBar 3s ease-in-out;
+// animation-fill-mode:both;
 const StyledChild = styled.div`
+  display: inline-block;
   flex-grow: 1;
   height: 25px;
   width: ${({progress}) => progress}%;
   background-color: #661EA8;
   text-align: right;
   white-space: nowrap;
-  display: inline-block;
 
   &:hover {
     border-left: 1px solid #0000EE;
