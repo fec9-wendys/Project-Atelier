@@ -3,12 +3,14 @@ import axios from 'axios';
 import styled from 'styled-components';
 const { useState, useEffect } = React;
 
+
+// #CDA8F0
 const StyledParent = styled.div`
 flex-grow: 1;
 height: 25px;
 width: 150px;
 opacity: 0.5;
-background-color: #CDA8F0;
+background-color: #ED1C24;
 border-radius: 5px 0px 0px 5px;
 white-space: nowrap;
 display: inline-block;
@@ -27,7 +29,7 @@ const StyledChild = styled.div`
   flex-grow: 1;
   height: 25px;
   width: ${({progress}) => progress}%;
-  background-color: #661EA8;
+  background-color: #ED1C24;
   text-align: right;
   white-space: nowrap;
 
