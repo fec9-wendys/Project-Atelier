@@ -2,7 +2,9 @@ import React from 'react';
 import QuestionEntry from './QuestionEntry.jsx'
 import QuestionModal from './QuestionModal.jsx'
 import AnswerModal from './AnswerModal.jsx'
+import AnswerPhotoModal from './AnswerPhotoModal.jsx'
 import styled from "styled-components";
+
 
 const { useState, useEffect } = React;
 
@@ -41,6 +43,8 @@ const QuestionsAnswers = ({currentProduct, request}) => {
   const [none, setNone] = useState(false)
   const [isqmodal, setIsQModal] = useState(false)
   const [isamodal, setIsAModal] = useState(false)
+  const [isaphotomodal, setIsAPhotoModal] = useState(false)
+  const [aphotomodalimg, setAPhotoModalImg] = useState(false)
   const [answermodalbody, setAnswerModalBody] = useState('')
   const [questionid, setQuestionId] = useState('')
   const [answers, setAnswers] = useState([])
@@ -143,14 +147,14 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       </div>
       <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
       <div>{!none && shownQuestion.map((question, key) =>
-      <QuestionEntry setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
+      <QuestionEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
       </div>
       <div>
         <div>{none && <h2>NO MATCHING RESULTS</h2>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
-        <button className="glow-on-hover" type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
+        {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
+        <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
         <button  className="button2" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
-
       </div>
       </div>
       </Container>

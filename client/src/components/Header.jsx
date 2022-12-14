@@ -31,7 +31,7 @@ const Header = () => {
         </defs>
     </svg>
 
-    <button id="gooey-button">
+    <button className="gooey-button">
     <img className="supreme-logo" src="https://i.ibb.co/mXDdZLc/SUPREME1.png" />
         <span className="bubbles">
             <span className="bubble"></span>
