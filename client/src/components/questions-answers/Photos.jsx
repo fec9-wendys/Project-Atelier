@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Photos = ({photo}) => {
+
+const Photos = ({setAPhotoModalImg, setIsAPhotoModal, photo}) => {
+  const handleClick = () => {
+    setIsAPhotoModal(true)
+    setAPhotoModalImg(photo.url)
+  }
   return (
-    <img src={photo.url} width='100' height='100'/>
+    <img onClick={handleClick}src={photo.url} width='100' height='100'/>
   )
 }
 export default Photos
