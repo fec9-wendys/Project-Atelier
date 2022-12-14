@@ -1,13 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 const {useState, useEffect} = React;
+import {ModalCharEntryContainer} from './styles/Container';
+
 
 const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLength, setFit}) => {
 
   if (charKey === 'Size') {
     return (
-      <div id = 'char-review'>
-        <div> {charKey} </div>
+      <ModalCharEntryContainer>
+        <div style = {{'fontSize' : 'large' , 'marginBottom' : '5px'}}> How do you rate the {charKey}? </div>
         <input type="radio" id="one-button" name="size" value = '1' onChange = {(e) => setSize(1)} required/>
         <label htmlFor = '1'> A size too small </label><br></br>
         <input type="radio" id="two-button" name="size" value = '2' onChange = {(e) => setSize(2)}/>
@@ -18,14 +20,14 @@ const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLengt
         <label htmlFor = '4'> 1/2 a size too big </label><br></br>
         <input type="radio" id="five-button" name="size" value = '5' onChange = {(e) => setSize(5)}/>
         <label htmlFor = '5'> A size too wide </label><br></br>
-      </div>
+      </ModalCharEntryContainer>
     );
   }
 
   if (charKey === 'Width') {
     return (
-      <div id = 'char-review'>
-        <div> {charKey} </div>
+      <ModalCharEntryContainer>
+        <div style = {{'fontSize' : 'large' , 'marginBottom' : '5px'}}> How do you rate the {charKey}? </div>
         <input type="radio" id="one-button" name="width" value = '1' onChange = {(e) => setWidth(1)} required/>
         <label htmlFor = '1'> Too narrow </label><br></br>
         <input type="radio" id="two-button" name="width" value = '2' onChange = {(e) => setWidth(2)}/>
@@ -36,14 +38,14 @@ const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLengt
         <label htmlFor = '4'> Slightly wide </label><br></br>
         <input type="radio" id="five-button" name="width" value = '5' onChange = {(e) => setWidth(5)}/>
         <label htmlFor = '5'> Too wide </label><br></br>
-      </div>
+      </ModalCharEntryContainer>
     );
   }
 
   if (charKey === 'Comfort') {
     return (
-      <div id = 'char-review'>
-        <div> {charKey} </div>
+      <ModalCharEntryContainer>
+        <div style = {{'fontSize' : 'large' , 'marginBottom' : '5px'}}> How do you rate the {charKey}? </div>
         <input type="radio" id="one-button" name="comfort" value = '1' onChange = {(e) => setComfort(1)} required/>
         <label htmlFor = '1'> Uncomfortable </label><br></br>
         <input type="radio" id="two-button" name="comfort" value = '2' onChange = {(e) => setComfort(2)}/>
@@ -54,14 +56,14 @@ const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLengt
         <label htmlFor = '4'> Comfortable </label><br></br>
         <input type="radio" id="five-button" name="comfort" value = '5' onChange = {(e) => setComfort(5)}/>
         <label htmlFor = '5'> Perfect </label><br></br>
-      </div>
+      </ModalCharEntryContainer>
     );
   }
 
   if (charKey === 'Quality') {
     return (
-      <div id = 'char-review'>
-        <div> {charKey} </div>
+      <ModalCharEntryContainer>
+        <div style = {{'fontSize' : 'large' , 'marginBottom' : '5px'}}> How do you rate the {charKey}? </div>
         <input type="radio" id="one-button" name="quality" value = '1' onChange = {(e) => setQuality(1)} required/>
         <label htmlFor = '1'> Poor </label><br></br>
         <input type="radio" id="two-button" name="quality" value = '2' onChange = {(e) => setQuality(2)}/>
@@ -72,14 +74,14 @@ const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLengt
         <label htmlFor = '4'> Pretty great </label><br></br>
         <input type="radio" id="five-button" name="quality" value = '5' onChange = {(e) => setQuality(5)}/>
         <label htmlFor = '5'> Perfect </label><br></br>
-      </div>
+      </ModalCharEntryContainer>
     );
   }
 
   if (charKey === 'Length') {
     return (
-      <div id = 'char-review'>
-        <div> {charKey} </div>
+      <ModalCharEntryContainer>
+        <div style = {{'fontSize' : 'large' , 'marginBottom' : '5px'}}> How do you rate the {charKey}? </div>
         <input type="radio" id="one-button" name="length" value = '1' onChange = {(e) => setLength(1)} required/>
         <label htmlFor = '1'> Runs short </label><br></br>
         <input type="radio" id="two-button" name="length" value = '2' onChange = {(e) => setLength(2)}/>
@@ -90,14 +92,14 @@ const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLengt
         <label htmlFor = '4'> Runs slightly long </label><br></br>
         <input type="radio" id="five-button" name="length" value = '5' onChange = {(e) => setLength(5)}/>
         <label htmlFor = '5'> Runs long </label><br></br>
-      </div>
+      </ModalCharEntryContainer>
     );
   }
 
   if (charKey === 'Fit') {
     return (
-      <div id = 'char-review'>
-        <div> {charKey} </div>
+      <ModalCharEntryContainer>
+        <div style = {{'fontSize' : 'large' , 'marginBottom' : '5px'}}> How do you rate the {charKey}? </div>
         <input type="radio" id="one-button" name="fit" value = '1' onChange = {(e) => setFit(1)} required/>
         <label htmlFor = '1'> Runs Tight </label><br></br>
         <input type="radio" id="two-button" name="fit" value = '2' onChange = {(e) => setFit(2)}/>
@@ -108,7 +110,7 @@ const CharEntry = ({charKey, setSize, setWidth, setComfort, setQuality, setLengt
         <label htmlFor = '4'> Runs slightly long </label><br></br>
         <input type="radio" id="five-button" name="fit" value = '5' onChange = {(e) => setFit(5)}/>
         <label htmlFor = '5'> Runs long </label><br></br>
-      </div>
+      </ModalCharEntryContainer>
     );
   }
 }

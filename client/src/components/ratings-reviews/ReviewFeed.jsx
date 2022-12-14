@@ -7,25 +7,7 @@ import { RFContainer } from './styles/Container.js';
 import { ReviewEntries, ReviewButtons } from './styles/Reviewfeed';
 const { useState, useEffect } = React;
 
-const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, setReviews, shownReviews, setShownReviews, count, setCount, filter, reviewButton, setReviewButton, isOpen, SetIsOpen }) => {
-
-  // const handleClick = () => {
-  //   if (reviews.length > 2) {
-  //     document.getElementById('more-reviews-btn').style.visibility = 'visible';
-  //   }
-
-  //   if (count > reviews.length - 2) {
-  //     setReviewButton('Less Reviews');
-
-  //   }
-
-  //   if (reviewButton === 'Less Reviews') {
-  //     setCount(0);
-  //     setReviewButton('More Reviews');
-  //   }
-
-  //   setCount(previousCount => previousCount + 2);
-  // }
+const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, setReviews, shownReviews, setShownReviews, count, setCount, filter, reviewButton, setReviewButton, isOpen, SetIsOpen, chars }) => {
 
   return (
     <RFContainer>
@@ -38,7 +20,7 @@ const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, 
       {/* {reviews.length > 2 ? <button id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </button> : null}
       <button className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </button> */}
       <ReviewModal isOpen={isOpen} onClose={() => { SetIsOpen(false) }} currentProduct={currentProduct} request={request}
-        metaData={metaData} setReviews={setReviews} />
+        metaData={metaData} setReviews={setReviews} chars = {chars}/>
     </RFContainer>
   );
 };
