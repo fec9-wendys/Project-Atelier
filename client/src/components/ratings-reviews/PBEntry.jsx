@@ -9,27 +9,29 @@ const Descriptions = styled.p`
   margin-top  : 0;
   font-size : 14px;
 `
-
+const PB_Entries = styled.div`
+  padding: 8px 0px;
+`
+const PB_Entries_Words = styled.div`
+`
 
 const PBEntry = ({charKey, charValue}) => {
   const charRating = Math.round(charValue.value * 100) / 100;
   const charPercent = charRating / 5;
 
   return (
-    <div id='PB-entry' style = {{'padding' : '8px 0px'}}>
+    <PB_Entries>
       &nbsp;&nbsp;&nbsp;{charKey}
-      <div className = ''>
         <ProductBar charPercent = {charPercent}/>
-        <div className = 'product-breakdown-entry-words'>
+        <PB_Entries_Words>
           {charKey === 'Fit' ? <Descriptions>&nbsp;&nbsp;&nbsp;&nbsp;Too Tight &emsp;&emsp;&emsp;&emsp;&emsp;Perfect &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Too Long </Descriptions> : null}
           {charKey === 'Size' ? <Descriptions>&nbsp;&nbsp;&nbsp; Too narrow &emsp;&emsp;&emsp;&emsp;Perfect &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Too wide </Descriptions> : null}
           {charKey === 'Width' ? <Descriptions>&nbsp;&nbsp;&nbsp; Too narrow &emsp;&emsp;&emsp;&emsp;Perfect &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Too Long </Descriptions> : null}
           {charKey === 'Comfort' ? <Descriptions>&nbsp;&nbsp;&nbsp; Uncomfy &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Ok &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;Perfect </Descriptions> : null}
           {charKey === 'Quality' ? <Descriptions>&nbsp;&nbsp;&nbsp; Poor &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; Perfect </Descriptions> : null}
           {charKey === 'Length' ? <Descriptions>&nbsp;&nbsp;&nbsp; Too Short &emsp;&emsp;&emsp;&emsp;&emsp;Perfect &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Too Long </Descriptions> : null}
-        </div>
-      </div>
-    </div>
+        </PB_Entries_Words>
+    </PB_Entries>
   );
 };
 
