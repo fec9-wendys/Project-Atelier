@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', sans-serif;
+  /* font-family: "Courier New", Courier, Monaco; */
 }
 
 img {
@@ -19,50 +20,37 @@ h5 {
   font-size: 1.15rem;
 }
 
-/*----------------------------buttons
-*/
-
-.btn {
-  text-decoration: none;
-  /* border: 1px solid rgb(218, 39, 39); */
-  position: relative;
-  overflow: hidden;
-  background-color: white;
-  font-size: larger;
-  cursor: pointer;
-  cursor: hand;
-}
-
-.btn:before {
-  content: "";
-  position: absolute;
+.modaloverlay {
+  position: fixed;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg,
-      transparent,
-      rgb(218, 39, 39),
-      transparent);
-  transition: all 650ms;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  z-index: 1000
 }
 
-.btn:hover:before {
-  left: 100%;
+.modalwindow {
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    padding: 50px;
+    z-index: 1000;
+    height: 43vh;
+    width: 25vw;
+    border-radius: 3rem;
 }
 
 
-
-
-
-
-/*--------------------------------QA CONTAINER
+/*--------------------------------QA CONTAINER------------------------
 */
 .qacontainer {
-
   width: 50vw;
   min-width: 1200px;
-  min-height: 800px;
+  min-height: 50vh;
 }
 
 .helpful {
@@ -70,13 +58,14 @@ h5 {
 }
 
 .question-title {
-  font-size: larger;
+  font-size: x-large;
 }
 
 .answer-title {
   font-size: larger;
 }
-.answer-section {
+
+.question-block {
   border-bottom: 1px solid black;
 }
 
@@ -98,6 +87,431 @@ h5 {
 #qasearchbutton {
   min-width: 74px;
 }
+
+#answermodalbutton {
+  color: white;
+  width: 20vw;
+  font-family: 'Lato', sans-serif;
+  font-size: xx-large;
+  height: 5vh;
+  margin-top: -3vh;
+  text-align: center;
+}
+.modalinput1 {
+  width:12vw;
+  height: 1.8vh;
+  font-size: large;
+}
+.modalinput2 {
+
+  font-family: 'Lato', sans-serif;
+  font-size: large;
+}
+
+.qamodalbody {
+  text-align: center;
+}
+.qamodalclose {
+  position:absolute;
+  top:3%;
+  right: 3%;
+  border: none;
+  color: rgb(218, 39, 39);
+  background-color: white;
+  font-size: x-large;
+}
+.qamodalsubmitbtncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.qamodalsubmitbtn {
+  font-size: large;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(218, 39, 39);
+  border: none;
+  border-radius: 18px;
+  color:white;
+  width: 7vw;
+  height: 2vh;
+  bottom:0%;
+}
+
+
+/*----------------------------buttons-------------------------
+*/
+
+
+
+/* SUPREME LOGO ----------------------------------------------*/
+svg {
+  position: absolute;
+  top: -4000px;
+  left: -4000px;
+}
+.gooey-button {
+  border: none;
+  color: #0c1016;
+  filter: url("#gooey");
+  position: relative;
+  background-color: rgb(218, 39, 39);
+  width:30vw;
+  height: 8vh;
+  border-radius: 18px;
+
+}
+.gooey-button:focus {
+  outline: none;
+}
+.gooey-button .bubbles {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  bottom: 0;
+  right: 0;
+
+}
+.gooey-button .bubbles .bubble {
+  background-color: rgb(218, 39, 39);
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: -1;
+}
+.gooey-button .bubbles .bubble:nth-child(1) {
+  left: 47px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-1 3.02s infinite;
+          animation: move-1 3.02s infinite;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.gooey-button .bubbles .bubble:nth-child(2) {
+  left: 77px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-2 3.04s infinite;
+          animation: move-2 3.04s infinite;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.gooey-button .bubbles .bubble:nth-child(3) {
+  left: 53px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-3 3.06s infinite;
+          animation: move-3 3.06s infinite;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.gooey-button .bubbles .bubble:nth-child(4) {
+  left: 20px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-4 3.08s infinite;
+          animation: move-4 3.08s infinite;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.gooey-button .bubbles .bubble:nth-child(5) {
+  left: 69px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-5 3.1s infinite;
+          animation: move-5 3.1s infinite;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.gooey-button .bubbles .bubble:nth-child(6) {
+  left: 66px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-6 3.12s infinite;
+          animation: move-6 3.12s infinite;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+}
+.gooey-button .bubbles .bubble:nth-child(7) {
+  left: 18px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-7 3.14s infinite;
+          animation: move-7 3.14s infinite;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+}
+.gooey-button .bubbles .bubble:nth-child(8) {
+  left: 25px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-8 3.16s infinite;
+          animation: move-8 3.16s infinite;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+}
+.gooey-button .bubbles .bubble:nth-child(9) {
+  left: 51px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-9 3.18s infinite;
+          animation: move-9 3.18s infinite;
+  -webkit-animation-delay: 1.8s;
+          animation-delay: 1.8s;
+}
+.gooey-button .bubbles .bubble:nth-child(10) {
+  left: 48px;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: move-10 3.2s infinite;
+          animation: move-10 3.2s infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+@-webkit-keyframes move-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -125px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -125px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -82px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -82px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -116px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -116px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -85px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -85px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -120px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -120px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -57px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -57px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-7 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -74px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-7 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -74px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-8 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -79px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-8 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -79px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-9 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -67px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-9 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -67px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes move-10 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -63px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+@keyframes move-10 {
+  0% {
+    transform: translate(0, 0);
+  }
+  99% {
+    transform: translate(0, -63px);
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+
 
 
 /*------------------------------
@@ -151,13 +565,16 @@ h5 {
 }
 
 #nav-search {
-  width: 100%;
+  width: 10vw;
   padding: 10px 35px 10px 15px;
   border: none;
   /* border-radius: 100px; */
   /* background-color: gray; */
-  /* border-bottom: 2px solid black; */
+  border-bottom: 3px solid black;
   outline: none;
+  font-size: x-large;
+
+
 }
 
 #nav-button {
@@ -182,15 +599,20 @@ h5 {
   z-index: 0;
   width: 100vw;
   height: 100%;
+
 }
 
 .supreme-logo {
+
   z-index: 100;
   border-radius: 30px;
   height: 100px;
+  width: 400px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
-/* --------------------grid structure ---------------------*/
+/* --------------------OVERVIEW  ---------------------*/
 /* #overview-container {
 
   display: flex;
@@ -300,12 +722,14 @@ h5 {
 }
 
 #features {
+
   /* align-items: center;
   justify-content: center;
   display: flex; */
   /* display: flex; */
   display: flex;
-  max-width: 50vw;
+
+  max-width: 42vw;
   margin-left: auto;
   margin-right: auto;
   /* grid-column: 1 / 3; */
@@ -332,10 +756,13 @@ h5 {
 }
 
 .main-image-button {
-  color: rgba(255, 255, 255, 0.6);
-  padding: 8px;
-  background-color: rgba(0, 0, 0, 0.2);
-  font-size: 2em;
+  color: rgb(218, 39, 39);
+  background-color: white;
+  border-radius: 50%;
+
+  /* padding: 8px; */
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  font-size: 3em;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -344,8 +771,12 @@ h5 {
 
 .main-image-button:hover,
 .main-image-button:focus {
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* color: white; */
+  color: rgba(255, 255, 255, 1);
+  padding: 2px;
+  background-color: black;
+  border-radius: 50%;
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
 #left-main-button {
@@ -451,29 +882,36 @@ h5 {
   position: relative;
 }
 
+
 #left-modal-button {
-  left: 1em;
+  position: absolute;
+  left: 5em;
+  z-index: 2000;
 }
 
 #right-modal-button {
-  right: 1em;
+  position: absolute;
+  right: 5em;
+  z-index: 10000;
 }
 
 #close-button {
   font-size: 2em;
   padding: 5px;
   color: rgba(255, 255, 255, 0.7);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
   position: absolute;
   top: 0px;
-  right: 1em;
+  right: 0px;
   cursor: pointer;
 }
 
 #close-button:hover,
 #close-button:focus {
-  color: rgba(255, 255, 255, 0.8);
-  background-color: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
 }
 
 #dot-icons {
@@ -574,6 +1012,10 @@ u {
   top: 0px;
   right: 13px;
   color: rgba(218, 39, 39);
+  background-color: white;
+  border-radius: 50%;
+
+  z-index: 100;
 }
 
 /* ------------------Add Cart --------------------------------*/

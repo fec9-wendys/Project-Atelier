@@ -91,7 +91,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
   return (
     <div className="grid-container" id="cart">
       {/* dropdown menu for size */}
-      <label htmlFor="size-dropdown">Size: &emsp;&emsp;</label>
+      <label htmlFor="size-dropdown">Size: &emsp;&emsp;&nbsp;&ensp;&emsp;&ensp;</label>
       <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
         {Object.keys(stock).includes('null') ?
           <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
@@ -108,7 +108,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
       </select>
       {/* dropdown menu for quantity */}
       <div>
-        <label htmlFor="quantity-dropdown"> Quantity: </label>
+        <label htmlFor="quantity-dropdown"> Quantity: &nbsp;&emsp;&emsp;</label>
         <select className="dropdown" id="quantity-dropdown">
           {currSize === 'select-size' ?
             <option value="select-quantity" id="default-quantity" defaultValue>---</option>

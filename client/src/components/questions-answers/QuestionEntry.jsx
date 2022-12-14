@@ -4,7 +4,7 @@ import AnswerEntry from './AnswerEntry.jsx'
 
 const { useState, useEffect } = React;
 
-const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isamodal, setIsAModal, currentProduct, question, request, setQuestions, questions}) => {
+const QuestionEntry = ({ setAPhotoModalImg, setIsAPhotoModal, setQuestionId, shownQuestion, setAnswerModalBody, isamodal, setIsAModal, currentProduct, question, request, setQuestions, questions}) => {
 
   const [answers, setAnswers] = useState([])
   const [shownanswers, setShownAnswers] = useState(answers.slice(0,2))
@@ -84,13 +84,13 @@ const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isam
   }
 
   return (
-    <div>
+    <div className='question-block'>
       <span>
       <strong className="question-title"><h5>Q: {question.question_body}</h5></strong>
       <p className="helpful">Helpful? <u onClick={handleUpVote}>Yes</u> ({question.question_helpfulness}) | <u onClick={handleAddAnswer}
         >Add Answer</u> </p>
       </span>
-     {shownanswers.map((answer, key) => <AnswerEntry  setAnswers={setAnswers} question={question} request={request} answer={answer} key={key}/> )}
+     {shownanswers.map((answer, key) => <AnswerEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setAnswers={setAnswers} question={question} request={request} answer={answer} key={key}/> )}
     {answers.length > 2 && <button onClick={handleLoadClick} id="loadmoreanswersbutton">{loadbutton}</button>}
     </div>
   )
