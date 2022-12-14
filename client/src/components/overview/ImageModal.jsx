@@ -43,10 +43,10 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
 
         {/* image carousel buttons */}
         {currentMainIndex !== 0 &&
-          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-left main-image-button" id="left-modal-button" onClick={e => handleMainArrowClick(e)} />
+          <i className="fa-solid fa-circle-chevron-left main-image-button" id="left-modal-button" onClick={e => handleMainArrowClick(e)} />
         }
         {currentMainIndex !== currentProductStyle.photos.length - 1 &&
-          <i style={{ color: '#FFF' }} className="fa-solid fa-circle-chevron-right main-image-button" id="right-modal-button" onClick={e => handleMainArrowClick(e)}></i>
+          <i className="fa-solid fa-circle-chevron-right main-image-button" id="right-modal-button" onClick={e => handleMainArrowClick(e)}></i>
         }
 
       <div style={MODAl_STYLES} className="modal" id="main-image-portal">
