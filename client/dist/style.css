@@ -37,10 +37,11 @@ h5 {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #FFF;
+
     padding: 50px;
     z-index: 1000;
-    height: 43vh;
-    width: 25vw;
+    height: 65vh;
+    width: 30vw;
     border-radius: 3rem;
 }
 
@@ -92,7 +93,7 @@ h5 {
   color: white;
   width: 20vw;
   font-family: 'Lato', sans-serif;
-  font-size: xx-large;
+  font-size: x-large;
   height: 5vh;
   margin-top: -3vh;
   text-align: center;
@@ -100,12 +101,12 @@ h5 {
 .modalinput1 {
   width:12vw;
   height: 1.8vh;
-  font-size: large;
+  font-size: medium;
 }
 .modalinput2 {
 
   font-family: 'Lato', sans-serif;
-  font-size: large;
+  font-size: medium;
 }
 
 .qamodalbody {
@@ -126,14 +127,14 @@ h5 {
   align-items: center;
 }
 .qamodalsubmitbtn {
-  font-size: large;
+  font-size: medium;
   font-family: 'Lato', sans-serif;
   background-color: rgb(218, 39, 39);
   border: none;
   border-radius: 18px;
   color:white;
   width: 7vw;
-  height: 2vh;
+  height: 2.2vh;
   bottom:0%;
 }
 
@@ -150,13 +151,14 @@ svg {
   left: -4000px;
 }
 .gooey-button {
+
   border: none;
   color: #0c1016;
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
   width:30vw;
-  height: 8vh;
+  height: 9.5vh;
   border-radius: 18px;
 
 }
