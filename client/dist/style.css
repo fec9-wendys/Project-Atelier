@@ -8,7 +8,8 @@ img {
   cursor: hand;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 2.5rem;
 }
 
@@ -26,23 +27,23 @@ h5 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, .5);
   z-index: 1000
 }
 
 .modalwindow {
 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFF;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFF;
 
-    padding: 50px;
-    z-index: 1000;
-    height: 65vh;
-    width: 30vw;
-    border-radius: 3rem;
+  padding: 50px;
+  z-index: 1000;
+  height: 65vh;
+  width: 30vw;
+  border-radius: 3rem;
 }
 
 
@@ -75,7 +76,7 @@ h5 {
   flex-direction: row;
 }
 
-.qasearchimg{
+.qasearchimg {
   background: transparent;
   border: none;
   outline: none;
@@ -85,6 +86,7 @@ h5 {
   object-fit: contain;
   margin-top: .8vh;
 }
+
 #qasearchbutton {
   min-width: 74px;
 }
@@ -98,11 +100,13 @@ h5 {
   margin-top: -3vh;
   text-align: center;
 }
+
 .modalinput1 {
-  width:12vw;
+  width: 12vw;
   height: 1.8vh;
   font-size: medium;
 }
+
 .modalinput2 {
 
   font-family: 'Lato', sans-serif;
@@ -110,37 +114,41 @@ h5 {
 }
 
 .qamodalbody {
-  display:flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   align-items: center;
   justify-content: space-around;
 }
+
 .qamodalclose {
-  position:absolute;
-  top:3%;
+  position: absolute;
+  top: 3%;
   right: 3%;
   border: none;
   color: rgb(218, 39, 39);
   background-color: white;
   font-size: x-large;
 }
+
 .qamodalsubmitbtncontainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .qamodalsubmitbtn {
   font-size: medium;
   font-family: 'Lato', sans-serif;
   background-color: rgb(218, 39, 39);
   border: none;
   border-radius: 18px;
-  color:white;
+  color: white;
   width: 7vw;
   height: 2.2vh;
-  bottom:0%;
+  bottom: 0%;
 }
+
 .qamodalimages {
   flex-direction: row;
 
@@ -158,6 +166,7 @@ svg {
   top: -4000px;
   left: -4000px;
 }
+
 .gooey-button {
 
   border: none;
@@ -165,14 +174,16 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
-  width:30vw;
+  width: 30vw;
   height: 9.5vh;
   border-radius: 18px;
 
 }
+
 .gooey-button:focus {
   outline: none;
 }
+
 .gooey-button .bubbles {
   position: absolute;
   top: 0;
@@ -181,6 +192,7 @@ svg {
   right: 0;
 
 }
+
 .gooey-button .bubbles .bubble {
   background-color: rgb(218, 39, 39);
   border-radius: 100%;
@@ -190,331 +202,401 @@ svg {
   display: block;
   z-index: -1;
 }
+
 .gooey-button .bubbles .bubble:nth-child(1) {
   left: 47px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-1 3.02s infinite;
-          animation: move-1 3.02s infinite;
+  animation: move-1 3.02s infinite;
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(2) {
   left: 77px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-2 3.04s infinite;
-          animation: move-2 3.04s infinite;
+  animation: move-2 3.04s infinite;
   -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(3) {
   left: 53px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-3 3.06s infinite;
-          animation: move-3 3.06s infinite;
+  animation: move-3 3.06s infinite;
   -webkit-animation-delay: 0.6s;
-          animation-delay: 0.6s;
+  animation-delay: 0.6s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(4) {
   left: 20px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-4 3.08s infinite;
-          animation: move-4 3.08s infinite;
+  animation: move-4 3.08s infinite;
   -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
+  animation-delay: 0.8s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(5) {
   left: 69px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-5 3.1s infinite;
-          animation: move-5 3.1s infinite;
+  animation: move-5 3.1s infinite;
   -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(6) {
   left: 66px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-6 3.12s infinite;
-          animation: move-6 3.12s infinite;
+  animation: move-6 3.12s infinite;
   -webkit-animation-delay: 1.2s;
-          animation-delay: 1.2s;
+  animation-delay: 1.2s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(7) {
   left: 18px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-7 3.14s infinite;
-          animation: move-7 3.14s infinite;
+  animation: move-7 3.14s infinite;
   -webkit-animation-delay: 1.4s;
-          animation-delay: 1.4s;
+  animation-delay: 1.4s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(8) {
   left: 25px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-8 3.16s infinite;
-          animation: move-8 3.16s infinite;
+  animation: move-8 3.16s infinite;
   -webkit-animation-delay: 1.6s;
-          animation-delay: 1.6s;
+  animation-delay: 1.6s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(9) {
   left: 51px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-9 3.18s infinite;
-          animation: move-9 3.18s infinite;
+  animation: move-9 3.18s infinite;
   -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
+  animation-delay: 1.8s;
 }
+
 .gooey-button .bubbles .bubble:nth-child(10) {
   left: 48px;
   width: 25px;
   height: 25px;
   -webkit-animation: move-10 3.2s infinite;
-          animation: move-10 3.2s infinite;
+  animation: move-10 3.2s infinite;
   -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+  animation-delay: 2s;
 }
+
 @-webkit-keyframes move-1 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -125px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-1 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -125px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-2 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -82px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-2 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -82px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-3 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -116px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-3 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -116px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-4 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -85px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-4 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -85px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-5 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -120px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-5 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -120px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-6 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -57px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-6 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -57px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-7 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -74px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-7 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -74px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-8 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -79px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-8 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -79px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-9 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -67px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-9 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -67px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @-webkit-keyframes move-10 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -63px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
   }
 }
+
 @keyframes move-10 {
   0% {
     transform: translate(0, 0);
   }
+
   99% {
     transform: translate(0, -63px);
   }
+
   100% {
     transform: translate(0, 0);
     opacity: 0;
@@ -661,11 +743,13 @@ svg {
 } */
 
 /* .grid-container {
-  /* display: flex; */
-/* position: relative; */
-/* border: 1px solid black; */
-/* padding: 10px; */
-/* } */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: relative;
+  border: 1px solid black;
+  padding: 10px; */
+
 
 
 #flexbox1 {
@@ -743,6 +827,8 @@ svg {
   max-width: 42vw;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  align-items: center;
   /* grid-column: 1 / 3; */
   line-height: 1.5em;
   font-size: small;
@@ -966,19 +1052,19 @@ u {
   height: 24px;
 }
 
-#summary::placeholder{
+#summary::placeholder {
   font-family: 'Lato', sans-serif;
 }
 
-#review-body::placeholder{
+#review-body::placeholder {
   font-family: 'Lato', sans-serif;
 }
 
-#nickname::placeholder{
+#nickname::placeholder {
   font-family: 'Lato', sans-serif;
 }
 
-#email::placeholder{
+#email::placeholder {
   font-family: 'Lato', sans-serif;
 }
 
