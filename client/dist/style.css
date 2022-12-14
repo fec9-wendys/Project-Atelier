@@ -169,6 +169,7 @@ svg {
   left: 100px;
   bottom: 0;
   right: 0;
+
 }
 .gooey-button .bubbles .bubble {
   background-color: rgb(218, 39, 39);
@@ -721,12 +722,14 @@ svg {
 }
 
 #features {
+
   /* align-items: center;
   justify-content: center;
   display: flex; */
   /* display: flex; */
   display: flex;
-  max-width: 50vw;
+
+  max-width: 42vw;
   margin-left: auto;
   margin-right: auto;
   /* grid-column: 1 / 3; */
