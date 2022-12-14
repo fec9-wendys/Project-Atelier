@@ -19,6 +19,7 @@ const App = () => {
   const [outfit, setOutfit] = useState(ReactSession.get('outfit') || []);
   const [currentProduct, setCurrentProduct] = useState(null);
   const [currentProductStyle, setCurrentProductStyle] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [ready, setReady] = useState(false);
 
 
@@ -62,11 +63,11 @@ const App = () => {
   return !ready ? null : (
     <>
     <Header></Header>
-      <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
-      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
-      <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
-      <QuestionsAnswers currentProduct={currentProduct} request={request} />
-      <RatingsReviews currentProduct={currentProduct} request={request} />
+      <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} isDarkMode={isDarkMode} />
+      <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} isDarkMode={isDarkMode} />
+      <QuestionsAnswers currentProduct={currentProduct} request={request} isDarkMode={isDarkMode} />
+      <RatingsReviews currentProduct={currentProduct} request={request} isDarkMode={isDarkMode} />
     </>
   );
 
