@@ -84,7 +84,7 @@ const QuestionEntry = ({  setQuestionId, shownQuestion, setAnswerModalBody, isam
   }
 
   return (
-    <div>
+    <div className='question-block'>
       <span>
       <strong className="question-title"><h5>Q: {question.question_body}</h5></strong>
       <p className="helpful">Helpful? <u onClick={handleUpVote}>Yes</u> ({question.question_helpfulness}) | <u onClick={handleAddAnswer}

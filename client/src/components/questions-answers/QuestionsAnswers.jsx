@@ -148,7 +148,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       <div>
         <div>{none && <h2>NO MATCHING RESULTS</h2>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
-        <button className="glow-on-hover" type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
+        <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
         <button  className="button2" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
 
       </div>

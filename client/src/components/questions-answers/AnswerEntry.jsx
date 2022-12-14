@@ -53,7 +53,7 @@ const AnswerEntry = ({answer, request, question, setAnswers}) => {
 
   return (
     <div className="answer-section">
-      <u className="answer-title"><h5> A: {answer.body}</h5></u>
+      <div className="answer-title"><h5> A: {answer.body}</h5></div>
       <span>
       {answer.photos.length > 0 &&
       answer.photos.map((photo, key)=>

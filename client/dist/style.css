@@ -51,16 +51,14 @@ h5 {
 .btn:hover:before {
   left: 100%;
 }
+
+/* SUPREME LOGO -----------------------*/
 svg {
   position: absolute;
   top: -4000px;
   left: -4000px;
 }
-
-
 #gooey-button {
-
-
   border: none;
   color: #0c1016;
   filter: url("#gooey");
@@ -176,7 +174,6 @@ svg {
   -webkit-animation-delay: 2s;
           animation-delay: 2s;
 }
-
 @-webkit-keyframes move-1 {
   0% {
     transform: translate(0, 0);
@@ -189,7 +186,6 @@ svg {
     opacity: 0;
   }
 }
-
 @keyframes move-1 {
   0% {
     transform: translate(0, 0);
@@ -420,13 +416,9 @@ svg {
 }
 
 
-
-
-
 /*--------------------------------QA CONTAINER
 */
 .qacontainer {
-
   width: 50vw;
   min-width: 1200px;
   min-height: 50vh;
@@ -443,7 +435,8 @@ svg {
 .answer-title {
   font-size: larger;
 }
-.answer-section {
+
+.question-block {
   border-bottom: 1px solid black;
 }
 
