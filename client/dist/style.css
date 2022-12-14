@@ -45,6 +45,9 @@ h5 {
   width: 30vw;
   border-radius: 3rem;
 }
+#questionmodalwindow {
+  height: 50vh;
+}
 
 
 /*--------------------------------QA CONTAINER------------------------
@@ -108,7 +111,7 @@ h5 {
 }
 
 .modalinput2 {
-
+  width:20vw;
   font-family: 'Lato', sans-serif;
   font-size: medium;
 }
@@ -174,9 +177,14 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
-  width: 30vw;
+  width: 35vw;
   height: 9.5vh;
   border-radius: 18px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  top: 10%;
+
 
 }
 
@@ -695,13 +703,13 @@ svg {
 }
 
 .supreme-logo {
-
+  object-fit: cover;
+  min-width: 200px;
   z-index: 100;
   border-radius: 30px;
   height: 100px;
-  width: 400px;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: 500px;
+
 }
 
 /* --------------------OVERVIEW  ---------------------*/
@@ -831,7 +839,7 @@ svg {
   align-items: center;
   /* grid-column: 1 / 3; */
   line-height: 1.5em;
-  font-size: small;
+
   /* padding-top: 2%; */
 }
 
@@ -1143,7 +1151,7 @@ u {
 #feature-list {
   padding-left: 3%;
   width: 33%;
-  font-size: x-small;
+  font-size: small;
   box-sizing: content-box;
   align-items: center;
 }
