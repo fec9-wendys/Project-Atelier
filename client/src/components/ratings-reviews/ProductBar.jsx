@@ -7,7 +7,6 @@ const ProductBar = ({ charPercent }) => {
   const barSectionStyle = {
     display: "inline-flex",
     gap: "5px",
-    // justifyContent: "space-between",
     width: "90%",
     position: "relative",
     padding: "12px",
@@ -27,16 +26,6 @@ const ProductBar = ({ charPercent }) => {
     right: '307px',
     left: 300 * charPercent
   };
-
-  //90%
-  //7 px most right
-  // 307px most left of bar
-  // 300px entire bar size
-
-  //100%
-  //341px right most left
-  // 31px most right of bar
-  //330 px entire bar size (330 * charPercent)
 
   return (
     <div className="barsSection" style={barSectionStyle}>

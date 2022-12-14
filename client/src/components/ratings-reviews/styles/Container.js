@@ -11,7 +11,7 @@ export const ParentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 900px;
+  height: 890px;
 
 `
 
@@ -114,17 +114,17 @@ export const StarBarsContainer = styled.div`
 // Modal Containers
 
 export const ModalContainer = styled.div`
+  border: 3px solid black;
   overflow: auto;
+
 `
+
+// padding-bottom: 24px;
 export const ModalTopContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
+  margin: 12px 0px;
+  border-bottom: 1px solid black;
 `
 
-// align-items: flex-start;
-// justify-content: flex-start;
 export const ModalBottomContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -132,22 +132,32 @@ export const ModalBottomContainer = styled.div`
 `
 
 export const ModalCharContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  margin: 10px 0px;
+`
+
+export const ModalCharEntryContainer = styled.div`
+  margin: 20px 0px;
 `
 
 export const ModalNicknameContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 
 `
 
 export const ModalEmailContainer = styled.div`
+
+`
+
+export const ModalTitleContainer = styled.h1`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  position: sticky;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  background-color: white;
+  margin-top: 0;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  z-index: 1001;
+  font-size: xx-large;
 
 `

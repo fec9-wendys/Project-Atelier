@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import ReactDom from 'react-dom';
+import styled from 'styled-components';
 const { useState, useEffect } = React;
 import DynamicStars from './DynamicStars.jsx';
 import CharEntry from './CharEntry.jsx';
-import { ModalContainer, ModalTopContainer, ModalBottomContainer, ModalCharContainer, ModalNicknameContainer, ModalEmailContainer } from './styles/Container';
+import { ModalContainer, ModalTopContainer, ModalBottomContainer, ModalCharContainer, ModalNicknameContainer, ModalEmailContainer, ModalTitleContainer, ModalTopBottomContainer } from './styles/Container';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -12,10 +13,10 @@ const MODAL_STYLES = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   backgroundColor: '#FFF',
-  padding: '50px',
+  padding: '0px 25px 25px 100px',
   zIndex: 1000,
-  width: '1000px',
-  height: '700px',
+  width: '50vw',
+  height: '80vh'
 }
 
 const OVERLAY_STYLES = {
@@ -29,7 +30,7 @@ const OVERLAY_STYLES = {
 
 }
 
-const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setReviews }) => {
+const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setReviews, chars }) => {
   const [rec, setRec] = useState(null);
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
@@ -38,7 +39,7 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
   const [img, setImg] = useState([]);
   const [starRating, setStarRating] = useState(null);
   const [shownWord, setShownWord] = useState(null);
-  const [chars, setChars] = useState(50);
+  const [charCount, setCharCount] = useState(50);
   const [size, setSize] = useState(null);
   const [width, setWidth] = useState(null);
   const [comfort, setComfort] = useState(null);
@@ -47,11 +48,17 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
   const [fit, setFit] = useState(null);
 
   useEffect(() => {
-    setChars(Math.max(0, 50 - body.length));
+    setCharCount(Math.max(0, 50 - body.length));
   }, [body])
 
   if (!isOpen) {
     return null;
+  }
+
+  const closeHandler = (e) => {
+    e.preventDefault();
+    onClose();
+    setImg([]);
   }
 
   const fileHandler = (e) => {
@@ -140,10 +147,12 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
     <>
       <div style={OVERLAY_STYLES} />
       <ModalContainer className='modal' style={MODAL_STYLES}>
-        <h1> Write your review about the {currentProduct.name}</h1>
-        <div>
+        <ModalTitleContainer> Review: {currentProduct.name}
+          <span style={{ 'float': 'right' }}> <i className="fa-regular fa-circle-xmark" onClick={closeHandler}></i></span>
+        </ModalTitleContainer>
+        <h3 className='h3' style={{ 'marginBottom': '4px' }}>
           How do you rate this product?
-        </div>
+        </h3>
         <div>
           <DynamicStars starRating={starRating} setStarRating={setStarRating} shownWord={shownWord} setShownWord={setShownWord} />
         </div>
@@ -151,51 +160,54 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
           <div>
             <form>
               <ModalTopContainer>
-                Characteristics Review Component
                 <ModalCharContainer>
-                  {Object.keys(metaData.characteristics).map((key, index) => {
+                  {Object.keys(chars).map((key, index) => {
                     return <CharEntry key={index} charKey={key} setSize={setSize} setWidth={setWidth} setComfort={setComfort}
                       setQuality={setQuality} setLength={setLength} setFit={setFit} />;
                   })}
                 </ModalCharContainer>
-                <p>Do you recommend this product?</p>
+                <p style={{ 'fontSize': 'large', 'marginBottom': '5px' }}>Do you recommend this product?</p>
                 <input type="radio" id="yes-button" name="rec" value='Yes' onChange={(e) => setRec(true)} required />
                 <label htmlFor='Yes'>Yes</label><br></br>
                 <input type="radio" id="no-button" name="rec" value='No' onChange={(e) => setRec(false)} />
-                <label htmlFor='No'>No</label><br></br>
-                <label htmlFor="summary"> Summary: </label><br></br>
+                <label htmlFor='No' style={{}}>No</label><br></br>
+                <label htmlFor="summary" style={{ 'marginTop': '16px', 'display': 'inline-block' }}> Summary: </label><br></br>
                 <input type="text" id="summary" name="summary" maxLength='60'
                   placeholder='Best Purchase Ever!' onChange={(e) => setSummary(e.target.value)} /><br></br>
-                <label htmlFor="body"> Review Body:</label><br></br>
-                <textarea type="text" id="body" name="body" rows='6' cols='50' maxLength='1000'
+                <label htmlFor="body" style={{ 'marginTop': '8px', 'display': 'inline-block' }}> Review Body:</label><br></br>
+                <textarea type="text" id="review-body" name="body" rows='6' cols='83' maxLength='1000'
                   placeholder='Why did you like the product or not?' onChange={(e) => setBody(e.target.value)} required /><br></br>
-                <p id='char-requirement'> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${chars}`}</p>
-                <label htmlFor="images"> Image Uploads: (Up to 5) </label><br></br>
+                <p id='char-requirement' style={{ 'marginTop': '4px', 'fontSize': 'small' }}> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${charCount}`}</p>
+                <label htmlFor="images" style={{ 'fontSize': 'small' }}> Image Uploads: (Up to 5) </label><br></br>
                 <input id='image-upload' className='btn' type='file' onChange={fileHandler} multiple />
                 &nbsp;
                 {img.map((image, index) => {
                   return <img key={index} src={image} width={img ? '100' : '0'} height={img ? '100' : '0'} />
                 })}
               </ModalTopContainer>
-              <ModalBottomContainer>
+            </form>
+            <ModalBottomContainer>
+              <h3 className='h3' style={{ 'marginTop': '4px' }}>
+                Personal Info
+              </h3>
+              <form>
                 <ModalNicknameContainer>
                   <label htmlFor="nickname">Nickname:</label><br></br>
                   <input type="text" id="nickname" name="nickname" maxLength='60'
                     placeholder='jackson11!' required onChange={(e) => setNickName(e.target.value)} /><br></br>
-                  <div> For privacy reasons, do not use your full name or email address</div>
+                  <div style={{ 'fontSize': 'small', 'marginBottom': '16px' }}> For privacy reasons, do not use your full name or email address</div>
                 </ModalNicknameContainer>
                 <ModalEmailContainer>
                   <label htmlFor="email">Email:</label><br></br>
                   <input type="email" id="email" name="email" maxLength='60'
                     placeholder='jackson11@gmail.com' required onChange={(e) => setEmail(e.target.value)} /><br></br>
-                  <div> For authentication reasons, you will not be emailed</div>
+                  <div style={{ 'fontSize': 'small', 'marginBottom': '24px' }}> For authentication reasons, you will not be emailed</div>
                 </ModalEmailContainer>
-              </ModalBottomContainer>
-              <input type="button" className='btn' value="Submit Review" onClick={submitHandler} />
-            </form>
+              </form>
+            </ModalBottomContainer>
+            <input type="button" className='btn' value="Submit Review" onClick={submitHandler} />
           </div>
         </div>
-        <button onClick={onClose} className='btn' >Close</button>
       </ModalContainer>
     </>,
     document.getElementById('portal')
