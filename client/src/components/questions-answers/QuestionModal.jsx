@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import styled from "styled-components";
+const AModalTitle = styled.h2`
+
+display:flex;
+justify-content: center;
+align-items: center;
+
+`;
 const { useState } = React;
 const QuestionModal = ({setQuestions, request, currentProduct, isqmodal, setIsQModal}) => {
 
@@ -55,25 +63,46 @@ const QuestionModal = ({setQuestions, request, currentProduct, isqmodal, setIsQM
     console.log(questionemail, questioncomment, questionname, currentProduct.id)
   }
 return ReactDom.createPortal(
-  <>
+  <div className="modal">
   <div className="modaloverlay"/>
-  <div className="modalwindow">
+  <div className="modalwindow" id="questionmodalwindow">
+
   <form onSubmit={handleSubmit}>
+  <AModalTitle>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="gooey">
+
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <button className="gooey-button"  id="answermodalbutton">Ask Your Question
+        <span className="bubbles">
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+        </span>
+    </button>
+    </AModalTitle>
+
   <header>
-    <h3> Ask Your Question </h3>
-    <p> About the product here</p>
+    <h3> About the product here</h3>
     </header>
-  <label>Question:
-    <input name="comment"
-           type="text"
-           placeholder="Product > anything else"
-           autoComplete="on"
-           value={questioncomment}
-           maxLength='1000'
-           onChange={(e)=>{setQuestionComment(e.target.value)}} required/>
-  </label><br/>
-  <label>Name:
-    <input name="name"
+    <div className="qamodalbody">
+
+  <label>Name:<br/>
+    <input className="modalinput1" name="name"
            type="text"
            placeholder="Rick James"
            autoComplete="name"
@@ -82,8 +111,8 @@ return ReactDom.createPortal(
            onChange={(e)=>{setQuestionName(e.target.value)}} required/><br/>
     <small>For privacy reasons, do not use your full name or email address</small>
   </label><br/>
-  <label>Email:
-  <input name="email"
+  <label>Email:<br/>
+  <input  className="modalinput1" name="email"
            type="text"
            placeholder="noobslayer420@yahoo.com"
            autoComplete="email"
@@ -92,11 +121,24 @@ return ReactDom.createPortal(
            onChange={(e)=>{setQuestionEmail(e.target.value) }} required/><br/>
     <small>For authentication reasons, you will not be emailed</small>
   </label><br/>
-  <input type='submit'/>
-  </form>
-    <button onClick={handleCloseClick}>Close Modal</button>
+  <label>Question:<br/>
+
+  <textarea cols="40" rows="5" className="modalinput2" name="comment"
+           type="text"
+           placeholder="Product > anything else"
+           autoComplete="on"
+           value={questioncomment}
+           maxLength='1000'
+           onChange={(e)=>{setQuestionComment(e.target.value)}} required></textarea>
+  </label><br/>
+  <div className="qamodalsubmitbtncontainer">
+  <input className="qamodalsubmitbtn" type='submit' value="Post"/>
   </div>
-  </>,
+  </div>
+  </form>
+    <button className="qamodalclose" onClick={handleCloseClick}>X</button>
+  </div>
+  </div>,
   document.getElementById('questionportal')
 )
 }
