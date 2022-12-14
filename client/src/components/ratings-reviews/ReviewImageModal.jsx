@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -20,6 +21,13 @@ const OVERLAY_STYLES = {
   zIndex: 1000
 }
 
+const CloseButton = styled.i`
+  &:hover {
+    cursor: pointer;
+    cursor: hand;
+  }
+`
+
 const ReviewImageModal = ({imgOpen, onClose, mainImg}) => {
 
   if (!imgOpen) {
@@ -33,7 +41,7 @@ const ReviewImageModal = ({imgOpen, onClose, mainImg}) => {
         {/* main image in modal */}
         <img style={{ objectFit: 'contain', height: '90vh', width: '90vw', cursor: 'crosshair' }} src= {mainImg} />
 
-        <i className="fa-regular fa-circle-xmark" id="close-button" onClick={onClose}></i>
+        <CloseButton className="fa-regular fa-circle-xmark" id="close-button" onClick={onClose}></CloseButton>
 
       </div>
     </>,

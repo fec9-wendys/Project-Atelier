@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewImageModal from './ReviewImageModal.jsx';
+import styled from 'styled-components';
 import { EntriesLog, EntriesPhotos } from './styles/Reviewfeed';
 import { ReviewEntryContainer } from './styles/Container';
 const { useState, useEffect } = React;
@@ -87,9 +88,7 @@ const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, 
         <span> <i className="fa-solid fa-circle-check"></i> {review.reviewer_name}</span>
       </div>
       <p className='entry-summary body' style = {{'marginBottom' : '4px', 'marginTop' : '24px', 'fontSize' : 'large'}}> <strong>{review.summary}</strong> <span style = {{'float' : 'right'}}> {properDate()} </span> </p>
-
       <p className='entry-body body' style={{ 'maxWidth': '800px', 'overflowWrap' : 'breakWord', 'marginTop' : '4px' }}>
-
         {review.body.length > 250 ? shownBody : review.body}
       </p>
       <div>
