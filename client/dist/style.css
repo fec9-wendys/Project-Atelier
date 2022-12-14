@@ -833,13 +833,13 @@ svg {
 
 
 #left-modal-button {
-  position: absolute;
+  position: fixed;
   left: 5em;
   z-index: 2000;
 }
 
 #right-modal-button {
-  position: absolute;
+  position: fixed;
   right: 5em;
   z-index: 10000;
 }
