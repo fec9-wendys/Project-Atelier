@@ -7,7 +7,7 @@ const Description = ({ currentProduct, currentProductStyle }) => {
       <h3 id="product-category">
         {currentProduct.category}
       </h3>
-      <h1 id="product-name" >
+      <h1 id="product-name" style={{lineHeight: '2.4rem'}}>
         {currentProduct.name}
       </h1>
       <h3 id="product-style">Style &gt; {currentProductStyle.name}</h3>

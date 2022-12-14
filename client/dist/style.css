@@ -826,11 +826,13 @@ svg {
 }
 
 #left-modal-button {
-  left: 1em;
+  left: 2em;
+  z-index: 2000;
 }
 
 #right-modal-button {
-  right: 1em;
+  right: 2em;
+  z-index: 2000;
 }
 
 #close-button {
@@ -840,7 +842,7 @@ svg {
   background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 0px;
-  right: 1em;
+  right: 0px;
   cursor: pointer;
 }
 
