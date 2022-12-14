@@ -125,7 +125,7 @@ return ReactDom.createPortal(
            onChange={(e)=>{setAnswerBody(e.target.value)}} required></textarea>
   </label><br/>
   <br/>
-
+  <div className="qamodalimages">
   <label>Upload Photos *max 5<br/>
     <input id="imageuploadbutton"
            type="file"
@@ -137,6 +137,7 @@ return ReactDom.createPortal(
   {answerphotos.map((photo, key) =>
       <UploadPhoto photo={photo} key={key}/>)}
     <br/>
+    </div>
     <div className="qamodalsubmitbtncontainer">
   <input className="qamodalsubmitbtn" type='submit' value='Post'/>
   </div>

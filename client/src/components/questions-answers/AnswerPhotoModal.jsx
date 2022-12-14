@@ -25,8 +25,8 @@ const AnswerPhotoModal =({aphotomodalimg, setIsAPhotoModal})=> {
     <div className="modal">
     <div style={overlayStyle}/>
     <div style={modalStyles}>
-    <img src={aphotomodalimg}/>
-      <button className="btn" onClick={()=> {setIsAPhotoModal(false)}} >Close Modal</button>
+    <img style={{ objectFit: 'contain', height: '90vh', width: '90vw', cursor: 'crosshair' }}src={aphotomodalimg}/>
+    <i className="fa-regular fa-circle-xmark" id="close-button" onClick={()=>{setIsAPhotoModal(false)}}></i>
     </div>
     </div>,
     document.getElementById('answerportal')

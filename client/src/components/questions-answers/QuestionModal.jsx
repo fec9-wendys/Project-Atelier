@@ -56,8 +56,8 @@ const QuestionModal = ({setQuestions, request, currentProduct, isqmodal, setIsQM
   }
 return ReactDom.createPortal(
   <>
-  <div style={overlayStyle}/>
-  <div style={modal1Styles}>
+  <div className="modaloverlay"/>
+  <div className="modalwindow">
   <form onSubmit={handleSubmit}>
   <header>
     <h3> Ask Your Question </h3>
