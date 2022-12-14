@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import UploadPhoto from './UploadPhoto.jsx'
+import styled from "styled-components";
 const {useState} = React;
+
+const AModalTitle = styled.h2`
+
+display:flex;
+justify-content: center;
+align-items: center;
+
+`;
 
 const AnswerModal = ({ setQuestions, questionid, answermodalbody, request, currentProduct, isamodal, setIsAModal}) => {
   const [answerbody, setAnswerBody] = useState('')
@@ -33,24 +42,8 @@ const AnswerModal = ({ setQuestions, questionid, answermodalbody, request, curre
     })
     setIsAModal(!isamodal)
   }
-  const modalStyles = {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    backgroundColor: '#FFF',
-    padding: '50px',
-    zIndex: 1000
-  }
-  const overlayStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0,0,0,.5)',
-    zIndex: 1000
-  }
+
+
   const handleImageUpload = (e) => {
     if(answerphotos.length > 3) {
       document.getElementById('imageuploadbutton').disabled = true
@@ -63,42 +56,76 @@ const AnswerModal = ({ setQuestions, questionid, answermodalbody, request, curre
 
 return ReactDom.createPortal(
   <div className="modal">
-  <div style={overlayStyle}/>
-  <div style={modalStyles}>
+  <div className="modaloverlay"/>
+  <div className="modalwindow">
   <form onSubmit={handleSubmit}>
+
+  <AModalTitle>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="gooey">
+
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <button className="gooey-button"  id="answermodalbutton">Submit Your Answer
+
+        <span className="bubbles">
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+        </span>
+    </button>
+    </AModalTitle>
+  <div className="qamodalbody">
   <header>
-    <h3> Submit Your Answer </h3>
-    <p> {currentProduct.name} : {answermodalbody}</p>
+    <b><p> {currentProduct.name} : {answermodalbody}</p></b>
     </header>
-  <label>Your answer:<br/>
-    <input name="comment"
-           type="text"
-           placeholder="my answer is so good"
-           autoComplete="on"
-           value={answerbody}
-           maxLength='1000'
-           onChange={(e)=>{setAnswerBody(e.target.value)}} required/>
-  </label><br/>
+
   <label>What is your nickname:<br/>
-    <input name="name"
+    <input className="modalinput1" name="name"
            type="text"
            placeholder="Example: jack543!"
            autoComplete="name"
            value={answername}
            maxLength='60'
            onChange={(e)=>{setAnswerName(e.target.value)}} required/><br/>
-    <small>For privacy reasons, do not use your full name or email address</small>
+    <small><i>For privacy reasons, do not use your full name or email address</i></small>
   </label><br/>
+  <br/>
   <label>Your email:<br/>
-  <input name="email"
+  <input className="modalinput1" name="email"
            type="text"
            placeholder="Example: jack@email.com"
            autoComplete="email"
            value={answeremail}
            maxLength='60'
            onChange={(e)=>{setAnswerEmail(e.target.value) }} required/><br/>
-    <small>For authentication reasons, you will not be emailed</small>
+    <small><i>For authentication reasons, you will not be emailed</i></small>
   </label><br/>
+  <br/>
+  <label>Your answer:<br/>
+    <textarea cols="40" rows="5" className="modalinput2" name="comment"
+           type="text"
+           placeholder="my answer is so good"
+           autoComplete="on"
+           value={answerbody}
+           maxLength='1000'
+           onChange={(e)=>{setAnswerBody(e.target.value)}} required></textarea>
+  </label><br/>
+  <br/>
+
   <label>Upload Photos *max 5<br/>
     <input id="imageuploadbutton"
            type="file"
@@ -110,9 +137,12 @@ return ReactDom.createPortal(
   {answerphotos.map((photo, key) =>
       <UploadPhoto photo={photo} key={key}/>)}
     <br/>
-  <input className="btn" type='submit'/>
+    <div className="qamodalsubmitbtncontainer">
+  <input className="qamodalsubmitbtn" type='submit' value='Post'/>
+  </div>
+  </div>
   </form>
-    <button className="btn" onClick={handleCloseClick}>Close Modal</button>
+    <button className="qamodalclose" onClick={handleCloseClick}>X</button>
   </div>
   </div>,
   document.getElementById('answerportal')
