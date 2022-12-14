@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { FeaturesContainer } from './styles/OverviewContainers';
+import { FeaturesContainer, FeatureList } from './styles/OverviewContainers';
 
 const Slogan = styled.span`
   font-weight: bolder;
@@ -21,13 +21,13 @@ const Features = ({ features }) => {
         </p>
       </div>
 
-      <div id="feature-list">
+      <FeatureList>
         {features.features.map((feature, index) => {
           return <div key={index}>
             {feature.feature}: &nbsp;{feature.value} &nbsp; <i style={{ color: 'rgb(218, 39, 39)' }} className="fa-solid fa-check"></i>
           </div>
         })}
-      </div>
+      </FeatureList>
     </FeaturesContainer>
   )
 }

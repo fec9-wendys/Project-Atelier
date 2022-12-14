@@ -107,3 +107,14 @@ export const Icons = styled.div`
   display: flex;
   bottom: 5px;
 `
+
+export const FeatureList = styled.div`
+  padding-left: 3%;
+  width: 33%;
+  font-size: small;
+  box-sizing: content-box;
+  align-items: center;
+  @media (max-width: 2100px) {
+    font-size: x-small;
+  }
+`
