@@ -29,30 +29,31 @@ export const LeftFlexBox = styled.div`
   position: relative;
   height: 800px;
   max-width: 800px;
-`
+  `
 
-export const RightFlexBox = styled.div`
+  export const RightFlexBox = styled.div`
   display: flex;
   min-width: 307px;
   width: 20%;
   flex-flow: column nowrap;
   height: 800px;
   max-width: 400px;
-`
+  `
 
-export const Ratings = styled.div`
+  export const Ratings = styled.div`
   font-size: 0.8em;
   line-height: 1.3em;
   height: 10%;
   padding: 5%;
-`
+  `
 
 export const DescriptionContainer = styled.div`
   font-size: 0.8em;
   min-height: 15%;
   padding-left: 5%;
   padding-bottom: 5%;
-`
+  `
+
 //might need to change padding-top TODO:
 export const StylesContainer = styled.div`
   padding-top: 1vh;
@@ -73,7 +74,7 @@ export const FeaturesContainer = styled.div`
   align-items: center;
   line-height: 1.5em;
   font-size: small;
-`
+  `
 
 export const ThumbnailCarousel = styled.div`
   display: flex;
@@ -86,7 +87,7 @@ export const ThumbnailCarousel = styled.div`
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.7);
   z-index: 1000;
-`
+  `
 
 export const ThumbnailImages = styled.div`
   display: flex;
@@ -94,7 +95,7 @@ export const ThumbnailImages = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-`
+  `
 
 export const DotIcons = styled.div`
   display: flex;
@@ -119,4 +120,4 @@ export const FeatureList = styled.div`
     font-size: x-small;
     line-height: 1.5em;
   }
-`
+  `

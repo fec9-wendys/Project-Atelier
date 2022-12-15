@@ -100,6 +100,7 @@ return ReactDom.createPortal(
     <header>
     <h3> About the product here</h3>
     </header>
+    <br/>
 
   <label>Name:<br/>
     <input className="modalinput1" name="name"
