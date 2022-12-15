@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import ReviewEntry from './ReviewEntry.jsx';
 import ReviewModal from './ReviewModal.jsx';
+import {CSSTransition} from 'react-transition-group';
 import { RFContainer } from './styles/Container.js';
 import { ReviewEntries, ReviewButtons } from './styles/Reviewfeed';
 const { useState, useEffect } = React;
