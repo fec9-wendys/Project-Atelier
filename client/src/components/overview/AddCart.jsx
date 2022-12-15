@@ -75,7 +75,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
           console.log('finsie')
           // window.location.reload()
           // return false;
-        setCurrSize('select-size');
+          setCurrSize('select-size');
           document.getElementById('size-dropdown').value = 'select-size'
           console.log('Added to cart!')
         }
