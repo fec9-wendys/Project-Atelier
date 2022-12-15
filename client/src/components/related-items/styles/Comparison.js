@@ -6,7 +6,7 @@ const Comparison = styled.div`
   padding-top: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-end;
+  justify-content: space-evenly;
   margin-bottom: 20px;
 `;
 

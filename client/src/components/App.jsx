@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 const { useState, useEffect } = React;
 import { ReactSession } from 'react-client-session';
+import styled from 'styled-components';
 
 import Overview from './overview/Overview.jsx';
 import RelatedItems from './related-items/RelatedItems.jsx';
@@ -15,10 +16,16 @@ const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 ReactSession.setStoreType('localStorage');
 
+const AppStyle = styled.div`
+  background-color: ${({ isDarkMode }) => isDarkMode ? 'rgb(25, 25, 25)' : 'white'};
+  color: ${({ isDarkMode }) => isDarkMode ? 'white' : 'black'};
+`;
+
 const App = () => {
   const [outfit, setOutfit] = useState(ReactSession.get('outfit') || []);
   const [currentProduct, setCurrentProduct] = useState(null);
   const [currentProductStyle, setCurrentProductStyle] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [ready, setReady] = useState(false);
 
 
@@ -60,14 +67,14 @@ const App = () => {
   };
 
   return !ready ? null : (
-    <>
-    <Header></Header>
-      <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
-      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} />
-      <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} />
-      <QuestionsAnswers currentProduct={currentProduct} request={request} />
-      <RatingsReviews currentProduct={currentProduct} request={request} />
-    </>
+    <AppStyle isDarkMode={isDarkMode}>
+      <Header />
+      <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} isDarkMode={isDarkMode} />
+      <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} isDarkMode={isDarkMode} />
+      <QuestionsAnswers currentProduct={currentProduct} request={request} isDarkMode={isDarkMode} />
+      <RatingsReviews currentProduct={currentProduct} request={request} isDarkMode={isDarkMode} />
+    </AppStyle>
   );
 
 };

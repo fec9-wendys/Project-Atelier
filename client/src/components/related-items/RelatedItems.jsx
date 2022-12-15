@@ -7,7 +7,7 @@ import Container from './styles/RelatedItems.js';
 import Category from './styles/Category.js';
 import { Carousel, List, Button } from './styles/Carousel.js';
 
-const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, request }) => {
+const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, request, isDarkMode }) => {
   const [relatedProductIds, setRelatedProductIds] = useState(null);
   const [renderRange, setRenderRange] = useState([0, 0]);
   const [ready, setReady] = useState(false);
@@ -53,7 +53,7 @@ const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, re
   };
 
   return (
-    <Container data-testid="jest/related-items">
+    <Container isDarkMode={isDarkMode} data-testid="jest/related-items">
       <Category>You May Also Like</Category>
       {!ready ? null : renderCarousel()}
     </Container>
