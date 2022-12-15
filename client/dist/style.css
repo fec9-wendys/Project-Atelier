@@ -174,7 +174,7 @@ h5 {
   align-items: center;
 }
 .addquestionbtn {
-  font-size: medium;
+  font-size: small;
   font-family: 'Lato', sans-serif;
   background-color: rgb(218, 39, 39);
   border: none;
@@ -187,7 +187,7 @@ h5 {
   margin-bottom: .5vh;
 }
 #morequestionsbtn {
-  font-size: medium;
+  font-size: small;
   font-family: 'Lato', sans-serif;
   background-color: rgb(218, 39, 39);
   border: none;
