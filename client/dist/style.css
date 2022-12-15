@@ -221,7 +221,7 @@ h5 {
 	cursor: pointer;
 	color: #fff;
 	transition: .3s ease-in-out;
-  font-size: medium;
+  font-size: 0.85em;
 
 
 }
@@ -238,7 +238,7 @@ h5 {
 	cursor: pointer;
 	color: #fff;
 	transition: .3s ease-in-out;
-  font-size: medium;
+  font-size: 0.85em;
 }
 
 
@@ -280,7 +280,7 @@ h5 {
 	z-index: 3;
 	top: -20%;
 	left: 52%;
-	font-size: 1.2em;
+	font-size: 1em;
 	transform: translate(-50%,-50%);
 }
 .cart-button span {
@@ -288,7 +288,7 @@ h5 {
 	z-index: 3;
 	left: 50%;
 	top: 50%;
-	font-size: 1.2em;
+	font-size: 1em;
 	color: #fff;
 	transform: translate(-50%,-50%);
 }

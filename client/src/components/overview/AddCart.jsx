@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { Cart } from './styles/OverviewContainers';
-import styled from 'styled-components';
-import { Cart } from './styles/OverviewContainers';
 
 const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, setOutfit }) => {
 
@@ -122,7 +120,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
 
 
   return (
-<Cart>
+    <Cart>
       <div id="cart-dropdowns">
         {/* dropdown menu for size */}
         <div id="size-container">
