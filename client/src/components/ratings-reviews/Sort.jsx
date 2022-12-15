@@ -77,20 +77,18 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
       <SortWords>
         <strong>{reviews.length} reviews, sorted by </strong>
       </SortWords>
-      <span>
+      <label className = 'custom-selector'>
         &nbsp;
         <select id={sort} className='dropdown' onChange={handleChange} >
           {sortValues.map(sortValue => {
             return (
-              <option key={sortValue.value} value={sortValue.value}>
+              <option key={sortValue.value} value={sortValue.value} className = 'option'>
                 {sortValue.text}
               </option>
             )
           })}
         </select>
-        &nbsp;
-        &nbsp;
-      </span>
+      </label>
     </SortContainer>
   );
 };

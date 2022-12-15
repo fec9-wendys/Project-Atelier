@@ -120,7 +120,7 @@ function cartClick() {
   return (
     <div className="grid-container" id="cart">
       {/* dropdown menu for size */}
-      <label htmlFor="size-dropdown">Size: &emsp;&emsp;&nbsp;&ensp;&emsp;&ensp;</label>
+      <label className = 'custom-selector2' htmlFor="size-dropdown">Size: &emsp;&emsp;&nbsp;&ensp;&emsp;&ensp;
       <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
         {Object.keys(stock).includes('null') ?
           <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
@@ -135,9 +135,10 @@ function cartClick() {
           </>
         }
       </select>
+      </label>
       {/* dropdown menu for quantity */}
       <div>
-        <label htmlFor="quantity-dropdown"> Quantity: &nbsp;&emsp;&emsp;</label>
+        <label className = 'custom-selector2' htmlFor="quantity-dropdown"> Quantity: &nbsp;&emsp;&emsp;
         <select className="dropdown" id="quantity-dropdown">
           {currSize === 'select-size' ?
             <option value="select-quantity" id="default-quantity" defaultValue>---</option>
@@ -149,6 +150,7 @@ function cartClick() {
             </>
           }
         </select>
+        </label>
       </div>
 
 
