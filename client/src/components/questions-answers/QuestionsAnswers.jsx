@@ -9,7 +9,7 @@ import styled from "styled-components";
 const { useState, useEffect } = React;
 
 const Title = styled.h2`
-font-size: 1.8vh;
+font-size: 30px;
 text-align: center;
 
 `;
@@ -27,7 +27,8 @@ text-align:left;
 height: 40px;
 width: 1200px;
 font-size: 1.5vh;
- padding-left: 0.3vw;
+ padding-left: 0.5vw;
+ border-radius: 20px;
 
 `;
 
@@ -129,6 +130,16 @@ const QuestionsAnswers = ({currentProduct, request}) => {
     setIsQModal(!isqmodal)
   }
 
+  const cartButtons = document.querySelectorAll('.cart-button');
+
+cartButtons.forEach(button => {
+	button.addEventListener('click', cartClick);
+});
+
+function cartClick() {
+	let button = this;
+	button.classList.add('clicked');
+}
 
 
 
@@ -153,8 +164,23 @@ const QuestionsAnswers = ({currentProduct, request}) => {
         <div>{none && <h3>NO MATCHING RESULTS</h3>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
+        <div id="qabottombuttons">
         <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button  className="button2" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+        <button   onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+
+        <button className="cart-button">
+	<span className="add-to-cart">Add to cart</span>
+	<span className="added">Added</span>
+	<i className="fas fa-shopping-cart"></i>
+	<i className="fas fa-box"></i>
+</button>
+
+<a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
+
+
+
+
+        </div>
       </div>
       </div>
       </Container>
