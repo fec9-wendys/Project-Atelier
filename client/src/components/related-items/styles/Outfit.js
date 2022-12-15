@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
   height: 600px;
+  border-top: 1px solid ${({ isDarkMode }) => isDarkMode ? 'white' : 'black'};
+  border-bottom: 1px solid ${({ isDarkMode }) => isDarkMode ? 'white' : 'black'};
+
+  button {
+    color: ${({ isDarkMode }) => isDarkMode ? 'white' : 'black'};
+  }
 `;
 
 const Empty = styled.div`

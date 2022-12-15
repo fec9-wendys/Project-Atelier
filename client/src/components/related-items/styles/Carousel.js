@@ -8,7 +8,7 @@ const Carousel = styled.div`
 `;
 
 const List = styled.div`
-  padding-left: 90px;
+  margin-left: 90px;
   width: 1115px;
   display: flex;
 `;

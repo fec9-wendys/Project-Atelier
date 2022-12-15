@@ -1,4 +1,5 @@
 import React from 'react';
+const { useState, useEffect } = React;
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
@@ -6,13 +7,35 @@ import { Overlay, Content, Close } from './styles/Modal.js';
 import { Comparison, Column, Entry, Break } from './styles/Comparison.js';
 
 export default function Modal({ isOpen, onClose, currentProductFeatures, product, request }) {
-  if (!isOpen) return null;
+  const [comparison, setComparison] = useState([]);
 
-  const features = [];
-  currentProductFeatures.features.forEach(({ feature, value }) => features.push([value, feature, product.features[feature]?.value]));
-  product.features.forEach(({ feature, value }) => features.push([currentProductFeatures.features[feature]?.value, feature, value]));
+  const indexOfFeature = (features, feature) => features.reduce((accumulator, current, i) => {
+    if (accumulator === -1) {
+      return current[1] === feature ? i : -1;
+    }
+    return accumulator;
+  }, -1);
 
-  return ReactDOM.createPortal(
+  useEffect(() => {
+    if (isOpen) {
+      const features = [];
+      currentProductFeatures.features.forEach(({ feature, value}) => features.push([value, feature, undefined]));
+      product.features.forEach(({ feature, value }) => {
+        const existingFeature = indexOfFeature(features, feature);
+        if (existingFeature === -1) {
+          features.push([undefined, feature, value]);
+        } else {
+          features[existingFeature][2] = value;
+        }
+      });
+      console.log(features);
+      setComparison(features);
+    } else {
+      setComparison([]);
+    }
+  }, [isOpen]);
+
+  return !isOpen ? null : ReactDOM.createPortal(
     <>
       <Overlay />
       <Content>
@@ -20,15 +43,15 @@ export default function Modal({ isOpen, onClose, currentProductFeatures, product
         <Comparison>
           <Column>
             <Entry bold>{currentProductFeatures.name}</Entry>
-            {features.map((feature, key) => <Entry key={key}>{feature[0] ?? <i className="fa-solid fa-x" />}</Entry>)}
+            {comparison.map((feature, key) => <Entry key={key}>{feature[0] ?? <i className="fa-solid fa-x" />}</Entry>)}
           </Column>
           <Column>
              <Entry bold>&nbsp;</Entry>
-            {features.map((feature, key) => <Entry key={key}>{feature[1]}</Entry>)}
+            {comparison.map((feature, key) => <Entry key={key}>{feature[1]}</Entry>)}
           </Column>
           <Column>
              <Entry bold>{product.name}</Entry>
-            {features.map((feature, key) => <Entry key={key}>{feature[2] ?? <i className="fa-solid fa-x" />}</Entry>)}
+            {comparison.map((feature, key) => <Entry key={key}>{feature[2] ?? <i className="fa-solid fa-x" />}</Entry>)}
           </Column>
           </Comparison>
       </Content>
