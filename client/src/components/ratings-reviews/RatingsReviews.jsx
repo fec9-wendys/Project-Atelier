@@ -97,6 +97,13 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
     setCount(previousCount => previousCount + 2);
   }
 
+  const modalHandler = () => {
+    SetIsOpen(true);
+    const app = document.getElementById('app');
+    app.style.overflow = 'hidden';
+
+  }
+
   return (
     <div>
       <TitleContainer>Ratings & Reviews</TitleContainer>
@@ -123,7 +130,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
               reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} chars = {chars} />
             <ReviewButtonsContainer>
               {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
-              <ReviewButtons className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>
+              <ReviewButtons className='open-modal btn' onClick={modalHandler}> + Add A Review </ReviewButtons>
             </ReviewButtonsContainer>
           </RightSide>
         </ParentContainer>

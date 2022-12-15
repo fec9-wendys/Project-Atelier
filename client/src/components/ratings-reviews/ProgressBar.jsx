@@ -5,12 +5,12 @@ const { useState, useEffect } = React;
 
 
 // #CDA8F0
+// opacity: 0.5;
 const StyledParent = styled.div`
 flex-grow: 1;
 height: 25px;
 width: 150px;
-opacity: 0.5;
-background-color: #ED1C24;
+background-color: #FF7B7B;
 border-radius: 5px 0px 0px 5px;
 white-space: nowrap;
 display: inline-block;
@@ -20,7 +20,7 @@ overflow: hidden;
   border: 1px solid #0000EE;
 }
 `
-
+// #661EA8;
 // overflow: hidden;
 // animation: progressBar 3s ease-in-out;
 // animation-fill-mode:both;
@@ -30,8 +30,6 @@ const StyledChild = styled.div`
   height: 25px;
   width: ${({progress}) => progress}%;
   background-color: #ED1C24;
-  text-align: right;
-  white-space: nowrap;
 
   &:hover {
     border-left: 1px solid #0000EE;
