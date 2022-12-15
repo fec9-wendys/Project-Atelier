@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { DescriptionContainer } from './styles/OverviewContainers';
 
 const Description = ({ currentProduct, currentProductStyle }) => {
 
   return (
-    <div className="grid-container" id="description">
+    <DescriptionContainer>
       <h3 id="product-category">
         {currentProduct.category}
       </h3>
@@ -22,7 +24,7 @@ const Description = ({ currentProduct, currentProductStyle }) => {
         </div>
       }
 
-    </div>
+    </DescriptionContainer>
   )
 }
 

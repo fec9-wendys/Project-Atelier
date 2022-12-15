@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageModal from './ImageModal.jsx';
+import styled from 'styled-components';
+import { LeftFlexBox, ThumbnailCarousel, ThumbnailImages } from './styles/OverviewContainers.js';
 
 const Images = ({ currentProduct, currentProductStyle }) => {
 
@@ -113,7 +115,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
   }
 
   return (
-    <div className="grid-container" id="flexbox1">
+    <LeftFlexBox>
 
       <div id="main-photo">
         {currentProductStyle.photos[currentMainIndex] ? //test to see if defined when changing the currentProductStyle
@@ -130,10 +132,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         </div>
       </div>
 
-
-
-      <div className="carousel" id="thumbnail-carousel">
-
+      <ThumbnailCarousel>
         {/* check if carousel buttons are even needed
         {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
           <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />
@@ -141,7 +140,6 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         {currentProductStyle.photos.length > 7 && endIndex !== currentProductStyle.photos.length - 1 &&
           <i className="fa-solid fa-chevron-right carousel-button" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
         } */}
-
         <div className="carousel-buttons">
           {/* check if carousel buttons are even needed */}
           {currentProductStyle.photos.length > 7 &&
@@ -150,7 +148,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         </div>
 
         {/* Actual Carousel Images */}
-        <div id="carousel-images">
+        <ThumbnailImages>
           {currentProductStyle.photos.length < 7 &&
             currentProductStyle.photos.map((photo, index) => {
               if (index === currentMainIndex) {
@@ -167,18 +165,18 @@ const Images = ({ currentProduct, currentProductStyle }) => {
                 return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
               }
             })}
-        </div>
+        </ThumbnailImages>
+
         <div className="carousel-buttons">
           {currentProductStyle.photos.length > 7 &&
             <i className="fa-solid fa-chevron-right" id="right-thumbnail-button" onClick={e => handleArrowClick(e)}></i>
           }
         </div>
-
-      </div>
+      </ThumbnailCarousel>
 
       <ImageModal open={isOpen} onClose={() => setIsOpen(false)} currentProductStyle={currentProductStyle} currentMainIndex={currentMainIndex} handleMainArrowClick={handleMainArrowClick} setCurrentMainIndex={setCurrentMainIndex} />
 
-    </div>
+    </LeftFlexBox>
   )
 }
 
