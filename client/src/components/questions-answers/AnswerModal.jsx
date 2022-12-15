@@ -4,11 +4,12 @@ import UploadPhoto from './UploadPhoto.jsx'
 import styled from "styled-components";
 const {useState} = React;
 
-const AModalTitle = styled.h2`
+const AModalTitle = styled.h1`
 
 display:flex;
 justify-content: center;
 align-items: center;
+
 
 `;
 

@@ -9,7 +9,7 @@ import styled from "styled-components";
 const { useState, useEffect } = React;
 
 const Title = styled.h2`
-font-size: 1.8vh;
+font-size: 30px;
 text-align: center;
 
 `;
@@ -27,7 +27,8 @@ text-align:left;
 height: 40px;
 width: 1200px;
 font-size: 1.5vh;
- padding-left: 0.3vw;
+ padding-left: 0.5vw;
+ border-radius: 20px;
 
 `;
 
@@ -153,8 +154,16 @@ const QuestionsAnswers = ({currentProduct, request}) => {
         <div>{none && <h3>NO MATCHING RESULTS</h3>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
+        <div id="qabottombuttons">
         <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button  className="button2" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+        <button  className="btn-6" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+
+
+
+
+
+
+        </div>
       </div>
       </div>
       </Container>
