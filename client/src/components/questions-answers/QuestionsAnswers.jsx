@@ -130,16 +130,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
     setIsQModal(!isqmodal)
   }
 
-  const cartButtons = document.querySelectorAll('.cart-button');
 
-cartButtons.forEach(button => {
-	button.addEventListener('click', cartClick);
-});
-
-function cartClick() {
-	let button = this;
-	button.classList.add('clicked');
-}
 
 
 
@@ -149,39 +140,37 @@ function cartClick() {
       <Title>Questions & Answers</Title>
       <Container>
      <div className='qacontainer'>
-      <div >
+
+
         <div className='qasearchbar'>
       <Search type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
       <img src="https://i.ibb.co/MhfN01W/searchbar-icon.webp" className="qasearchimg" ></img>
       <button className="btn" id="qasearchbutton" onClick={handleSearchClick}>{searchButton}</button>
       </div>
+
+      <div id="addquestioncontainer">
+      <button className="addquestionbtn" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
       </div>
-      <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
+
+      <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}
+      </div>
+
       <div>{!none && shownQuestion.map((question, key) =>
       <QuestionEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
       </div>
+
       <div>
+
         <div>{none && <h3>NO MATCHING RESULTS</h3>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
+
         <div id="qabottombuttons">
-        <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button   onClick={handleAddQuestionClick} >ADD A QUESTION</button>
-
-        <button className="cart-button">
-	<span className="add-to-cart">Add to cart</span>
-	<span className="added">Added</span>
-	<i className="fas fa-shopping-cart"></i>
-	<i className="fas fa-box"></i>
-</button>
-
-<a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
-
-
-
-
+        <button  id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
         </div>
+
       </div>
+
       </div>
       </Container>
     </div>
