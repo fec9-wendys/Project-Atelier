@@ -1373,7 +1373,7 @@ u {
   display: inline-block;
   position: absolute;
   right: 10px;
-  bottom: 15px;
+  bottom: 8px;
 }
 
 .custom-selector2::after {
