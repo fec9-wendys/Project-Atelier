@@ -66,7 +66,7 @@ const Details = ({ index, product, ratings, setCurrentProduct, inOutfit, outfit,
       <Name onClick={handleNameClick}>{product?.name}</Name>
       <Price>{renderPrice()}</Price>
       <Rating>{renderAverageRating()}</Rating>
-      <Icon><i className={!inOutfit ? "fa-solid fa-crown" : "fa-solid fa-trash-can"} onClick={handleClick}></i></Icon>
+      <Icon isCrown={!inOutfit}><i className={!inOutfit ? "fa-solid fa-crown" : "fa-solid fa-x"} onClick={handleClick}></i></Icon>
     </Container>
   );
 };
