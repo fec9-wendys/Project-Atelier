@@ -1128,6 +1128,15 @@ u {
 
 /* ------------------Add Cart --------------------------------*/
 
+#cart-dropdowns {
+  padding-top: 2%;
+  display: flex;
+  line-height: 1.8em;
+}
+
+#quantity-container {
+  padding-left: 1.5vw;
+}
 
 
 /* ---------------------------Features----------------------- */

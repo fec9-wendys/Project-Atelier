@@ -53,8 +53,9 @@ export const DescriptionContainer = styled.div`
   padding-left: 5%;
   padding-bottom: 5%;
 `
-
+//might need to change padding-top TODO:
 export const StylesContainer = styled.div`
+  padding-top: 1vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   min-height: 15%;
