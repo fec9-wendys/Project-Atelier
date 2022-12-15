@@ -48,6 +48,11 @@ const Icon = styled.div`
   right: 0;
   padding-top: 10px;
   padding-right: 10px;
+  color: ${({ isCrown }) => isCrown ? 'orange' : 'red'};
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export {
