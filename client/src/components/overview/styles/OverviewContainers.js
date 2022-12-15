@@ -116,5 +116,6 @@ export const FeatureList = styled.div`
   align-items: center;
   @media (max-width: 2100px) {
     font-size: x-small;
+    line-height: 1.5em;
   }
 `

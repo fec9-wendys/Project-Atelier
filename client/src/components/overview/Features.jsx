@@ -3,9 +3,15 @@ import styled from 'styled-components';
 import { FeaturesContainer, FeatureList } from './styles/OverviewContainers';
 
 const Slogan = styled.span`
+  padding-left: 0px;
+  padding-top: 1vh;
   font-weight: bolder;
   font-size: 2em;
   font-style: italic;
+`
+
+const Paragraph = styled.p`
+  padding-left = 0px;
 `
 
 const Features = ({ features }) => {
@@ -16,9 +22,9 @@ const Features = ({ features }) => {
         <Slogan>
           {features.slogan}
         </Slogan>
-        <p>
+        <Paragraph>
           {features.description}
-        </p>
+        </Paragraph>
       </div>
 
       <FeatureList>
