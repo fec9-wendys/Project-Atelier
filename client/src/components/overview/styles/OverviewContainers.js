@@ -16,7 +16,7 @@ export const OverviewGrid = styled.div`
 export const Cart = styled.div`
   padding: 5%;
   line-height: 2.5em;
-  `
+`
 
 export const LeftFlexBox = styled.div`
   display: flex;
@@ -39,6 +39,7 @@ export const LeftFlexBox = styled.div`
   height: 800px;
   max-width: 400px;
   `
+
   export const Ratings = styled.div`
   font-size: 0.8em;
   line-height: 1.3em;

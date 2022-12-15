@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { Ratings, Icons } from './styles/OverviewContainers';
 
 const Reviews = ({ ratings, totalReviews }) => {
 
@@ -8,7 +10,7 @@ const Reviews = ({ ratings, totalReviews }) => {
   const roundedRatings = (Math.round(avgRatings * 4) / 4).toFixed(2);
 
   return (
-    <div className="grid-container" id="ratings">
+    <Ratings>
       <div id="stars-line">
         {totalReviews !== 0 && //shows reviews and starts if there are reviews present
           <>
@@ -18,12 +20,12 @@ const Reviews = ({ ratings, totalReviews }) => {
         }
       </div>
       {/* Social media icons */}
-      <div id="icons">
+      <Icons>
         <a href="https://www.facebook.com/"><img className="icon" id="facebook-icon" src="./facebook.png" /></a>
         <a href="https://www.twitter.com"><img className="icon" id="twitter-icon" src="./twitter.png" /></a>
         <a href="https://www.pinterest.com"><img className="icon" id="pinterest-icon" src="./pinterest.png" /></a>
-      </div>
-    </div>
+      </Icons>
+    </Ratings>
   )
 
 }

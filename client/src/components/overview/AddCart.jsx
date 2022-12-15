@@ -48,7 +48,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
   }
 
 
-    //-------------------- add cart button use effecdt
+  //-------------------- add cart button use effecdt
 
   useEffect(() => {
     if (currSize === 'select-size') {
@@ -56,18 +56,18 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
     } else {
       document.getElementById('add-cart').disabled = false;
     }
-  },[currSize])
+  }, [currSize])
 
   const cartButtons = document.querySelectorAll('.cart-button');
 
-cartButtons.forEach(button => {
-	button.addEventListener('click', cartClick);
-});
+  cartButtons.forEach(button => {
+    button.addEventListener('click', cartClick);
+  });
 
-function cartClick() {
-	let button = this;
-	button.classList.add('clicked');
-}
+  function cartClick() {
+    let button = this;
+    button.classList.add('clicked');
+  }
 
   //User clicks 'Add Cart' button event function
   // TODO: need to force dropdown menu
@@ -120,7 +120,7 @@ function cartClick() {
 
 
   return (
-<Cart>
+    <Cart>
       <div id="cart-dropdowns">
         {/* dropdown menu for size */}
         <div id="size-container">
@@ -162,19 +162,19 @@ function cartClick() {
         </div>
       </div>
 
-<br/>
+      <br />
 
       {Object.keys(stock).includes('null') ?
         <></>
         :
         <div>
-<button onClick={e => handleCartClick(e)}  id="add-cart"  className="cart-button">
-	<span className="add-to-cart">Add to Cart</span>
-	<span className="added">Add to Cart</span>
-	<i className="fas fa-shopping-cart"></i>
-	<i className="fas fa-box"></i>
-</button>
-<a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
+          <button onClick={e => handleCartClick(e)} id="add-cart" className="cart-button">
+            <span className="add-to-cart">Add to Cart</span>
+            <span className="added">Add to Cart</span>
+            <i className="fas fa-shopping-cart"></i>
+            <i className="fas fa-box"></i>
+          </button>
+          <a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
         </div>
 
 
@@ -185,7 +185,7 @@ function cartClick() {
           : <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
         }
       </div>
-      </Cart>
+    </Cart>
   )
 }
 

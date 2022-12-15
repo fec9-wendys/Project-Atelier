@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+import { DotIcons } from './styles/OverviewContainers';
 
 const MODAl_STYLES = {
   position: 'fixed',
@@ -122,7 +124,7 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
         <i className="fa-regular fa-circle-xmark" id="close-button" onClick={onClose}></i>
 
         {/* bottom dot icons */}
-        <div id="dot-icons">
+        <DotIcons>
           {currentProductStyle.photos.map((photo, index) => {
             if (index === currentMainIndex) {
               return <i style={{ color: 'rgb(255, 255, 128, 0.6)' }} key={index} className="fa-solid fa-circle dots" onClick={e => handleDotClick(index)} />
@@ -130,7 +132,7 @@ const ImageModal = ({ children, open, onClose, currentMainIndex, currentProductS
               return <i style={{ color: 'rgb(255, 255, 128, 0.6)' }} key={index} className="fa-regular fa-circle dots" onClick={e => handleDotClick(index)} />
             }
           })}
-        </div>
+        </DotIcons>
       </div>
     </>,
     document.getElementById('portal')
