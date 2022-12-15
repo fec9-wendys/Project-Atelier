@@ -130,6 +130,16 @@ const QuestionsAnswers = ({currentProduct, request}) => {
     setIsQModal(!isqmodal)
   }
 
+  const cartButtons = document.querySelectorAll('.cart-button');
+
+cartButtons.forEach(button => {
+	button.addEventListener('click', cartClick);
+});
+
+function cartClick() {
+	let button = this;
+	button.classList.add('clicked');
+}
 
 
 
@@ -156,9 +166,16 @@ const QuestionsAnswers = ({currentProduct, request}) => {
         {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
         <div id="qabottombuttons">
         <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button  className="btn-6" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+        <button   onClick={handleAddQuestionClick} >ADD A QUESTION</button>
 
+        <button className="cart-button">
+	<span className="add-to-cart">Add to cart</span>
+	<span className="added">Added</span>
+	<i className="fas fa-shopping-cart"></i>
+	<i className="fas fa-box"></i>
+</button>
 
+<a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
 
 
 
