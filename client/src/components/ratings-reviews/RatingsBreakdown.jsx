@@ -21,6 +21,26 @@ const RemoveAllFilter = styled.u`
   }
 `
 
+const AvgReviewCount = styled.strong`
+  font-size: x-large;
+
+  &:hover {
+    color: #3366CC;
+  }
+`
+
+const AvgReviewNumber = styled.strong`
+  font-size: x-large;
+
+  &:hover {
+    color: #3366CC;
+  }
+`
+
+const TotalReviewCount = styled.strong`
+  margin-bottom: 10px;
+`
+
 const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProduct, filter, setFilter, shownFilter, setShownFilter, QuarterStars, ratingStats, recStats, avgReviews, totalReviews, recPercent, setShownReviews, setCount, count }) => {
 
 
@@ -61,10 +81,10 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
       <RBRFTitle>Customer Reviews</RBRFTitle>
       <div>
         <AvgReviewTitle>
-          <strong className='body' style={{ 'fontSize': 'x-large' }}>{avgReviews} out of 5</strong>
+          <AvgReviewNumber>{avgReviews} out of 5 </AvgReviewNumber>
         </AvgReviewTitle>
         <QuarterStars rating={avgReviews} />
-        <div className='total-review-count' style={{ 'marginBottom': '10px' }}> {totalReviews} Reviews </div>
+        <TotalReviewCount> {totalReviews} Reviews </TotalReviewCount>
         <div style={{ 'fontSize': 'small' }}> {shownFilter.length !== 0 ? shownFilter.map((number, index) => { return <div key={index} className='body h2' style = {{'marginBottom' : '5px'}}> Showing {number} Stars Reviews</div> }) : null}</div>
         <div style={{ 'marginTop' : '5px' }}>
           {filter.length === 0 ? null : <RemoveAllFilter onClick={removeAllHandler}> Remove all Filters </RemoveAllFilter>}

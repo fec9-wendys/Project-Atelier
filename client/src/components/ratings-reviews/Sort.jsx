@@ -75,3 +75,19 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
 };
 
 export default Sort;
+
+<div className="container">
+    <span className="choose">Choose Gender</span>
+
+      <div className="dropdown">
+        <div className="select">
+          <span>Select Gender</span>
+          <i className="fa fa-chevron-left"></i>
+        </div>
+        <input type="hidden" name="gender" />
+        <ul className="dropdown-menu">
+          <li id="male">Male</li>
+          <li id="female">Female</li>
+        </ul>
+      </div>
+</div>

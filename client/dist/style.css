@@ -178,7 +178,7 @@ svg {
   position: relative;
   background-color: rgb(218, 39, 39);
   width: 35vw;
-  height: 9.5vh;
+  height: 125px;
   border-radius: 18px;
   display:flex;
   justify-content: center;
