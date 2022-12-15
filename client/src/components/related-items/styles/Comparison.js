@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const Comparison = styled.div`
-  width: max-content;
+  width: 100%;
   height: 90%;
   padding-top: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-center;
+  justify-content: space-evenly;
   margin-bottom: 20px;
 `;
 
