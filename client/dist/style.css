@@ -78,7 +78,7 @@ h5 {
   border: 1px solid black;
   border-radius: 20px;
   padding-left: 25px;
-  margin-top: 20px;
+
   padding-bottom: 20px;
 }
 
@@ -86,7 +86,7 @@ h5 {
   display:flex;
   justify-content: center;
   align-items: center;
-margin-top: 20px;
+
 }
 
 .qasearchbar {
@@ -170,19 +170,87 @@ margin-top: 20px;
 
 .qamodalimages {
   flex-direction: row;
+}
 
+#addquestioncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addquestionbtn {
+  font-size: medium;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(218, 39, 39);
+  border: none;
+  border-radius: 18px;
+  color: white;
+  width: 7vw;
+  height: 2.2vh;
+  bottom: 0%;
+  margin-top: .5vh;
+  margin-bottom: .5vh;
+}
+#morequestionsbtn {
+  font-size: medium;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(218, 39, 39);
+  border: none;
+  border-radius: 18px;
+  color: white;
+  width: 9vw;
+  height: 2.2vh;
+  bottom: 0%;
+  margin-top: .5vh;
+  margin-bottom: .5vh;
 }
 
 
 /*----------------------------buttons-------------------------
 /*  */
 
-.cart-button {
+#add-outfit-button {
   font-family: 'Lato', sans-serif;
 	position: relative;
 	padding: 5px;
-	width: 10vw;
-	height: 40px;
+	width: 190px;
+	height: 45px;
+	border: 0;
+	border-radius: 10px;
+	background-color: rgb(218, 39, 39);
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+  font-size: medium;
+
+
+}
+#added-outfit-button {
+  font-family: 'Lato', sans-serif;
+	position: relative;
+	padding: 5px;
+	width: 190px;
+	height: 45px;
+	border: 0;
+	border-radius: 10px;
+	background-color: rgb(218, 39, 39);
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+  font-size: medium;
+}
+
+
+
+.cart-button {
+	position: relative;
+
+  font-family: 'Lato', sans-serif;
+	position: relative;
+	padding: 5px;
+	width: 190px;
+	height: 45px;
 	border: 0;
 	border-radius: 10px;
 	background-color: rgb(218, 39, 39);
@@ -191,9 +259,9 @@ margin-top: 20px;
 	color: #fff;
 	transition: .3s ease-in-out;
 	overflow: hidden;
+  margin-bottom: 5px;
 
 }
-
 
 .cart-button:active {
 	transform: scale(.9);
@@ -218,8 +286,9 @@ margin-top: 20px;
 .cart-button span {
 	position: absolute;
 	z-index: 3;
-
-	font-size: medium;
+	left: 50%;
+	top: 50%;
+	font-size: 1.2em;
 	color: #fff;
 	transform: translate(-50%,-50%);
 }
@@ -291,6 +360,7 @@ margin-top: 20px;
 	text-decoration: none;
 	font-size: 12px;
 }
+
 
 
 /* SUPREME LOGO ----------------------------------------------*/

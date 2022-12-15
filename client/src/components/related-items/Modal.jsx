@@ -6,6 +6,15 @@ import styled from 'styled-components';
 import { Overlay, Content, Close } from './styles/Modal.js';
 import { Comparison, Column, Entry, Break } from './styles/Comparison.js';
 
+const AModalTitle = styled.h1`
+
+display:flex;
+justify-content: center;
+align-items: center;
+
+
+`;
+
 export default function Modal({ isOpen, onClose, currentProductFeatures, product, request }) {
   const [comparison, setComparison] = useState([]);
 
@@ -36,10 +45,41 @@ export default function Modal({ isOpen, onClose, currentProductFeatures, product
   }, [isOpen]);
 
   return !isOpen ? null : ReactDOM.createPortal(
-    <>
+    <div>
       <Overlay />
+
       <Content>
-        <Close onClick={onClose}><i className="fa-solid fa-x" /></Close>
+      <AModalTitle>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="gooey">
+
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <button className="gooey-button"  id="answermodalbutton">Product Comparison
+
+        <span className="bubbles">
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+        </span>
+    </button>
+    </AModalTitle>
+
+      <div className="qamodalbody" >
+
         <Comparison>
           <Column>
             <Entry bold>{currentProductFeatures.name}</Entry>
@@ -53,8 +93,11 @@ export default function Modal({ isOpen, onClose, currentProductFeatures, product
              <Entry bold>{product.name}</Entry>
             {comparison.map((feature, key) => <Entry key={key}>{feature[2] ?? <i className="fa-solid fa-x" />}</Entry>)}
           </Column>
+          <button className="qamodalclose" onClick={onClose}>X</button>
           </Comparison>
+          </div>
       </Content>
-    </>
+
+    </div>
   , document.getElementById('related-items-portal'));
 }

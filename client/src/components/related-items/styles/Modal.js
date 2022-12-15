@@ -12,13 +12,16 @@ const Overlay = styled.div`
 
 const Content = styled.div`
   position: fixed;
-  width: 450px;
-  height: min-content;
+  height: 25vh;
+  width: 30vw;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #FFF;
   z-index: 1000;
+  border-radius: 3rem;
+    padding: 50px;
+
 `;
 
 const Close = styled.button`

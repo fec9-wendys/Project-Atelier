@@ -19,7 +19,7 @@ export const Cart = styled.div`
 `
 
 export const LeftFlexBox = styled.div`
-display: flex;
+  display: flex;
   box-sizing: border-box;
   flex-flow: column nowrap;
   justify-content: center;
