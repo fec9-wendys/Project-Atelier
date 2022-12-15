@@ -19,7 +19,26 @@ const SortFilter = styled.select`
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
 `
+const dropExample = () => {
 
+  return (
+    <div className="container">
+      <span className="choose">Choose Gender</span>
+
+      <div className="dropdown">
+        <div className="select">
+          <span>Select Gender</span>
+          <i className="fa fa-chevron-left"></i>
+        </div>
+        <input type="hidden" name="gender" />
+        <ul className="dropdown-menu">
+          <li id="male">Male</li>
+          <li id="female">Female</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
 const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues }) => {
 
   const handleChange = (e) => {
@@ -69,6 +88,8 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
             )
           })}
         </select>
+        &nbsp;
+        &nbsp;
       </span>
     </SortContainer>
   );
@@ -76,18 +97,18 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
 
 export default Sort;
 
-<div className="container">
-    <span className="choose">Choose Gender</span>
+      // <div className="container">
+      //     <span className="choose">Choose Gender</span>
 
-      <div className="dropdown">
-        <div className="select">
-          <span>Select Gender</span>
-          <i className="fa fa-chevron-left"></i>
-        </div>
-        <input type="hidden" name="gender" />
-        <ul className="dropdown-menu">
-          <li id="male">Male</li>
-          <li id="female">Female</li>
-        </ul>
-      </div>
-</div>
+      //     <div className="dropdown">
+      //       <div className="select">
+      //         <span>Select Gender</span>
+      //         <i className="fa fa-chevron-left"></i>
+      //       </div>
+      //       <input type="hidden" name="gender" />
+      //       <ul className="dropdown-menu">
+      //         <li id="male">Male</li>
+      //         <li id="female">Female</li>
+      //       </ul>
+      //     </div>
+      //   </div>
