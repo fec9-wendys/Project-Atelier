@@ -9,7 +9,7 @@ import styled from "styled-components";
 const { useState, useEffect } = React;
 
 const Title = styled.h2`
-font-size: 1.8vh;
+font-size: 30px;
 text-align: center;
 
 `;
@@ -27,7 +27,8 @@ text-align:left;
 height: 40px;
 width: 1200px;
 font-size: 1.5vh;
- padding-left: 0.3vw;
+ padding-left: 0.5vw;
+ border-radius: 20px;
 
 `;
 
@@ -132,30 +133,44 @@ const QuestionsAnswers = ({currentProduct, request}) => {
 
 
 
+
   return (
 
     <div  style={styles} id='questions-answers'>
       <Title>Questions & Answers</Title>
       <Container>
      <div className='qacontainer'>
-      <div >
+
+
         <div className='qasearchbar'>
       <Search type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
       <img src="https://i.ibb.co/MhfN01W/searchbar-icon.webp" className="qasearchimg" ></img>
       <button className="btn" id="qasearchbutton" onClick={handleSearchClick}>{searchButton}</button>
       </div>
+
+      <div id="addquestioncontainer">
+      <button className="addquestionbtn" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
       </div>
-      <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}</div>
+
+      <div>{isamodal && <AnswerModal  setQuestions={setQuestions} questionid={questionid} answermodalbody={answermodalbody} request={request}  currentProduct={currentProduct} isamodal={isamodal} setIsAModal={setIsAModal}/>}
+      </div>
+
       <div>{!none && shownQuestion.map((question, key) =>
       <QuestionEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
       </div>
+
       <div>
+
         <div>{none && <h3>NO MATCHING RESULTS</h3>}</div>
         {isqmodal && <QuestionModal setQuestions={setQuestions} request={request} currentProduct={currentProduct} isqmodal={isqmodal} setIsQModal={setIsQModal}/>}
         {isaphotomodal && <AnswerPhotoModal aphotomodalimg={aphotomodalimg} setIsAPhotoModal={setIsAPhotoModal}/>}
-        <button  type="button" id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
-        <button  className="button2" onClick={handleAddQuestionClick} >ADD A QUESTION</button>
+
+        <div id="qabottombuttons">
+        <button  id='morequestionsbtn' onClick={handleMoreClick}>{moreButton}</button>
+        </div>
+
       </div>
+
       </div>
       </Container>
     </div>

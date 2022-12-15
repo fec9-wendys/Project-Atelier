@@ -71,10 +71,22 @@ h5 {
 }
 
 .question-block {
-  border-bottom: 1px solid black;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding-left: 25px;
+
+  padding-bottom: 20px;
+}
+
+#qabottombuttons {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .qasearchbar {
+  border-radius: 20px;
   display: flex;
   flex-direction: row;
 }
@@ -154,12 +166,196 @@ h5 {
 
 .qamodalimages {
   flex-direction: row;
+}
 
+#addquestioncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addquestionbtn {
+  font-size: medium;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(218, 39, 39);
+  border: none;
+  border-radius: 18px;
+  color: white;
+  width: 7vw;
+  height: 2.2vh;
+  bottom: 0%;
+  margin-top: .5vh;
+  margin-bottom: .5vh;
+}
+#morequestionsbtn {
+  font-size: medium;
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(218, 39, 39);
+  border: none;
+  border-radius: 18px;
+  color: white;
+  width: 9vw;
+  height: 2.2vh;
+  bottom: 0%;
+  margin-top: .5vh;
+  margin-bottom: .5vh;
 }
 
 
 /*----------------------------buttons-------------------------
-*/
+/*  */
+
+#add-outfit-button {
+  font-family: 'Lato', sans-serif;
+	position: relative;
+	padding: 5px;
+	width: 190px;
+	height: 45px;
+	border: 0;
+	border-radius: 10px;
+	background-color: rgb(218, 39, 39);
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+  font-size: medium;
+
+
+}
+#added-outfit-button {
+  font-family: 'Lato', sans-serif;
+	position: relative;
+	padding: 5px;
+	width: 190px;
+	height: 45px;
+	border: 0;
+	border-radius: 10px;
+	background-color: rgb(218, 39, 39);
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+  font-size: medium;
+}
+
+
+
+.cart-button {
+	position: relative;
+
+  font-family: 'Lato', sans-serif;
+	position: relative;
+	padding: 5px;
+	width: 190px;
+	height: 45px;
+	border: 0;
+	border-radius: 10px;
+	background-color: rgb(218, 39, 39);
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+	overflow: hidden;
+  margin-bottom: 5px;
+
+}
+
+.cart-button:active {
+	transform: scale(.9);
+}
+
+.cart-button .fa-shopping-cart {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: -10%;
+	font-size: 2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button .fa-box {
+	position: absolute;
+	z-index: 3;
+	top: -20%;
+	left: 52%;
+	font-size: 1.2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button span {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	top: 50%;
+	font-size: 1.2em;
+	color: #fff;
+	transform: translate(-50%,-50%);
+}
+.cart-button span.add-to-cart {
+	opacity: 1;
+}
+.cart-button span.added {
+	opacity: 0;
+}
+
+.cart-button.clicked .fa-shopping-cart {
+	animation: cart 1.5s ease-in-out forwards;
+}
+.cart-button.clicked .fa-box {
+	animation: box 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.add-to-cart {
+	animation: txt1 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.added {
+	animation: txt2 1.5s ease-in-out forwards;
+}
+@keyframes cart {
+	0% {
+		left: -10%;
+	}
+	40%, 60% {
+		left: 50%;
+	}
+	100% {
+		left: 110%;
+	}
+}
+@keyframes box {
+	0%, 40% {
+		top: -20%;
+	}
+	60% {
+		top: 40%;
+		left: 52%;
+	}
+	100% {
+		top: 40%;
+		left: 112%;
+	}
+}
+@keyframes txt1 {
+	0% {
+		opacity: 1;
+	}
+	20%, 100% {
+		opacity: 0;
+	}
+}
+@keyframes txt2 {
+	0%, 80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.youtube-link {
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	color: #000;
+	text-decoration: none;
+	font-size: 12px;
+}
 
 
 

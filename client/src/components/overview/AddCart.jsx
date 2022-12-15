@@ -35,6 +35,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
 
   //called when user selects size from dropdown to change quantity settings on dropdown
   const updateQuantity = (e) => {
+    document.getElementById('add-cart').disabled = false;
     let selectedSize = e.target.value;
     setCurrSize(selectedSize);
     if (selectedSize === 'select-size') {
@@ -44,20 +45,47 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
     }
   }
 
+
+    //-------------------- add cart button use effecdt
+
+  useEffect(() => {
+    if (currSize === 'select-size') {
+      document.getElementById('add-cart').disabled = true;
+    } else {
+      document.getElementById('add-cart').disabled = false;
+    }
+  },[currSize])
+
+  const cartButtons = document.querySelectorAll('.cart-button');
+
+cartButtons.forEach(button => {
+	button.addEventListener('click', cartClick);
+});
+
+function cartClick() {
+	let button = this;
+	button.classList.add('clicked');
+}
+
   //User clicks 'Add Cart' button event function
   // TODO: need to force dropdown menu
   const handleCartClick = (e) => {
+
+
     e.preventDefault();
     const sizeValue = document.getElementById('size-dropdown').value;
     const quantityValue = document.getElementById('quantity-dropdown').value;
     const body = { sku_id: currSKU };
     if (currSize === 'select-size') {
+
+      document.getElementById('add-cart').disabled = true;
       alert('Select size please!');
     } else {
       request('/cart', 'POST', body, (err, response) => {
         if (err) {
           console.log(err);
         } else {
+          console.log('finsie')
           // window.location.reload()
           // return false;
           setCurrSize('select-size');
@@ -87,6 +115,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
       console.log('Added to Outfit!');
     }
   }
+
 
   return (
     <div className="grid-container" id="cart">
@@ -122,16 +151,26 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
         </select>
       </div>
 
+
+
       {Object.keys(stock).includes('null') ?
         <></>
         :
         <div>
-          <button onClick={e => handleCartClick(e)} className="btn" id="add-cart">Add to Cart</button>
+<button onClick={e => handleCartClick(e)}  id="add-cart"  className="cart-button">
+	<span className="add-to-cart">Add to Cart</span>
+	<span className="added">Add to Cart</span>
+	<i className="fas fa-shopping-cart"></i>
+	<i className="fas fa-box"></i>
+</button>
+<a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
         </div>
+
+
       }
       <div id="add-outfit">
         {outfit.includes(currentProduct) ?
-          <button id="added-outfit-button" className="btn" > Added to Outfit! <span style={{ color: 'red' }}>&#10084;</span></button>
+          <button id="added-outfit-button" className="btn" > Added to Outfit! <span style={{ color: 'white' }}>&#10084;</span></button>
           : <button id="add-outfit-button" className="btn" onClick={e => handleOutfitClick(e)}> Add to Outfit &#10084;</button>
         }
       </div>
