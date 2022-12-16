@@ -88,7 +88,7 @@ h5 {
   margin-top: 80px;
 }
 #questionmodalwindow {
-  height: 50vh;
+  height: 700px;
 }
 .reviewmodalbody {
   display:flex;
@@ -328,7 +328,7 @@ h5 {
 	z-index: 2;
 	top: 50%;
 	left: -10%;
-	font-size: 2em;
+	font-size: 1.2em;
 	transform: translate(-50%,-50%);
 }
 .cart-button .fa-box {
