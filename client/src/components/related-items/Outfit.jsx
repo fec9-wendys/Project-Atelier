@@ -5,7 +5,7 @@ import Card from './Card.jsx';
 
 import { Container, Empty } from './styles/Outfit.js'
 import Category from './styles/Category.js';
-import { Carousel, List, Button } from './styles/Carousel.js';
+import { Carousel, List, Button1, Button2 } from './styles/Carousel.js';
 
 const Outfit = ({ outfit, setOutfit, currentProduct, setCurrentProduct, request, isDarkMode }) => {
   const [renderRange, setRenderRange] = useState([0, 0]);
@@ -27,11 +27,11 @@ const Outfit = ({ outfit, setOutfit, currentProduct, setCurrentProduct, request,
       <Carousel>
         {outfit.length === 0 ? <Empty>Your outfit is currently empty.</Empty> : (
           <>
-            <Button onClick={() => handleRenderRangeAdjustment(-1)} style={{ visibility: renderRange[0] === 0 ? 'hidden' : 'visible' }}>&lt;</Button>
+            <Button1 onClick={() => handleRenderRangeAdjustment(-1)} style={{ visibility: renderRange[0] === 0 ? 'hidden' : 'visible' }}>&lt;</Button1>
             <List inOutfit={true}>
             {outfit.slice(renderRange[0], renderRange[1]).map((product, i) => <Card key={product.id} index={i} productId={product.id} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} inOutfit={true} outfit={outfit} setOutfit={setOutfit} request={request} />)}
             </List>
-            <Button onClick={() => handleRenderRangeAdjustment(1)} style={{ visibility: renderRange[1] === outfit.length ? 'hidden' : 'visible' }}>&gt;</Button>
+            <Button2 onClick={() => handleRenderRangeAdjustment(1)} style={{ visibility: renderRange[1] === outfit.length ? 'hidden' : 'visible' }}>&gt;</Button2>
           </>
         )}
       </Carousel>
