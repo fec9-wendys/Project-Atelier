@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Ratings, Icons } from './styles/OverviewContainers';
+import { Ratings, Icons, QuarterStarContainer, QuarterStarOutline, QuarterStarFill } from './styles/OverviewContainers';
 
 const Reviews = ({ ratings, totalReviews }) => {
 
@@ -74,11 +74,11 @@ function QuarterStars(ratings) {
     <div>
       {stars.map((item, i) => {
         return (
-          <div className="single-star-container-quarter" key={i}>
-            <div className="single-star-fill-quarter" style={{ "width": `${parseInt(item * 18)}px` }}>
-              <img className="single-star-outline-quarter" src="star.png" alt="stars alt"></img>
-            </div>
-          </div>
+          <QuarterStarContainer key={i}>
+            <QuarterStarFill style={{ "width": `${parseInt(item * 18)}px` }}>
+              <QuarterStarOutline className="single-star-outline-quarter" src="star.png" alt="stars alt"></QuarterStarOutline>
+            </QuarterStarFill>
+          </QuarterStarContainer>
         );
       })}
     </div>
