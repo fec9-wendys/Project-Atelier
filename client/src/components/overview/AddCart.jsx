@@ -174,7 +174,7 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
             <i className="fas fa-shopping-cart"></i>
             <i className="fas fa-box"></i>
           </button>
-          <a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
+          {/* <a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a> */}
         </div>
 
 
