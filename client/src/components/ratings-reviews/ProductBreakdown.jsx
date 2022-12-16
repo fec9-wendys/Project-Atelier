@@ -4,14 +4,14 @@ import PBEntry from './PBEntry.jsx';
 const { useState, useEffect } = React;
 import { PBContainer, RBRFTitle } from './styles/Container';
 
-const ProductBreakdown = ({ currentProduct, metaData, chars }) => {
+const ProductBreakdown = ({ currentProduct, metaData, chars, isDarkMode }) => {
 
   // <PBContainer>
   return (
     <div className = 'product-breakdown'>
       <RBRFTitle>Features</RBRFTitle>
       {Object.keys(chars).map((key, index) => {
-        return <PBEntry key={index} charKey={key} charValue={chars[key]} />;
+        return <PBEntry key={index} charKey={key} charValue={chars[key]} isDarkMode = {isDarkMode} />;
       })}
     </div>
   );

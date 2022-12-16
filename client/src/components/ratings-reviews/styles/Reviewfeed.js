@@ -1,14 +1,32 @@
 import styled from 'styled-components';
 
+// &::-webkit-scrollbar {
+//   display:none;
+// }
 export const ReviewEntries = styled.div`
   width: 100%;
   overflow: auto;
   max-height: 800px;
 
   &::-webkit-scrollbar {
-    display:none;
+    width: 12px;
   }
-`
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #ED1C24;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+
+  `
+  // background: rgba(255,0,0,0.8);
 
 export const EntriesReviewerName = styled.span`
   position: absolute;
@@ -17,9 +35,8 @@ export const EntriesReviewerName = styled.span`
 `
 
 export const EntriesDate = styled.span`
-  position: absolute;
-  right: 0px;
-  top : 0px;
+  float:right;
+  padding-right: 5px;
 `
 
 export const EntriesPhotos = styled.img`
