@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Carousel = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 40px;
 `;
 
@@ -14,8 +14,8 @@ const List = styled.div`
 `;
 
 const Button1 = styled.button`
-  position: absolute;
-  left:25%;
+
+
   width: 80px;
   height: 380px;
   background: transparent;
@@ -25,8 +25,8 @@ const Button1 = styled.button`
 
 `;
 const Button2 = styled.button`
-position: absolute;
-right: 25%;
+
+
   width: 80px;
 
   height: 380px;

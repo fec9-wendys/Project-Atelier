@@ -1020,7 +1020,7 @@ input:checked + .slider:before {
 
 #nav-search {
   display:flex;
-  width: 10vw;
+  width: 300px;
   padding: 10px 35px 10px 15px;
   border: none;
   /* border-radius: 100px; */
