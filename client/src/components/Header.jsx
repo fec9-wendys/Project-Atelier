@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+
+
 const Nav = styled.nav`
 
 display: flex;
@@ -36,6 +38,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
       </svg>
 
       <button className="gooey-button">
+      <img className="christmaslights" src="https://i.ibb.co/k38nH82/christmas-lights.png" alt="christmas-lights" border="0"/>
         <img className="supreme-logo" src="https://i.ibb.co/mXDdZLc/SUPREME1.png" />
         <span className="bubbles">
           <span className="bubble"></span>
@@ -52,10 +55,14 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
       </button>
 
 
+      <div>
+      <img  className="batlogo" src="https://i.ibb.co/1mwFTst/bat.png" alt="bat" border="0"/>
       <label className="switch">
+
         <input type="checkbox" onClick={e => handleClick(e)} />
         <span className="slider round"></span>
       </label>
+      </div>
 
 
 
