@@ -20,8 +20,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "aos": "^2.3.4",
-    "aot": "^0.0.3",
     "axios": "^1.2.0",
     "babel-loader": "^9.1.0",
     "dotenv": "^16.0.3",
