@@ -106,6 +106,20 @@ h5 {
   margin-bottom: 50px;
   font-size: 15px;
 }
+#loadmoreanswersbutton {
+  border: none;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  padding: 0;
+  font-size: 15px;
+}
+#loadmoreanswersbutton:hover {
+color:red;
+font-weight: bold;
+cursor: pointer;
+
+}
+
 /*--------------------------------DROPDOWNS------------------------
 */
 
@@ -149,6 +163,12 @@ h5 {
   border-radius: 20px;
   display: flex;
   flex-direction: row;
+}
+#qasearchbar:hover , #qasearchbutton , .addquestionbtn, #morequestionsbtn{
+  cursor: pointer;
+}
+.loadmoredarkmode:hover {
+  color:red;
 }
 
 .qasearchimg {

@@ -34,7 +34,7 @@ const App = () => {
       if (error) {
         console.error(error);
       } else {
-        setCurrentProduct(products[9]);
+        setCurrentProduct(products[2]);
       }
     });
   }, []);
