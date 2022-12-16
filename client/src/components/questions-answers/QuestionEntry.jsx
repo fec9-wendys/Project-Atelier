@@ -4,13 +4,36 @@ import AnswerEntry from './AnswerEntry.jsx'
 
 const { useState, useEffect } = React;
 
-const QuestionEntry = ({ setAPhotoModalImg, setIsAPhotoModal, setQuestionId, shownQuestion, setAnswerModalBody, isamodal, setIsAModal, currentProduct, question, request, setQuestions, questions}) => {
+const QuestionEntry = ({ isDarkMode, setAPhotoModalImg, setIsAPhotoModal, setQuestionId, shownQuestion, setAnswerModalBody, isamodal, setIsAModal, currentProduct, question, request, setQuestions, questions}) => {
 
   const [answers, setAnswers] = useState([])
   const [shownanswers, setShownAnswers] = useState(answers.slice(0,2))
   const [loadbutton, setLoadButton] = useState('Load More')
   const [questiononce, setQuestionOnce] = useState({helpful: null})
   const [reportedtext, setReported] = useState('Report')
+
+  useEffect(()=> {
+    if(document.getElementById("loadmoreanswersbutton")){
+    if(isDarkMode) {
+      document.getElementById("loadmoreanswersbutton").onmouseover = function() {mouseOver()};
+      document.getElementById("loadmoreanswersbutton").onmouseout = function() {mouseOut()};
+
+    function mouseOver() {
+      document.getElementById("loadmoreanswersbutton").style.color = "red";
+      }
+
+    function mouseOut() {
+      document.getElementById("loadmoreanswersbutton").style.color = "white";
+    }
+      document.getElementById("loadmoreanswersbutton").style.color ="white"
+      document.getElementById("loadmoreanswersbutton").style.backgroundColor ="rgb(23,23,23)"
+    } else {
+      document.getElementById("loadmoreanswersbutton").style.color ="black"
+      document.getElementById("loadmoreanswersbutton").style.backgroundColor ="white"
+    }
+  }
+  },[isDarkMode])
+
 
 
   useEffect(() => {
@@ -31,7 +54,7 @@ const QuestionEntry = ({ setAPhotoModalImg, setIsAPhotoModal, setQuestionId, sho
 
 
   const handleLoadClick = () =>{
-    console.log(answers.length)
+
     if (loadbutton === 'Load More'){
       console.log('MORE BUTTON CLICK')
       console.log('UPDATED ANSWERS ARE', answers)

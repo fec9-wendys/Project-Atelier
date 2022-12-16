@@ -3,7 +3,7 @@ import ImageModal from './ImageModal.jsx';
 import styled from 'styled-components';
 import { LeftFlexBox, ThumbnailCarousel, ThumbnailImages } from './styles/OverviewContainers.js';
 
-const Images = ({ currentProduct, currentProductStyle }) => {
+const Images = ({ currentProduct, currentProductStyle, isDarkMode }) => {
 
   const [currentMainIndex, setCurrentMainIndex] = useState(0); //main picture url
   const [startIndex, setStartIndex] = useState(0); //start index of carousel thumbnail
@@ -104,7 +104,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
       setCurrentMainIndex(newIndex);
       if (newIndex > endIndex) {
         setEndIndex(newIndex);
-        console.log('this index is changed') //SOURCE OF POSSIBLE BUG, SHOULD BE FIXED
+        // console.log('this index is changed') //SOURCE OF POSSIBLE BUG, SHOULD BE FIXED
         setStartIndex(startIndex + (newIndex - endIndex))
         document.getElementById('left-thumbnail-button').style.visibility = "visible";
         if (newIndex === currentProductStyle.photos.length - 1) {
@@ -132,7 +132,7 @@ const Images = ({ currentProduct, currentProductStyle }) => {
         </div>
       </div>
 
-      <ThumbnailCarousel>
+      <ThumbnailCarousel isDarkMode={isDarkMode}>
         {/* check if carousel buttons are even needed
         {currentProductStyle.photos.length > 7 && startIndex !== 0 &&
           <i className="fa-solid fa-chevron-left carousel-button" name="left-button" id="left-thumbnail-button" onClick={e => handleArrowClick(e)} />

@@ -25,7 +25,7 @@ align-items: center;
 const Search = styled.input`
 text-align:left;
 height: 40px;
-width: 1200px;
+width: 1400px;
 font-size: 1.5vh;
  padding-left: 0.5vw;
  border-radius: 20px;
@@ -34,7 +34,7 @@ font-size: 1.5vh;
 
 
 // eslint-disable-next-line react/prop-types
-const QuestionsAnswers = ({currentProduct, request}) => {
+const QuestionsAnswers = ({ isDarkMode, currentProduct, request}) => {
   //STATES
   const [search, setSearch] = useState('')
   const [questions, setQuestions] = useState([])
@@ -62,7 +62,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
 
     request(`/qa/questions/?product_id=${currentProduct.id}&count=30`, 'GET', {}, (error, questions) => {
         if (!error) {
-          console.log('QUESTIONS ARE---> ', questions)
+
           setQuestions(questions.results.sort(helpSort));
         } else {
           console.error(error);
@@ -156,7 +156,7 @@ const QuestionsAnswers = ({currentProduct, request}) => {
       </div>
 
       <div>{!none && shownQuestion.map((question, key) =>
-      <QuestionEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
+      <QuestionEntry isDarkMode={isDarkMode} setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setQuestionId={setQuestionId}  shownQuestion={shownQuestion} setAnswerModalBody={setAnswerModalBody} isamodal={isamodal} setIsAModal={setIsAModal} currentProduct={currentProduct} questions={questions} setQuestions={setQuestions} helpSort={helpSort} request={request} question={question} key={key}/>)}
       </div>
 
       <div>

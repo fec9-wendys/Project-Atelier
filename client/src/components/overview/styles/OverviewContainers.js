@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const EntireOverview = styled.div`
-  padding: 10px;
+  margin-top: 50px;
+  margin-bottom: 40px;
 `
 
 export const OverviewGrid = styled.div`
@@ -45,13 +46,18 @@ export const LeftFlexBox = styled.div`
   line-height: 1.3em;
   height: 10%;
   padding: 5%;
+  //Maybe?? box-sizing: border-box;
 `
 
 export const DescriptionContainer = styled.div`
+  // Maybe? padding-top: 10px;
   font-size: 0.8em;
   min-height: 15%;
   padding-left: 5%;
   padding-bottom: 5%;
+  // Maybe add after @media (max-width: 1600px) {
+  //   font-size: 0.7em;
+  // }
 `
 
 //might need to change padding-top TODO:
@@ -63,6 +69,9 @@ export const StylesContainer = styled.div`
   height: auto;
   padding-left: 5%;
   padding-top: 5%;
+  // Maybe add after @media (max-width: 1600px) {
+  //   grid-template-columns: repeat(3, 1fr);
+  // }
 `
 
 export const FeaturesContainer = styled.div`
@@ -85,8 +94,14 @@ export const ThumbnailCarousel = styled.div`
   bottom: 1.5rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: ${(props) => props.isDarkMode? "rgba(23, 23, 23, 0.7)" : "rgba(255, 255, 255, 0.7)"};
   z-index: 1000;
+  @media (max-width: 1600px) {
+    height: 75px;
+  }
+  @media (max-width: 1200px) {
+    height: 50px;
+  }
 `
 
 export const ThumbnailImages = styled.div`

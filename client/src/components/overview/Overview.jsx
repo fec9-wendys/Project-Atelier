@@ -66,7 +66,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
     <EntireOverview>
       <OverviewGrid>
         {currentProductStyle !== null &&
-          <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
+          <Images currentProduct={currentProduct} currentProductStyle={currentProductStyle} isDarkMode={isDarkMode}/>
         }
         <RightFlexBox>
           {ratings.length !== 0 && totalReviews &&

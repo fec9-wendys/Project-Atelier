@@ -111,6 +111,20 @@ select {
   margin-bottom: 50px;
   font-size: 15px;
 }
+#loadmoreanswersbutton {
+  border: none;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+  padding: 0;
+  font-size: 15px;
+}
+#loadmoreanswersbutton:hover {
+color:red;
+font-weight: bold;
+cursor: pointer;
+
+}
+
 /*--------------------------------DROPDOWNS------------------------
 */
 
@@ -155,6 +169,12 @@ select {
   display: flex;
   flex-direction: row;
 }
+#qasearchbar:hover , #qasearchbutton , .addquestionbtn, #morequestionsbtn{
+  cursor: pointer;
+}
+.loadmoredarkmode:hover {
+  color:red;
+}
 
 .qasearchimg {
   background: transparent;
@@ -169,6 +189,8 @@ select {
 
 #qasearchbutton {
   min-width: 74px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 #answermodalbutton {
@@ -442,7 +464,8 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
-  width: 35vw;
+  width: 1900px;
+  min-width: 800px;
   height: 125px;
   border-radius: 18px;
   display:flex;
