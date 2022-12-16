@@ -137,5 +137,5 @@ export const QuarterStarFill = styled.div`
   position: relative;
   display: inline-block;
   height: 22px;
-  background-color: #333333;
+  background-color: ${(props) => props.isDarkMode ? "white" : "#333333"};
 `
