@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const EntireOverview = styled.div`
-  padding: 10px;
+  padding: 25px;
 `
 
 export const OverviewGrid = styled.div`
