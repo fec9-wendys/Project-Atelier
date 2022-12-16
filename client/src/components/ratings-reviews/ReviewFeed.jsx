@@ -8,14 +8,14 @@ import { RFContainer } from './styles/Container.js';
 import { ReviewEntries, ReviewButtons } from './styles/Reviewfeed';
 const { useState, useEffect } = React;
 
-const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, setReviews, shownReviews, setShownReviews, count, setCount, filter, reviewButton, setReviewButton, isOpen, SetIsOpen, chars }) => {
+const ReviewFeed = ({ reviews, currentProduct, request, metaData, QuarterStars, setReviews, shownReviews, setShownReviews, count, setCount, filter, reviewButton, setReviewButton, isOpen, SetIsOpen, chars, isDarkMode }) => {
 
   return (
     <RFContainer>
       <ReviewEntries>
         {shownReviews.map((review, index) => {
           return <ReviewEntry review={review} key={index} request={request} currentProduct={currentProduct}
-            setShownReviews={setShownReviews} count={count} QuarterStars={QuarterStars} filter={filter} />;
+            setShownReviews={setShownReviews} count={count} QuarterStars={QuarterStars} filter={filter} isDarkMode = {isDarkMode} />;
         })}
       </ReviewEntries>
       {/* {reviews.length > 2 ? <button id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </button> : null}

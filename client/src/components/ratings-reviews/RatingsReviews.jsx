@@ -12,7 +12,7 @@ import QuarterStars from './QuarterStars.jsx';
 import { ParentContainer, TitleContainer, LeftSide, RightSide, RFButtonsContainer, ReviewButtonsContainer } from './styles/Container';
 import { ReviewButtons } from './styles/Reviewfeed';
 
-const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
+const RatingsReviews = ({ currentProduct, setCurrentProduct, request, isDarkMode }) => {
   const [reviews, setReviews] = useState([]);
   const [metaData, setMetaData] = useState([]);
   const [filter, setFilter] = useState([]);
@@ -114,7 +114,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
               currentProduct={currentProduct} filter={filter} setFilter={setFilter} shownFilter={shownFilter}
               setShownFilter={setShownFilter} QuarterStars={QuarterStars} ratingStats={ratingStats} recStats={recStats}
               avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
-              setCount={setCount} count={count} />
+              setCount={setCount} count={count} isDarkMode = {isDarkMode}/>
             &nbsp;
             <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
           </LeftSide>
@@ -127,7 +127,8 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
             <ReviewFeed reviews={reviews} setReviews={setReviews} currentProduct={currentProduct}
               request={request} metaData={metaData} QuarterStars={QuarterStars} shownReviews={shownReviews}
               setShownReviews={setShownReviews} count={count} setCount={setCount} filter={filter}
-              reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} chars = {chars} />
+              reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} chars = {chars}
+              isDarkMode = {isDarkMode}/>
             <ReviewButtonsContainer>
               {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
               <ReviewButtons className='open-modal btn' onClick={modalHandler}> + Add A Review </ReviewButtons>
