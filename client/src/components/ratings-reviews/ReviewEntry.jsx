@@ -7,7 +7,7 @@ import { EntriesLog, EntriesPhotos } from './styles/Reviewfeed';
 import { ReviewEntryContainer } from './styles/Container';
 const { useState, useEffect } = React;
 
-const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, QuarterStars, filter }) => {
+const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, QuarterStars, filter, isDarkMode }) => {
   const [answerOnce, setAnswerOnce] = useState({ helpful: null, reported: null });
   const [reportText, setReportText] = useState('Report');
   const [shownBody, setShownBody] = useState(review.body.slice(0, 250));
@@ -83,7 +83,7 @@ const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, 
 
   return (
     <ReviewEntryContainer>
-      <QuarterStars rating={review.rating} />
+      <QuarterStars rating={review.rating} isDarkMode = {isDarkMode} />
       <div className='entry-log body'>
         <span> <i className="fa-solid fa-circle-check"></i> {review.reviewer_name}</span>
       </div>
