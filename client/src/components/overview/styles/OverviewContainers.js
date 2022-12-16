@@ -45,9 +45,11 @@ export const LeftFlexBox = styled.div`
   line-height: 1.3em;
   height: 10%;
   padding: 5%;
+  //Maybe?? box-sizing: border-box;
 `
 
 export const DescriptionContainer = styled.div`
+  // Maybe? padding-top: 10px;
   font-size: 0.8em;
   min-height: 15%;
   padding-left: 5%;
@@ -63,6 +65,9 @@ export const StylesContainer = styled.div`
   height: auto;
   padding-left: 5%;
   padding-top: 5%;
+  // Maybe add after @media (max-width: 1600px) {
+  //   grid-template-columns: repeat(3, 1fr);
+  // }
 `
 
 export const FeaturesContainer = styled.div`
