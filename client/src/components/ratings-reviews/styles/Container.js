@@ -5,7 +5,6 @@ export const TitleContainer = styled.h1`
   align-items: center;
   justify-content: space-evenly;
   margin-top: 50px;
-  margin-bottom: 50px;
 `;
 
 export const ParentContainer = styled.div`

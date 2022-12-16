@@ -120,39 +120,48 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
 
 
   return (
-    <div className="grid-container" id="cart">
-      {/* dropdown menu for size */}
-      <label className = 'custom-selector2' htmlFor="size-dropdown">Size: &emsp;&emsp;&nbsp;&ensp;&emsp;&ensp;
-      <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
-        {Object.keys(stock).includes('null') ?
-          <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
-          :
-          <>
-            <option value="select-size" id="select-size" defaultValue>Select Size</option>
-            {Object.keys(stock).map((size, index) => {
-              if (stock[size] !== 0) {
-                return <option key={index} value={size} id={size}>{size}</option>
-              }
-            })}
-          </>
-        }
-      </select>
-      </label>
-      {/* dropdown menu for quantity */}
-      <div>
-        <label className = 'custom-selector2' htmlFor="quantity-dropdown"> Quantity: &nbsp;&emsp;&emsp;
-        <select className="dropdown" id="quantity-dropdown">
-          {currSize === 'select-size' ?
-            <option value="select-quantity" id="default-quantity" defaultValue>---</option>
-            : <>
-              {Array.apply(1, Array(currQuantity)).map((current, index) => {
-                return <option key={index} value={index + 1}>{index + 1}</option>
-              })
-              }
-            </>
-          }
-        </select>
-        </label>
+    <Cart>
+      <div id="cart-dropdowns">
+        {/* dropdown menu for size */}
+        <div id="size-container">
+          <div>
+            <label htmlFor="size-dropdown" className='custom-selector2'>Size: {/*&emsp;&emsp;&nbsp;&ensp;&emsp;&ensp;*/}
+              <select className="dropdown" id="size-dropdown" onChange={e => updateQuantity(e)}>
+                {Object.keys(stock).includes('null') ?
+                  <option value="out-of-stock" id="out-of-stock" defaultValue>Out of Stock</option>
+                  :
+                  <>
+                    <option value="select-size" id="select-size" defaultValue>Select Size</option>
+                    {Object.keys(stock).map((size, index) => {
+                      if (stock[size] !== 0) {
+                        return <option key={index} value={size} id={size}>{size}</option>
+                      }
+                    })}
+                  </>
+                }
+              </select>
+            </label>
+          </div>
+        </div>
+
+        {/* dropdown menu for quantity */}
+        <div id="quantity-container">
+          <div>
+            <label htmlFor="quantity-dropdown" className='custom-selector2'> Quantity: &nbsp;&emsp;&emsp;
+              <select className="dropdown" id="quantity-dropdown">
+                {currSize === 'select-size' ?
+                  <option value="select-quantity" id="default-quantity" defaultValue>---</option>
+                  : <>
+                    {Array.apply(1, Array(currQuantity)).map((current, index) => {
+                      return <option key={index} value={index + 1}>{index + 1}</option>
+                    })
+                    }
+                  </>
+                }
+              </select>
+            </label>
+          </div>
+        </div>
       </div>
 
       <br />
@@ -183,4 +192,3 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
 }
 
 export default AddCart
-
