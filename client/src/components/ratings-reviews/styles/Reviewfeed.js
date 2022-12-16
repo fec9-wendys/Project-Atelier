@@ -4,6 +4,10 @@ export const ReviewEntries = styled.div`
   width: 100%;
   overflow: auto;
   max-height: 800px;
+
+  &::-webkit-scrollbar {
+    display:none;
+  }
 `
 
 export const EntriesReviewerName = styled.span`
