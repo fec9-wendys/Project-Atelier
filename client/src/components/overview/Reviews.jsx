@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { Ratings, Icons, QuarterStarContainer, QuarterStarOutline, QuarterStarFill } from './styles/OverviewContainers';
 
 const Anchor = styled.a`
-  color: black;
+  color: ${(props) => props.darkMode ? "white" : "black"};
 
   &visited {
-    color: black;
+    color: ${(props) => props.darkMode ? "white" : "black"};
   }
 `
 
-const Reviews = ({ ratings, totalReviews }) => {
+const Reviews = ({ ratings, totalReviews, isDarkMode }) => {
 
   const avgRatings = (ratings.reduce((sum, current) => {
     return sum + current;
@@ -22,8 +22,8 @@ const Reviews = ({ ratings, totalReviews }) => {
       <div id="stars-line">
         {totalReviews !== 0 && //shows reviews and starts if there are reviews present
           <>
-            {QuarterStars(roundedRatings)}
-            <Anchor href="#ratings-reviews">Read All {totalReviews} Reviews</Anchor>
+            {QuarterStars(roundedRatings, isDarkMode)}
+            <Anchor darkMode={isDarkMode} href="#ratings-reviews">Read All {totalReviews} Reviews</Anchor>
           </>
         }
       </div>
@@ -38,7 +38,7 @@ const Reviews = ({ ratings, totalReviews }) => {
 
 }
 
-function QuarterStars(ratings) {
+function QuarterStars(ratings, isDarkMode) {
   let rating = ratings || 0;
   let stars = [];
   while (stars.length < 5) {
@@ -83,9 +83,9 @@ function QuarterStars(ratings) {
       {stars.map((item, i) => {
         return (
           <QuarterStarContainer key={i}>
-            <QuarterStarFill style={{ "width": `${parseInt(item * 18)}px` }}>
-              <QuarterStarOutline className="single-star-outline-quarter" src="star.png" alt="stars alt"></QuarterStarOutline>
-            </QuarterStarFill>
+              <QuarterStarFill isDarkMode={isDarkMode} style={{ "width": `${parseInt(item * 18)}px` }}>
+                <QuarterStarOutline className="single-star-outline-quarter" src={isDarkMode ? "invertedstar.png" : "star.png"} alt="stars alt"></QuarterStarOutline>
+              </QuarterStarFill>
           </QuarterStarContainer>
         );
       })}
