@@ -144,6 +144,10 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
         </div>
 
         {/* dropdown menu for quantity */}
+
+
+
+
         <div id="quantity-container">
           <label htmlFor="quantity-dropdown"> Quantity: &nbsp;&emsp;&emsp;</label>
           <div>
@@ -176,9 +180,13 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
           </button>
           <a className="youtube-link" href="https://youtu.be/BVdTKEi269Y" target="_blank" rel="noreferrer">https://youtu.be/BVdTKEi269Y</a>
         </div>
-
-
       }
+
+
+
+
+
+
       <div id="add-outfit">
         {outfit.includes(currentProduct) ?
           <button id="added-outfit-button" className="btn" > Added to Outfit! <span style={{ color: 'white' }}>&#10084;</span></button>
