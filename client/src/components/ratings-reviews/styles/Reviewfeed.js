@@ -35,9 +35,8 @@ export const EntriesReviewerName = styled.span`
 `
 
 export const EntriesDate = styled.span`
-  position: absolute;
-  right: 0px;
-  top : 0px;
+  float:right;
+  padding-right: 5px;
 `
 
 export const EntriesPhotos = styled.img`
