@@ -7,6 +7,12 @@ import { EntriesLog, EntriesPhotos } from './styles/Reviewfeed';
 import { ReviewEntryContainer } from './styles/Container';
 const { useState, useEffect } = React;
 
+const ReviewEntryBody = styled.p`
+  max-width: 800px;
+  overflow-wrap : break-word;
+  margin-top : 4px;
+`
+
 const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, QuarterStars, filter, isDarkMode }) => {
   const [answerOnce, setAnswerOnce] = useState({ helpful: null, reported: null });
   const [reportText, setReportText] = useState('Report');
@@ -83,20 +89,20 @@ const ReviewEntry = ({ review, request, currentProduct, setShownReviews, count, 
 
   return (
     <ReviewEntryContainer>
-      <QuarterStars rating={review.rating} isDarkMode = {isDarkMode} />
+      <QuarterStars rating={review.rating} isDarkMode={isDarkMode} />
       <div className='entry-log body'>
         <span> <i className="fa-solid fa-circle-check"></i> {review.reviewer_name}</span>
       </div>
-      <p className='entry-summary body' style = {{'marginBottom' : '4px', 'marginTop' : '24px', 'fontSize' : 'large' , 'padding-right' : '5px'}}> <strong>{review.summary}</strong> <span style = {{'float' : 'right'}}> {properDate()} </span> </p>
-      <p className='entry-body body' style={{ 'maxWidth': '800px', 'overflowWrap' : 'breakWord', 'marginTop' : '4px' }}>
+      <p className='entry-summary body' style={{ 'marginBottom': '4px', 'marginTop': '24px', 'fontSize': 'large', 'paddingRight': '5px' }}> <strong>{review.summary}</strong> <span style={{ 'float': 'right' }}> {properDate()} </span> </p>
+      <ReviewEntryBody>
         {review.body.length > 250 ? shownBody : review.body}
-      </p>
+      </ReviewEntryBody>
       <div>
         {shownBody.length === 250 ?
           <button id="loadmoreanswersbutton" onClick={() => setShownBody(review.body)}> Show More </button> : null}
       </div>
       {review.recommend ? <p><i className="fa-solid fa-check"></i> I recommend this product</p> : null}
-      {review.response === null ? null : <div style = {{'backgroundColor' : 'lightgrey', 'display' : 'inline-block'}}>Response from Seller: <div>{review.response}</div></div>}
+      {review.response === null ? null : <div style={{ 'backgroundColor': 'lightgrey', 'display': 'inline-block' }}>Response from Seller: <div>{review.response}</div></div>}
       <div> {review.photos.map((image, index) => {
         return <EntriesPhotos key={index} src={image.url} width={review.photos ? '100' : '0'}
           height={review.photos ? '100' : '0'} onClick={imgClickHandler} />
