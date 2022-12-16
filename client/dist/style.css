@@ -184,6 +184,8 @@ cursor: pointer;
 
 #qasearchbutton {
   min-width: 74px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 #answermodalbutton {
@@ -453,7 +455,8 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
-  width: 35vw;
+  width: 1900px;
+  min-width: 800px;
   height: 125px;
   border-radius: 18px;
   display:flex;

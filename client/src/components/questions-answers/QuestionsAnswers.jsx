@@ -25,7 +25,7 @@ align-items: center;
 const Search = styled.input`
 text-align:left;
 height: 40px;
-width: 1200px;
+width: 1400px;
 font-size: 1.5vh;
  padding-left: 0.5vw;
  border-radius: 20px;
