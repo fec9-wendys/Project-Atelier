@@ -455,7 +455,7 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
-  width: 1900px;
+  width: 70vw;
   min-width: 800px;
   height: 125px;
   border-radius: 18px;
@@ -1006,6 +1006,7 @@ input:checked + .slider:before {
 }
 
 #nav-search {
+  display:flex;
   width: 10vw;
   padding: 10px 35px 10px 15px;
   border: none;
