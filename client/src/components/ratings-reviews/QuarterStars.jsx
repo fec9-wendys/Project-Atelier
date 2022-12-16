@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import {QuarterStarContainer, QuarterStarOutline, QuarterStarFill} from '../overview/styles/OverviewContainers';
 const {useState, useEffect} = React;
 
-const QuarterStars = ({rating}) => {
+const QuarterStars = ({rating, isDarkMode}) => {
   let ratingTotal = rating || 0;
   let stars = [];
   while (stars.length < 5) {
@@ -46,11 +47,11 @@ const QuarterStars = ({rating}) => {
     <div style = {{'paddingTop' : '5px'}}>
       {stars.map((item, i) => {
         return (
-          <div className="single-star-container-quarter" key={i}>
-            <div className="single-star-fill-quarter star" style={{"width" : `${parseInt(item*18)}px`}}>
-              <img className="single-star-outline-quarter star" src="star.png" alt="stars alt"></img>
-            </div>
-          </div>
+          <QuarterStarContainer key={i}>
+            <QuarterStarFill isDarkMode = {isDarkMode} style={{"width" : `${parseInt(item*18)}px`}}>
+              <QuarterStarOutline src={isDarkMode ? "invertedstar.png" : "star.png"} alt="stars alt"></QuarterStarOutline>
+            </QuarterStarFill>
+          </QuarterStarContainer>
         );
      })}
     </div>
