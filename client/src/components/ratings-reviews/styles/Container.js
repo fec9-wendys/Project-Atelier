@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const TitleContainer = styled.h1`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin-top: 50px;
+display:flex;
+justify-content: center;
+align-items: center;
+
 `;
 
 export const ParentContainer = styled.div`
@@ -100,12 +100,12 @@ export const ReviewButtonsContainer = styled.div`
 // display:flex;
 export const StarBarsContainer = styled.div`
   display: flex;
+  justify-content:center;
   align-items: center;
   margin-bottom: 12px;
   cursor: hand;
   cursor: pointer;
   min-height: 27px;
-
   &:hover {
     color: #3366CC;
   }
@@ -116,18 +116,34 @@ export const StarBarsContainer = styled.div`
 export const ModalContainer = styled.div`
   border: 3px solid black;
   overflow: auto;
+  border-radius: 3rem;
+
+
+
+
 
 `
 
 // padding-bottom: 24px;
 export const ModalTopContainer = styled.div`
-  margin: 12px 0px;
-  border-bottom: 1px solid black;
+text-align: left;
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width:867px
+
+
+
 `
 
 export const ModalBottomContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width:867px
 
 `
 
@@ -140,11 +156,19 @@ export const ModalCharEntryContainer = styled.div`
 `
 
 export const ModalNicknameContainer = styled.div`
-
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width:867px
 `
 
 export const ModalEmailContainer = styled.div`
-
+display:flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width:867px
 `
 
 export const ModalTitleContainer = styled.h1`
