@@ -17,8 +17,9 @@ const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 ReactSession.setStoreType('localStorage');
 
 const AppStyle = styled.div`
-  background-color: ${({ isDarkMode }) => isDarkMode ? 'rgb(25, 25, 25)' : 'white'};
+  background-color: ${({ isDarkMode }) => isDarkMode ? '#171717' : 'white'};
   color: ${({ isDarkMode }) => isDarkMode ? 'white' : 'black'};
+  transition: 300ms;
 `;
 
 const App = () => {
@@ -67,7 +68,7 @@ const App = () => {
 
   return !ready ? null : (
     <AppStyle isDarkMode={isDarkMode}>
-      <Header />
+      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}/>
       <Overview currentProduct={currentProduct} currentProductStyle={currentProductStyle} setCurrentProductStyle={setCurrentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <RelatedItems currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} currentProductStyle={currentProductStyle} outfit={outfit} setOutfit={setOutfit} request={request} isDarkMode={isDarkMode} />
       <Outfit outfit={outfit} setOutfit={setOutfit} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} request={request} isDarkMode={isDarkMode} />

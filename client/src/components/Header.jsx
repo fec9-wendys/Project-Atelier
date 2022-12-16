@@ -12,7 +12,11 @@ height: 180px;
 `;
 
 
-const Header = () => {
+const Header = ({ isDarkMode, setIsDarkMode }) => {
+
+  const handleClick = (e) => {
+    setIsDarkMode(!isDarkMode);
+  }
 
   return (
     <Nav>
@@ -22,33 +26,36 @@ const Header = () => {
 
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
         <defs>
-            <filter id="gooey">
+          <filter id="gooey">
 
-                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
-                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
-            </filter>
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+            <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+          </filter>
         </defs>
-    </svg>
+      </svg>
 
-    <button className="gooey-button">
-    <img className="supreme-logo" src="https://i.ibb.co/mXDdZLc/SUPREME1.png" />
+      <button className="gooey-button">
+        <img className="supreme-logo" src="https://i.ibb.co/mXDdZLc/SUPREME1.png" />
         <span className="bubbles">
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
-            <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
+          <span className="bubble"></span>
         </span>
-    </button>
+      </button>
 
 
-
+      <label className="switch">
+        <input type="checkbox" onClick={e => handleClick(e)} />
+        <span className="slider round"></span>
+      </label>
 
 
 
