@@ -116,7 +116,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request, isDarkMode
               avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
               setCount={setCount} count={count} isDarkMode = {isDarkMode}/>
             &nbsp;
-            <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
+            <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} isDarkMode = {isDarkMode} />
           </LeftSide>
           &nbsp;
           <RightSide>

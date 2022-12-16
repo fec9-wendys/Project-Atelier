@@ -164,6 +164,10 @@ flex-direction: column;
 width:867px
 `
 
+export const ModalImageContainer = styled.div`
+  display:flex;
+`
+
 export const ModalEmailContainer = styled.div`
 display:flex;
 justify-content: center;
