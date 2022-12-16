@@ -4,7 +4,7 @@ const Carousel = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 100px;
+  margin-top: 40px;
 `;
 
 const List = styled.div`
