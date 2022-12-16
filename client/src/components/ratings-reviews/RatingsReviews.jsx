@@ -39,7 +39,6 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request, isDarkMode
 
   useEffect(() => {
 
-    console.log('MAIN warren USE EFFECT RAN')
     request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
       if (err) {
         console.error(err);
@@ -116,7 +115,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request, isDarkMode
               avgReviews={avgReviews} totalReviews={totalReviews} recPercent={recPercent} setShownReviews={setShownReviews}
               setCount={setCount} count={count} isDarkMode = {isDarkMode}/>
             &nbsp;
-            <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} />
+            <ProductBreakdown currentProduct={currentProduct} metaData={metaData} chars={chars} isDarkMode = {isDarkMode} />
           </LeftSide>
           &nbsp;
           <RightSide>

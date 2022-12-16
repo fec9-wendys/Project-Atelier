@@ -15,14 +15,14 @@ const PB_Entries = styled.div`
 const PB_Entries_Words = styled.div`
 `
 
-const PBEntry = ({charKey, charValue}) => {
+const PBEntry = ({charKey, charValue, isDarkMode}) => {
   const charRating = Math.round(charValue.value * 100) / 100;
   const charPercent = charRating / 5;
 
   return (
     <PB_Entries>
       &nbsp;&nbsp;&nbsp;{charKey}
-        <ProductBar charPercent = {charPercent}/>
+        <ProductBar charPercent = {charPercent} isDarkMode = {isDarkMode}/>
         <PB_Entries_Words>
           {charKey === 'Fit' ? <Descriptions>&nbsp;&nbsp;&nbsp;&nbsp;Too Tight &emsp;&emsp;&emsp;&emsp;&emsp;Perfect &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;Too Long </Descriptions> : null}
           {charKey === 'Size' ? <Descriptions>&nbsp;&nbsp;&nbsp; Too narrow &emsp;&emsp;&emsp;&emsp;Perfect &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;Too wide </Descriptions> : null}

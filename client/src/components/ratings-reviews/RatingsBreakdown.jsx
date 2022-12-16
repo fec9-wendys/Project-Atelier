@@ -42,7 +42,6 @@ const RatingsBreakdown = ({ metaData, reviews, setReviews, request, currentProdu
 
 
   useEffect(() => {
-    console.log('RATINGS BREAKDOWN USE EFFECT RAN')
 
     if (filter.length === 0) {
       setShownReviews(reviews.slice(0, count));
