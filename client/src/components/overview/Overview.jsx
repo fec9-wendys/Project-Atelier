@@ -7,10 +7,10 @@ import Reviews from './Reviews.jsx';
 import Description from './Description.jsx';
 import Images from './Images.jsx';
 import styled from 'styled-components';
-import { OverviewGrid, RightFlexBox, EntireOverview} from './styles/OverviewContainers.js';
+import { OverviewGrid, RightFlexBox, EntireOverview } from './styles/OverviewContainers.js';
 
 
-const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit }) => {
+const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProductStyle, outfit, setOutfit, isDarkMode }) => {
 
   const [ratings, setRatings] = useState([]);
   const [styles, setStyles] = useState([]);
@@ -70,7 +70,7 @@ const Overview = ({ currentProduct, request, currentProductStyle, setCurrentProd
         }
         <RightFlexBox>
           {ratings.length !== 0 && totalReviews &&
-            <Reviews ratings={ratings} totalReviews={totalReviews} />
+            <Reviews ratings={ratings} totalReviews={totalReviews} isDarkMode={isDarkMode} />
           }
           {features !== null &&
             <Description currentProduct={currentProduct} currentProductStyle={currentProductStyle} />
