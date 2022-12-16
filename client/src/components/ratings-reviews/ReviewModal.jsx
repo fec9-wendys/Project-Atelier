@@ -15,8 +15,11 @@ const MODAL_STYLES = {
   backgroundColor: '#FFF',
   padding: '0px 25px 25px 100px',
   zIndex: 1000,
+
   width: '50vw',
-  height: '80vh'
+  height: '80vh',
+
+
 }
 
 const OVERLAY_STYLES = {
@@ -145,70 +148,108 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
 
   return ReactDom.createPortal(
     <>
-      <div style={OVERLAY_STYLES} />
-      <ModalContainer className='modal' style={MODAL_STYLES}>
-        <ModalTitleContainer> Review: {currentProduct.name}
-          <span style={{ 'float': 'right' }}> <i className="fa-regular fa-circle-xmark" onClick={closeHandler}></i></span>
-        </ModalTitleContainer>
-        <h3 className='h3' style={{ 'marginBottom': '4px' }}>
+      <div className="modaloverlay"/>
+      <div id="reviewmodal">
+      <div id="reviewtitlecontainer">
+
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="gooey">
+
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="highContrastGraphic" />
+                <feComposite in="SourceGraphic" in2="highContrastGraphic" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+    <button className="gooey-button"  id="answermodalbutton"> Review: {currentProduct.name}
+        <span className="bubbles">
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+            <span className="bubble"></span>
+        </span>
+    </button>
+    </div>
+
+    <div>
+        <h3 id="reviewmodalstars"  style={{ 'marginBottom': '4px' }}>
           How do you rate this product?
         </h3>
-        <div>
+        <div id="reviewmodalstars">
           <DynamicStars starRating={starRating} setStarRating={setStarRating} shownWord={shownWord} setShownWord={setShownWord} />
+
         </div>
         <div>
-          <div>
+          <div className="reviewmodalbody">
             <form>
+
               <ModalTopContainer>
                 <ModalCharContainer>
                   {Object.keys(chars).map((key, index) => {
                     return <CharEntry key={index} charKey={key} setSize={setSize} setWidth={setWidth} setComfort={setComfort}
                       setQuality={setQuality} setLength={setLength} setFit={setFit} />;
                   })}
-                </ModalCharContainer>
+
                 <p style={{ 'fontSize': 'large', 'marginBottom': '5px' }}>Do you recommend this product?</p>
                 <input type="radio" id="yes-button" name="rec" value='Yes' onChange={(e) => setRec(true)} required />
                 <label htmlFor='Yes'>Yes</label><br></br>
                 <input type="radio" id="no-button" name="rec" value='No' onChange={(e) => setRec(false)} />
                 <label htmlFor='No' style={{}}>No</label><br></br>
-                <label htmlFor="summary" style={{ 'marginTop': '16px', 'display': 'inline-block' }}> Summary: </label><br></br>
-                <input type="text" id="summary" name="summary" maxLength='60'
+                </ModalCharContainer>
+                </ModalTopContainer>
+                <button className="qamodalclose" onClick={closeHandler}>X</button>
+                </form>
+
+                <ModalBottomContainer>
+
+
+                  <label >Nickname:</label><br></br>
+                  <input type="text" id="nickname" name="nickname" maxLength='60'
+                    placeholder='jackson11!' required onChange={(e) => setNickName(e.target.value)} />
+                  <small><i>For privacy reasons, do not use your full name or email address</i></small>
+                  <br/>
+                  <label >Email:</label><br></br>
+                  <input type="email" id="email" name="email" maxLength='60'
+                    placeholder='jackson11@gmail.com' required onChange={(e) => setEmail(e.target.value)} />
+                  <small><i>For authentication reasons, you will not be emailed</i></small>
+                  <br/>
+
+
+                <label htmlFor="summary" > Summary: </label><br></br>
+
+                <textarea  className="modalinput2"   maxLength='60' rows='6' cols='83'
                   placeholder='Best Purchase Ever!' onChange={(e) => setSummary(e.target.value)} /><br></br>
-                <label htmlFor="body" style={{ 'marginTop': '8px', 'display': 'inline-block' }}> Review Body:</label><br></br>
-                <textarea type="text" id="review-body" name="body" rows='6' cols='83' maxLength='1000'
+                <label htmlFor="body" > Review Body:</label><br></br>
+
+                <textarea  className="modalinput2"  rows='6' cols='83' maxLength='1000'
                   placeholder='Why did you like the product or not?' onChange={(e) => setBody(e.target.value)} required /><br></br>
-                <p id='char-requirement' style={{ 'marginTop': '4px', 'fontSize': 'small' }}> {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${charCount}`}</p>
+                <p id='char-requirement' > {chars === 0 ? 'Minimum Reached' : `Minimum required characters left: ${charCount}`}</p>
+
+
+
                 <label htmlFor="images" style={{ 'fontSize': 'small' }}> Image Uploads: (Up to 5) </label><br></br>
                 <input id='image-upload' className='btn' type='file' onChange={fileHandler} multiple />
                 &nbsp;
                 {img.map((image, index) => {
                   return <img key={index} src={image} width={img ? '100' : '0'} height={img ? '100' : '0'} />
                 })}
-              </ModalTopContainer>
-            </form>
-            <ModalBottomContainer>
-              <h3 className='h3' style={{ 'marginTop': '4px' }}>
-                Personal Info
-              </h3>
-              <form>
-                <ModalNicknameContainer>
-                  <label htmlFor="nickname">Nickname:</label><br></br>
-                  <input type="text" id="nickname" name="nickname" maxLength='60'
-                    placeholder='jackson11!' required onChange={(e) => setNickName(e.target.value)} /><br></br>
-                  <div style={{ 'fontSize': 'small', 'marginBottom': '16px' }}> For privacy reasons, do not use your full name or email address</div>
-                </ModalNicknameContainer>
-                <ModalEmailContainer>
-                  <label htmlFor="email">Email:</label><br></br>
-                  <input type="email" id="email" name="email" maxLength='60'
-                    placeholder='jackson11@gmail.com' required onChange={(e) => setEmail(e.target.value)} /><br></br>
-                  <div style={{ 'fontSize': 'small', 'marginBottom': '24px' }}> For authentication reasons, you will not be emailed</div>
-                </ModalEmailContainer>
-              </form>
+
             </ModalBottomContainer>
-            <input type="button" className='btn' value="Submit Review" onClick={submitHandler} />
+
+            <input id="reviewmodalsubmit" className="qamodalsubmitbtn" type="button" value="Submit Review" onClick={submitHandler} />
           </div>
+
         </div>
-      </ModalContainer>
+        </div>
+
+      </div>
     </>,
     document.getElementById('portal')
   );
