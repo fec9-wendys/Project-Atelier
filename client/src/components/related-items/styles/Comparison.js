@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const Comparison = styled.div`
   width: 100%;
   height: 90%;
-  padding-top: 30px;
+  margin-top: 50px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-bottom: 20px;
+
 `;
 
 const Column = styled.div`
