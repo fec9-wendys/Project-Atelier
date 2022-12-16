@@ -204,7 +204,7 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
                     <label htmlFor='No' style={{}}>No</label><br></br>
                   </ModalCharContainer>
                 </ModalTopContainer>
-                <button className="qamodalclose" onClick={closeHandler}>X</button>
+                <button className="qamodalclose" id="reviewmodalclose" onClick={closeHandler}>X</button>
               </form>
 
               <ModalBottomContainer>

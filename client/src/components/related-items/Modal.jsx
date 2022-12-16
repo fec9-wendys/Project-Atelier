@@ -93,7 +93,7 @@ export default function Modal({ isOpen, onClose, currentProductFeatures, product
              <Entry bold>{product.name}</Entry>
             {comparison.map((feature, key) => <Entry key={key}>{feature[2] ?? <i className="fa-solid fa-x" />}</Entry>)}
           </Column>
-          <button className="qamodalclose" onClick={onClose}>X</button>
+          <button className="qamodalclose" id="reviewmodalclose" onClick={onClose}>X</button>
           </Comparison>
           </div>
       </Content>

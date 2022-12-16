@@ -15,6 +15,8 @@ const QuestionEntry = ({ isDarkMode, setAPhotoModalImg, setIsAPhotoModal, setQue
   useEffect(()=> {
     if(document.getElementById("loadmoreanswersbutton")){
     if(isDarkMode) {
+      const outline = document.getElementsByClassName("question-block")
+
       document.getElementById("loadmoreanswersbutton").onmouseover = function() {mouseOver()};
       document.getElementById("loadmoreanswersbutton").onmouseout = function() {mouseOut()};
 
@@ -25,11 +27,22 @@ const QuestionEntry = ({ isDarkMode, setAPhotoModalImg, setIsAPhotoModal, setQue
     function mouseOut() {
       document.getElementById("loadmoreanswersbutton").style.color = "white";
     }
-      document.getElementById("loadmoreanswersbutton").style.color ="white"
-      document.getElementById("loadmoreanswersbutton").style.backgroundColor ="rgb(23,23,23)"
+
+    for (var x =0; x < outline.length; x++) {
+      outline[x].style.border= "1px solid white"
+    }
+
     } else {
-      document.getElementById("loadmoreanswersbutton").style.color ="black"
-      document.getElementById("loadmoreanswersbutton").style.backgroundColor ="white"
+      const outline = document.getElementsByClassName("question-block")
+
+      for (var x =0; x < outline.length; x++) {
+        outline[x].style.border= "1px solid black"
+      }
+      for (var x =0; x < loadbutton.length; x++) {
+        document.getElementById("loadmoreanswersbutton").style.color ="black"
+        document.getElementById("loadmoreanswersbutton").style.backgroundColor ="white"
+      }
+
     }
   }
   },[isDarkMode])

@@ -13,15 +13,31 @@ const List = styled.div`
   display: flex;
 `;
 
-const Button = styled.button`
-  width: 50px;
+const Button1 = styled.button`
+  position: absolute;
+  left:25%;
+  width: 80px;
   height: 380px;
   background: transparent;
   border: 0;
   font-weight: 700;
   font-size: 1.75rem;
+
+`;
+const Button2 = styled.button`
+position: absolute;
+right: 25%;
+  width: 80px;
+
+  height: 380px;
+  background: transparent;
+  border: 0;
+  font-weight: 700;
+  font-size: 1.75rem;
+
+
 `;
 
 const Comparison = styled
 
-export { Carousel, List, Button };
+export { Carousel, List, Button1, Button2 };
