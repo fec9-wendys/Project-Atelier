@@ -54,6 +54,9 @@ export const DescriptionContainer = styled.div`
   min-height: 15%;
   padding-left: 5%;
   padding-bottom: 5%;
+  // Maybe add after @media (max-width: 1600px) {
+  //   font-size: 0.7em;
+  // }
 `
 
 //might need to change padding-top TODO:
@@ -90,8 +93,14 @@ export const ThumbnailCarousel = styled.div`
   bottom: 1.5rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: ${(props) => props.isDarkMode? "rgba(23, 23, 23, 0.7)" : "rgba(255, 255, 255, 0.7)"};
   z-index: 1000;
+  @media (max-width: 1600px) {
+    height: 75px;
+  }
+  @media (max-width: 1200px) {
+    height: 50px;
+  }
 `
 
 export const ThumbnailImages = styled.div`
