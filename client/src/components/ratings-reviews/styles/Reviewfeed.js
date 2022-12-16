@@ -27,6 +27,6 @@ export const EntriesPhotos = styled.img`
 export const ReviewButtons = styled.button`
   display: flex;
   align-content: center;
-  margin: 16px 8px;
+
 `
 
