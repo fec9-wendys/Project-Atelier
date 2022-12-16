@@ -5,7 +5,7 @@ import Card from './Card.jsx';
 
 import Container from './styles/RelatedItems.js';
 import Category from './styles/Category.js';
-import { Carousel, List, Button } from './styles/Carousel.js';
+import { Carousel, List, Button1, Button2 } from './styles/Carousel.js';
 
 const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, request, isDarkMode }) => {
   const [relatedProductIds, setRelatedProductIds] = useState(null);
@@ -41,11 +41,11 @@ const RelatedItems = ({ currentProduct, setCurrentProduct, outfit, setOutfit, re
       <Carousel>
         {relatedProductIds.length === 0 ? <p>There are no related products to display</p> : (
           <>
-            <Button onClick={() => handleRenderRangeAdjustment(-1)} style={{ visibility: renderRange[0] === 0 ? 'hidden' : 'visible' }}>&lt;</Button>
+            <Button1 onClick={() => handleRenderRangeAdjustment(-1)} style={{ visibility: renderRange[0] === 0 ? 'hidden' : 'visible' }}>&lt;</Button1>
             <List>
             {relatedProductIds.slice(renderRange[0], renderRange[1]).map((productId) => <Card key={productId} productId={productId} currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} outfit={outfit} setOutfit={setOutfit} request={request} />)}
             </List>
-            <Button onClick={() => handleRenderRangeAdjustment(1)} style={{ visibility: renderRange[1] === relatedProductIds.length ? 'hidden' : 'visible' }}>&gt;</Button>
+            <Button2 onClick={() => handleRenderRangeAdjustment(1)} style={{ visibility: renderRange[1] === relatedProductIds.length ? 'hidden' : 'visible' }}>&gt;</Button2>
           </>
         )}
       </Carousel>
