@@ -102,7 +102,7 @@ return ReactDom.createPortal(
     </header>
     <br/>
 
-  <label>Name:<br/>
+  <label>Name:<br></br>
     <input className="modalinput1" name="name"
            type="text"
            placeholder="Rick James"

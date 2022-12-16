@@ -7,7 +7,7 @@ const Photos = ({setAPhotoModalImg, setIsAPhotoModal, photo}) => {
     setAPhotoModalImg(photo.url)
   }
   return (
-    <img onClick={handleClick}src={photo.url} width='100' height='100'/>
+    <img id="answerphotos" onClick={handleClick}src={photo.url} width='100' height='100'/>
   )
 }
 export default Photos

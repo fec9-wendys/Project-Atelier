@@ -30,11 +30,11 @@ const App = () => {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    request('/products', 'GET', {}, (error, products) => {
+    request('/products/?count=10', 'GET', {}, (error, products) => {
       if (error) {
         console.error(error);
       } else {
-        setCurrentProduct(products[0]);
+        setCurrentProduct(products[9]);
       }
     });
   }, []);

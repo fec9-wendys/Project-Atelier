@@ -51,10 +51,12 @@ const AddCart = ({ stock, currentProduct, currentProductStyle, request, outfit, 
   //-------------------- add cart button use effecdt
 
   useEffect(() => {
-    if (currSize === 'select-size') {
-      document.getElementById('add-cart').disabled = true;
-    } else {
-      document.getElementById('add-cart').disabled = false;
+    if (document.getElementById('add-cart')) {
+      if (currSize === 'select-size') {
+        document.getElementById('add-cart').disabled = true;
+      } else {
+        document.getElementById('add-cart').disabled = false;
+      }
     }
   }, [currSize])
 
