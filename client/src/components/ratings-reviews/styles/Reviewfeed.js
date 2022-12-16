@@ -25,7 +25,7 @@ export const EntriesPhotos = styled.img`
 
 // max-width: 110px;
 export const ReviewButtons = styled.button`
-  display: flex;
+
   align-content: center;
 
 `
