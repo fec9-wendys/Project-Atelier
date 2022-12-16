@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const TitleContainer = styled.h1`
-display:flex;
-justify-content: center;
-align-items: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  padding-bottom: 30px;
 
 `;
 
@@ -11,7 +13,8 @@ export const ParentContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 890px;
+  height: 900px;
+  padding-bottom: 30px;
 
 `
 

@@ -26,6 +26,11 @@ h3 {
 h5 {
   font-size: 1.15rem;
 }
+
+select {
+  font-family: 'Lato', sans-serif;
+}
+
 .batlogo {
   width:35px;
    height:35px;
@@ -1496,6 +1501,12 @@ u {
 .custom-selector2 {
   position: relative;
   display: inline-block;
+}
+
+#review-feed-dropdown {
+  height: 24px;
+  width: 120px;
+  padding-bottom: 2px;
 }
 
 .dropdown {
