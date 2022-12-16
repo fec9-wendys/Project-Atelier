@@ -29,7 +29,6 @@ const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [ready, setReady] = useState(false);
 
-
   useEffect(() => {
     request('/products', 'GET', {}, (error, products) => {
       if (error) {

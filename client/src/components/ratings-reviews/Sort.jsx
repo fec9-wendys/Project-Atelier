@@ -19,7 +19,26 @@ const SortFilter = styled.select`
   border-radius: 5px;
   box-shadow: 4px 4px #ccc;
 `
+const dropExample = () => {
 
+  return (
+    <div className="container">
+      <span className="choose">Choose Gender</span>
+
+      <div className="dropdown">
+        <div className="select">
+          <span>Select Gender</span>
+          <i className="fa fa-chevron-left"></i>
+        </div>
+        <input type="hidden" name="gender" />
+        <ul className="dropdown-menu">
+          <li id="male">Male</li>
+          <li id="female">Female</li>
+        </ul>
+      </div>
+    </div>
+  )
+}
 const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter, setShownFilter, sort, setSort, sortValues }) => {
 
   const handleChange = (e) => {
@@ -58,36 +77,36 @@ const Sort = ({ currentProduct, setReviews, reviews, request, filter, setFilter,
       <SortWords>
         <strong>{reviews.length} reviews, sorted by </strong>
       </SortWords>
-      <span>
+      <label className = 'custom-selector'>
         &nbsp;
         <select id={sort} className='dropdown' onChange={handleChange} >
           {sortValues.map(sortValue => {
             return (
-              <option key={sortValue.value} value={sortValue.value}>
+              <option key={sortValue.value} value={sortValue.value} className = 'option'>
                 {sortValue.text}
               </option>
             )
           })}
         </select>
-      </span>
+      </label>
     </SortContainer>
   );
 };
 
 export default Sort;
 
-<div className="container">
-    <span className="choose">Choose Gender</span>
+      // <div className="container">
+      //     <span className="choose">Choose Gender</span>
 
-      <div className="dropdown">
-        <div className="select">
-          <span>Select Gender</span>
-          <i className="fa fa-chevron-left"></i>
-        </div>
-        <input type="hidden" name="gender" />
-        <ul className="dropdown-menu">
-          <li id="male">Male</li>
-          <li id="female">Female</li>
-        </ul>
-      </div>
-</div>
+      //     <div className="dropdown">
+      //       <div className="select">
+      //         <span>Select Gender</span>
+      //         <i className="fa fa-chevron-left"></i>
+      //       </div>
+      //       <input type="hidden" name="gender" />
+      //       <ul className="dropdown-menu">
+      //         <li id="male">Male</li>
+      //         <li id="female">Female</li>
+      //       </ul>
+      //     </div>
+      //   </div>
