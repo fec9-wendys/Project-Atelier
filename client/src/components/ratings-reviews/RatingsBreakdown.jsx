@@ -31,10 +31,6 @@ const AvgReviewCount = styled.strong`
 
 const AvgReviewNumber = styled.strong`
   font-size: x-large;
-
-  &:hover {
-    color: #3366CC;
-  }
 `
 
 const TotalReviewCount = styled.strong`
