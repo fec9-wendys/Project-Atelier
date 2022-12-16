@@ -122,8 +122,8 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request }) => {
               setShownReviews={setShownReviews} count={count} setCount={setCount} filter={filter}
               reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} chars = {chars} />
             <ReviewButtonsContainer>
-              {reviews.length > 2 ? <ReviewButtons id='more-reviews-btn' className='btn' onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
-              <ReviewButtons className='open-modal btn' onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>
+              {reviews.length > 2 ? <ReviewButtons  className="addquestionbtn" id='more-reviews-btn'  onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
+              <ReviewButtons id='more-reviews-btn' className="addquestionbtn" onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>
             </ReviewButtonsContainer>
           </RightSide>
         </ParentContainer>

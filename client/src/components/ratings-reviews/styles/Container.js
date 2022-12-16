@@ -91,7 +91,8 @@ export const ReviewEntryContainer = styled.div`
 
 export const ReviewButtonsContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 `
 
 // gap: 5px 0px;

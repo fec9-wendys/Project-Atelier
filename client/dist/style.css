@@ -26,6 +26,22 @@ h3 {
 h5 {
   font-size: 1.15rem;
 }
+.batlogo {
+  width:35px;
+   height:35px;
+    transform: scaleX(-1);
+    position: absolute;
+    top:30px;
+    right: 90px
+}
+.christmaslights {
+  position: absolute;
+  transform: scaleX(-1);
+  width:129px;
+  height:133px;
+  right: 5px;
+  z-index: 1000;
+}
 
 .modaloverlay {
   position: fixed;
@@ -90,6 +106,9 @@ h5 {
   margin-bottom: 50px;
   font-size: 15px;
 }
+/*--------------------------------DROPDOWNS------------------------
+*/
+
 
 /*--------------------------------QA CONTAINER------------------------
 */
