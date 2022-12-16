@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Ratings, Icons, QuarterStarContainer, QuarterStarOutline, QuarterStarFill } from './styles/OverviewContainers';
 
+const Anchor = styled.a`
+  color: black;
+
+  &visited {
+    color: black;
+  }
+`
+
 const Reviews = ({ ratings, totalReviews }) => {
 
   const avgRatings = (ratings.reduce((sum, current) => {
@@ -15,7 +23,7 @@ const Reviews = ({ ratings, totalReviews }) => {
         {totalReviews !== 0 && //shows reviews and starts if there are reviews present
           <>
             {QuarterStars(roundedRatings)}
-            <a href="#ratings-reviews">Read All {totalReviews} Reviews</a>
+            <Anchor href="#ratings-reviews">Read All {totalReviews} Reviews</Anchor>
           </>
         }
       </div>
