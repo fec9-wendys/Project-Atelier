@@ -12,8 +12,8 @@ const Overlay = styled.div`
 
 const Content = styled.div`
   position: fixed;
-  height: 25vh;
-  width: 30vw;
+  height: 450px;
+  width: 820px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
