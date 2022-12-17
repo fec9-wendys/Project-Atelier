@@ -29,9 +29,9 @@ const Reviews = ({ ratings, totalReviews, isDarkMode }) => {
       </div>
       {/* Social media icons */}
       <Icons>
-        <a href="https://www.facebook.com/"><img className="icon" id="facebook-icon" src="./facebook.png" /></a>
-        <a href="https://www.twitter.com"><img className="icon" id="twitter-icon" src="./twitter.png" /></a>
-        <a href="https://www.pinterest.com"><img className="icon" id="pinterest-icon" src="./pinterest.png" /></a>
+        <a href="https://www.facebook.com/"><img name="facebook" className="icon" id="facebook-icon" src="./facebook.png" alt="facebook-logo"/></a>
+        <a href="https://www.twitter.com"><img name="twitter" className="icon" id="twitter-icon" src="./twitter.png" alt="twitter-logo"/></a>
+        <a href="https://www.pinterest.com"><img name="pinterest" className="icon" id="pinterest-icon" src="./pinterest.png" alt="pinterest-logo"/></a>
       </Icons>
     </Ratings>
   )
