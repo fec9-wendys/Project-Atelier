@@ -144,7 +144,7 @@ const QuestionsAnswers = ({ isDarkMode, currentProduct, request}) => {
 
         <div className='qasearchbar'>
       <Search type='text' value={search} placeholder='Find a Related Question' onChange={(e)=> {setSearch(e.target.value)}}/>
-      <img src="https://i.ibb.co/MhfN01W/searchbar-icon.webp" className="qasearchimg" ></img>
+      <img src="https://i.ibb.co/MhfN01W/searchbar-icon.webp" alt = 'magnifying glass icon' className="qasearchimg" ></img>
       <button className="btn" id="qasearchbutton" onClick={handleSearchClick}>{searchButton}</button>
       </div>
 

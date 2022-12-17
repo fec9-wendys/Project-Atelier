@@ -58,7 +58,7 @@ const Card = ({ index, productId, currentProduct, setCurrentProduct, inOutfit, o
   return !ready || product.ratings === 0 ? null : (
     <>
       <Container>
-        <img src={product.styles[0].photos[0].thumbnail_url} onClick={() => setIsOpen(true)}></img>
+        <img src={product.styles[0].photos[0].thumbnail_url} alt = 'related-items' onClick={() => setIsOpen(true)}></img>
         <Details index={index} product={product} ratings={product.ratings} setCurrentProduct={setCurrentProduct} inOutfit={inOutfit} outfit={outfit} setOutfit={setOutfit} />
       </Container>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} currentProductFeatures={currentProductFeatures} product={product} request={request}>Hello</Modal>

@@ -239,7 +239,7 @@ const ReviewModal = ({ isOpen, onClose, currentProduct, request, metaData, setRe
                 &nbsp;
                 <ModalImageContainer>
                   {img.map((image, index) => {
-                    return <img key={index} src={image} width={img ? '100' : '0'} height={img ? '100' : '0'} />
+                    return <img key={index} src={image} alt= "review-photos" width={img ? '100' : '0'} height={img ? '100' : '0'}></img>
                   })}
                 </ModalImageContainer>
 
