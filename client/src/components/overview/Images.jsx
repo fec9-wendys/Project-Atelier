@@ -152,17 +152,17 @@ const Images = ({ currentProduct, currentProductStyle, isDarkMode }) => {
           {currentProductStyle.photos.length < 7 &&
             currentProductStyle.photos.map((photo, index) => {
               if (index === currentMainIndex) {
-                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
+                return <img name="thumbnail" className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
               } else {
-                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+                return <img name="thumbnail" className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
               }
             })}
           {currentProductStyle.photos.length >= 7 &&
             currentProductStyle.photos.slice(startIndex, startIndex + 7).map((photo, index) => {
               if (index + startIndex === currentMainIndex) {
-                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
+                return <img name="thumbnail" className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} data-active onClick={e => handleThumbClick(index)} />
               } else {
-                return <img className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
+                return <img name="thumbnail" className="carousel-image" key={index} src={photo.thumbnail_url} alt={'No photo available'} onClick={e => handleThumbClick(index)} />
               }
             })}
         </ThumbnailImages>
