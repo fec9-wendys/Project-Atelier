@@ -112,14 +112,16 @@ select {
   margin-bottom: 50px;
   font-size: 15px;
 }
-#loadmoreanswersbutton {
+
+.loadmoreanswersbutton {
   border: none;
   background-color: white;
   font-family: 'Lato', sans-serif;
   padding: 0;
   font-size: 15px;
 }
-#loadmoreanswersbutton:hover {
+
+.loadmoreanswersbutton:hover {
 color:red;
 font-weight: bold;
 cursor: pointer;
@@ -172,6 +174,7 @@ cursor: pointer;
 #qasearchbar:hover , #qasearchbutton , .addquestionbtn, #morequestionsbtn{
   cursor: pointer;
 }
+
 .loadmoredarkmode:hover {
   color:red;
 }
@@ -468,7 +471,7 @@ svg {
   filter: url("#gooey");
   position: relative;
   background-color: rgb(218, 39, 39);
-  width: 1400px;
+  width: 60vw;
   min-width: 800px;
   height: 125px;
   border-radius: 18px;

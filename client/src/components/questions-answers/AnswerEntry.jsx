@@ -53,7 +53,7 @@ const AnswerEntry = ({ setAPhotoModalImg, setIsAPhotoModal, answer, request, que
 
   return (
     <div className="answer-section">
-      <div className="answer-title"><h5> A: {answer.body}</h5></div>
+      <div className="answer-title"><h4> A: {answer.body}</h4></div>
       <span>
       {answer.photos.length > 0 &&
       answer.photos.map((photo, key)=>

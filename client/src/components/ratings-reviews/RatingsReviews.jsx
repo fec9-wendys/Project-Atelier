@@ -39,7 +39,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request, isDarkMode
 
   useEffect(() => {
 
-    request(`/reviews/?product_id=${currentProduct.id}&count=10000`, 'GET', {}, (err, results) => {
+    request(`/reviews/?product_id=${currentProduct.id}&count=1500`, 'GET', {}, (err, results) => {
       if (err) {
         console.error(err);
       } else {
@@ -129,7 +129,7 @@ const RatingsReviews = ({ currentProduct, setCurrentProduct, request, isDarkMode
               reviewButton={reviewButton} setReviewButton={setReviewButton} isOpen={isOpen} SetIsOpen={SetIsOpen} chars = {chars}
               isDarkMode = {isDarkMode}/>
             <ReviewButtonsContainer>
-              {reviews.length > 2 ? <ReviewButtons  className="addquestionbtn" id='more-reviews-btn'  onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
+              {reviews.length > 2 ? <ReviewButtons  id='show-more-reviews-btn' className="addquestionbtn" onClick={handleClick}> {reviewButton} </ReviewButtons> : null}
               <ReviewButtons id='more-reviews-btn' className="addquestionbtn" onClick={() => SetIsOpen(true)}> + Add A Review </ReviewButtons>
             </ReviewButtonsContainer>
           </RightSide>
