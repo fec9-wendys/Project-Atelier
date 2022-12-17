@@ -2,6 +2,16 @@ PROJECT ATELIER
 FRONT END CAPSTONE
    
    
+NPM INSTALL   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    ___                _            __    ___   __        __ _          
