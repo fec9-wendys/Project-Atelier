@@ -122,12 +122,12 @@ const QuestionEntry = ({ isDarkMode, setAPhotoModalImg, setIsAPhotoModal, setQue
   return (
     <div className='question-block'>
       <span>
-      <strong className="question-title"><h5>Q: {question.question_body}</h5></strong>
+      <strong className="question-title"><h4>Q: {question.question_body}</h4></strong>
       <p className="helpful">Helpful? <u onClick={handleUpVote}>Yes</u> ({question.question_helpfulness}) | <u onClick={handleAddAnswer}
         >Add Answer</u> </p>
       </span>
      {shownanswers.map((answer, key) => <AnswerEntry setAPhotoModalImg={setAPhotoModalImg} setIsAPhotoModal={setIsAPhotoModal} setAnswers={setAnswers} question={question} request={request} answer={answer} key={key}/> )}
-    {answers.length > 2 && <button onClick={handleLoadClick} id="loadmoreanswersbutton">{loadbutton}</button>}
+    {answers.length > 2 && <button onClick={handleLoadClick} className="loadmoreanswersbutton">{loadbutton}</button>}
     </div>
   )
 }

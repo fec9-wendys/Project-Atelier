@@ -38,8 +38,8 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
       </svg>
 
       <button className="gooey-button">
-      <img className="christmaslights" src="https://i.ibb.co/k38nH82/christmas-lights.png" alt="christmas-lights" border="0"/>
-        <img className="supreme-logo" src="https://i.ibb.co/mXDdZLc/SUPREME1.png" />
+        <img className="christmaslights" src="https://i.ibb.co/k38nH82/christmas-lights.png" alt="christmas-lights" border="0" />
+        <img className="supreme-logo" src="https://i.ibb.co/mXDdZLc/SUPREME1.png" alt='Supreme Logo Design' />
         <span className="bubbles">
           <span className="bubble"></span>
           <span className="bubble"></span>
@@ -56,12 +56,12 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
 
 
       <div>
-      <img  className="batlogo" src="https://i.ibb.co/1mwFTst/bat.png" alt="bat" border="0"/>
-      <label className="switch">
+        <img className="batlogo" src="https://i.ibb.co/1mwFTst/bat.png" alt="bat" border="0" />
+        <label className="switch">
 
-        <input type="checkbox" onClick={e => handleClick(e)} />
-        <span className="slider round"></span>
-      </label>
+          <input type="checkbox" onClick={e => handleClick(e)} />
+          <span className="slider round"></span>
+        </label>
       </div>
 
 
@@ -69,9 +69,10 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
 
 
       <div className="nav-total">
-        <input className="search" id="nav-search" type="text" />
-        <button id="nav-button">
-          <img src="https://i.ibb.co/LrV1Xws/searchbar-icon.webp"></img>
+        <label htmlFor='nav-search' id='nav-search-bar' name='search-bar' value='NAV-SEARCH-BAR'></label>
+        <input className="search" id="nav-search" type="text" name = 'nav-search'/>
+        <button id="nav-button" name='nav-button'>
+          <img src="https://i.ibb.co/LrV1Xws/searchbar-icon.webp" alt='magnifiying glass icon'></img>
         </button>
       </div>
 
