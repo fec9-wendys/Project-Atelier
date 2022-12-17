@@ -59,7 +59,3 @@ npm run start
 ```
 
 The application will now run on your local host with the port value of 3000. Simply type `localhost:3000` onto your browser and now you are running our application.
-
-
-
-
