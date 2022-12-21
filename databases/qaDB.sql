@@ -4,7 +4,13 @@ CREATE DATABASE qaDB;
 
 USE qaDB;
 
-CREATE TABLE questions (
+
+CREATE TABLE product (
+  product_id varchar(10) unique primary key,
+  results: questions[]
+
+);
+CREATE TYPE questions (
   question_id integer unique primary key,
   question_body text,
   question_data date,
