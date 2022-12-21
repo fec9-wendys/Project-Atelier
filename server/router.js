@@ -15,10 +15,10 @@ router.put('/qa/questions/:question_id/report', controller.qa.put.question.repor
 router.put('/qa/questions/:answer_id/helpful', controller.qa.put.answer.helpful )
 router.put('/qa/questions/:answer_id/report', controller.qa.put.answer.report )
 
-router.get('/reviews', controller.reviews.get);
-router.get('/reviews/meta', controller.reviews.get);
-router.post('/reviews', controller.reviews.post);
-router.put('reviews/:review_id/helpful', controller.reviews.update);
-router.put('reviews/:review_id/report', controller.reviews.update);
+// router.get('/reviews', controller.reviews.get);
+// router.get('/reviews/meta', controller.reviews.get);
+// router.post('/reviews', controller.reviews.post);
+// router.put('reviews/:review_id/helpful', controller.reviews.update);
+// router.put('reviews/:review_id/report', controller.reviews.update);
 
 module.exports = router;

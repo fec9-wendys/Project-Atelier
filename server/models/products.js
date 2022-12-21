@@ -11,7 +11,7 @@ module.exports = {
         }
       }
     )
-  }
+  },
   getStyles: (data, CB) => {
     db.query(
       'SELECT * from styles',
@@ -23,7 +23,7 @@ module.exports = {
         }
       }
     )
-  }
+  },
   getRelated: (data, CB) => {
     db.query(
       'SELECT * from styles',
