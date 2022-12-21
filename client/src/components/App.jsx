@@ -12,7 +12,7 @@ import RatingsReviews from './ratings-reviews/RatingsReviews.jsx';
 import Header from './Header.jsx'
 
 import API_KEY from '../config.js';
-const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
+// const API_URL = 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp';
 
 ReactSession.setStoreType('localStorage');
 
@@ -46,7 +46,7 @@ const App = () => {
   const request = async (path, method, body = {}, callback = () => {}) => {
     try {
       const options = {
-        url: API_URL + path,
+        url: path,
         method,
         headers: { 'Authorization': API_KEY }
       };
