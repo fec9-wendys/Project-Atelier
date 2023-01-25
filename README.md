@@ -69,7 +69,7 @@ code .
 
 To run the project files, you must first install all package dependencies in a terminal window. You may use the same Terminal window as before, or you may open up a new Terminal window within your VS Code editor with the shortcut (<kbd>⌘ Command</kbd> + <kbd>\`</kbd>) in Mac or (<kbd>Ctrl</kbd> + <kbd>\`</kbd>) in Windows.
 
-Install npm dependencies with the npm install command in the terminal:
+1. Install npm dependencies with the npm install command in the terminal:
 
 
 ```js
@@ -78,7 +78,9 @@ npm install
 
 ```
 
-Next you should run the build and start command into two separate terminals.
+2. Create a copy of `example.axiosConfig.js` inside the src folder, rename it to `config.js` and add the required API keys.
+
+3. Next you should run the build and start command into two separate terminals to build the client-side content and initialize webpack.
 
 ```js
 
@@ -92,4 +94,4 @@ npm run start
 
 ```
 
-The application will now run on your local host with the port value of 3000. Simply type `localhost:3000` onto your browser and now you are running our application.
+4. The application will now run on your local host with the port value of 3000. Simply type `localhost:3000` onto your browser and now you are running our application.
