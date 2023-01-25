@@ -1,5 +1,3 @@
-# Markdown syntax guide
-
 # Project-Atelier
 
 ### Tech Stack
